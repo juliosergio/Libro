@@ -1,0 +1,380 @@
+\batchmode
+\makeatletter
+\def\input@path{{/home/checo/Dropbox/Trabajando/Libro//}}
+\makeatother
+\documentclass[oneside,spanish]{book}\usepackage{graphicx, color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
+\newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
+\newcommand{\hlstring}[1]{\textcolor[rgb]{0.6,0.6,1}{#1}}%
+\newcommand{\hlkeyword}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlargument}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlcomment}[1]{\textcolor[rgb]{0.180392156862745,0.6,0.341176470588235}{#1}}%
+\newcommand{\hlroxygencomment}[1]{\textcolor[rgb]{0.43921568627451,0.47843137254902,0.701960784313725}{#1}}%
+\newcommand{\hlformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hleqformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlassignement}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlpackage}[1]{\textcolor[rgb]{0.588235294117647,0.709803921568627,0.145098039215686}{#1}}%
+\newcommand{\hlslot}[1]{\textit{#1}}%
+\newcommand{\hlsymbol}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlprompt}[1]{\textcolor[rgb]{0.2,0.2,0.2}{#1}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>.}}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\begin{document}
+
+
+
+
+
+\title{El arte de programar en R:\\
+un lenguaje para la estadística}
+
+
+\author{Julio Sergio Santana\\
+Efraín Mateos Farfán}
+
+\maketitle
+
+\chapter{Los datos y sus tipos}
+
+Todas las cosas que manipula R se llaman objetos. En general, éstos
+se construyen a partir de objetos más simples. De esta manera, se
+llega a los objetos más simples que son de cinco clases a las que
+se denomina \emph{atómicas} y que son las siguientes:
+\begin{itemize}
+\item \texttt{character} (cadenas de caracteres)
+\item \texttt{numeric} (números reales)
+\item \texttt{integer} (números enteros)
+\item \texttt{complex} (números complejos)
+\item \texttt{logical} (lógicos o booleanos, que sólo toman los valores
+True o False)
+\end{itemize}
+En el lenguaje, sin embargo, cada uno de estas clases de datos no
+se encuentran ni se manejan de manera aislada, sino encapsulados dentro
+de la clase de objeto más básica del lenguaje: el \texttt{vector}.
+Un \texttt{vector} puede contener cero o más objetos, pero todos de
+la misma clase. En contraste, la clase denominada \texttt{list}, permite
+componer objetos también como una secuencia de otros objetos, pero,
+a diferencia del \texttt{vector}, cada uno de sus componentes puede
+ser de una clase distinta.
+
+
+\section{Los datos numéricos}
+
+Probablemente el principal uso de R es la manipulación de datos numéricos.
+El lenguaje agrupa estos datos en tres categorías, a saber: \texttt{numeric,
+integer }y\texttt{ complex}, pero cuando se introduce algo que puede
+interpretar como un número, su inclinación es tratarlo como un dato
+de tipo \texttt{numeric}, es decir, un número de tipo real, a no ser
+que explícitamente se indique otra cosa. Veamos algunos ejemplos:
+
+
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+x <- 2  \hlcomment{# Se asigna el valor 2 a x}
+\hlfunctioncall{print}(x)  \hlcomment{# Se imprime el valor de x}
+\end{alltt}
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{class}(x)  \hlcomment{# Muestra cual es la clase de x}
+\end{alltt}
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+\begin{alltt}
+x <- 6/2  \hlcomment{# Se asigna el valor de la operacion dividir 6/2 a x}
+\hlfunctioncall{print}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{class}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Aparentemente las dos asignaciones que se hacen, mediante el operador
+de asignación, \texttt{<-}, a la \emph{variable} \texttt{x}, es de
+los enteros 2 y 3 respectivamente. Sin embargo, al preguntar, mediante
+la \emph{función} \texttt{class()}, cuál es la clase de \texttt{x},
+la respuesta es \texttt{numeric}, esto es, un número real. Para asignar
+expícitamente un entero, \texttt{integer}, a una variable, se agrega
+la letra L al final del número, como sigue:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+x <- 23L; \hlfunctioncall{print}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] 23
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{class}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Aquí la variable \texttt{x} tendrá como valor el entero 23. Como una
+nota adicional del lenguaje, nótese que se han escrito dos expresiones
+de R en un mismo renglón. En este caso, las expresiones se separan
+mediante ';'. 
+
+Para lograr que una expresión, como la operación de división \texttt{6/2},
+arroje como resultado un entero, se tiene que hacer una \emph{conversión};
+ello se logra mediante la función\texttt{ as.integer}, como sigue:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+x <- \hlfunctioncall{as.integer}(6/2); \hlfunctioncall{print}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{class}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Por su parte, los números complejos, \texttt{complex} en el lenguaje,
+tienen una sintáxis muy particular; misma que se tiene que emplear
+para indicar explícitamente que un número introducido correponde a
+ese tipo:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+x <- 21 + 2i
+y <- 2i + 21 \hlcomment{# El mismo valor que x}
+z <- -1 + 0i \hlcomment{# Corresponde a -1}
+t <- \hlfunctioncall{sqrt}(z) \hlcomment{# raiz cuadrada de -1}
+\hlfunctioncall{print}(x); \hlfunctioncall{print}(y); \hlfunctioncall{print}(z); \hlfunctioncall{print}(t)
+\end{alltt}
+\begin{verbatim}
+## [1] 21+2i
+## [1] 21+2i
+## [1] -1+0i
+## [1] 0+1i
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{class}(t)
+\end{alltt}
+\begin{verbatim}
+## [1] "complex"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+En los ejemplos anteriores a la variable\texttt{ t} se le asigna el
+resultado de una función, \texttt{sqrt()}, que es la raíz cuadrada
+de el número \texttt{-1}. Nótese que ésta es la forma correcta de
+calcular esa raíz, por ejemplo, \texttt{sqrt(-1)}, hubiera arrojado
+como resultado un error.
+
+
+\section{Los vectores}
+
+Se ha dicho con anterioridad que las clases atómicas de datos no se
+manejan de manera individual. En efecto, en todos los ejemplos anteriores,
+el lenguaje ha creado implícitamente vectores de longitud 1, y son
+esos los que se han asignado a las variables. Tomemos el caso más
+sencillo:
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+x <- 2  \hlcomment{# Se asigna el valor 2 a x}
+\hlfunctioncall{print}(x)  \hlcomment{# Se imprime el valor de x}
+\end{alltt}
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Aquí, la impresión del valor de \texttt{x} tiene una forma muy particular:
+``\texttt{{[}1{]} 2}''. El \texttt{'{[}1{]}'} que precede al valor,
+indica que se trata del primer elemento y único, en este caso, del
+vector que se muestra.
+
+Hay diversas maneras de crear vectores de otras longitudes, que, como
+se ha dicho antes, son secuencias de objetos de la misma clase atómica.
+En las siguientes secciones se verán algunos casos.
+
+
+\subsection{La función \texttt{c()}}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{c}(4,2,-8)  \hlcomment{# Creacion de un vector sin asignarlo a una variable}
+\end{alltt}
+\begin{verbatim}
+## [1]  4  2 -8
+\end{verbatim}
+\begin{alltt}
+\hlcomment{## ----------------}
+\hlcomment{## Distintas formas de asignar un vector a una variable}
+u <- \hlfunctioncall{c}(4,2,-8) \hlcomment{# Usando el operador <-}
+\hlfunctioncall{c}(4, 2, -8) -> v \hlcomment{# Usando el operador ->}
+\hlcomment{# Usando la funcion assign:}
+\hlfunctioncall{assign}(\hlstring{"w"}, \hlfunctioncall{c}(4, 2, -8)) 
+p = \hlfunctioncall{c}(4, 2, -8) \hlcomment{# Usando el operador =}
+\hlfunctioncall{print}(u); \hlfunctioncall{print}(v); \hlfunctioncall{print}(w); \hlfunctioncall{print}(p)
+\end{alltt}
+\begin{verbatim}
+## [1]  4  2 -8
+## [1]  4  2 -8
+## [1]  4  2 -8
+## [1]  4  2 -8
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+En todos los casos, se ha utilizado la función \texttt{c()}, que sive
+para concatenar varios elementos del mismo tipo. Igual, en todos los
+casos, la impresión del vector se hace en un renglón que comienza
+con el símbolo \texttt{'{[}1{]}',} indicando con ello que el primer
+elemento del renglón corresponde al primer elemento del vector. 
+
+
+\subsection{Lectura de un vector a partir de un archivo - la función \texttt{scan()}}
+
+Otra manera de crear un vector es a partir de un archivo de texto.
+Sea, por ejemplo, el caso del archivo UnVec.txt, que se contiene la
+siguiente información:
+
+
+
+
+Paso0: Parámetros con anterioridad
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlfunctioncall{set.seed}(1121)
+(x <- \hlfunctioncall{rnorm}(20))
+\end{alltt}
+\begin{verbatim}
+##  [1]  0.14496  0.43832  0.15319  1.08494  1.99954 -0.81188
+##  [7]  0.16027  0.58589  0.36009 -0.02531  0.15088  0.11008
+## [13]  1.35968 -0.32699 -0.71638  1.80977  0.50840 -0.52746
+## [19]  0.13272 -0.15594
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{mean}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] 0.3217
+\end{verbatim}
+\begin{alltt}
+\hlfunctioncall{var}(x)
+\end{alltt}
+\begin{verbatim}
+## [1] 0.5715
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Paso1: Código sin evaluar
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcomment{## two plots side by side (option fig.show='hold')}
+\hlfunctioncall{par}(mar = \hlfunctioncall{c}(4, 4, 0.1, 0.1), cex.lab = 0.95, cex.axis = 0.9, 
+    mgp = \hlfunctioncall{c}(2, 0.7, 0), tcl = -0.3, las = 1)
+\hlfunctioncall{boxplot}(x)  \hlcomment{# algo45}
+\hlfunctioncall{hist}(x, main = \hlstring{""})
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+A ver, en la figura:
+
+\begin{figure}
+\begin{centering}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=.4\linewidth]{figure/bp21} 
+\includegraphics[width=.4\linewidth]{figure/bp22} 
+
+\end{knitrout}
+
+\par\end{centering}
+
+\caption{fig: aquí se evalúa el código}
+\end{figure}
+
+
+\end{document}

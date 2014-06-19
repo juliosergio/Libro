@@ -1,0 +1,2163 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Extrayendo-porciones"
+
+\end_inset
+
+Acceso a porciones o subconjuntos de datos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<widthcap3, include=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una de las riquezas del lenguaje R, es la posibilidad de extraer porciones
+ o subconjuntos de los distintos tipos de datos, mediante mecanismos diversos,
+ algunos de los cuales se revisarán en el presente capítulo.
+ 
+\end_layout
+
+\begin_layout Standard
+En las secciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Acceso-elts-vt"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Acceso-elts-mtx"
+
+\end_inset
+
+, y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Acceso-elts-lista"
+
+\end_inset
+
+, se ha introducido el tema del acceso a los elementos individuales de varios
+ de los datos estructurados empleados en R.
+ En el presente capítulo, se extenderá ese concepto para cubrir ya no solamente
+ elementos individuales, sino también porciones o subconjuntos de los datos.
+\end_layout
+
+\begin_layout Section
+Los operadores de acceso o selección
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:operadores-de-acceso"
+
+\end_inset
+
+Los operadores de acceso a los datos estructurados: vectores, matrices,
+ factores, listas y 
+\emph on
+data frames
+\emph default
+, son:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[]
+\family default
+ .
+ (Ejemplo: 
+\family typewriter
+mtx[2,3]
+\family default
+) Este operador siempre regresa un objeto de la misma clase que el original
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Hay una excepción a esta regla, que se discutirá más adelante en la sección
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "excepcion-regla1"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ y se puede emplear para seleccionar más de un elemento.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+[[]]
+\family default
+ .
+ (Ejemplo: 
+\family typewriter
+ff[[
+\begin_inset Quotes eld
+\end_inset
+
+Nombre
+\begin_inset Quotes erd
+\end_inset
+
+]]
+\family default
+) Este operador se emplea para extraer elementos de una lista; esto incluye
+ a los data frames que, como se ha dicho anteriormente, son un tipo particular
+ de lista.
+ Sólo permite la extracción o el acceso a un sólo elemento, aunque el elemento
+ en sí mismo puede ser compuesto, y el objeto resultante no necesariamente
+ es de la misma clase que la lista o 
+\emph on
+data frame
+\emph default
+ original.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+$
+\family default
+ .
+ (Ejemplo: 
+\family typewriter
+ff$Nombre
+\family default
+) Este operador se emplea para extraer o acceder a los elementos de una
+ lista o un 
+\emph on
+data frame
+\emph default
+, a partir del nombre del elemento.
+ Este operador hace más o menos lo mismo que el operador 
+\family typewriter
+[[]]
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+De los anteriores, el primer operador, 
+\family typewriter
+[]
+\family default
+, es quizá el más poderoso, pero, por lo mismo, también el que involucra
+ una sintaxis más compleja, como se verá en la siguiente sección.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:El-operador-[]"
+
+\end_inset
+
+El operador 
+\family typewriter
+[]
+\end_layout
+
+\begin_layout Standard
+En el capítulo anterior se ha visto el uso de este operador para seleccionar
+ o tener acceso a elementos individuales de distintos tipos de datos estructurad
+os: vectores, matrices, factores, listas y 
+\emph on
+data frames
+\emph default
+.
+ Se visitarán nuevamente esos tipos de datos estructurados, pero para un
+ uso más elaborado del operador.
+\end_layout
+
+\begin_layout Subsection
+Vectores y factores
+\end_layout
+
+\begin_layout Standard
+Tanto los vectores como los factores son estructuras unidimensionales, de
+ este modo, el uso del operador 
+\family typewriter
+[]
+\family default
+ es semejante en ambos.
+ Anteriormente se ha visto como seleccionar un elemento de ambas estructuras.
+ Veremos ahora como seleccionar grupos de elementos.
+\end_layout
+
+\begin_layout Subsubsection
+Selección de una secuencia de elementos, o elementos particulares
+\end_layout
+
+\begin_layout Standard
+Un ejemplo de selección de una secuencia de elementos contenida en un vector
+ podría ser con una 
+\emph on
+indexación
+\emph default
+ como la que se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# P.ej.
+ para un vector de 20 numeros aleatorios,  
+\end_layout
+
+\begin_layout Plain Layout
+
+# generados con la funcion rnorm(), que genera numeros
+\end_layout
+
+\begin_layout Plain Layout
+
+# aleatorios con una distribucion normal:
+\end_layout
+
+\begin_layout Plain Layout
+
+(v <- rnorm(20))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Si queremos seleccionar de esos, solo los
+\end_layout
+
+\begin_layout Plain Layout
+
+# numeros en las posiciones de la 5 a la 15:
+\end_layout
+
+\begin_layout Plain Layout
+
+(subv <- v[5:15])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que efectivamente, como se ha dicho anteriormente, la clase de dato
+ resultante de la operación es la misma que la de entrada, un vector numérico
+ en este caso:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+class(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(subv)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El caso de los factores es similar.
+ Se tomará un ejemplo introducido en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Factores-y-vectores"
+
+\end_inset
+
+: un factor con ciertos meses de nacimiento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(Fmes.nacimiento <- factor(c("Dic", "Feb", "Oct", "Mar", "Feb", 
+\end_layout
+
+\begin_layout Plain Layout
+
+                    "Nov", "Abr", "Dic", "Feb", "Oct", "Dic"),
+\end_layout
+
+\begin_layout Plain Layout
+
+                    levels=c("Ene","Feb","Mar","Abr","May","Jun",
+\end_layout
+
+\begin_layout Plain Layout
+
+                     "Jul","Ago","Sep","Oct","Nov","Dic")))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se quiere extraer de ahí solamente los elementos comprendidos entre el
+ dos y el cinco, se hace así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(sub.Fmes.nacimiento <-Fmes.nacimiento[2:5])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que la salida sigue siendo un factor, con los mismos 
+\family typewriter
+Levels
+\family default
+ (niveles), que el factor original, pero recortado de acuerdo con la operación
+ indicada en el operador.
+\end_layout
+
+\begin_layout Standard
+Recuérdese que el código 
+\family typewriter
+2:5
+\family default
+, en realidad es un vector entero, a saber: 
+\family typewriter
+
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+2:5
+\end_layout
+
+\end_inset
+
+
+\family default
+; se antoja entonces natural extender la 
+\emph on
+indexación
+\emph default
+, al uso de vectores de enteros arbitrarios.
+ Esto es, para seleccionar subconjuntos arbitrarios de los vectores o factores
+ originales.
+ Así por ejemplo, para seleccionar los elementos, 2, 3, y del 5 al 8, tanto
+ en el vector como en el factor de los ejemplos anteriores, se puede hacer
+ de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(sub1.v <- v[c(2,3,5:8)])
+\end_layout
+
+\begin_layout Plain Layout
+
+(sub1.Fmes.nacimiento <-Fmes.nacimiento[c(2,3,5:8)])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por otra parte, en esta mismo tema, los índices negativos, tienen el significado
+ de excluir los elementos señalados por el índice.
+ Así, el complemento de los subconjuntos antriores se puede obtener así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<selsec5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(sub2.v <- v[-c(2,3,5:8)])
+\end_layout
+
+\begin_layout Plain Layout
+
+(sub2.Fmes.nacimiento <-Fmes.nacimiento[-c(2,3,5:8)])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Selección de elementos de acuerdo con una condición
+\end_layout
+
+\begin_layout Standard
+En la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "Oper-logicos"
+
+\end_inset
+
+, se han introducido los operadores lógicos.
+ Haciendo uso de esa noción, se puede por ejemplo, distinguir en el vector
+ 
+\family typewriter
+v
+\family default
+, los elementos negativos de aquellos que no lo son, obteniendo un vector
+ de lógicos, de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cond1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v < 0
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Surge la pregunta: ¿cómo se pueden extraer, con esta información, los elementos
+ negativos o los positivos del vector original? El lenguaje permite utilizar
+ como índice del operador 
+\family typewriter
+[]
+\family default
+, un vector de lógicos en el que se obtendrá como salida un vector compuesto
+ de los elementos cuyo índice sea 
+\family typewriter
+TRUE
+\family default
+.
+ Entonces, la respuesta a la pregunta original se puede dar de las siguientes
+ maneras:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cond2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los negativos:
+\end_layout
+
+\begin_layout Plain Layout
+
+v[v < 0]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primera forma de obtener los positivos,
+\end_layout
+
+\begin_layout Plain Layout
+
+# mediante la negacion logica, con el operador !
+\end_layout
+
+\begin_layout Plain Layout
+
+v[!(v < 0)]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Segunda forma de obtener los positivos,
+\end_layout
+
+\begin_layout Plain Layout
+
+# mediante el operador >=
+\end_layout
+
+\begin_layout Plain Layout
+
+v[v >= 0]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para factores solo la operaciones logicas para probar la igualdad o desigualdad
+ tienen significado:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cond3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento == "Mar" # igualdad
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento != "Mar" # desigualdad
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No obstante, dado que, como se ha señalado en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Los-factores-y-estructura"
+
+\end_inset
+
+, los factores tienen implícito un vector de enteros, que indexan el orden
+ establecido por los 
+\family typewriter
+Levels
+\family default
+ (niveles) del factor, se puede usar ese hecho para descubrir, en el caso
+ de ejemplo, cuáles son los meses menores o iguales que 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+Abr
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+ (número de orden 4, en 
+\family typewriter
+Levels
+\family default
+), de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cond4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# El factor convertido a enteros:
+\end_layout
+
+\begin_layout Plain Layout
+
+as.integer(Fmes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+# El vector de logicos:
+\end_layout
+
+\begin_layout Plain Layout
+
+as.integer(Fmes.nacimiento) <= 4
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ y usado como indice:
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento[as.integer(Fmes.nacimiento) <= 4]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una nota importante es que los operadores de selección no solamente se usan
+ para consultar los valores, sino que también se pueden emplear para cambiar
+ los valores de los elementos seleccionados mediante el operador.
+ Así por ejemplo, podríamos cambiar cada uno los elementos negativos del
+ vector 
+\family typewriter
+v
+\family default
+, a su correspondiente positivo, mediante la siguiente asignación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cond5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v[v < 0] <- -v[v < 0]
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ y el vector v ahora es:
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Matrices y 
+\emph on
+data frames
+\end_layout
+
+\begin_layout Standard
+Las matrices y los 
+\emph on
+data frames
+\emph default
+, son estructuras bidimensionales; es decir, tienen renglones y columnas,
+ y por consiguiente, su comportamiento bajo el operador 
+\family typewriter
+[]
+\family default
+ es similar.
+ Como se ha visto en el capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Datos-y-tipos"
+
+\end_inset
+
+, el acceso a los elementos individuales a estas dos estructuras consta
+ de dos índices, separados por una coma, en el operador, así: 
+\family typewriter
+x[i, j]
+\family default
+; donde, 
+\family typewriter
+x
+\family default
+, es la estructura en cuestión, 
+\family typewriter
+i
+\family default
+, representa el número o identificador
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Recuérdese que tanto los renglones como las columnas pueden tener nombres
+ y que éstos pueden ser utilizados en vez de los índices numéricos correspondien
+tes (cf.
+ p.
+ 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "Cols-Rows-nombrados"
+
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+ de renglón y 
+\family typewriter
+j
+\family default
+, el número o identificador de columna.
+ 
+\end_layout
+
+\begin_layout Standard
+Para las explicaciones y ejemplos que siguen se usarán las matrices y 
+\emph on
+data frames
+\emph default
+ que se generan a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( mt <- matrix(11:30, nrow=4, ncol=5) )
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se convierte la matriz a un data frame:
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt <- as.data.frame(mt)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se le asignan nombres a renglones y columnas de df.mt
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(df.mt) <- c("uno", "dos", "tres", "cuatro")
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(df.mt) <- c("UNO", "DOS", "TRES", "CUATRO", "CINCO")
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+El operador 
+\family typewriter
+[]
+\family default
+ con un solo índice
+\end_layout
+
+\begin_layout Standard
+Tanto para matrices como para 
+\emph on
+data frames
+\emph default
+, el lenguaje permite utilizar el operador 
+\family typewriter
+[]
+\family default
+ con un solo índice, si bien el significado es diferente para cada uno de
+ los casos.
+ En el caso de las matrices el uso de un solo índice, provoca el tratamiento
+ de la matriz como si fuera un vector constituído por la concatenación de
+ sus columnas y el índice provisto se referirá entonces al elemento correspondie
+nte a esa posición en el vector, mientras que en el caso de los 
+\emph on
+data frames
+\emph default
+, dado que éstos son listas cuyos elementos son las columnas, ese uso del
+ operador invoca justamente ese tratamiento; esto es, la operación regresará
+ la columna correspondiente al índice dado.
+ Veamos sendos ejemplos de esta operación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# La matriz con indice 5
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[5]
+\end_layout
+
+\begin_layout Plain Layout
+
+# El data frame con indice 5
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[5]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Omisión de índices en el operador
+\end_layout
+
+\begin_layout Standard
+El caso anterior no se debe confundir con la omisión de índices en el operador,
+ ya que en este caso, el operador, mediante una coma señala el espacio para
+ dos índices, uno de los cuales se omite.
+ Aquí, la semántica del operador es similar para matrices y para 
+\emph on
+data frames
+\emph default
+, ya que en ambos casos, el operador regresa, o bien renglones, o bien columnas,
+ de la estructura sobre la cual se opera.
+ Veamos unos ejemplos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# El tercer renglón:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[3,]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[3,]
+\end_layout
+
+\begin_layout Plain Layout
+
+# La tercer columna:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,3]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,3]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "excepcion-regla1"
+
+\end_inset
+
+Se había dicho en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:operadores-de-acceso"
+
+\end_inset
+
+ que el operador 
+\family typewriter
+[]
+\family default
+, 
+\emph on
+siempre
+\emph default
+ regresa un objeto del mismo de la misma clase que el original.
+ Los ejemplos anteriores manifiestan una excepción a esta regla, ya que:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt[3,])
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt[3,]) # solo en este caso se cumple
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt[,3])
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt[,3])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El lenguaje tiende a simplificar, cuando puede, a la clase más básica de
+ dato, es decir, a vector; lo que podría resultar útil en algunos casos,
+ pero que, en otros casos, podría complicar la programación.
+ Este 
+\emph on
+extraño
+\emph default
+ comportamiento, no ortogonal
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+En el argot computacional el término 
+\emph on
+ortogonal
+\emph default
+ se refiere a que a una misma estructura sintáctica le corresponde una misma
+ estructura semántica o de significado.
+ Esto quiere decir que el operador se comportaría uniformemente, entregando
+ el mismo tipo de resultados, para una misma sintáxis.
+\end_layout
+
+\end_inset
+
+, sin embargo, se puede modificar mediante la opción 
+\family typewriter
+drop=FALSE
+\family default
+, al usar el operador, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# El tercer renglón:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[3, , drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt[3, , drop=FALSE])
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[3, , drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt[3, , drop=FALSE])
+\end_layout
+
+\begin_layout Plain Layout
+
+# La tercer columna:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,3, drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt[,3, drop=FALSE])
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,3, drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt[,3, drop=FALSE])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este mismo tema, el operador permite la selección simultánea de varios
+ renglones o varias columnas.
+ A continuación se muestra el caso de varias columnas, y, dado que es muy
+ similar, se deja al lector investigar cuál sería la forma de seleccionar
+ varios renglones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Selección de las columnas 4,3,2, en ese orden:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,4:2]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,4:2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que en el caso de múltiples columnas o renglones, dado que en su
+ conjunto no pueden ser simplificados a vectores, el comportamiento del
+ operador 
+\family typewriter
+[]
+\family default
+, es ortogonal y obedece a la regla de entregar siempre un objeto de la
+ misma clase que el original.
+\end_layout
+
+\begin_layout Standard
+Los mecanismos que habilita el operador 
+\family typewriter
+[]
+\family default
+ y que se han descrito aquí, también permiten la selección de una 
+\emph on
+ventana
+\emph default
+ en en interior de ambas estructuras.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf6a>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[1:3, 4:2]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[1:3, 4:2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso, como en el ejemplo anterior, se ha cambiado el orden de la
+ secuencia de columnas en la 
+\emph on
+ventana
+\emph default
+ resultante, lo que, por cierto, resulta más evidente en el caso del 
+\emph on
+data frame
+\emph default
+ por el uso de nombres tanto para columnas como para renglones
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Esto no tiene que ver con la clase del objeto, sino con el hecho de que
+ no se han asignado nombres ni a los renglones, ni a las columnas de la
+ matriz 
+\family typewriter
+mt
+\family default
+, en el caso del ejemplo.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+El uso de índices lógicos o condiciones
+\end_layout
+
+\begin_layout Standard
+Al igual que en el caso de los vectores y los factores, este operador admite
+ índices de tipo lógico, que resultan de la expresión de condiciones, que
+ pueden ser tan complicadas como se quiera.
+ Se verán aquí algunos ejemplos sencillos tanto para el caso de matrices
+ como para el caso de 
+\emph on
+data frames
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+En la matriz y el data frame del ejemplo anterior, el segundo rengón se
+ puede obtener fácilmente de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf7>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[2,]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[2,]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora, supóngase que se quiere obtener ese mismo renglón, pero basado en
+ el hecho de que el valor en la columna 2 es 16.
+ Esto es: obtener el renglón, o renglones, cuyo valor en la columna 2 es
+ 16.
+ Primeramente, obsérvese que todos los valores en la columna 2 de la matriz
+ o del 
+\emph on
+data frame
+\emph default
+, se pueden comparar contra el valor 16, de la siguientes maneras: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf8>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,2] == 16
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,2] == 16
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver el resultado es un vector de lógicos, cada uno de los
+ cuales corresponde a la comparación por igualdad de cada uno de los elementos
+ en la columna dos contra el valor 16; esto es, en 
+\emph on
+cada uno de los renglones
+\emph default
+ de esa columna.
+ Esta comparación se puede utilizar como índice en el espacio correspondiente
+ a los renglones en el operador 
+\family typewriter
+[]
+\family default
+, para obtener los renglones que cumplen con la condición establecida.
+ En este caso el arreglo de lógicos resultante de la condición actúa como
+ una máscara o un filtro que sólo deja 
+\emph on
+pasar
+\emph default
+, del la matriz, aquellos elementos para los cuales hay un valor 
+\family typewriter
+TRUE
+\family default
+, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf9>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se usan parentesis, (), para enfatizar la 
+\end_layout
+
+\begin_layout Plain Layout
+
+# condicion, aunque se podria prescindir
+\end_layout
+
+\begin_layout Plain Layout
+
+# de ellos:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[(mt[,2] == 16), ]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[(df.mt[,2] == 16), ]
+\end_layout
+
+\begin_layout Plain Layout
+
+# En el caso de la matriz, si se quiere
+\end_layout
+
+\begin_layout Plain Layout
+
+# obtener como salida una matriz (de
+\end_layout
+
+\begin_layout Plain Layout
+
+# un solo renglon), se hace asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[(mt[,2] == 16), , drop=FALSE]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Modifiquemos ahora la matriz y el 
+\emph on
+data frame
+\emph default
+, para tener más de un renglón que cumple con esta condición:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf10>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[4,2] <- 16L
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[4,2] <- 16L
+\end_layout
+
+\begin_layout Plain Layout
+
+mt # (El data frame es semejante)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y ahora, si se aplica nuevamente la operación de prueba, lo que se obtiene
+ es un conjunto de renglones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf11>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[(mt[,2] == 16), ]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[(df.mt[,2] == 16), ]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las expresiones o pruebas lógicas usadas como índices pueden ser más complejas
+ si se quiere.
+ Supongamos que se quiere obtener, todas las columnas que en su renglón
+ 2 no son múltiplos de 8; esto se hace como se muestra en seguida.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf12>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# La prueba logica hace uso del operador modulo o residuo: %%
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[2,]%%8 != 0 # (Para el data frame es semejante)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora usemos la expresion como indice:
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,(mt[2,]%%8 != 0)]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,(df.mt[2,]%%8 != 0)]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El uso y el potencial que este tipo de operaciones pueden tener en la práctica,
+ es algo que sin duda sólo tiene como límite la imaginación del programador
+ o usuario del lenguaje, y que definitivamente cae dentro de lo que en este
+ libro se llama 
+\emph on
+el arte de programar en R
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Los operadores 
+\family typewriter
+[[]]
+\family default
+ y 
+\family typewriter
+$
+\end_layout
+
+\begin_layout Standard
+Los operadores 
+\family typewriter
+[[]]
+\family default
+ y 
+\family typewriter
+$
+\family default
+, son más o menos semejantes, aunque éste último limita su aplicación a
+ las listas y, por consiguiente, también a los 
+\emph on
+data frames
+\emph default
+.
+ Estos operadores establecen formas de tener acceso a los elementos de las
+ distintas estructuras mediante los nombres o identificadores asignados
+ a esos elementos.
+ Si bien es cierto que el operador 
+\family typewriter
+[]
+\family default
+, admite también nombres de los elementos como índices, como se ha mostrado
+ en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "Acceso-vt-nombres"
+
+\end_inset
+
+, los operadores discutidos en esta sección habilitan formas más flexibles
+ de tener acceso a los elementos de las estructuras mediante sus nombres,
+ amén de que ese acceso va a un nivel más 
+\emph on
+profundo
+\emph default
+.
+ Para comprender esto, piénsese en el siguiente simil: sea la estructura
+ sobre la que actúan los operadores como una bodega que contiene cajas,
+ que a su vez contienen distintos objetos.
+ En general, el operador 
+\family typewriter
+[]
+\family default
+, podría considerarse como un dispositivo que 
+\emph on
+mueve
+\emph default
+ algunas de las cajas a otra, por así decirlo, 
+\emph on
+sub-bodega
+\emph default
+ o bodega 
+\emph on
+más pequeña
+\emph default
+, y ese sería el resultado de la operación; es decir, entrega la 
+\emph on
+sub-bodega
+\emph default
+ con las cajas seleccionadas, mientras que los otros operadores entregan
+ las cajas o incluso el contenido de éstas.
+ 
+\end_layout
+
+\begin_layout Standard
+A manera de comparación, se dotará a la matriz 
+\family typewriter
+mt
+\family default
+, utilizada anteriormente, de nombres para sus columnas y renglones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf13>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(mt) <- c("uno", "dos", "tres", "cuatro") 
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(mt) <- c("UNO", "DOS", "TRES", "CUATRO", "CINCO")
+\end_layout
+
+\begin_layout Plain Layout
+
+mt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, el acceso a renglones y columnas por nombres, mediante el operador
+ 
+\family typewriter
+[]
+\family default
+, da resultados 
+\emph on
+semejantes
+\emph default
+ tanto en matrices como en 
+\emph on
+data frames
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf14>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[,"TRES"]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[,"TRES"]
+\end_layout
+
+\begin_layout Plain Layout
+
+mt["dos",]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt["dos",]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para comparacion con el operador [[]]
+\end_layout
+
+\begin_layout Plain Layout
+
+mt["dos", "TRES", drop=F] 
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt["dos", "TRES", drop=F]) # La clase del objeto
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt["dos", "TRES", drop=F] # F es lo mismo que FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt["dos", "TRES", drop=F]) # La clase del objeto
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se ha dicho anteriormente, un 
+\emph on
+data frame
+\emph default
+ es una lista muy particular, cuyos componentes son las columnas del 
+\emph on
+data frame
+\emph default
+, mismas que siempre tienen la misma longitud, y que en el caso del ejemplo,
+ 
+\family typewriter
+df.mt
+\family default
+, es exactamente 4.
+ De este modo, lo que se diga aquí para los 
+\emph on
+data frames
+\emph default
+, con referencia a los operadores estudiados, en general es también válido
+ para las listas.
+\end_layout
+
+\begin_layout Standard
+El operador 
+\family typewriter
+[[]]
+\family default
+, permite el acceso a esos componentes, ya sea mediante índices numéricos
+ o los nombres provistos a los elementos de las estructuras.
+ Asi, para los dos últimos casos mostrados anteriormente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf15>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[[2,3]]
+\end_layout
+
+\begin_layout Plain Layout
+
+mt[["dos", "TRES"]]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mt[["dos", "TRES"]])
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[[2,3]]
+\end_layout
+
+\begin_layout Plain Layout
+
+class(df.mt[[2,3]])
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[["dos", "TRES"]]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que a diferencia con el operador 
+\family typewriter
+[]
+\family default
+, el operador 
+\family typewriter
+[[]]
+\family default
+, no entrega en ni una matriz, ni un data frame, sino un vector entero de
+ un solo elemento, en este caso.
+ Compárese con los dos últimos casos del ejemplo anterior.
+\end_layout
+
+\begin_layout Standard
+Otra diferencia importante de este operador es que no admite ni rangos,
+ ni conjuntos de índices; esto es, para cada espacio en el operador sólo
+ admite ya sea un índice entero o una cadena de caracteres que identifica
+ el nombre de algún elemento de la estructura sobre la que opera.
+\end_layout
+
+\begin_layout Standard
+El operador 
+\family typewriter
+$
+\family default
+, es semejante pero sólo actúa sobre la estructura unidimensional de una
+ lista o de un 
+\emph on
+data frame
+\emph default
+.
+ La diferencia de este operador con el operador 
+\family typewriter
+[[]]
+\family default
+, es que los nombres de los elementos no necesitan ir entrecomillados, y
+ pueden estar incompletos, cuando no hay ambigüedad en la identificación
+ de los elementos a los cuales se refieren.
+ Esta característica resulta más útil cuando se trabaja con el lenguaje
+ directamente desde la consola, o sea, interactivamente, ya que puede representa
+r alguna economía en la escritura de las expresiones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf16, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[["TRES"]]
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt$TRES
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt$"TRES"
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt$T
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El operador 
+\family typewriter
+[[]]
+\family default
+, también admite nombres incompletos, pero ese comportamiento tiene que
+ ser señalado explícitamente por medio de la opción 
+\family typewriter
+exact = FALSE
+\family default
+, en el operador:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtxydf17>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+df.mt[["TR", exact=F]] # Recuerde F es FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La riqueza en el uso de estos operadores se irá descubriendo a medida que
+ se incorporen otras caracteristicas del lenguaje que se estudiarán en los
+ capítulos siguientes.
+\end_layout
+
+\end_body
+\end_document

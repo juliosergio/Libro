@@ -1,0 +1,231 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<setup, include=FALSE, cache=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+## set global chunk options 
+\end_layout
+
+\begin_layout Plain Layout
+
+## opts_chunk$set(fig.path='figure/manual-', cache.path='cache/manual-', fig.align=
+'center', fig.show='hold', par=TRUE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+## I use = but I can replace it with <-; set code/output width to be 68
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Visibilidad del código
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<widthcap1, include=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada vez que se introduce un nuevo símbolo en alguna parte del código de
+ un programa escrito en R; al ejecutarse, el lenguaje tiene que resolver
+ de algún modo, de qué manera se asocia ese símbolo con algún objeto computacion
+al creado o por crearse dentro del programa: ¿se refiere el símbolo a algún
+ objeto que ya existía en el programa?, ¿es necesario crear un nuevo objeto
+ asociado con el símbolo que se ha introducido? La visibibilidad del código,
+ y las reglas de alcance del lenguaje R, que son los temas de este capítulo,
+ se refieren precisamente a la asociación de los símbolos con los objetos
+ computacionales creados durante la ejecución de algún programa.
+\end_layout
+
+\begin_layout Section
+Asociación de símbolos con valores
+\end_layout
+
+\begin_layout Standard
+La primer pregunta que surge en el asunto que se trata en este capítulo
+ es: ¿en qué momento se introduce o viene a la existencia en R algún símbolo,
+ típicamente para nombrar alguna variable? La respuesta a esta pregunta
+ es que básicamente hay dos momentos:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Las expresiones de asignación
+\series default
+.
+ Observemos por ejemplo qué pasa con la siguiente expresión:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<remueve, include=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<asigna>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Después de la asignación, R se ha quejado de la inexistencia del símbolo
+ 
+\family typewriter
+y
+\family default
+, pero no se ha quejado de la inexistencia del símbolo 
+\family typewriter
+x
+\family default
+.
+\end_layout
+
+\end_body
+\end_document

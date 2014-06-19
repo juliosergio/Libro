@@ -1,0 +1,5141 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\usepackage{mathpazo}
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<setup, include=FALSE, cache=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+## set global chunk options
+\end_layout
+
+\begin_layout Plain Layout
+
+## opts_chunk$set(fig.path='figure/manual-', cache.path='cache/manual-', fig.align=
+'center', fig.show='hold', par=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+## I use = but I can replace it with <-; set code/output width to be 68
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+El arte de programar en R:
+\begin_inset Newline newline
+\end_inset
+
+un lenguaje para la estadística
+\end_layout
+
+\begin_layout Author
+Julio Sergio Santana
+\begin_inset Newline newline
+\end_inset
+
+Efraín Mateos Farfán
+\end_layout
+
+\begin_layout Chapter
+Los datos y sus tipos
+\end_layout
+
+\begin_layout Standard
+Todas las cosas que manipula R se llaman objetos.
+ En general, éstos se construyen a partir de objetos más simples.
+ De esta manera, se llega a los objetos más simples que son de cinco clases
+ a las que se denomina 
+\emph on
+atómicas
+\emph default
+ y que son las siguientes:
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+character
+\family default
+ (cadenas de caracteres)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+numeric
+\family default
+ (números reales)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+integer
+\family default
+ (números enteros)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+complex
+\family default
+ (números complejos)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+logical
+\family default
+ (lógicos o booleanos, que sólo toman los valores True o False)
+\end_layout
+
+\begin_layout Standard
+En el lenguaje, sin embargo, cada uno de estas clases de datos no se encuentran
+ ni se manejan de manera aislada, sino encapsulados dentro de la clase de
+ objeto más básica del lenguaje: el 
+\family typewriter
+vector
+\family default
+.
+ Un 
+\family typewriter
+vector
+\family default
+ puede contener cero o más objetos, pero todos de la misma clase.
+ En contraste, la clase denominada 
+\family typewriter
+list
+\family default
+, permite componer objetos también como una secuencia de otros objetos,
+ pero, a diferencia del 
+\family typewriter
+vector
+\family default
+, cada uno de sus componentes puede ser de una clase distinta.
+\end_layout
+
+\begin_layout Section
+Los datos numéricos
+\end_layout
+
+\begin_layout Standard
+Probablemente el principal uso de R es la manipulación de datos numéricos.
+ El lenguaje agrupa estos datos en tres categorías, a saber: 
+\family typewriter
+numeric, integer 
+\family default
+y
+\family typewriter
+ complex
+\family default
+, pero cuando se introduce algo que puede interpretar como un número, su
+ inclinación es tratarlo como un dato de tipo 
+\family typewriter
+numeric
+\family default
+, es decir, un número de tipo real, a no ser que explícitamente se indique
+ otra cosa.
+ Veamos algunos ejemplos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjDeReales1, eval=F, echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 2     # Se asigna el valor 2 a x
+\end_layout
+
+\begin_layout Plain Layout
+
+print(x)   # Se imprime el valor de x
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjDeReales2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+<<EjDeReales1>>
+\end_layout
+
+\begin_layout Plain Layout
+
+class(x)   # Muestra cual es la clase de x
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 6/2   # Se asigna el valor de la operacion dividir 6/2 a x 
+\end_layout
+
+\begin_layout Plain Layout
+
+print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aparentemente las dos asignaciones que se hacen, mediante el operador de
+ asignación, 
+\family typewriter
+<-
+\family default
+, a la 
+\emph on
+variable
+\emph default
+ 
+\family typewriter
+x
+\family default
+, es de los enteros 2 y 3 respectivamente.
+ Sin embargo, al preguntar, mediante la 
+\emph on
+función
+\emph default
+ 
+\family typewriter
+class()
+\family default
+, cuál es la clase de 
+\family typewriter
+x
+\family default
+, la respuesta es 
+\family typewriter
+numeric
+\family default
+, esto es, un número real.
+ Para asignar explícitamente un entero, 
+\family typewriter
+integer
+\family default
+, a una variable, se agrega la letra L al final del número, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AsigEntero, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 23L; print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí la variable 
+\family typewriter
+x
+\family default
+ tendrá como valor el entero 23.
+ Como una nota adicional del lenguaje, nótese que se han escrito dos expresiones
+ de R en un mismo renglón.
+ En este caso, las expresiones se separan mediante ';'.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Conv-a-Integer"
+
+\end_inset
+
+Para lograr que una expresión, como la operación de división 
+\family typewriter
+6/2
+\family default
+, arroje como resultado un entero, se tiene que hacer una 
+\emph on
+conversión
+\emph default
+; ello se logra mediante la función
+\family typewriter
+ as.integer
+\family default
+, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ConvEntero, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- as.integer(6/2); print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por su parte, los números complejos, 
+\family typewriter
+complex
+\family default
+ en el lenguaje, tienen una sintaxis muy particular; misma que se tiene
+ que emplear para indicar explícitamente que un número introducido corresponde
+ a ese tipo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AsigComplex, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 21 + 2i
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 2i + 21 # El mismo valor que x
+\end_layout
+
+\begin_layout Plain Layout
+
+z <- -1 + 0i # Corresponde a -1
+\end_layout
+
+\begin_layout Plain Layout
+
+t <- sqrt(z) # raiz cuadrada de -1
+\end_layout
+
+\begin_layout Plain Layout
+
+print(x); print(y); print(z); print(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+class(t)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En los ejemplos anteriores a la variable
+\family typewriter
+ t
+\family default
+ se le asigna el resultado de una función, 
+\family typewriter
+sqrt()
+\family default
+, que es la raíz cuadrada de el número 
+\family typewriter
+-1
+\family default
+.
+ Nótese que ésta es la forma correcta de calcular esa raíz, por ejemplo,
+ 
+\family typewriter
+sqrt(-1)
+\family default
+, hubiera arrojado como resultado un error.
+\end_layout
+
+\begin_layout Standard
+También, existe un valor numérico especial, 
+\family typewriter
+Inf
+\family default
+, que representa el infinito y que puede resultar en algunas expresiones,
+ por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Inf1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 1/0 # Division por cero
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+# Tambien dividir un número por Inf da cero:
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 1/Inf
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, algunas operaciones pueden resultar en algo que no es un número,
+ esto se representa por el valor 
+\family typewriter
+NaN
+\family default
+.
+ Veamos un ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<NaN1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 0/0
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Vectores
+\end_layout
+
+\begin_layout Standard
+Se ha dicho con anterioridad que las clases atómicas de datos no se manejan
+ de manera individual.
+ En efecto, en todos los ejemplos anteriores, el lenguaje ha creado implícitamen
+te vectores de longitud 1, y son esos los que se han asignado a las variables.
+ Tomemos el caso más sencillo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjVectores1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+<<EjDeReales1>>
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, la impresión del valor de 
+\family typewriter
+x
+\family default
+ tiene una forma muy particular: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+[1] 2
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ El 
+\family typewriter
+'[1]'
+\family default
+ que precede al valor, indica que se trata del primer elemento y único,
+ en este caso, del vector que se muestra.
+\end_layout
+
+\begin_layout Standard
+Hay diversas maneras de crear vectores de otras longitudes, que, como se
+ ha dicho antes, son secuencias de objetos de la misma clase atómica.
+ En las siguientes secciones se verán algunos casos.
+\end_layout
+
+\begin_layout Subsection
+El uso de la función 
+\family typewriter
+c()
+\family default
+ para crear vectores
+\end_layout
+
+\begin_layout Standard
+La primer manera de crear vectores es a partir de los elementos individuales
+ que compondrán el vector.
+ Para esto se utiliza la función 
+\family typewriter
+c()
+\family default
+ como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjVectors2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+c(4,2,-8)  # Creacion de un vector sin asignarlo a una variable
+\end_layout
+
+\begin_layout Plain Layout
+
+## ----------------
+\end_layout
+
+\begin_layout Plain Layout
+
+## Distintas formas de asignar un vector a una variable
+\end_layout
+
+\begin_layout Plain Layout
+
+u <- c(4,2,-8) # Usando el operador <-
+\end_layout
+
+\begin_layout Plain Layout
+
+c(4, 2, -8) -> v # Usando el operador ->
+\end_layout
+
+\begin_layout Plain Layout
+
+# Usando la funcion assign:
+\end_layout
+
+\begin_layout Plain Layout
+
+assign("w", c(4, 2, -8)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+p = c(4, 2, -8) # Usando el operador =
+\end_layout
+
+\begin_layout Plain Layout
+
+print(u); print(v); print(w); print(p)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función 
+\family typewriter
+c()
+\family default
+ sirve para concatenar varios elementos del mismo tipo.
+ En todos los ejemplos mostrados, la impresión del vector se hace en un
+ renglón que comienza con el símbolo 
+\family typewriter
+'[1]',
+\family default
+ indicando con ello que el primer elemento del renglón corresponde al primer
+ elemento del vector.
+ 
+\end_layout
+
+\begin_layout Standard
+Un caso muy particular de asignación, es el de la función 
+\family typewriter
+assign()
+\family default
+.
+ A diferencia de los otros casos vistos en el ejemplo anterior, el nombre
+ de la variable aparece entre comillas.
+ 
+\end_layout
+
+\begin_layout Standard
+Más adelante, en la página 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "Vectores-de-vectores"
+
+\end_inset
+
+, se verá como la función 
+\family typewriter
+c()
+\family default
+ también se puede utilizar para la creación de vectores a partir de otros
+ vectores.
+\end_layout
+
+\begin_layout Subsection
+Creación de vectores a partir de archivos de texto - la función 
+\family typewriter
+scan()
+\end_layout
+
+\begin_layout Standard
+Otra manera de crear un vector es a partir de un archivo de texto.
+ Sea, por ejemplo, el caso del archivo UnVec.txt, que se contiene la siguiente
+ información:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}
+\backslash
+color{fgcolor}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{kframe} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+  12 15.5 3.1
+\end_layout
+
+\begin_layout Plain Layout
+
+  -2.2 0 0.0007 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{kframe}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Supóngase ahora que a partir de esos datos se quiere crear un vector.
+ Para eso se usa la función 
+\family typewriter
+scan()
+\family default
+, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<VdeArch>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+vec <- scan("UnVec.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+print(vec)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desde luego que hay otras funciones para lectura de archivos, más complejas,
+ pero baste por el momento con el uso de esta función, tal como se muestra,
+ para permitir la creación de un vector a partir de los datos contenidos
+ en un archivo de texto.
+ Por el ahora, la única nota adicional es que la función 
+\family typewriter
+scan()
+\family default
+ ofrece la posibilidad de indicarle explícitamente el tipo de vector que
+ se quiere crear.
+ Así por ejemplo, la creación de un vector de enteros se hace de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<IntVdeArch, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+vec <- scan("IntVec.txt", integer())
+\end_layout
+
+\begin_layout Plain Layout
+
+print(vec); class(vec) # El vector y su clase
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por supuesto que en este caso, se debe prever que el archivo leído contenga
+ datos que puedan ser interpretados como números enteros.
+\end_layout
+
+\begin_layout Subsection
+Creación de vectores a partir de secuencias y otros patrones
+\end_layout
+
+\begin_layout Standard
+Un vector, inicializado en ceros, o 
+\family typewriter
+FALSE
+\family default
+, y de longitud determinada, se puede crear con la función 
+\family typewriter
+vector()
+\family default
+.
+ Es esta misma función la que permite crear vectores sin elementos.
+ En seguida se muestran algunos ejemplos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron0>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- vector("integer", 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+v # Un vector de enteros sin elementos
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- vector("numeric", 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+w # Un vector de tres ceros
+\end_layout
+
+\begin_layout Plain Layout
+
+u <- vector("logical", 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+u # Un vector de 5 FALSE
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El operador 
+\family typewriter
+':'
+\family default
+ permite generar un vector entero a partir de una secuencia creciente o
+ decreciente de enteros, cuyos extremos se indican, tal como se muestra
+ en seguida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+1:3
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- 40:13
+\end_layout
+
+\begin_layout Plain Layout
+
+print(v); class(v) # El vector y su clase
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que el desplegado o impresión del vector 
+\family typewriter
+v
+\family default
+, se ha tenido que hacer en dos renglones.
+ Cada uno de esos renglones comienza, indicando entre corchetes 
+\family typewriter
+[ ]
+\family default
+, el índice del primer elemento en el renglón.
+ Por otra parte, el operador 
+\family typewriter
+':'
+\family default
+ es un caso particular de la función 
+\family typewriter
+seq()
+\family default
+ que permite generar una mayor variedad de secuencias numéricas.
+ Veamos aquí algunos ejemplos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- seq(from=5, to=15, by=2)  
+\end_layout
+
+\begin_layout Plain Layout
+
+print(v) # secuencia desde 5 hasta 15 de 2 en 2
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Debe notarse aquí, no obstante, que la clase del resultado de esta secuencia
+ es 
+\family typewriter
+numeric
+\family default
+ y no 
+\family typewriter
+integer
+\family default
+; esto es, el vector resultante es de números reales, que puede, a conveniencia,
+ ser convertido a enteros, mediante la función 
+\family typewriter
+as.integer()
+\family default
+, como se vio anteriormente, en la página 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "Conv-a-Integer"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+class(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función 
+\family typewriter
+seq()
+\family default
+ tiene varios argumentos más cuya documentación se puede consultar mediante
+ 
+\family typewriter
+?seq
+\family default
+ o 
+\family typewriter
+help('seq')
+\family default
+ en el intérprete de R.
+ En seguida se muestra sólo otra forma bastante común de utilizar esta función,
+ que tiene que ver con la producción de un vector o una secuencia de una
+ longitud determinada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- seq(from=4, by=2, length.out=8)  
+\end_layout
+
+\begin_layout Plain Layout
+
+print(v) # secuencia de 8 números iniciando desde  4 y de 2 en 2
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Algunas veces es necesario repetir una secuencia de números varias veces
+ para generar un vector deseado.
+ La función 
+\family typewriter
+rep()
+\family default
+ sirve para ese propósito.
+ Supóngase, por ejemplo, que se desea crear un vector con la repetición
+ de la secuencia 4, 8, -3, cinco veces.
+ Eso se logra como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(4, 8, -3)
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- rep(v, times=5)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(w)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Vectores-de-vectores"
+
+\end_inset
+
+Finalmente, aveces se requiere construir un vector a partir de dos o más
+ vectores ya existentes.
+ La forma simple de lograr esto es con la función 
+\family typewriter
+c()
+\family default
+ como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<patron6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+u <- c(3, 4, 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(5, 4, 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- c(u, v)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(w) # La concatenacion de u y v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Acceso a los elementos individuales de un vector
+\end_layout
+
+\begin_layout Standard
+Aunque este tema está comprendido dentro de la selección de subconjuntos
+ o porciones, que se verá más adelante en la sección ***, se dará aquí un
+ adelanto para permitir operar con los elementos individuales de los vectores.
+ Dentro de un vector, sus elementos se pueden identificar mediante un 
+\emph on
+índice
+\emph default
+ entero, que en el caso de este lenguaje empieza con el 1.
+ Así, por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Indiv1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(8, 7, -3, 2, 182)
+\end_layout
+
+\begin_layout Plain Layout
+
+v[5] # El quinto elemento
+\end_layout
+
+\begin_layout Plain Layout
+
+print(v[1]); print(v[3])
+\end_layout
+
+\begin_layout Plain Layout
+
+v[4]+v[2] # La suma del cuarto y segundo elementos de v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Primeramente se ha accedido al quinto elemento, mediante 
+\family typewriter
+v[5]
+\family default
+ ; si el intérprete de R se está usando interactivamente, el valor de ese
+ elemento, 
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+v[5]
+\end_layout
+
+\end_inset
+
+ , se imprime implícitamente.
+ Luego se manda imprimir explícitamente, los elementos 1 y 3 del vector.
+ Finalmente, se suman los elementos 4 y 2 del vector; el resultado de esa
+ operación se imprime implícitamente, es decir, de manera automática, si
+ la operación se solicita al intérprete en su modo interactivo.
+\end_layout
+
+\begin_layout Standard
+El acceso a los elementos individuales de un vector no solamente es para
+ 
+\emph on
+consulta
+\emph default
+ o 
+\emph on
+lectura
+\emph default
+, sino también para su 
+\emph on
+modificación
+\emph default
+ o 
+\emph on
+escritura
+\emph default
+.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Indiv2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v[1] <- v[2] - v[5]
+\end_layout
+
+\begin_layout Plain Layout
+
+v # Note que el resultado de la operacion se ha guardado en v[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta misma operación puede hacer crecer un vector.
+ Por ejemplo, el vector 
+\family typewriter
+v
+\family default
+ tiene 5 elementos.
+ Si se asigna un valor al elemento 8, el vector 
+\emph on
+crecerá
+\emph default
+ hasta esa longitud, de la manera siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Indiv3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v[8] <- 213
+\end_layout
+
+\begin_layout Plain Layout
+
+v # v tiene ahora 8 elementos con espacios vacios: NA
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La nota aquí es que para aumentar el vector a esa longitud se tuvieron que
+ introducir elementos ausentes o vacíos que se indican con el valor 
+\family typewriter
+NA
+\family default
+ (del inglés: 
+\emph on
+Not Available
+\emph default
+) en los espacios correspondientes.
+ 
+\end_layout
+
+\begin_layout Standard
+Otra característica interesante de este lenguaje, es que permite dar nombre
+ y acceder por medio de ese nombre a los elementos individuales de un vector.
+ Supóngase por ejemplo que se tiene el registro de cantidades de ciertas
+ frutas en un vector:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Nombrados1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas <- c(15, 100, 2, 30)
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Vt-elementos-nombrados"
+
+\end_inset
+
+Supóngase ahora que se quiere asociar esos valores con el nombre de la fruta
+ correspondiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Nombrados2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+names(frutas) <- c("naranja", "pera", "manzana", "durazno")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora se manda desplegar el vector:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Nombrados3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra manera más directa de nombrar los elementos de un vector, es en el
+ momento mismo de la creación con la función 
+\family typewriter
+c()
+\family default
+, con una sintaxis semejante a la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Nombrados3a>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas <- c(naranja=15, pera=100, manzana=2, durazno=30)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además se puede acceder a los elementos individuales del vector mediante
+ su nombre:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Nombrados4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas["durazno"] 
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas["manzana"] <- 8
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas
+\end_layout
+
+\begin_layout Plain Layout
+
+# El acceso a traves de indices se sigue permitiendo:
+\end_layout
+
+\begin_layout Plain Layout
+
+frutas[2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Operaciones-sencillas-con"
+
+\end_inset
+
+Operaciones sencillas con vectores
+\end_layout
+
+\begin_layout Standard
+Las operaciones aritméticas más comunes están definidas para vectores: la
+ suma, la resta, la división y la exponenciación, todas ellas se definen
+ elemento a elemento entre dos vectores.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- 2 + 3 # Resulta en un vector de longitud 1
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(2,3) - c(5,1) # Resulta en un vector de longitud 2
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(2, 3, 4) * c(2, 1, 3) # Resulta en un vector de longitud 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(2, 3, 4) ^ (3:1) # Eleva a potencias 3,2,1
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En todos los casos, la operación indicada se aplica elemento a elemento
+ entre los dos vectores operandos.
+ En el último ejemplo, debido al orden de precedencia de aplicación de los
+ operadores, es necesario encerrar entre paréntesis la expresión 
+\family typewriter
+3:1
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En muchas ocasiones es necesario saber la longitud de una vector.
+ La función 
+\family typewriter
+length()
+\family default
+ aplicada a un vector regresa precisamente ese valor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper1a>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+u <- 2:33
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(4, 5, 6)
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- c(u, v)
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+length(w)
+\end_layout
+
+\begin_layout Plain Layout
+
+@ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el asunto de las operaciones aritméticas que se han ilustrado anteriormente,
+ surge una pregunta: ¿qué pasa cuando los vectores operandos no son de la
+ misma longitud? En esos casos, el intérprete del lenguaje procede a completar
+ la operación 
+\emph on
+reciclando
+\emph default
+ los elementos del operador de menor longitud.
+ Así, por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(4,5,6,7,8,9,10) * c(1,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+es lo mismo que:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(4,5,6,7,8,9,10) * c(1,2,1,2,1,2,1)
+\end_layout
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notemos, sin embargo, que en el primer caso el sistema ha arrojado un mensaje
+ de advertencia, 
+\emph on
+Warning
+\emph default
+, indicando la diferencia en las longitudes de los operandos.
+ La eliminación de estos mensajes se hace por medio de la función 
+\family typewriter
+options()
+\family default
+, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper4, warning=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options(warn= -1)
+\end_layout
+
+\begin_layout Plain Layout
+
+<<Oper2>>
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es esta funcionalidad la que permite hacer de manera muy simple algunas
+ operaciones vectoriales, como por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(2, -3, 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+w <- 2*(v^2) # Dos veces el cuadrado de v
+\end_layout
+
+\begin_layout Plain Layout
+
+w
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además, algunas funciones pueden recibir como argumento un vector y producir
+ a su salida un vector de la misma longitud que el de entrada.
+ Tal es el caso de las funciones trigonométricas como 
+\family typewriter
+sin()
+\family default
+, 
+\family typewriter
+cos()
+\family default
+, y la raíz cuadrada: 
+\family typewriter
+sqrt()
+\family default
+.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Oper6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se desea la raiz cuadrada de los siguientes valores:
+\end_layout
+
+\begin_layout Plain Layout
+
+v <- c(9, 8, 31)
+\end_layout
+
+\begin_layout Plain Layout
+
+sqrt(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# El sin de 30, 45 y 60 grados:
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primero se hace la conversion a radianes:
+\end_layout
+
+\begin_layout Plain Layout
+
+angulos <- c(30, 45, 60)*(pi/180)
+\end_layout
+
+\begin_layout Plain Layout
+
+angulos # En radianes
+\end_layout
+
+\begin_layout Plain Layout
+
+senos <- sin(angulos)
+\end_layout
+
+\begin_layout Plain Layout
+
+senos
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para ilustrar la utilidad de estos conceptos en los siguientes párrafos
+ se da un ejemplo de aplicación.
+\end_layout
+
+\begin_layout Subsubsection*
+Ejemplo de aplicación
+\end_layout
+
+\begin_layout Standard
+De un edificio, a una altura de 15 m, se ha lanzado con un ángulo de 50
+ grados, un proyectil a una velocidad de 7 m/s.
+ ¿Cuáles serán las alturas (coordenadas y) del proyectil a cada 0.5 m de
+ distancia horizontal desde donde se lanzó y hasta los 11 m? 
+\end_layout
+
+\begin_layout Standard
+Las ecuaciones que gobiernan este fenómeno son las siguientes:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $x=v_{0x}t+x_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $y=-\frac{1}{2}gt^{2}+v_{0y}t+y_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, 
+\emph on
+g
+\emph default
+ es la aceleración de la gravedad, el parámetro 
+\emph on
+t
+\emph default
+ se refiere al tiempo, y la velocidad está descompuesta en sus componentes:
+ 
+\begin_inset Formula $v_{0x}$
+\end_inset
+
+ y 
+\begin_inset Formula $v_{0y}$
+\end_inset
+
+.
+ Tal como se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Las-componentes-de"
+
+\end_inset
+
+, éstas se pueden obtener a partir de la velocidad inicial y el ángulo,
+ usando las funciones trigonométricas 
+\family typewriter
+sin()
+\family default
+ y 
+\family typewriter
+cos()
+\family default
+, y considerando que en R, los argumentos de esas funciones deben estar
+ dados en radianes, y por tanto el ángulo debe convertirse a esa unidad.
+ Así, los datos de partida son como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+g <- 9.81 # aceleracion gravedad 
+\end_layout
+
+\begin_layout Plain Layout
+
+x0 <- 0   # x inicial 
+\end_layout
+
+\begin_layout Plain Layout
+
+y0 <- 15  # y inicial 
+\end_layout
+
+\begin_layout Plain Layout
+
+vi <- 7  # velocidad inicial 
+\end_layout
+
+\begin_layout Plain Layout
+
+alphaD <- 50 # angulo-grados 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+y para encontrar las componentes de la velocidad:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename velocidad1.dia
+	lyxscale 50
+	width 25col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Las-componentes-de"
+
+\end_inset
+
+Las componentes de la velocidad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap1_1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se convierte a radianes
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha <- (pi/180)*alphaD # angulo-radianes 
+\end_layout
+
+\begin_layout Plain Layout
+
+vox <- vi*cos(alpha) # componente x de velocidad inicial 
+\end_layout
+
+\begin_layout Plain Layout
+
+vox
+\end_layout
+
+\begin_layout Plain Layout
+
+voy <- vi*sin(alpha) # componente y de velocidad inicial 
+\end_layout
+
+\begin_layout Plain Layout
+
+voy
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esto es suficiente para proceder con el problema.
+ Primeramente obtenemos las 
+\emph on
+x
+\emph default
+ para las que se desea hacer el cálculo, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# desde 0 hasta 11 de 0.5 en 0.5:
+\end_layout
+
+\begin_layout Plain Layout
+
+las.x <- seq(from=0, to=11, by=0.5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este ejemplo, la secuencia de valores de 
+\emph on
+x
+\emph default
+ se ha guardado en una variable de nombre 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+las.x
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ En este lenguaje, en los nombres de las variables, el punto (.), así como
+ el guión bajo (_), se pueden utilizar simplemente como separadores, para
+ darles mayor claridad.
+\end_layout
+
+\begin_layout Standard
+Nótese que en las fórmulas que gobiernan el fenómeno, dadas anteriormente,
+ no se tiene 
+\emph on
+y
+\emph default
+ en función de 
+\emph on
+x
+\emph default
+, sino que las dos coordenadas dependen del parámetro
+\emph on
+ t
+\emph default
+, esto es, del tiempo.
+ Para resolver este asunto simplemente se despeja en parámetro
+\emph on
+ t
+\emph default
+, en la ecuación de 
+\emph on
+x
+\emph default
+, y obtenemos:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $t=(x-x_{0})/v_{0x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, obtenemos los valores de 
+\emph on
+t 
+\emph default
+correspondientes a las 
+\emph on
+x
+\emph default
+, usando esta fórmula:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+las.t <- (las.x - x0)/vox
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, encontramos las 
+\emph on
+y
+\emph default
+ correspondientes a las 
+\emph on
+t
+\emph default
+, justamente encontradas, aplicando la fórmula para 
+\emph on
+y
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+las.y <- -(g/2)*las.t^2 + voy*las.t + y0
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los resultados:
+\end_layout
+
+\begin_layout Plain Layout
+
+las.x
+\end_layout
+
+\begin_layout Plain Layout
+
+las.y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se han encontrado los valores buscados, y en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Trayectoria-proyectil"
+
+\end_inset
+
+ se muestra un gráfico con la trayectoria del proyectil.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap5, out.width='.68
+\backslash
+
+\backslash
+linewidth', echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+source("TiroParabolico.R")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Trayectoria-proyectil"
+
+\end_inset
+
+Gráfico de la trayectoria del proyectil lanzado desde una altura de 15 m.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Otras clases de datos basadas en vectores
+\end_layout
+
+\begin_layout Standard
+Los vectores sirven como base para la definición de otras clases de datos,
+ a saber: las matrices y los arregos.
+ En la sección siguiente se da una breve introducción al tema de las matrices.
+ El tema de los arreglos, sin embargo, se abordará en un capítulo posterior.
+\end_layout
+
+\begin_layout Section
+Matrices
+\end_layout
+
+\begin_layout Standard
+Desde el punto de vista del lenguaje, una matriz es un vector con un atributo
+ adicional: 
+\family typewriter
+dim
+\family default
+.
+ Para el caso de las matrices, este atributo es un vector entero de dos
+ elementos, a saber: el número de renglones y el número de columnas que
+ componen a la matriz.
+ 
+\end_layout
+
+\begin_layout Subsection
+Construcción de matrices
+\end_layout
+
+\begin_layout Standard
+Una de las formas de construir una matriz es a partir de un vector, como
+ sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Mtx1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( m <- 11:30 ) # Un vector con 20 numeros
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para convertirla en matriz simplemente se especifica el atributo dim
+\end_layout
+
+\begin_layout Plain Layout
+
+dim(m) <- c(4, 5) # 4 renglones y 5 columnas
+\end_layout
+
+\begin_layout Plain Layout
+
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+class(m)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Debe notarse que, mediante la construcción mostrada, el armado de la matriz
+ se hace por columnas.
+ Por otra parte, las dimensiones de la matriz pueden cambiarse en cualquier
+ momento, y el acceso a un elemento particular de la matriz se hace ahora
+ mediante dos índices: el renglón y la columna, aunque, el acceso a los
+ elementos de la matriz como un vector, es decir, con un solo índice, sigue
+ siendo posible, como se muestra en seguida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Mtx2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+dim(m) <- c(5, 4) # ahora 5 renglones y 4 columnas
+\end_layout
+
+\begin_layout Plain Layout
+
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y el elemento en el renglon 3 y columna 2 es:
+\end_layout
+
+\begin_layout Plain Layout
+
+m[3,2]
+\end_layout
+
+\begin_layout Plain Layout
+
+m[8] # acceso al mismo elemento, como vector, con un solo indice
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una ventaja del lenguaje es que permite hacer referencia a una columna o
+ a un renglón de la matriz, como si se tratara de un sólo objeto, o sea
+ como un vector.
+ Para ello, se omite alguno de los dos índices en la expresión de acceso
+ a la matriz, como se muestra más adelante.
+ En el ejemplo que se viene examinando, esos vectores estarían compuestos
+ por números enteros, aunque los componentes de una matriz pueden ser también
+ reales (
+\family typewriter
+numeric
+\family default
+) o complejos (
+\family typewriter
+complex
+\family default
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Mtx3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# El renglon 3 y la columna 2 de la matriz:
+\end_layout
+
+\begin_layout Plain Layout
+
+m[3, ]
+\end_layout
+
+\begin_layout Plain Layout
+
+m[ ,2]
+\end_layout
+
+\begin_layout Plain Layout
+
+# La clase las columnas o renglones:
+\end_layout
+
+\begin_layout Plain Layout
+
+class(m[3, ])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las matrices también se pueden crear de manera flexible por medio de la
+ función primitiva 
+\family typewriter
+matrix()
+\family default
+, que permite alterar la secuencia por 
+\emph on
+default
+\emph default
+ de armado de la matriz; esto es, ahora, si se quiere, se puede armar la
+ matriz por renglones en vez de columnas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Mtx4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( m <- matrix(11:30, nrow=5, ncol=4, byrow=TRUE) )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las funciones 
+\family typewriter
+rbind()
+\family default
+ y 
+\family typewriter
+cbind()
+\family default
+, son otras que se pueden utilizar para construir matrices, dando, ya sea
+ los renglones individuales o las columnas individuales, respectivamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Mtx5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+m <- rbind(c(1.5, 3.2, -5.5), c(0, -1.1, 60.0))
+\end_layout
+
+\begin_layout Plain Layout
+
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+class(m[1,]) # ahora compuesta de numeros reales
+\end_layout
+
+\begin_layout Plain Layout
+
+(m <- cbind(c(1.5, 3.2, -5.5), c(0, -1.1, 60.0)) )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operaciones sencillas con matrices
+\end_layout
+
+\begin_layout Standard
+Todas las operaciones aritméticas válidas para vectores, són validas para
+ las matrices, siempre y cuando, las matrices operando tengan las mismas
+ dimensiones y se aplican elemento a elemento, esto es, la operación se
+ aplica entre cada columna, con su correspondiente, como si fueran vectores.
+ (véase la sección correspondiente: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Operaciones-sencillas-con"
+
+\end_inset
+
+).
+ En seguida, se muestra un ejemplo con la multiplicación, que no debe ser
+ confundido con la multiplicación matricial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtx_x>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( m <- matrix(1:15, nrow=5, ncol=3) )
+\end_layout
+
+\begin_layout Plain Layout
+
+( mm <- rbind(1:3,3:1,c(1,1,1), c(2,2,2), c(3,3,3)) )
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+m*mm
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La multiplicación matricial se hace con el operador 
+\family typewriter
+%*%
+\family default
+.
+ Para entender esta operación, pondremos un ejemplo con dos matrices, como
+ sigue: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtx_prod>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( A <-matrix(1:6,3,2) )
+\end_layout
+
+\begin_layout Plain Layout
+
+( B <-rbind(7:9,10:12) )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el ejemplo, la matriz 
+\family typewriter
+\noun on
+A
+\family default
+\noun default
+ será multiplicada por la matriz 
+\family typewriter
+\noun on
+B
+\family default
+\noun default
+, y debe notarse que, en este caso, el número de columnas de la matriz 
+\family typewriter
+A
+\family default
+, es igual al número de renglones de la matriz 
+\family typewriter
+B
+\family default
+.
+ La multiplicación de estas dos matrices la podemos visualizar en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:La-multiplicación-matricial"
+
+\end_inset
+
+.
+ En esta figura, la matriz 
+\family typewriter
+A
+\family default
+ se pone a la izquierda y la matriz 
+\family typewriter
+B
+\family default
+ se pone en la parte superior.
+ Los elementos de la matriz producto, estarán en las intersecciones de un
+ renglón de la matriz 
+\family typewriter
+A
+\family default
+ con una columna de la matriz 
+\family typewriter
+B
+\family default
+, y se calculan como se muestra en el ejemplo: el primer elemento del renglón
+ de 
+\family typewriter
+A
+\family default
+ por el primer elemento de la columna de 
+\family typewriter
+B
+\family default
+ más el segundo elemento del renglón de 
+\family typewriter
+A
+\family default
+ por el segundo elemento de la columna de 
+\family typewriter
+B
+\family default
+, etc.
+ Este procedimiento es igual, para dimensiones mayores, siempre y cuando
+ coincida el número de columnas de 
+\family typewriter
+A
+\family default
+ con el número de renglones de 
+\family typewriter
+B
+\family default
+.
+ En R, esta operación se hace así: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mtx_prod1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+A %*% B
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename MultMtx.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:La-multiplicación-matricial"
+
+\end_inset
+
+La multiplicación matricial
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra operación muy utilizada e implementada en R como una función, 
+\family typewriter
+t()
+\family default
+, es la traspuesta de una matriz.
+ Esta es una operación en la que los renglones se cambian a columnas y viceversa
+, tal como se muestra en el siguiente ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<traspuesta>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se usa la misma matriz A del ejemplo anterior:
+\end_layout
+
+\begin_layout Plain Layout
+
+A
+\end_layout
+
+\begin_layout Plain Layout
+
+t(A)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay otras operaciones matriciales, pero baste con éstas en el presente capítulo,
+ que las otras se introducirán más adelante en el texto.
+\end_layout
+
+\begin_layout Subsubsection*
+Ejemplo de aplicación
+\end_layout
+
+\begin_layout Standard
+Las transformaciones lineales se representan por medio de matrices, y su
+ aplicación involucra la multiplicación matricial de la matriz que representa
+ la transformación por el vector o secuencia de vectores que representan
+ el punto o puntos en el espacio que se quieren transmormar.
+ Como un ejemplo, la rotación en dos dimensiones es una transformación lineal:
+ si se quiere rotar el punto 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ por un ángulo 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, la operación está dada por:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\left(\begin{array}{c}
+x'\\
+y'
+\end{array}\right)=\left[\begin{array}{cc}
+\cos\alpha & -\sin\alpha\\
+\sin\alpha & \cos\alpha
+\end{array}\right]\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde el punto 
+\begin_inset Formula $(x',y')$
+\end_inset
+
+, es el punto transformado, es decir, al que se ha aplicado la rotación.
+ Si la operación se quiere hacer a una secuencia de puntos que pudieran
+ representar los vértices de alguna figura geométrica, bastará con armar
+ la matriz de puntos correspondiente y aplicar a ella la transformación,
+ de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\left[\begin{array}{cccc}
+x_{1}' & x_{2}' & \ldots & x_{n}'\\
+y_{1}' & y_{2}' & \ldots & y_{n}'
+\end{array}\right]=\left[\begin{array}{cc}
+\cos\alpha & -\sin\alpha\\
+\sin\alpha & \cos\alpha
+\end{array}\right]\left[\begin{array}{cccc}
+x_{1} & x_{2} & \ldots & x_{n}\\
+y_{1} & y_{2} & \ldots & y_{n}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Supóngase ahora, que se tiene un triángulo, cuyos vértices son (1.0, 0.0),
+ (2.0, 1.0), y (1.0, 1.0), y se quieren encontrar los vértices del triángulo
+ resultante de una rotación de 32º.
+ Tómese en cuenta que el lenguaje R, provee de las funciones trigonométricas
+ 
+\family typewriter
+sin()
+\family default
+, 
+\family typewriter
+cos()
+\family default
+, así como del número 
+\family typewriter
+pi
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap_2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Triangulo original: 
+\end_layout
+
+\begin_layout Plain Layout
+
+m <- cbind(c(1,0), c(2,1), c(1,1)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se convierte el angulo a radianes
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha <- 32*pi/180
+\end_layout
+
+\begin_layout Plain Layout
+
+# La matriz para esa rotacion es:
+\end_layout
+
+\begin_layout Plain Layout
+
+tr <- rbind(c(cos(alpha), -sin(alpha)),
+\end_layout
+
+\begin_layout Plain Layout
+
+            c(sin(alpha),cos(alpha)))
+\end_layout
+
+\begin_layout Plain Layout
+
+# El triangulo transformado
+\end_layout
+
+\begin_layout Plain Layout
+
+mt <- tr %*% m # multiplicacion matricial
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los vertices del triangulo transformado
+\end_layout
+
+\begin_layout Plain Layout
+
+mt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Rotacion-triangulo"
+
+\end_inset
+
+ se muestran tanto el triangulo original, como el triangulo resultante,
+ en rojo, después de la rotación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ejap2_fig, out.width='.68
+\backslash
+
+\backslash
+linewidth', echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+source("TrianguloRotado.R")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Rotacion-triangulo"
+
+\end_inset
+
+Rotación de un triángulo; el triángulo rotado se muestra en rojo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Factores y vectores de caracteres 
+\end_layout
+
+\begin_layout Standard
+Los caracteres, o más apropiadamente, las 
+\emph on
+cadenas de caracteres
+\emph default
+, se utilizan para nombrar cosas u objetos del 
+\emph on
+mundo
+\emph default
+.
+ Igual que en el caso de los números, en R la clase 
+\family typewriter
+character
+\family default
+ no se refiere a una cadena de caracteres aislada sino a un vector que contiene
+ cero o más cadenas de caracteres.
+ De este modo podríamos tener por ejemplo, una lista (o vector) con los
+ nombres de personas, y otra, paralela a la primera, con sus meses de nacimiento
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Caracteres1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+persona <- c("Hugo", "Paco", "Luis", "Petra", "Maria", "Fulano", "Sutano",
+ "Perengano", "Metano", "Etano", "Propano")
+\end_layout
+
+\begin_layout Plain Layout
+
+mes.nacimiento <- c("Dic", "Feb", "Oct", "Mar", "Feb", "Nov", "Abr", "Dic",
+ "Feb", "Oct", "Dic")
+\end_layout
+
+\begin_layout Plain Layout
+
+persona
+\end_layout
+
+\begin_layout Plain Layout
+
+mes.nacimiento
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, si se quiere imprimir el nombre de la persona 7 con su mes de nacimiento
+ se puede hacer con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Caracteres2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+print(persona[7]); print(mes.nacimiento[7])
+\end_layout
+
+\begin_layout Plain Layout
+
+# De una manera mas "pulcra":
+\end_layout
+
+\begin_layout Plain Layout
+
+print( c(persona[7], mes.nacimiento[7]) )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "La-función-paste"
+
+\end_inset
+
+La función 
+\family typewriter
+paste()
+\family default
+ permite concatenar cadenas de caracteres y por medio de ella se puede dar
+ incluso una mejor apariencia a la salida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Caracteres3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+paste(persona[7], "nacio en el mes de", mes.nacimiento[7])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Los factores y su estructura
+\end_layout
+
+\begin_layout Standard
+Los dos vectores anteriores pueden considerarse como una 
+\emph on
+estructura de información
+\emph default
+, a la que se puede someter a algún tipo de procesamiento estadístico.
+ El lenguaje tiene muchas herramientas para ese propósito.
+ Considérese, por ejemplo, el problema de determinar la frecuencia de aparición
+ de ciertos meses en el vector 
+\family typewriter
+mes.nacimiento
+\family default
+.
+ En este caso, el lenguaje provee de una clase que facilita este tipo de
+ análisis, a saber: la clase 
+\family typewriter
+factor
+\family default
+.
+ Para entender esta clase, procedamos primeramente a transformar el vector
+ 
+\family typewriter
+mes.nacimiento
+\family default
+ a un factor, mediante la función de conversión 
+\family typewriter
+as.factor()
+\family default
+, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento <- as.factor(mes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento
+\end_layout
+
+\begin_layout Plain Layout
+
+# y generamos la impresion ahora con el factor:
+\end_layout
+
+\begin_layout Plain Layout
+
+paste(persona[7], "nacio en el mes de", Fmes.nacimiento[7])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se compara la impresión del factor 
+\family typewriter
+Fmes.nacimiento
+\family default
+ con la del vector 
+\family typewriter
+mes.nacimiento
+\family default
+, se podría pensar que 
+\begin_inset Quotes eld
+\end_inset
+
+no ha pasado mucho
+\begin_inset Quotes erd
+\end_inset
+
+.
+ De hecho, la impresión 
+\emph on
+bonita
+\emph default
+ con la función 
+\family typewriter
+paste()
+\family default
+, ha resultado igual.
+ Sin embargo, el factor exhibe una estructura adicional denominada 
+\family typewriter
+Levels
+\family default
+, en la que se han registrado e identificado los elementos del vector sin
+ repetición; esto es, los nombres únicos de los meses, en este caso.
+ La estructura interna de esta clase se puede descubrir: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+unclass(Fmes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede ver, el núcleo de la clase son dos vectores.
+ El primero, es un vector de índices enteros, que sustituye al vector de
+ caracteres original, y el segundo es un vector de caracteres, que contiene
+ los niveles (
+\emph on
+Levels
+\emph default
+) o categorías, a los que hace referencia el primer vector.
+ La Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Estructura-factores"
+
+\end_inset
+
+ muestra esta disposición, en la que, con motivo de no tener un desplegado
+ confuso, se grafican sólo tres de las referencias del vector de índices
+ al vector de niveles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename EstructuraFactores.dia
+	lyxscale 55
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Estructura-factores"
+
+\end_inset
+
+Estructura interna de los factores
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abordemos ahora el problema que motivó la presente discusión: la frecuencia
+ de aparición de ciertos elementos en un vector.
+ La función 
+\family typewriter
+table()
+\family default
+ toma típicamente como argumento un factor y regresa como resultado justamente
+ la frecuencia de aparición de los niveles en el vector de índices:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+table(Fmes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La interpretación de estos resultados en el contexto de la estructura de
+ información original, es que, por ejemplo, 
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+table(Fmes.nacimiento)[2]
+\end_layout
+
+\end_inset
+
+ personas del vector 
+\family typewriter
+persona
+\family default
+, nacieron en el mes de 
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+levels(Fmes.nacimiento)[2]
+\end_layout
+
+\end_inset
+
+.
+ En el ejemplo mostrado, los niveles o 
+\family typewriter
+Levels
+\family default
+ aparecen ordenados alfabéticamente.
+ La creación de factores en los que se establezca un orden determinado en
+ los niveles, se puede hacer con la función 
+\family typewriter
+factor()
+\family default
+, como se muestra:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+meses <- c("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Di
+c")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se incluyen meses que no estan el el vector original
+\end_layout
+
+\begin_layout Plain Layout
+
+FFmes.nacimiento <- factor(mes.nacimiento, levels=meses) 
+\end_layout
+
+\begin_layout Plain Layout
+
+FFmes.nacimiento
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora la tabla de frecuencias es:
+\end_layout
+
+\begin_layout Plain Layout
+
+table(FFmes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Debe notarse que la función
+\family typewriter
+ table()
+\family default
+ pudiera haber recibido como argumento directamente el vector de caracteres
+ original, y hubiera producido el resultado deseado, como se muestra:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+table(mes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La razón es simple: el intérprete del lenguaje 
+\emph on
+sabe
+\emph default
+ que la función está esperando recibir un factor y en consecuencia trata
+ de convertir, en automático, el argumento que recibe, a esa clase.
+ Como la conversión de vectores de caracteres a factores es trivial, la
+ función no tiene ningún problema en desarrollar su tarea.
+\end_layout
+
+\begin_layout Subsection
+Acceso a los elementos de un factor
+\end_layout
+
+\begin_layout Standard
+El acceso a cada uno de los dos vectores que le dan estructura al factor
+ se hace como se muestra a continuación y se ha ilustrado también en la
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Estructura-factores"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Un elemento individual del factor:
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento[10]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Un elemento individual de los niveles:
+\end_layout
+
+\begin_layout Plain Layout
+
+levels(Fmes.nacimiento)[3]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Incluso es posible modificar todos o algunos de los niveles del factor.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Fatores7>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+levels(Fmes.nacimiento)[3] <- "febrero"
+\end_layout
+
+\begin_layout Plain Layout
+
+Fmes.nacimiento
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si se quiere tener acceso al factor como un vector de índices, se convierte
+ a entero:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Factores8>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+as.integer(Fmes.nacimiento)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Listas
+\end_layout
+
+\begin_layout Standard
+Una lista, de la clase 
+\family typewriter
+list
+\family default
+, es una clase de datos que puede contener cero o más elementos, cada uno
+ de los cuales puede ser de una clase distinta.
+ Por ejemplo, se puede concebir una lista para representar una familia:
+ la mamá, el papá, los años de casados, los hijos, y las edades de los hijos,
+ de la manera siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Listas1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+familia <- list("Maria", "Juan", 10, c("Hugo", "Petra"), c(8, 6))
+\end_layout
+
+\begin_layout Plain Layout
+
+familia
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que la lista contiene cinco elementos; los tres primeros son a su
+ vez de un sólo elemento: el nombre de la mamá, el nombre del papá, y los
+ años de casados.
+ Los siguientes dos, son dos vectores de dos elementos cada uno: los hijos
+ y sus respectivas edades.
+ 
+\end_layout
+
+\begin_layout Standard
+Al igual que en el caso de los vectores, como se vio en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "Vt-elementos-nombrados"
+
+\end_inset
+
+, los elementos de las listas pueden ser nombrados, lo que añade mayor claridad
+ a su significado dentro de la lista.
+ La forma de hacer esto se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Listas2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+familia <- list(madre="Maria", padre="Juan", casados=10, hijos=c("Hugo",
+ "Petra"), edades=c(8, 6))
+\end_layout
+
+\begin_layout Plain Layout
+
+familia
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Acceso-elts-lista"
+
+\end_inset
+
+Acceso a los elementos individuales de una lista
+\end_layout
+
+\begin_layout Standard
+Al igual que en el caso de los vectores, las listas no serían de mucha utilidad
+ sin la posibilidad de tener acceso a sus elementos individuales.
+ El lenguaje, provee de este acceso mediante tres operadores, a saber: 
+\family typewriter
+[ ]
+\family default
+, 
+\family typewriter
+[[ ]]
+\family default
+, y 
+\family typewriter
+$
+\family default
+.
+ El primero de estos operadores se revisará a detalle en la sección ***.
+ Aquí se explicarán los otros dos operadores en su forma de uso más simple.
+\end_layout
+
+\begin_layout Standard
+Cuando los elementos de la lista tienen nombre, se puede acceder a ellos
+ con cualquiera de los dos operadores.
+ Usando los ejemplos anteriores, esto se puede hacer de la manera siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AccesoLs1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Acceso de lectura
+\end_layout
+
+\begin_layout Plain Layout
+
+familia$madre
+\end_layout
+
+\begin_layout Plain Layout
+
+familia[["madre"]]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Acceso de escritura
+\end_layout
+
+\begin_layout Plain Layout
+
+familia[["padre"]] <- "Juan Pedro"
+\end_layout
+
+\begin_layout Plain Layout
+
+familia$padre # para checar el nuevo valor
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que al emplear el operador 
+\family typewriter
+$
+\family default
+, no se han usado las comillas para mencionar el nombre del elemento, pero,
+ este operador también admite nombres con comillas.
+ Por otra parte, el operador 
+\family typewriter
+[[ ]]
+\family default
+, sólo admite los nombres de elementos con comillas, o de cualquier expresión
+ que al evaluarse dé como resultado una cadena de caracteres.
+ En seguida se muestran algunos ejemplos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AccesoLs2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+familia$"madre" <- "Maria Candelaria"
+\end_layout
+
+\begin_layout Plain Layout
+
+mm <- "madre"
+\end_layout
+
+\begin_layout Plain Layout
+
+familia[[mm]] 
+\end_layout
+
+\begin_layout Plain Layout
+
+familia[[ paste("ma", "dre", sep="") ]] 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el último caso, el operador ha recibido como argumento la función 
+\family typewriter
+paste()
+\family default
+, que, como se ha dicho anteriormente,
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "La-función-paste"
+
+\end_inset
+
+, sirve para concatenar cadenas de caracteres.
+ Esta función supone de inicio que las cadenas irán separadas por un espacio
+ en blanco.
+ Por ello es que, en el ejemplo se indica que el separador es vacío mediante
+ 
+\family typewriter
+sep=
+\family default
+"".
+ Alternativamente, para este último caso, se puede usar la función 
+\family typewriter
+paste0()
+\family default
+, que de entrada supone que tal separador es vacío.
+\end_layout
+
+\begin_layout Section
+
+\shape italic
+Data frames
+\end_layout
+
+\begin_layout Standard
+Un 
+\emph on
+data frame
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+Usamos aquí el témino anglosajón, 
+\begin_inset Quotes eld
+\end_inset
+
+data frames
+\begin_inset Quotes erd
+\end_inset
+
+, y no su traducción al castellano, 
+\begin_inset Quotes eld
+\end_inset
+
+marco o estructura de datos
+\begin_inset Quotes erd
+\end_inset
+
+, dado que estos nombres sólo introducirían confusión, pues ninguno de ellos
+ da una pista de lo que es.
+ Probablemente un término apropiado sería algo como 
+\begin_inset Quotes eld
+\end_inset
+
+tabla de datos
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\emph default
+ es una lista, cuyos componentes pueden ser vectores, matrices o factores,
+ con la única salvedad de que las longitudes, o número de renglones, en
+ el caso de matrices, deben coincidir en todos los componentes.
+ La apariencia de un 
+\emph on
+data frame
+\emph default
+ es la de una tabla y una forma de crearlos es mediante la función 
+\family typewriter
+data.frame()
+\family default
+ .
+ Veamos un ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(m <- cbind(ord=1:3, edad=c(30L, 26L, 9L)) )
+\end_layout
+
+\begin_layout Plain Layout
+
+(v <- c(1.80, 1.72, 1.05) )
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- data.frame(familia=c("Padre", "Madre", "Hijo"), 
+\end_layout
+
+\begin_layout Plain Layout
+
+                  m, estatura=v)
+\end_layout
+
+\begin_layout Plain Layout
+
+ff
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una gran ventaja de los 
+\emph on
+data frames
+\emph default
+, es que R tiene diversas funciones para leer y guardar las tablas que represent
+an, en archivos de texto, y otros formatos.
+ Como un ejemplo, supongamos que se tiene un archivo, denominado 
+\begin_inset Quotes eld
+\end_inset
+
+Rtext.txt
+\begin_inset Quotes erd
+\end_inset
+
+, la siguiente información:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precio 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Piso
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Area
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cuartos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Edad
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Calentador
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+52.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+111.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+830
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+54.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+128.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+710
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+57.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+101.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+57.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+131.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+690
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+no
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+59.75
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+93.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+900
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+si
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La lectura de esta tabla hacia un 
+\emph on
+data frame
+\emph default
+, es muy sencilla y se hace mediante la función 
+\family typewriter
+read.table()
+\family default
+, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla <- read.table("Rtext.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que el primer rengón y la primera columna no son parte de los datos
+ de la tabla; ellos son, respectivamente, los nombres de las columnas y
+ renglones de la tabla o 
+\emph on
+data frame
+\emph default
+, lo que podemos constatar mediante las funciones 
+\family typewriter
+colnames()
+\family default
+ y 
+\family typewriter
+rownames()
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(mi.tabla)
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(mi.tabla)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se mencionó anteriormente, un 
+\emph on
+data frame
+\emph default
+ es una lista muy particular, pero, ¿cuáles son los elementos de esa lista?
+ Los elementos de la lista, y que obedecen a todas las reglas sintácticas
+ dadas anteriormente (ver sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Acceso-elts-lista"
+
+\end_inset
+
+), son las columnas de la tabla.
+ Así, por ejemplo, al segundo elemento de la lista podemos tener acceso
+ de las siguientes formas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla$Piso
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla[[2]]
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla[2]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el último caso, los datos se despliegan junto con el nombre de la columna
+ y cada uno de los nombres de los renglones.
+ Ello se debe a que en realidad, el operador 
+\family typewriter
+[]
+\family default
+ extrae una 
+\emph on
+rebanada
+\emph default
+ del dato o variable sobre la cuál opera, un 
+\emph on
+data frame
+\emph default
+ en este caso, y que podríamos denominarlo como un 
+\emph on
+sub-data frame
+\emph default
+ aquí; esto es, se trata otra vez de un 
+\emph on
+data frame
+\emph default
+ pero más 
+\emph on
+chiquito
+\emph default
+ que el original.
+ Los detalles de este operador se discutirán a detalle más adelante en el
+ texto.
+\end_layout
+
+\begin_layout Standard
+Para tener acceso a un elemento individual de un data frame, se utiliza
+ el operador 
+\family typewriter
+[]
+\family default
+, con la misma sintáxis que se utilizó para las matrices.
+ Por ejemplo, el elemento en el rengón 3 y la columna 2, se puede revisar,
+ o incluso cambiar con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla[3,2]
+\end_layout
+
+\begin_layout Plain Layout
+
+# modificamos el elemento con:
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla[3, 2] <- 106
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra característica importante de los 
+\emph on
+data frames
+\emph default
+ es que, salvo que se indique otra cosa, las columnas de tipo 
+\family typewriter
+character
+\family default
+ se convierten automáticamente a tipo 
+\family typewriter
+factor
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla$Calentador
+\end_layout
+
+\begin_layout Plain Layout
+
+class(mi.tabla$Calentador)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La posibilidad de operar con 
+\emph on
+rebanadas
+\emph default
+ de los data frames, es una de las cosas que hacen más atractivas a esta
+ estructura.
+ Si, por ejemplo, se quiere añadir, una nueva columna o componente del 
+\emph on
+data frame
+\emph default
+, y ésta calcularla como el resultado de multiplicar el Precio por el Area,
+ se puede hacer de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<df7>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla$Total <- mi.tabla$Precio*mi.tabla$Area 
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.tabla
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Coerción
+\end_layout
+
+\begin_layout Standard
+Se han abordado en este capítulo, no de una manera exhaustiva, pero sí para
+ tener una idea clara de su potencial, los principales tipos de datos del
+ lenguaje R.
+ Estos tipos de datos son el fundamento para la construcción de otras 
+\emph on
+clases
+\emph default
+ de datos más complejas.
+ Algunos de los tipos de datos admiten su conversión a otros tipos; para
+ ello, el lenguaje provee de un conjunto de funciones de la forma: 
+\family typewriter
+as.<
+\family default
+\emph on
+tipo
+\family typewriter
+\emph default
+>
+\family default
+.
+ En seguida se muestran algunos ejemplos.
+\end_layout
+
+\end_body
+\end_document

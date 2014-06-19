@@ -1,0 +1,3248 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Estructuras de control y funciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<widthcap1, include=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En los lenguajes de programación, se entiende por estructuras de control
+ aquellas construcciones sintácticas del lenguaje que dirigen el flujo de
+ la ejecución de un programa en 
+\emph on
+una dirección
+\emph default
+ o en otra dentro de su código.
+ Por ejemplo, prácticamente todos los lenguajes tienen una construcción
+ 
+\begin_inset Quotes eld
+\end_inset
+
+IF
+\begin_inset Quotes erd
+\end_inset
+
+, que permite ejecutar o saltar un conjunto, bloque o secuencia de instrucciones
+ dentro del código de un programa.
+ R también cuenta con un conjunto de estructuras de control, si bien, mucho
+ de lo que éstas implementan se puede también hacer mediante 
+\end_layout
+
+\begin_layout Section
+La construcciones IF-ELSE
+\end_layout
+
+\begin_layout Standard
+Estas construcciones son semejantes a las de otros lenguajes de programación,
+ con una salvedad que puede ser capitalizada por los usuarios del lenguaje:
+ la construcción en sí misma regresa un valor, que puede, si se quiere,
+ ser asignado a una variable o utilizado de otras maneras.
+ Los siguientes ejemplos muestran la sintaxis y el uso de estas construcciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cifels1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+aa <- 15
+\end_layout
+
+\begin_layout Plain Layout
+
+if (aa > 14) # if sin else
+\end_layout
+
+\begin_layout Plain Layout
+
+  print("SI MAYOR")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if (aa > 14) print ("SI MAYOR")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if (aa > 14) { # Instruccion compuesta
+\end_layout
+
+\begin_layout Plain Layout
+
+  print ("PRIMER RENGLON")
+\end_layout
+
+\begin_layout Plain Layout
+
+  print ("SI MAYOR")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Usando el valor que regresa el if
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- 10
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- if (aa > 14) 50
+\end_layout
+
+\begin_layout Plain Layout
+
+y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La construcción IF admite una sola expresión, pero ésta puede ser la expresión
+ compuesta, que se construye mediante los paréntesis de llave 
+\family typewriter
+{ }
+\family default
+, y las expresiones en su interior, separadas ya sea por el cambio de renglón
+ o por 
+\family typewriter
+';'
+\family default
+.
+ En los casos anteriores, la expresión señalada por el 
+\family typewriter
+if
+\family default
+ se ejecuta u omite dependiendo del valor de la condición, 
+\family typewriter
+TRUE
+\family default
+ o 
+\family typewriter
+FALSE
+\family default
+, respectivamente.
+ En el caso del ejemplo la condición esta dada por la expresión 
+\family typewriter
+aa > 14
+\family default
+, que prueba si la variable 
+\family typewriter
+aa
+\family default
+ es mayour que 
+\family typewriter
+14
+\family default
+.
+ La siguientes construcciones, redirigen la ejecución del código a distintos
+ bloques o conjuntos de instrucciones dependiendo de que se cumplan o no
+ las condiciones establecidas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<cifels2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+if (10 > aa) { # 1er.
+ bloque
+\end_layout
+
+\begin_layout Plain Layout
+
+    print("RANGO MENOR")
+\end_layout
+
+\begin_layout Plain Layout
+
+} else if ( 10 <= aa && aa <= 20) { # 2o.
+ bloque
+\end_layout
+
+\begin_layout Plain Layout
+
+    print("primer renglon"); print("RANGO MEDIO")
+\end_layout
+
+\begin_layout Plain Layout
+
+} else { # 3er.
+ bloque
+\end_layout
+
+\begin_layout Plain Layout
+
+    print("RANGO MAYOR")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que el segundo bloque de expresiones en el ejemplo, es una expresión
+ compuesta de dos expresiones; pero como ellas se han dado en un solo renglón
+ se han separado mediante el caracter 
+\family typewriter
+;
+\family default
+.
+ La condición que da lugar a este mismo bloque de expresiones, introduce
+ dos nuevos operadores: 
+\family typewriter
+<=
+\family default
+ y 
+\family typewriter
+&&
+\family default
+; el primero de ellos es el operador de comparación 
+\emph on
+menor o igual que
+\emph default
+ y el segundo es el operador lógico 
+\emph on
+and
+\emph default
+.
+ Entonces la condición es equivalente a la expresión matemática: 
+\begin_inset Formula $10\leq\mathtt{aa}\leq20$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Si desea saber más acerca de los distintos operadores disponibles en el
+ lenguaje, introduzca '??operator' en la consola del intérprete del lenguaje
+\end_layout
+
+\end_inset
+
+.
+ Finalmente, el tercer y último bloque de expresiones, se ejecuta en caso
+ de que ninguna de las condiciones correspondientes a los otros dos bloques
+ se haya satisfecho.
+ 
+\end_layout
+
+\begin_layout Section
+Los ciclos
+\end_layout
+
+\begin_layout Standard
+El lenguaje cuenta con varios tipos de ciclos o repeticiones, a saber: repeticio
+nes por un número determinado de veces, repeticiones mientras se cumple
+ una condición y repeticiones 
+\emph on
+infinitas
+\emph default
+.
+ En seguida se discutirá cada uno de estos casos.
+\end_layout
+
+\begin_layout Subsection
+Repeticiones por un número determinado de veces
+\end_layout
+
+\begin_layout Standard
+La construcción que habilita esta operación es la instrucción 
+\family typewriter
+for
+\family default
+.
+ El número de veces que se repite la expresión o expresiones englobadas
+ en la instrucción, puede estár explícita en ella misma, como se muestra
+ a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+letras <- c("c", "l", "i", "M", "T", "A")
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:6) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(letras[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El número de veces que se repite la expresión, puede quedar implícito en
+ las estructuras de las cuales toma elementos el 
+\family typewriter
+for
+\family default
+.
+ Así, el mismo resultado que se obtuvo en el ejemplo anterior, se puede
+ obtener con cualquiera de las siguientes dos contstrucciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in seq_along(letras)) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(letras[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for (letra in letras) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(letra)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el primer caso se llamó a la función 
+\family typewriter
+seq_along()
+\family default
+, que genera una secuencia de enteros de acuerdo con el número de elementos
+ que tenga el objeto que se le de como argumento.
+ El segundo caso, tipifica la escencia de la construcción 
+\family typewriter
+for
+\family default
+, ya que se trata de ir tomando uno a uno los elementos del objeto consignado
+ después de la partícula 
+\family typewriter
+in
+\family default
+ del 
+\family typewriter
+for
+\family default
+.
+\end_layout
+
+\begin_layout Subsection
+Repeticiones mientras se cumple una condición
+\end_layout
+
+\begin_layout Standard
+La construcción que habilita esta operación es la instrucción 
+\family typewriter
+while
+\family default
+, que se puede ejemplificar como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos3, eval=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para la misma tarea de los ejemplos anteriores
+\end_layout
+
+\begin_layout Plain Layout
+
+i <- 1
+\end_layout
+
+\begin_layout Plain Layout
+
+while (i <= 6) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  print(letras[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+  i <- i + 1
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La salida de este ejemplo es la misma que la de los ejemplos anteriores.
+ En este caso, si no se tiene cuidado en el manejo del índice 
+\family typewriter
+i
+\family default
+, involucrado en la condición, se puede dar lugar a un ciclo sin salida.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Repeticiones-infinitas"
+
+\end_inset
+
+Repeticiones 
+\emph on
+infinitas
+\end_layout
+
+\begin_layout Standard
+La construcción que habilita esta operación es la instrucción 
+\family typewriter
+repeat
+\family default
+.
+ Aunque en realidad no se quiere significar que las repeticiones sean infinitas
+ o interminables, como la instrucción no tiene condición de salida o interrupció
+n, el resultado que la instrucción produciría en sí misma sería una repetición
+ interminable; pero, el lenguaje provee facilidades para que desede el interior
+ del bloque de expresiones que se repiten, se obligue la interrupción del
+ ciclo, por ejemplo, mediante la instrucción 
+\family typewriter
+break
+\family default
+, que se detalla más adelante.
+ Así, para producir los mismos resultados que en los ejemplos anteriores,
+ se puede hacer así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos4, eval=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+i <- 1
+\end_layout
+
+\begin_layout Plain Layout
+
+repeat {
+\end_layout
+
+\begin_layout Plain Layout
+
+  print(letras[i])
+\end_layout
+
+\begin_layout Plain Layout
+
+  i <- i+1
+\end_layout
+
+\begin_layout Plain Layout
+
+  if (i > 6) break
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso, mediante un 
+\family typewriter
+if
+\family default
+ que prueba una condición de salida, se 
+\emph on
+dispara
+\emph default
+ una instrucción 
+\family typewriter
+break
+\family default
+ que interrumpe el ciclo.
+\end_layout
+
+\begin_layout Subsection
+Interrupciones del flujo normal de los ciclos
+\end_layout
+
+\begin_layout Standard
+El flujo normal de los ciclos se puede interrumpir básicamente por medio
+ de tres instrucciones diferentes: 
+\family typewriter
+break
+\family default
+, 
+\family typewriter
+next
+\family default
+ y 
+\family typewriter
+return
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En el último ejemplo de la sección anterior, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Repeticiones-infinitas"
+
+\end_inset
+
+, se ha utilizado la instrucción 
+\family typewriter
+break
+\family default
+ para obligar la salida de un ciclo infinito que se realiza mediante la
+ instrucción 
+\family typewriter
+repeat
+\family default
+.
+ No es éste, sin embargo, el único ciclo que puede interrumpir la instrucción
+ 
+\family typewriter
+break
+\family default
+, ya que ella se puede utilizar en el interior de cualquier ciclo para forzar
+ su interrupción.
+ Como un ejemplo, se presenta un ciclo en que simula lo que podría ser un
+ procedimiento iterativo para encontrar el valor de una variable, cuyo valor
+ converge hacia un cierto valor con cada nueva iteración.
+ Para no caer en ciclos verdaderamente infinitos, este tipo de procedimientos
+ limitan el número de iteraciones a un valor suficientemente grande, lo
+ que aquí se hace mediante una instrucción 
+\family typewriter
+for
+\family default
+ limitada a 1000 repeticiones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos5, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# se usara un generador de numeros aleatorios,
+\end_layout
+
+\begin_layout Plain Layout
+
+# la siguiente funcion asegura su repetibilidad:
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(140) # el argumento puede ser cualquier numero
+\end_layout
+
+\begin_layout Plain Layout
+
+aprox <- 0.003 # Valor determinante para la salida del ciclo
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Y_ini <- 2.7 # Supuesto valor inicial de Y
+\end_layout
+
+\begin_layout Plain Layout
+
+for (iter in 1:1000) { # aseguro no mas de 1000 iteraciones
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Procedimiento para calcular la siguiente Y, que 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # en este caso simularemos mediante generador aleatorio:
+\end_layout
+
+\begin_layout Plain Layout
+
+    Y <- Y_ini + 0.008*rnorm(1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # La condicion de salida:
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (abs(Y - Y_ini) <= aprox)
+\end_layout
+
+\begin_layout Plain Layout
+
+        break # Uso del break para salir del ciclo
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Preparamos para la siguiente iteracion
+\end_layout
+
+\begin_layout Plain Layout
+
+    Y_ini <- Y
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Veamos que ha resultado:
+\end_layout
+
+\begin_layout Plain Layout
+
+paste0("Y_ini: ", Y_ini, ", Y: ", Y, ", Num.iter: ", iter)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este ejemplo, el objetivo se ha alcanzado en 8 iteraciones.
+ Se ha utilizado la función 
+\family typewriter
+abs()
+\family default
+, que entrega el valor absoluto de su argumento, y se ha utilizado un generador
+ de números aleatorios con distribución normal, implementado mediante la
+ función 
+\family typewriter
+rnorm()
+\family default
+, que se inicializa mediante la función 
+\family typewriter
+set.seed()
+\family default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Tal como se ha llamado en el ejemplo, la función rnorm(), entregará valores
+ que tendrán un valor medio 0, un gran porcentaje de los cuáles (68%) estará
+ entre -1 y 1.
+ Para mayor información sobre estas funciones, introduzca 
+\begin_inset Quotes eld
+\end_inset
+
+?rnorm
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+?set.seed
+\begin_inset Quotes erd
+\end_inset
+
+, en la consoloa de su intérprete de R.
+ En el caso del ejemplo, la convergencia está simulada por el hecho de que
+ la media de los números aleatorios es precisamente 0; entonces el incremento
+ entre un valor y el siguiente tenderá a ser 0.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un caso parecido de salida o interrupción de un ciclo es la instrucción
+ 
+\family typewriter
+return
+\family default
+.
+ Esta instrucción está asociada con las funciones y su propósito es interrumpir
+ u obligar la salida de la función en la cuál se invoca, entregando, opcionalmen
+te, como resultado de la función un valor si se da como argumento del 
+\family typewriter
+return
+\family default
+.
+ De esta manera, la interrupción de un ciclo es realmente colateral, pero
+ igualmente efectiva, solamente que la salida de ciclo no es exactamente
+ 
+\emph on
+afuera
+\emph default
+ de él, sino 
+\emph on
+afuera
+\emph default
+ de la ejecución de la función en la que se ha invocado.
+ Como un ejemplo, se creará y ejecutará una función: la función generadora
+ de los números de fibbonacci, que, tenidos o dados los dos primeros números
+ de fibbonacci, F
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$_0$
+\end_layout
+
+\end_inset
+
+ y F
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$_1$
+\end_layout
+
+\end_inset
+
+, definidos ambos como 1, calcula cada uno de los siguientes como la suma
+ de los dos anteriores.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos6, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primero se crea la funcion:
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci <- function(n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n %in% c(0,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+        return (1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    F0 <- 1; F1 <- 1; i <- 2
+\end_layout
+
+\begin_layout Plain Layout
+
+    repeat {
+\end_layout
+
+\begin_layout Plain Layout
+
+        s <- F0 + F1 # Suma de los fib anteriores
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (i == n) # Ya es el que se busca
+\end_layout
+
+\begin_layout Plain Layout
+
+            return (s) # Sale hasta afuera de la funcion
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        # recorremos los ultimos dos proximos numeros
+\end_layout
+
+\begin_layout Plain Layout
+
+        F0 <- F1
+\end_layout
+
+\begin_layout Plain Layout
+
+        F1 <- s
+\end_layout
+
+\begin_layout Plain Layout
+
+        i <- i+1 # incrementamos el indice
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# El octavo numero de fibbonacci se genera
+\end_layout
+
+\begin_layout Plain Layout
+
+# llamando a la funcion asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci(8)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta función utiliza el operador 
+\family typewriter
+%in%
+\family default
+, que identifica si un cierto elemento está dentro de un conjunto representado
+ por un vector.
+ La instrucción 
+\family typewriter
+return
+\family default
+, es una función primitiva que termina la ejecución de una función y entrega
+ como resultado de la función el argumento que se le pase.
+ En el caso del ejemplo, se ha usado dos veces: la primera, simplemente
+ detecta si el argumento es 
+\family typewriter
+0
+\family default
+ o 
+\family typewriter
+1
+\family default
+, en cuyo caso termina la función y entrega 
+\family typewriter
+1
+\family default
+ como resultado; la segunda vez, que es la que nos interesa, se usa dentro
+ de la instrucción 
+\family typewriter
+repeat
+\family default
+ para determinar si ya se ha llegado al número fibbonacci correspondiete,
+ en cuyo caso termina allí la función y entrega como resultado el número
+ correspondiente.
+\end_layout
+
+\begin_layout Standard
+La instrucción 
+\family typewriter
+next
+\family default
+ interrumpe el flujo normal de ejecución de un programa de una manera diferente:
+ en vez de salir de un ciclo, solamente impide la ejecución de las instrucciones
+ 
+\emph on
+siguientes
+\emph default
+ y regresa al principio del ciclo para ejecutar la siguiente iteración.
+ El siguiente ejemplo ilustra esta operación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciclos7>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:7) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (3 <= i && i <= 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+        next
+\end_layout
+
+\begin_layout Plain Layout
+
+    print (i)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hasta aquí, se han visto diferentes estructuras de control que, al igual
+ que otros lenguajes de programación, permiten definir el flujo de ejecución
+ de las instrucciones de algún programa.
+ A través de estas estructuras de control se pueden manipular los elementos
+ de las clases de datos compuestas.
+ La riqueza de este lenguaje, sin embargo, está en el manejo de cada una
+ de las distintas estructuras de información, implementadas a través de
+ las clases de datos estructuradas, como vectores, factores, 
+\emph on
+data frames
+\emph default
+, etc., como un todo a través de funciones que las contemplan de esa manera.
+ Este es el tema que se desarrollará en las siguientes secciones.
+\end_layout
+
+\begin_layout Section
+Funciones de clasificación, transformación y agregación de datos
+\end_layout
+
+\begin_layout Standard
+En R hay diversas funciones que permiten atravesar las estructuras de informació
+n compuestas, ejecutando operaciones sobre los elementos o componentes de
+ éstas.
+ 
+\end_layout
+
+\begin_layout Subsection
+Motivación
+\end_layout
+
+\begin_layout Standard
+Para comprender mejor las funciones de transformación, clasificación y agregació
+n de datos, se proponen aquí unos ejemplos sencillos: el cálculo del módulo
+ o magnitud de un vector de números reales y el cálculo del promedio, o
+ media, de un conjunto de datos provistos como un vector numérico.
+ 
+\end_layout
+
+\begin_layout Standard
+En el primer caso, recuérdese que dado un vector 
+\emph on
+n
+\emph default
+-dimensional:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\mathbf{v}=\left\langle v_{1},v_{2},\ldots,v_{n}\right\rangle $
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\noindent
+su módulo o magnitud está dado por:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\left|\mathbf{v}\right|=\sqrt{{\displaystyle \sum_{i=1}^{n}}v_{i}^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dadas las estructuras de control aprendidas previamente, y sabiendo que
+ el operador 
+\family typewriter
+^
+\family default
+, sirve para elevar a una potencia dada y la función 
+\family typewriter
+sqrt()
+\family default
+, extrae la raíz cuadrada, la tentación inmediata es resolver esta operación
+ como se hace en la mayoría de los lenguajes 
+\emph on
+procedurales
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr0>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Sea el vector:
+\end_layout
+
+\begin_layout Plain Layout
+
+vv <- c(-2, 3, 4)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se creara una funcion que haga el trabajo
+\end_layout
+
+\begin_layout Plain Layout
+
+modulo <- function(v) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    s <- 0 # Contendra la suma de cuadrados
+\end_layout
+
+\begin_layout Plain Layout
+
+    for (elt_v in v) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        s <- s + elt_v^2 # Incrementamos la suma
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    # El resultado es la raiz de la suma:
+\end_layout
+
+\begin_layout Plain Layout
+
+    sqrt(s)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# y el modulo que queremos es:
+\end_layout
+
+\begin_layout Plain Layout
+
+modulo(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Operaciones-sencillas-con"
+
+\end_inset
+
+, sin embargo, se aprendió que las operaciones aritméticas se pueden distribuir
+ a lo largo de los elementos de un vector, y esta es una característica
+ del lenguaje de la que se puede sacar provecho en este momento; recurriendo
+ adicionalmente a la función de agregación 
+\family typewriter
+sum()
+\family default
+, que toma como argumento un vector y suma uno a uno sus elementos y entrega
+ esa suma como resultado.
+ Entonces en R, la función 
+\family typewriter
+modulo()
+\family default
+, se puede programar así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr0a, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+modulo0 <- function(v) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    sqrt(sum(v^2)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Puede quedar en una linea, asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+modulo0 <- function(v) sqrt(sum(v^2))
+\end_layout
+
+\begin_layout Plain Layout
+
+# y la utilizamos igual:
+\end_layout
+
+\begin_layout Plain Layout
+
+modulo0(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese cómo, de manera admirable, esta forma de programación se apega mucho
+ más a la fórmula matemática mostrada previamente.
+\end_layout
+
+\begin_layout Standard
+El problema de la media de los valores en un vector numérico es incluso
+ más sencillo.
+ Para el mismo vector, 
+\series bold
+v
+\series default
+, definido con anterioridad, la siguiente fórmula sirve para obtener la
+ media:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\bar{v}={\displaystyle \frac{1}{n}\sum_{i=1}^{n}}v_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En un lenguaje de programación usual, esto se haría más o menos así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primeramente construyamos un vector con elementos numericos arbitrarios,
+\end_layout
+
+\begin_layout Plain Layout
+
+# con un generador de numeros aleatorios (distribucion uniforme), entre
+\end_layout
+
+\begin_layout Plain Layout
+
+# 10.5 y 40.8, generamos 32 numeros, asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+nums <- runif(32, 10.5, 40.8)
+\end_layout
+
+\begin_layout Plain Layout
+
+suma <- 0 # Iniciamos la suma como cero
+\end_layout
+
+\begin_layout Plain Layout
+
+for (elt in nums) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    suma <- suma + elt # se agrega cada elemento
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se calcula e imprime el promedio
+\end_layout
+
+\begin_layout Plain Layout
+
+( promedio <- suma/length(nums) )
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta misma operación se puede hacer con la función de agregación 
+\family typewriter
+sum()
+\family default
+, cuyo funcionamiento se explicó anteriormente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( promedio <- sum(nums)/length(nums) )
+\end_layout
+
+\begin_layout Plain Layout
+
+# Podemos convertir estas operaciones en una funcion, asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+haz_promedio <- function(v) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    sum(v)/length(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# o en una sola linea:
+\end_layout
+
+\begin_layout Plain Layout
+
+haz_promedio <- function(v) sum(v)/length(v)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y llamamos a la funcion:
+\end_layout
+
+\begin_layout Plain Layout
+
+haz_promedio(nums)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desde luego que un lenguaje como R, cuenta ya con una función que permite
+ hacer este cálculo en un solo 
+\emph on
+disparo
+\emph default
+: la función 
+\family typewriter
+mean()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mean(nums)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función 
+\family typewriter
+sum()
+\family default
+ es un ejemplo de funciones que toman un objeto estructurado de R y operan
+ sobre los elementos de éste.
+ Otro ejemplo es la función 
+\family typewriter
+prod()
+\family default
+, cuya operación es similar a la anterior pero usando la multiplicación
+ en vez de la suma.
+ La pregunta inmediata que surge aquí es si existe en el lenguaje alguna
+ función que permita construir funciones de este tipo pero para cualquier
+ operador o función, y la respuesta es que sí: la función 
+\family typewriter
+Reduce()
+\family default
+ tiene precisamente este propósito.
+ En seguida se muestra como se reprogramarían las funciones 
+\family typewriter
+sum()
+\family default
+ y 
+\family typewriter
+prod()
+\family default
+, por medio de 
+\family typewriter
+Reduce()
+\family default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+En su forma más simple, la función Reduce(), toma una función u operación
+ binaria y un objeto compuesto, y la aplica consecutivamente entre el resultado
+ anterior y el siguiente elemento, tomando inicialmente como primer resultado
+ el primer elemento del objeto.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr3a>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+miSum <- function(v) Reduce('+', v)
+\end_layout
+
+\begin_layout Plain Layout
+
+miProd <- function(v) Reduce('*', v)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para comparar:
+\end_layout
+
+\begin_layout Plain Layout
+
+prod(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+miProd(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La aplicación de la función Reduce(), no está limitada a operadores, de
+ hecho, la operación puede estar definida por cualquier función de dos argumento
+s, y, opcionalmente, puede además entregar el arreglo de resultados parciales,
+ cada vez que se aplica la operación.
+ Veamos el siguiente ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr3b>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mif <- function(a,b) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (a*b/(a+b))
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+#
+\end_layout
+
+\begin_layout Plain Layout
+
+miOp <- function(v) Reduce(mif, v) # Note: mif va sin comillas
+\end_layout
+
+\begin_layout Plain Layout
+
+# Apliquemos:
+\end_layout
+
+\begin_layout Plain Layout
+
+miOp(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Otra version, con resultados parciales y en la
+\end_layout
+
+\begin_layout Plain Layout
+
+# que incluso la funcion se da "en linea":
+\end_layout
+
+\begin_layout Plain Layout
+
+miOpV2 <- function(v) Reduce(function(a,b) a*b/(a+b), v, accumulate=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+miOpV2(vv)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que con el argumento 
+\family typewriter
+accumulate=TRUE
+\family default
+, la función entrega lo que la operación da cada vez que se añade un elemento
+ del objeto a la operación.
+\end_layout
+
+\begin_layout Standard
+Esta misma idea de operar con los elementos de los vectores, puede ser llevada
+ más allá, a operar con los elementos de datos más estructurados como pueden
+ ser las listas y los 
+\emph on
+data frames
+\emph default
+.
+ Para ello, el lenguaje cuenta con un conjunto de funciones de transformación,
+ clasificación y agregación de datos que se irán revisando en los siguientes
+ párrafos con ejemplos ilustrativos de su uso.
+\end_layout
+
+\begin_layout Subsection
+Las funciones 
+\family typewriter
+sapply()
+\family default
+ y 
+\family typewriter
+lapply()
+\end_layout
+
+\begin_layout Standard
+Para empezar, supóngase que se tiene un 
+\emph on
+data frame
+\emph default
+, exclusivamente de columnas numéricas y se quiere conocer el promedio de
+ cada una de estas columnas.
+ En este caso, la función 
+\family typewriter
+sapply()
+\family default
+ permite aplicar una operación o una función a cada uno de los elementos
+ la lista o data frame, dado como argumento.
+ Así, la operación deseada se obtiene de la siguiente manera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(misDatos <- data.frame(uno=runif(5,10.5,40.3), dos=runif(5), tres=runif(5,155,890)
+))
+\end_layout
+
+\begin_layout Plain Layout
+
+sapply(misDatos, haz_promedio, simplify=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+# aqui se podria haber usado la funcion 'mean' en vez de 'haz_promedio'
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El argumento opcional 
+\family typewriter
+simplify
+\family default
+, especificado aquí como 
+\family typewriter
+TRUE
+\family default
+, obliga a que el resultado, si se puede, sea entregado como un vector,
+ con un elemento correspondiente a cada una de las columnas en este caso,
+ de otra manera, el resultado es entregado como una lista.
+ El resultado obtenido con la función lapply es más o menos similar, pero
+ el resultado se entrega siempre en una lista:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(misDatos, mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+# notese que aqui se uso la funcion 'mean' en vez de 'haz_promedio'
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El uso de las funciones 
+\family typewriter
+sapply()
+\family default
+ y 
+\family typewriter
+lapply()
+\family default
+ mostrado arriba, es equivalente a la siguiente versión más 
+\emph on
+procedural
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fagr6>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+r <- numeric() # vector numerico vacio para resultados
+\end_layout
+
+\begin_layout Plain Layout
+
+for (elt in misDatos) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    r <- c(r, haz_promedio(elt)) # note el uso de c()
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+names(r) <- names(misDatos) # Esto solo es "azucar" estetica
+\end_layout
+
+\begin_layout Plain Layout
+
+r
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operaciones marginales en matrices y la función 
+\family typewriter
+apply()
+\end_layout
+
+\begin_layout Standard
+Como objetos numéricos, las matrices resultan útiles para hacer diversidad
+ de cálculos.
+ Una de sus principales características es que tanto sus renglones como
+ sus columnas pueden ser tratados como elementos individuales.
+ De esta forma, hay operaciones que se efectúan para todas sus columnas
+ o para todos sus renglones; a estas se les denominará 
+\emph on
+operaciones marginales
+\emph default
+.
+ El lenguaje tiene algunas de estas operaciones implementadas directamente,
+ entre ellas están las funciones: 
+\family typewriter
+rowSums()
+\family default
+, 
+\family typewriter
+colSums()
+\family default
+, 
+\family typewriter
+rowMeans()
+\family default
+ y 
+\family typewriter
+colMeans()
+\family default
+.
+ Para ejemplificar, se calcularán las sumas de las columnas de una matriz
+ y los promedios de sus renglones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<margin1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se hace una matriz arbitraria de 3 renglones y 5 columnas,
+\end_layout
+
+\begin_layout Plain Layout
+
+# con rbind, que la construye por renglones:
+\end_layout
+
+\begin_layout Plain Layout
+
+(mm <- rbind(5:9, runif(5, 10, 20), c(2, -2, 1, 6, -8)) )
+\end_layout
+
+\begin_layout Plain Layout
+
+colSums(mm)
+\end_layout
+
+\begin_layout Plain Layout
+
+rowMeans(mm)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estas operaciones, que se tienen implementadas directamente, evitan mucha
+ programación que se tendría que hacer con ciclos y operaciones individuales
+ con los elementos de la matriz.
+ 
+\end_layout
+
+\begin_layout Standard
+El lenguaje provee además la posibilidad de construir el mismo tipo de operación
+ marginal para el caso general de cualquier función, mediante la función
+ 
+\family typewriter
+apply()
+\family default
+.
+ Por ejemplo, la función 
+\family typewriter
+sd()
+\family default
+, calcula la desviación estándar para un conjunto de números dados como
+ un vector numérico.
+ Si se quisiera aplicar esta función a todos los renglones o a todas las
+ columnas de la matriz, y considerando que la matriz tiene dos margenes:
+ el de los renglones ‒primer índice: número de margen 1‒, y el de las columnas
+ ‒segundo índice: número de margen 2‒, el asunto se puede resolver así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<margin2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# para los renglones
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(mm, 1, sd) # el 1 es el margen: renglones
+\end_layout
+
+\begin_layout Plain Layout
+
+# para las columnas
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(mm, 2, sd) # el 2 es el margen: columnas
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la función 
+\family typewriter
+apply()
+\family default
+, no es necesario que la función a aplicar esté predefinida, ni que el resultado
+ de esa función sea un único número.
+ Para clarificar esto, se propone el siguiente ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<margin3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# una funcion que toma un vector arbitrario y multiplica
+\end_layout
+
+\begin_layout Plain Layout
+
+# cada elemento, por su posicion en el vector:
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- function(v) v*(1:length(v))
+\end_layout
+
+\begin_layout Plain Layout
+
+# probemos la funcion:
+\end_layout
+
+\begin_layout Plain Layout
+
+ff(c(2,4,6,8))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora la aplicaremos a todas las columnas de la matriz
+\end_layout
+
+\begin_layout Plain Layout
+
+apply(mm, 2, ff)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado ha sido una matriz, pero cada una de las columnas de esta nueva
+ matriz es el resultado de aplicar la funcion 
+\family typewriter
+ff()
+\family default
+, recién creada, a cada una de las columnas de la matriz original.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Clasificaciones-y-uso"
+
+\end_inset
+
+Clasificaciones y uso de la función 
+\family typewriter
+split() 
+\end_layout
+
+\begin_layout Standard
+Generalmente, aunque los datos con los que se quiere trabajar están dados
+ en tablas, no están organizados de la manera que se pretende trabajar sobre
+ ellos.
+ La función 
+\family typewriter
+split()
+\family default
+, permite clasificar los datos, tipicamente dados como un vector, o como
+ un 
+\emph on
+data frame
+\emph default
+.
+ Para explicar el uso de esta función se recurrirá a un ejemplo.
+ Supóngase que los datos, que se muestran en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Archivo-precipitaciones"
+
+\end_inset
+
+, se tienen en un archivo separado por comas: Precipitaciones.csv.
+ Este archivo contiene los datos de precipitación para distintas estaciones,
+ para distintos años y para distintos meses.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename PrecipitacionesCSV.jpg
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Archivo-precipitaciones"
+
+\end_inset
+
+Archivo que contiene datos de precipitación en distintas estaciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La lectura de un archivo de esta naturaleza hacia un 
+\emph on
+data frame
+\emph default
+, se hace por medio de la función 
+\family typewriter
+read.csv()
+\family default
+, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<clasif1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tt <- read.csv("Precipitaciones.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+tt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Supóngase ahora que se desea tener la misma información pero clasificada
+ por años.
+ Con este propósito se puede emplear la función 
+\family typewriter
+split()
+\family default
+, que recibe básicamente dos argumentos principales: el objeto a ser clasificado
+ ‒típicamente, un 
+\emph on
+data frame
+\emph default
+ o un vector‒, y una serie de datos que servirán para la clasificación ‒típicame
+nte, un factor o un vector numérico o de cadenas de caracteres‒.
+ Este último argumento debe tener la misma longitud que una columna del
+ 
+\emph on
+data frame
+\emph default
+, dado como primer argumento, o que el vector dado como argumento.
+ según el caso, y no es necesario que este argumento sea parte del objeto
+ dado como primer argumento.
+ Si, como primer argumento de la función pasamos una porción de la tabla
+ contenida en el 
+\emph on
+data frame
+\emph default
+ justamente leído ‒sólo las columnas 3 a la 5 del 
+\emph on
+data frame
+\emph default
+‒, y como segundo argumento pasamos la columna correspondiente a los años,
+ la función operaría como se muestra en la Fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Operación-split"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename FuncionSplit.jpg
+	lyxscale 70
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Operación-split"
+
+\end_inset
+
+Operación de la función 
+\family typewriter
+split()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de la función, en el caso del ejemplo, es una lista de tablas,
+ cada una correspondiente a cada uno de los años registrados en la columna
+ 
+\family typewriter
+tt$Anio
+\family default
+, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<clasif2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mls <- split(tt[,3:5], tt$Anio) # Notese: tt[, 3:5] == tt[3:5]
+\end_layout
+
+\begin_layout Plain Layout
+
+mls
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A cada una de las tablas correspondientes a cada año se tiene acceso, de
+ la manera habitual para listas, por ejemplo, la tabla correspondiente al
+ año 1980 es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<clasif3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mls$'1980'
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solo para mostrar la potencia del lenguaje con estas operaciones, suóngase
+ que se quiere aplicar una operación a cada una de las tablas de la lista
+ resultante, el promedio por columnas o la suma por renglones, por ejemplo.
+ Dado que se tata de una lista, podemos utilizar cualquiera de las funciones
+ 
+\family typewriter
+lapply()
+\family default
+ o 
+\family typewriter
+sapply()
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<clasif4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(mls, colMeans)
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(mls, rowSums)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obsérvese que muchos de los resultados anteriores son 
+\family typewriter
+NA
+\family default
+, esto es, 
+\emph on
+no disponibles
+\emph default
+, debido a que las funciones 
+\family typewriter
+sum()
+\family default
+ y 
+\family typewriter
+mean()
+\family default
+, y por consiguiente las funciones derivadas: 
+\family typewriter
+colMeans()
+\family default
+ y 
+\family typewriter
+rowSums()
+\family default
+, entregan ese resultado cuando alguno de los elementos del vector dado
+ como argumento es 
+\family typewriter
+NA
+\family default
+.
+ Esto se puede resolver, indicándole a cualquiera de esas funciones hacer
+ caso omiso de los valores 
+\family typewriter
+NA
+\family default
+, mediante el parámetro 
+\family typewriter
+na.rm=TRUE
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<clasif5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sapply(mls, colMeans, na.rm=T) # recuerde T es TRUE
+\end_layout
+
+\begin_layout Plain Layout
+
+class(sapply(mls, colMeans, na.rm=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una nota final aquí es que en este último ejemplo se ha utilizado la función
+ 
+\family typewriter
+sapply()
+\family default
+, en vez de la función 
+\family typewriter
+lapply()
+\family default
+.
+ Como se puede ver, en este caso el resultado ha sido simplificado lo más
+ posible, entregando una matriz en vez de una lista con cada uno de los
+ resultados.
+ Obsérvese también que para el mes de marzo y el año 1978, la tabla ha arrojado
+ un resultado 
+\family typewriter
+NaN
+\family default
+ (
+\emph on
+not a number
+\emph default
+), aunque se ha instruído hacer caso omiso de los valores 
+\family typewriter
+NA
+\family default
+ en los cálculos involucrados.
+ Esto se debe a que para ese año sólo ha reportado valores una estación,
+ 'E1', pero para el mes de marzo no se ha reportado ningún valor, lo que
+ se indica con 
+\family typewriter
+NA
+\family default
+, en la celda correspondiente de la tabla; en esa situación, no hay forma
+ de hacer el cálculo de la media, pues se requeriría contar al menos con
+ un valor.
+\end_layout
+
+\begin_layout Subsection
+Clasificación y operación: las funciones 
+\family typewriter
+by()
+\family default
+ , 
+\family typewriter
+aggregate()
+\family default
+ y 
+\family typewriter
+tapply()
+\end_layout
+
+\begin_layout Standard
+Los últimos ejemplos de la sección anterior, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Clasificaciones-y-uso"
+
+\end_inset
+
+, muestran una secuencia de acciones separadas, a saber: primero una clasificaci
+ón de los datos, para después aplicar una operación sobre cada una de las
+ partes encontradas mediante la clasificación.
+ De este modo, se aplicó primeramente la función 
+\family typewriter
+split()
+\family default
+, para clasificar la información, y después, sobre el resultado de esta
+ clasificación, se aplicó cualquiera de las funciónes 
+\family typewriter
+lapply()
+\family default
+ o 
+\family typewriter
+sapply()
+\family default
+, para distribuir una operación, 
+\family typewriter
+colMeans()
+\family default
+, sobre cada una de las partes de la clasificación resultante.
+ Mediante la función 
+\family typewriter
+by()
+\family default
+, el lenguaje provee una manera de hacer estas dos acciones simultáneamente.
+ La Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Operación-By"
+
+\end_inset
+
+ muestra esquemáticamente la manera en la que opera esta función.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename By.jpg
+	lyxscale 70
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Operación-By"
+
+\end_inset
+
+Operación de la función 
+\family typewriter
+by()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función 
+\family typewriter
+by()
+\family default
+, básicamente tiene tres argumentos principales: el objeto al cual se aplica
+ ‒típicamente un 
+\emph on
+data frame
+\emph default
+‒, el factor o vector usado para clasificar y la función que se aplica a
+ cada uno de los elementos resultantes de la clasificación, y puede además
+ tener argumentos adicionales, tales como 
+\family typewriter
+na.rm
+\family default
+, que serán pasados a la función que se aplicará.
+ En seguida se muestra el resultado de aplicarla tal como se ha mostrado
+ en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Operación-By"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ClasifOp1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(rr <- by(tt[,3:5], tt$Anio, colMeans, na.rm=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+class(rr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese la manera en la que la función ha presentado su salida: se muestra
+ un resultado para cada uno de las clasificaciones encontradas; de hecho,
+ la clase de objeto que arroja está diseñada ex profeso para el resultado
+ de la función.
+ La pregunta aquí es: ¿cómo se utiliza o se tiene acceso a la información
+ de ese resultado? La respuesta es que se utilizan como índices los elementos
+ que dieron lugar a la clasificación, en este caso los años, como si se
+ tratara de una lista.
+ Por ejemplo, para tener acceso a la información correspondiente al año
+ 1981, se puede hacer de las siguientes maneras:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ClasifOp2>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primera forma:
+\end_layout
+
+\begin_layout Plain Layout
+
+rr$"1981"
+\end_layout
+
+\begin_layout Plain Layout
+
+#Segunda forma:
+\end_layout
+
+\begin_layout Plain Layout
+
+rr[["1981"]]
+\end_layout
+
+\begin_layout Plain Layout
+
+#Tercera forma:
+\end_layout
+
+\begin_layout Plain Layout
+
+rr["1981"]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para ver el significado de cada una de estas formas de acceso, se recomienda
+ leer el texto correspondiente a listas en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:Acceso-elts-lista"
+
+\end_inset
+
+ y el uso del operador 
+\family typewriter
+[]
+\family default
+ en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:El-operador-[]"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una forma diferente de realizar la misma tarea del ejemplo anterior, es
+ mediante la función 
+\family typewriter
+aggregate()
+\family default
+, como se muestra a continuación.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ClasifOp3>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(rr <- aggregate(tt[,3:5], list(anio=tt$Anio), mean, na.rm=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+class(rr)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta función, toma en este caso varios argumentos.
+ En la forma mostrada, el primer argumento es un 
+\emph on
+data frame
+\emph default
+, o una porción de éste, sobre cuyas columnas se aplicará la función que
+ se indica en el tercer argumento.
+ En el caso del ejemplo, la entrada es la porción del 
+\emph on
+data frame
+\emph default
+ correspondiente a las columnas 3 a la 5, o sea las columnas de datos de
+ precipitación de los meses.
+ El segundo argumento es una lista, cada uno de cuyos elementos es un objeto,
+ que pueda ser interpretado como factor y que tiene tantos elementos como
+ renglones tiene el 
+\emph on
+data frame
+\emph default
+ indicado antes; es decir, cada uno de estos objetos es 
+\emph on
+paralelo
+\emph default
+ al 
+\emph on
+data frame
+\emph default
+ del primer argumento.
+ Los elementos en este argumento sirven para clasificar los renglones del
+ 
+\emph on
+data frame
+\emph default
+.
+ Imaginemos que esta lista fuera de 
+\emph on
+n
+\emph default
+-arreglos paralelos al frame del primer argumento.
+ Cada índice en los arreglos indica una 
+\emph on
+n
+\emph default
+-tupla o renglón, y cada una de estas determinaría la categoría o clase
+ de renglón en el 
+\emph on
+data frame
+\emph default
+.
+ En el caso del ejemplo la lista es de un sólo elemento que es arreglo o
+ vector con los años.
+ Aquí, por ejemplo, el año 1979 ocurre tres veces, que son los elementos
+ 2, 5 y 8; lo que indica que los renglones 2, 5 y 8 son, por así decir,
+ la “clase 1979”.
+ El tercer argumento es la función que se aplicará, en este caso se trata
+ de la función 
+\family typewriter
+mean()
+\family default
+.
+ El cuarto argumento indica que hacer con los valores 
+\family typewriter
+NA
+\family default
+; en este caso se indica que sean removidos.
+ La función se aplica sobre los elementos de una misma clase, y respetando
+ las columnas.
+ Así, que para el ejemplo mostrado, el promedio que se calculará para el
+ año 1979 en el mes de enero, considera sólo dos elementos, a saber: 21.5
+ y 10.8, dando como resultado 16.15.
+\end_layout
+
+\begin_layout Standard
+Nótese que, a diferencia de la función 
+\family typewriter
+by()
+\family default
+, para la función 
+\family typewriter
+aggregate()
+\family default
+ se ha pasado como función de operación sobre el primer argumento la función
+ 
+\family typewriter
+mean()
+\family default
+ en vez de la función 
+\family typewriter
+rowMeans()
+\family default
+.
+ Esto se debe a que 
+\family typewriter
+by()
+\family default
+ actúa como si operara con la salida de una clasificación hecha con 
+\family typewriter
+split()
+\family default
+, que es una lista con cada resultado de la clasificación, mientras que
+ 
+\family typewriter
+aggregate()
+\family default
+ opera directamente sobre las columnas del 
+\emph on
+data frame
+\emph default
+.
+ También, como se puede ver, el resultado de 
+\family typewriter
+aggregate()
+\family default
+, convenientemente es una tabla de datos vertida en un 
+\emph on
+data frame
+\emph default
+, que es fácilmente manipulable como se ha mostrado antes.
+\end_layout
+
+\begin_layout Standard
+Finalmente, en este tipo de funciones está la función 
+\family typewriter
+tapply()
+\family default
+, que efectua el mismo tipo de operaciones de clasificación y operación,
+ pero actua sobre un vector y no sobre un 
+\emph on
+data frame
+\emph default
+.
+ Para ejemplificar el uso de esta función, se leerá un archivo que contiene
+ la misma información de precipitaciones que se ha manejado en los ejemplos
+ anteriores, pero organizada, o más bien, se debería decir, 
+\emph on
+desorganizada
+\emph default
+ de una manera diferente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ClasifOp4>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+dd <- read.csv("Precipitaciones2.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+dd
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada una de las columnas del 
+\emph on
+data frame
+\emph default
+ leído, es o bien un vector numérico, o un factor.
+ Debido a la organización de la tabla anterior, para obtener mismo el resultado
+ que las funciones usadas anteriormente, 
+\family typewriter
+by()
+\family default
+ y 
+\family typewriter
+aggregate()
+\family default
+, la función 
+\family typewriter
+tapply()
+\family default
+ tiene que sacar provecho de que el segundo argumento, que sirve para clasificar
+ los datos, puede ser una lista de uno o mas objetos, interpretables como
+ factores, y que en el caso del ejemplo estará constituída por las columnas
+ correspondiente a los años y a los meses.
+ Así, el resultado deseado se obtiene como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ClasifOp5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+(rr <- tapply(dd$Prec,list(dd$Anio,dd$Mes),mean, na.rm=T))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La posibilidad de la función 
+\family typewriter
+tapply()
+\family default
+ de usar como clasificador una lista de objetos interpretables como factores,
+ también está disponible para las otras funciones que utilizan este esquema
+ de clasificación: 
+\family typewriter
+split()
+\family default
+, 
+\family typewriter
+by()
+\family default
+ y 
+\family typewriter
+aggregate()
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Como se puede ver por lo expuesto en este capítulo, mucho del trabajo que
+ otros lenguajes resuelven con ciclos, decisiones y secuencias de instrucciones,
+ en R, alternativamente, se puede hacer por medio de este elegante conjunto
+ de funciones de clasificación, transformación y agregación de datos, lo
+ que, junto con las operaciones para manipular porciones de los datos estructura
+dos, revisadas en el capítulo anterior, hacen del lenguaje una poderosa
+ herramienta para el procesamiento de información.
+\end_layout
+
+\begin_layout Standard
+En relación con las funciones disponibles en el lenguaje, tales como las
+ trigonométricas, logarítmicas, exponenciales, de distribución de probabilidades
+, etc., debido a la integración de infinidad de paquetes sobre muy diversos
+ tópicos en el lenguaje, se invita al lector a considerar las fuentes de
+ información contenidas en el intérprete del lenguaje, mediante la instrucción
+ 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+??functions
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+, que mostrará todo lo que se encuentra bajo ese rubro en el módulo de ayuda
+ del intérprete, y en Internet, la dirección: 
+\family typewriter
+
+\begin_inset Newline newline
+\end_inset
+
+http://cran.r-project.org/web/packages/
+\family default
+, donde se encuentra información de todos los paquetes que se pueden instalar
+ en el intérprete de R.
+\end_layout
+
+\end_body
+\end_document

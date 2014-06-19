@@ -1,0 +1,715 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introducción
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<widthcap1, include=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+options(width=60)
+\end_layout
+
+\begin_layout Plain Layout
+
+options('width')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+El arte de programar en R
+\end_layout
+
+\begin_layout Standard
+Un artista, típicamente un pintor, tiene en sus manos un conjunto de recursos
+ artísticos: materiales y herramentales, que al combinarlos de acuerdo con
+ su sensibilidad y habilidades, transforma en una obra de arte, estéticamente
+ atractiva o repulsiva a sus destinatarios.
+ Aunque escencialmente tecnológica, en el caso de la programación, el programado
+r o programadora juega ese mismo papel: los distintos ambientes de programación
+ ponen delante de él/ella un conjunto de recursos que de acuerdo con sus
+ conocimientos, habilidades y sensibilidades, combinará para producir obras:
+ programas y sistemas, que, en la superficie, serán funcionales o no funcionales
+; pero que, a un nivel más profundo, podrían también ser juzgadas como estéticam
+ente atractivas o repulsivas.
+ Uno de los factores que más decisivamente influyen en el 
+\emph on
+cómo
+\emph default
+ un creador combina los elementos a su mano, es el gusto y la pasión que
+ imprime en su tarea.
+ Por consiguiente, si de la lectura de este texto se logra encender en ti,
+ querid@ lector@, una pasión que te lleve a producir verdaderas obras de
+ arte, los autores estaremos más que satisfechos por haber cumplido el propósito
+ de esta obra.
+\end_layout
+
+\begin_layout Section
+¿Que es R?
+\end_layout
+
+\begin_layout Standard
+Si este es tu primer acercamiento a R, es muy probable que te cuestiones
+ sobre la ventaja y la utilidad de R sobre otras paqueterías de estadística;
+ como veremos adelante R es más que eso.
+ La intención de este primer capítulo, es responder algunas dudas y animarte
+ a que explores este 
+\emph on
+software
+\emph default
+ poderoso, que puede ser aplicado ampliamente en el procesamiento de datos
+ en ciencias.
+ 
+\end_layout
+
+\begin_layout Standard
+Empezaremos diciendo que R es un lenguaje de programación interpretado,
+ de distribución libre, bajo Licencia GNU, y se mantiene en un ambiente
+ para el cómputo estadístico y grafico.
+ Este 
+\emph on
+software
+\emph default
+ corre en distintas plataformas Linux, Windows, MacOS, e incluso en PlayStation
+ 3.
+ El término ambiente pretende caracterizarlo como un sistema totalmente
+ planificado y coherente, en lugar de una acumulación gradual de herramientas
+ muy específicas y poco flexibles, como suele ser con otro 
+\emph on
+software
+\emph default
+ de análisis de datos.
+ El hecho que R sea un lenguaje y un sistema, es porque forma parte de la
+ filosofía de creación
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Desde la codificación del lenguaje S, lenguaje progenitor de R, como se
+ verá en la sección siguiente.
+\end_layout
+
+\end_inset
+
+, como lo explica John Chambers, cito: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+Buscamos que los usuarios puedan iniciar en un entorno interactivo, en el
+ que no se vean, concientemente, a ellos mismos como programadores.
+ Conforme sus necesidades sean más claras y su complejidad se incremente,
+ deberían gradualmente poder profundizar en la programación, es cuando los
+ aspectos del lenguaje y el sistema se vuelven más importantes
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Por esta razón, en lugar de pensar de R como un sistema estadístico, es
+ preferible verlo como un ambiente en el que se aplican técnicas estadísticas.
+ Por ejemplo, en este libro nos inclinaremos hacia el lado de la programación
+ (lenguaje) más que tocar los aspectos estadísticos.
+ Esto con la finalidad de ampliar la gamma de aplicaciones en el tratamiento
+ de datos.
+\end_layout
+
+\begin_layout Section
+Historia de R y S
+\end_layout
+
+\begin_layout Standard
+R fue creado en 1992 en Nueva Zelanda por Ross Ihaka y Robert Gentleman.
+ La intención inicial con R, era hacer un lenguaje didáctico, para ser utilizado
+ en el curso de Introducción a la Estadística de la Universidad de Nueva
+ Zelanda.
+ Para ello decidieron adoptar la sintáxis del lenguaje S desarrollado por
+ Bell Laboratories.
+ Como consecuencia, la sintáxis es similar al lenguaje S, pero la semántica
+ que aparentemente es parecida a la de S, en realidad es sensiblemente diferente
+, sobre todo en los detalles un poco más profundos de la programación.
+ 
+\end_layout
+
+\begin_layout Standard
+A modo de broma Ross y Robert, comienzan a llamar 
+\begin_inset Quotes eld
+\end_inset
+
+R
+\begin_inset Quotes erd
+\end_inset
+
+ al lenguaje que implementaron, por las iniciales de sus nombres, y desde
+ entonces así se le conoce en la muy extendida comunidad amante de dicho
+ lenguaje.
+ Debido a que R es una evolución de S, a continuación daremos una breve
+ reseña histórica de este lenguaje, para entender los fundamentos y alcances
+ de R.
+\end_layout
+
+\begin_layout Standard
+S es un lenguaje que fue desarrollado por John Chambers y colaboradores
+ en Laboratorios Bell (AT&T), actualmente Lucent Tecnologies, en 1976.
+ Este lenguaje, originalmente fue codificado e implementado como unas biblioteca
+s de fortran.
+ Por razones de eficiencia, en 1988 S fue reescrito en lenguaje C, dando
+ origen al sistema estadístico S, Versión 3.
+ Con la finalidad de impulsar comercialmente a S, Bell Laboratories dio
+ a StatSci (ahora Insightful Corporation) en 1993, una licencia exclusiva
+ para desarrollar y vender el lenguaje S.
+ En 1998, S ganó el premio de la 
+\emph on
+Association for Computing Machinery
+\emph default
+ a los Sistemas de 
+\emph on
+Software
+\emph default
+, y se liberó la versión 4, la cual es prácticamente la versión actual.
+ 
+\end_layout
+
+\begin_layout Standard
+El éxito de S fue tal que, en 2004 
+\emph on
+Insghtful
+\emph default
+ decide comprar el lenguaje a 
+\emph on
+Lucent
+\emph default
+ (
+\emph on
+Bell Laboratories
+\emph default
+) por la suma de 2 millones de dólares, convirtiéndose hasta la fecha en
+ el dueño.
+ Desde entonces, 
+\emph on
+Insightful
+\emph default
+ vende su implementación del lenguaje S bajo el nombre de S-PLUS, donde
+ le añade un ambiente gráfico amigable.
+ En el año 2008, TIBCO compra 
+\emph on
+Insightful
+\emph default
+ por 25 millones de dólares y se continúa vendiendo S-PLUS, sin modificaciones.
+ R, que define su sintaxis a partir de esa versión de S, no ha sufrido en
+ lo fundamental ningún cambio dramático desde 1998.
+\end_layout
+
+\begin_layout Standard
+Regresando a R, luego de la creación de R (en 1992) dan un primer anuncio
+ al público del software R en 1993.
+ En el año de 1995 Martin Mächler, de la Escuela Politécnica Federal de
+ Zúrich, convence a Ross y Robert a usar la Licencia GNU para hacer a R
+ un software libre.
+ A partir de 1997, R forma parte del proyecto GNU.
+\end_layout
+
+\begin_layout Standard
+En 1996 se crea una lista pública de correos, sin embargo debido al gran
+ éxito de R, los creadores fueron rebasados por la continua llegada de correos.
+ Por lo que tuvieron que crear, en 1997, 2 listas de correos R-help y R-devel,
+ que son las que actualmente fucionan.
+ Además se consolida el grupo núcleo de R,donde se involucran personas asociadas
+ con S-PLUS, con la finalidad de administrar el código fuente de R.
+\end_layout
+
+\begin_layout Standard
+Fue hasta febrero de 29 del 2000, que se considera al software completo
+ y lo suficientemente estable, para liberar la versión 1.0.
+\end_layout
+
+\begin_layout Section
+Algunas características importantes de R
+\end_layout
+
+\begin_layout Standard
+El sistema R esta dividido en dos partes conceptuales: 1) El sistema base
+ de R, que es el que puedes bajar de CRAN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Por sus siglas en inglés: 
+\emph on
+The Comprehensive R Archive Network
+\emph default
+.
+ Su página 
+\emph on
+Web
+\emph default
+ es: http://cran.r-project.org/.
+\end_layout
+
+\end_inset
+
+; y, 2) en todo lo demás.
+ La funcionalidad de R consta de paquetes modulares.
+ El sistema base de R contiene el paquete básico que se requiere para su
+ ejecución y la mayoría de las funciones fundamentales.
+ Los otros paquetes contenidos en la 
+\begin_inset Quotes eld
+\end_inset
+
+base
+\begin_inset Quotes erd
+\end_inset
+
+ del sistema incluye a 
+\series bold
+\emph on
+utils
+\series default
+, 
+\series bold
+stats, datasets, graphics, grDevices, grid, tools, parallel, compiler, splines,
+ tcltk, stats4
+\series default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+La capacidad de graficos de R es muy sofisticada y mejor que la de la mayoria
+ de los paquetes estadísticos.
+ R cuenta con varios paquetes gráficos especializados, por ejemplo, hay
+ paquetería para graficar, crear y manejar los 
+\emph on
+shapefiles
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Formato común de sistemas de información geográfica (GIS), introducido por
+ la compañía ESRI en su sistema de 
+\emph on
+software
+\emph default
+ ArcGIS.
+\end_layout
+
+\end_inset
+
+, para hacer contornos sobre mapas en distintas proyecciones, graficado
+ de vectores, contornos, etc.
+ También existen paqueterías que permiten manipular y crear datos en distintos
+ formatos como netCDF, Matlab, Excel entre otros.
+ Cabe señalar que, además del paquete base de R, existen más de 4000 paquetes
+ en CRAN (http://cran.r-project.org), que han sido desarrollados por usuarios
+ y programadores alrededor del mundo, esto sin contar los paquetes disponibles
+ en redes personales.
+\end_layout
+
+\begin_layout Standard
+R es muy útil para el trabajo interactivo, pero también es un poderoso lenguaje
+ de programación para el desarrollo de nuevas herramientas, por ejemplo
+ rclimdex, cliMTA-R, etc.
+ Otra ventaja muy importante es que tiene una comunidad muy activa, por
+ lo que, haciendo las preguntas correctas rápidamente encontrarás la solución
+ a los problemas que se te presenten en el ámbito de la programación con
+ R.
+ Estas características han promovido que el número de sus usuarios en el
+ área de las ciencias se incremente enormemente.
+\end_layout
+
+\begin_layout Standard
+Al ser 
+\emph on
+software
+\emph default
+ libre lo hace un lenguaje atractivo, debido a que no hay que preocuparse
+ por licencias y cuenta con la libertad que garantiza GNU.
+ Es decir con R se tiene la libertad de: 1) correrlo para cualquier propósito,
+ 2) estudiar como trabaja el programa y adaptarlo a sus necesidades, pues
+ se tiene acceso al código fuente, 3) redistribuir copias, y 4) mejorar
+ el programa y liberar sus mejoras al público en general.
+\end_layout
+
+\begin_layout Standard
+Es importante mencionar que, debido a su estructura, R consume mucho recurso
+ de memoria, por lo tanto si se utilizan datos de tamaño enorme, el programa
+ se alentaría o, en el peor de los casos, no podría procesarlos.
+ En la mayoría de los casos, sin embargo, los problemas que pudieran surgir
+ con referencia a la lentitud en la ejecución del código, tienen solución,
+ principalmente teniendo cuidado de vectorizar el código; ya que esto permitiría
+ particionarlo y aprovechar en procesamiento paralelo en equipos con multi
+ núcleos.
+ 
+\end_layout
+
+\begin_layout Section
+Ayuda en R
+\end_layout
+
+\begin_layout Standard
+R cuenta con una muy buena ayuda en el uso de funciones de manera muy similar
+ al 
+\emph on
+man
+\emph default
+ de UNIX.
+ para obtener información de cualquier función en específico, por ejemplo
+ 
+\emph on
+lm,
+\emph default
+ el comando es: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<help, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+help(lm)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Una forma abreviada sería
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+?lm # -- comentario
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El código anterior, muestra dos formas de invocar la ayuda en el intérprete
+ de R, la función 
+\family typewriter
+help()
+\family default
+ y el operador 
+\family typewriter
+'?'
+\family default
+.
+ En ambos casos el resultado es el mismo.
+ Aparte de esto, el lenguaje omite interpretar, en un renglón, cualquier
+ texto que siga al símbolo 
+\family typewriter
+'#'
+\family default
+; esta es la provisión del lenguaje para incorporar comentarios en el código.
+\end_layout
+
+\begin_layout Standard
+Cuando se desea información sobre caracteres especiales de R, el argumento
+ se debe encerrar entre comillas sencillas o dobles, con la finalidad que
+ lo identifique como una cadena de caracteres.
+ Esto también es necesario hacer para unas cuantas palabras con significado
+ sintáctico incluyendo al 
+\family typewriter
+if
+\family default
+, 
+\family typewriter
+for
+\family default
+, y 
+\family typewriter
+function
+\family default
+.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<help2, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+help("[[")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+help('if')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando se llama a la función 
+\family typewriter
+help()
+\family default
+ de esta manera, es necesario especificar las comillas, ya que en caso de
+ no hacerlo el lenguaje 
+\emph on
+pensará
+\emph default
+ que le faltan argumentos.
+ Pero, hay una forma abreviada de invocar el help del sistema que no tiene
+ esta restricción, y es como se muestra en seguida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<help2a, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Una forma abreviada seria
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+?lm
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por otra parte, el sistema puede mostrar un listado de contenidos acerca
+ de algún tópico cualquiera invocando la función 
+\family typewriter
+help.search()
+\family default
+, que abreviadamente se invoca con 
+\family typewriter
+??
+\family default
+.
+ Por ejemplo, si se desea saber acerca del tópico 
+\emph on
+split
+\emph default
+, lo que puede incluir, funciones, paquetes, variables, etc., se hace de
+ la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<help3, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+help.search("split")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# O abreviadamente:
+\end_layout
+
+\begin_layout Plain Layout
+
+??"split"
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además de esto, existen foro muy activos en diversos temas de R (
+\emph on
+Mailing Lists
+\emph default
+), donde seguramente podrás encontrar las respuestas apropiadas.
+ La dirección de esos foros la puedes se encontrar en http://www.r-project.org
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Una interfaz en la 
+\emph on
+Web 
+\emph default
+al grupo básico de R, conocido como 
+\emph on
+R-help
+\emph default
+, se puede encontrar en http://dir.gmane.org/gmane.comp.lang.r.general.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+R en las ciencias 
+\end_layout
+
+\end_body
+\end_document
