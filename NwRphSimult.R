@@ -1,4 +1,4 @@
-# --------------
+# ---- NwRph ----
 # JSS
 # Metodo de Newton-Raphson para resolver ecuaciones no lineales
 # simultaneas

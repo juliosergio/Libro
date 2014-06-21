@@ -4276,9 +4276,9 @@ Para resolver este asunto, se debe notar que toda función de densidad de
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-\mu=k\theta
-\]
+\begin{equation}
+\mu=k\theta\label{eq:1}
+\end{equation}
 
 \end_inset
 
@@ -4287,9 +4287,9 @@ Para resolver este asunto, se debe notar que toda función de densidad de
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-v=\sigma^{2}=k\theta^{2}
-\]
+\begin{equation}
+v=\sigma^{2}=k\theta^{2}\label{eq:2}
+\end{equation}
 
 \end_inset
 
@@ -4314,8 +4314,15 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \end_inset
 
 .
- El tema interesante sería poder expresar los parámetros en términos de
- 
+ Ahora, el tema interesante sería poder expresar los parámetros 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+, en términos de 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -4323,8 +4330,74 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_inset Formula $v$
 \end_inset
 
-, que son los valores que se pueden calcular a partir de nuestros datos.
- 
+, que son los val´aores que se pueden calcular a partir de nuestros datos.
+ Como, en este caso, las ecuaciones son bastante simples, por pura manipulación
+ algebraíca, se puede llegar a las siguientes expresiones para 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\theta=\frac{v}{\mu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+k=\frac{\mu^{2}}{v}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto resolvería nuestro problema, si quisieramos hacerlo exclusivamente
+ para la función de densidad de probabilidades Gamma; sin embargo, si lo
+ queremos desarrollar aqui es un procedimiento más general,tal que dados
+ los valores de 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, tendríamos que resolver cualquier el sistema de ecuaciones no lineales,
+ como el de la ecuacies 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+ y
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+, por medio de algún método numérico, que es lo que desarrollaremos en las
+ siguientes secciones.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
