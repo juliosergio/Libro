@@ -96,6 +96,21 @@ options('width')
 @
 \end_layout
 
+\begin_layout Plain Layout
+
+<<set-options, echo=FALSE, cache=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+read_chunk('Gammas.R')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
 \end_inset
 
 
@@ -4115,8 +4130,208 @@ reference "fig:Combinación-del-histograma"
 , que la curva de la función cruza la línea vertical roja correspondiente
  al valor de precipitación 0, por encima de la línea azul correspondiente
  a la densidad 0.
- La función estaría diciendo que hay ciertas probabilidades de que haya
- precipitaciones negativas; esto, por supuesto, es imposible.
+ Así, la función estaría diciendo que hay cierta probabilidad de que haya
+ precipitaciones negativas; lo cual, por supuesto, es imposible.
+ 
+\end_layout
+
+\begin_layout Subsection
+Funciones de densidad y distribución de probabilidades Gamma
+\end_layout
+
+\begin_layout Standard
+Las funciones de densidad y distribución de probabilidades Gamma, describen
+ de una mejor manera el comportamiento de las precipitaciones que no tienden
+ a presentar una simetría, típica de las funciones de densidad normales,
+ sino que se 
+\emph on
+abultan
+\emph default
+ cerca del cero sin rebasar hacia los valores negativos.
+ La Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Funciones-Gamma"
+
+\end_inset
+
+, muestra la apariencia de estas funciones para distintos valores de sus
+ parámetros.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Gamma1, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Funciones-Gamma"
+
+\end_inset
+
+Funciones de densidad de probabilidades Gamma para distintos valores de
+ parámetros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+¿Cómo se podría ajustar una de estas funciones al conjunto de datos del
+ ejemplo? Lo primero que se tiene que conocer es la fórmula para calcular
+ dicha función, que es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x;k,\theta)=\frac{x^{k-1}e^{\nicefrac{-x}{\theta}}}{\theta^{k}\Gamma(k)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde, 
+\begin_inset Formula $\Gamma(k)$
+\end_inset
+
+ es la función gamma evaluada en 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Independientemente de manera como se calcula esta función, lo importante
+ a notar aquí es que, al igual que la función de densidad de probabilidades
+ normal, depende de dos parámetros, pero, en este caso los parámetros son
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+ y no la media y la desviación estándar.
+ Sin embargo, los datos se han caracterizado en términos de su media y su
+ desviación estándar.
+ 
+\end_layout
+
+\begin_layout Standard
+Para resolver este asunto, se debe notar que toda función de densidad de
+ probabilidades tiene a su vez una media y una desviación estándar, o una
+ varianza, que para el caso de la función de densidad Gamma son, respectivamente
+, como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu=k\theta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v=\sigma^{2}=k\theta^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De esta manera, se tienen dos ecuaciones, no lineales, que describen 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+ en términos de los parámetros 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Ahora, el tema interesante sería poder expresar los parámetros 
+\begin_inset Formula $k$
+\end_inset
+
+ y 
+\begin_inset Formula $\theta$
+\end_inset
+
+, en términos de 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, que son los valores que se pueden calcular a partir de nuestros datos.
+ 
 \end_layout
 
 \end_body
