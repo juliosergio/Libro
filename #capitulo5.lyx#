@@ -4368,8 +4368,228 @@ k=\frac{\mu^{2}}{v}
 \begin_layout Standard
 Esto resolvería nuestro problema, si quisieramos hacerlo exclusivamente
  para la función de densidad de probabilidades Gamma; sin embargo, si lo
- queremos desarrollar aqui es un procedimiento más general, tendríamos que
- resolver cualquier el sistema de ecuaciones no lineales, como la 
+ queremos desarrollar aqui es un procedimiento más general,tal que dados
+ los valores de 
+\begin_inset Formula $\mu$
+\end_inset
+
+ y 
+\begin_inset Formula $v$
+\end_inset
+
+, tendríamos que resolver cualquier el sistema de ecuaciones no lineales,
+ como el de la ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+ y
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+, por medio de algún método numérico, que es lo que se desarrollará en las
+ siguientes secciones.
+\end_layout
+
+\begin_layout Subsection
+El método de Newton-Raphson para la solución de sistemas de ecuaciones no
+ lineales
+\end_layout
+
+\begin_layout Standard
+El método numérico de Newton-Raphson, se usa para encontrar las raíces de
+ alguna función arbitraria, 
+\begin_inset Formula $f(x)$
+\end_inset
+
+.
+ Su formulación en ese caso es como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{n+1}=x_{n}-\frac{f(x_{n})}{f'(x_{n})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+o bien:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{n+1}=x_{n}-\frac{1}{f'(x_{n})}f(x_{n})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde, 
+\begin_inset Formula $x_{n+1}$
+\end_inset
+
+ es el valor de 
+\begin_inset Formula $x$
+\end_inset
+
+ para la siguiente iteración, calculado a partir del valor anterior 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+, y 
+\begin_inset Formula $f'(x_{n})$
+\end_inset
+
+, es el valor de la derivada de la función en 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Si lo que se tiene, en vez de 
+\begin_inset Formula $f(x)$
+\end_inset
+
+, es un sistema de 
+\begin_inset Formula $m$
+\end_inset
+
+ ecuaciones, cada una con 
+\begin_inset Formula $m$
+\end_inset
+
+ variables, representado probablemente por el vector 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+, de dimensión 
+\begin_inset Formula $m$
+\end_inset
+
+; y el sistema entonces representado por la función vectorial 
+\begin_inset Formula $\mathbf{F}(\mathbf{x})$
+\end_inset
+
+, en este caso, el método de Newton-Raphson, se formula así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{x}_{n+1}=\mathbf{x}_{n}-[\mathbf{J_{F}}(\mathbf{x}_{n})]^{-1}\times\mathbf{F}(\mathbf{x}_{n})\label{eq:7}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que aquí, en vez de usar la derivada de la función se está empleando
+ 
+\begin_inset Formula $\mathbf{J_{F}}(\mathbf{x}_{n})$
+\end_inset
+
+, que es la matriz Jacobiana de la función evaluada en 
+\begin_inset Formula $\mathbf{x}_{n}$
+\end_inset
+
+, y cuya definición se verá más adelante.
+ 
+\end_layout
+
+\begin_layout Standard
+En la forma que se presenta en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:7"
+
+\end_inset
+
+, el método implica la inversión de una matriz y varias operaciones más.
+ Numéricamente, es más conveniente, por medio de algunas manipulaciones
+ algebraícas, transformar dicha formulación a la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{J_{F}}(\mathbf{x}_{n})\times\mathbf{\Delta x}_{n+1}=-\mathbf{F}(\mathbf{x}_{n})\label{eq:8}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde, 
+\begin_inset Formula $\mathbf{\Delta x}_{n+1}=\mathbf{x}_{n+1}-\mathbf{x}_{n}$
+\end_inset
+
+.
+ Así formulado ahora el método, como se ha mostrado en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+, el problema consiste en resolver el sistema de ecuaciones lineales, para
+ encontrar el vector de 
+\emph on
+incrementos
+\emph default
+, desconocido 
+\begin_inset Formula $\mathbf{\Delta x}_{n+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La matriz Jacobiana, como era de esperarse, está definida en términos de
+ las distintas derivadas parciales de 
+\begin_inset Formula $\mathbf{F}(\mathbf{x})$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+J=\left[\begin{array}{ccc}
+\frac{\partial F_{1}}{\partial x_{1}} & \cdots & \frac{\partial F_{1}}{\partial x_{m}}\\
+\vdots & \ddots & \vdots\\
+\frac{\partial F_{1}}{\partial x_{1}} & \cdots & \frac{\partial F_{1}}{\partial x_{1}}
+\end{array}\right]
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \end_body
