@@ -170,7 +170,7 @@ reference "fig:Definición-funcion-1"
 argumentos formales
 \emph default
  de la función, y el cuerpo de la función.
- El cuerpo de la función está constituído por una o más expresiones válidas
+ El cuerpo de la función está constituido por una o más expresiones válidas
  del lenguaje.
  Al ejecutarse la función, el valor de la última expresión en la secuencia
  de ejecución, es el valor que la función entrega como resultado; esto simbólica
@@ -990,7 +990,7 @@ MiFunc.v3()
 yyy
 \family default
 , su valor quedó indefinido y no se pudo ejecutar la función.
- Supongáse que se quiere hacer una función que modifique el comportamiento
+ Supóngase que se quiere hacer una función que modifique el comportamiento
  de la otra función, simplemente proveyendo un valor por omisión para dicha
  función
 \begin_inset Foot
@@ -1205,7 +1205,7 @@ Cada vez que se introduce un nuevo símbolo en alguna parte del código de
  de algún modo, de qué manera se asocia ese símbolo con algún objeto computacion
 al creado o por crearse dentro del programa: ¿se refiere el símbolo a algún
  objeto que ya existía en el programa?, ¿es necesario crear un nuevo objeto
- asociado con el símbolo que se ha introducido? La visibibilidad del código,
+ asociado con el símbolo que se ha introducido? La visibilidad del código,
  y las reglas de alcance del lenguaje R, que son los temas de esta sección,
  se refieren precisamente a la asociación de los símbolos con los objetos
  computacionales creados durante la ejecución de algún programa y muy particular
@@ -1337,7 +1337,7 @@ y
 
 \family default
  no se ha creado previamente, emite un mensaje de error como el mostrado.
- Así pues, los símbolos en el lado izquierdo de las expresiones de assignación
+ Así pues, los símbolos en el lado izquierdo de las expresiones de asignación
  pueden significar la creación de nuevas variables referidas mediante esos
  símbolos, en el código, a partir de ese momento.
  Dado que la instrucción anterior ha terminado en error, tampoco se ha asociado
@@ -1880,7 +1880,7 @@ search()
 
 \family default
 .
- En el ejemplo anterior, se ve que el objeto recien creado asociado al símbolo
+ En el ejemplo anterior, se ve que el objeto recién creado asociado al símbolo
  
 \family typewriter
 MiSimbolo
@@ -1926,7 +1926,7 @@ package:base
 
 
 \family default
-, y el último el corespondiente a 
+, y el último el correspondiente a 
 \family typewriter
 
 \begin_inset Quotes eld
@@ -2066,7 +2066,7 @@ t
 
 
 \family default
- correspondiete al vector, no obstante, R acertadamente invoca la función
+ correspondiente al vector, no obstante, R acertadamente invoca la función
  de transposición 
 \family typewriter
 t()
@@ -2716,15 +2716,15 @@ ff()
 \family typewriter
 MiFunc
 \family default
-, el símbolo correrspondiente a una variable, cuyo valor es una función
- en este caso, el lenguaje R, tiene los mecanismos necesarios para revelar
+, el símbolo correspondiente a una variable, cuyo valor es una función en
+ este caso, el lenguaje R, tiene los mecanismos necesarios para revelar
  ese valor, o sea el código de la función, fuera de la función misma donde
  se definió.
  Esto permite usar las funciones definidas en el interior de alguna función,
  afuera del código correspondiente a la función donde se han definido.
  En este caso, las reglas de alcance, descritas previamente, juegan un papel
  muy importante.
- Para ilustrar esto, se propone aquí la creación de una función constructura
+ Para ilustrar esto, se propone aquí la creación de una función constructora
  de funciones, de la siguiente manera:
 \end_layout
 
@@ -3183,7 +3183,7 @@ head(pp) # para verificar los primeros 6 renglones
 \end_layout
 
 \begin_layout Standard
-Ahora, para la producción del histogama no se requiere del año en el que
+Ahora, para la producción del histograma no se requiere del año en el que
  se tuvo tal o cuál precipitación; esto es, sólo interesan los valores de
  las precipitaciones.
 \end_layout
@@ -3475,7 +3475,7 @@ reference "fig:Histograma-de-precipitaciones-1"
  absolutos, sino de porcentajes.
  Por ejemplo, si se toman los intervalos consecutivos del 3 al 5 y se suman
  las densidades correspondientes y se multiplica ese valor por el ancho
- del intervalo, lo que corrresponde al área de las tres barras, se puede
+ del intervalo, lo que corresponde al área de las tres barras, se puede
  decir que el 51.22% de las precipitaciones estuvo entre 60 y 120 mm durante
  el período de las observaciones.
 \end_layout
@@ -4330,9 +4330,9 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_inset Formula $v$
 \end_inset
 
-, que son los val´aores que se pueden calcular a partir de nuestros datos.
+, que son los valores que se pueden calcular a partir de nuestros datos.
  Como, en este caso, las ecuaciones son bastante simples, por pura manipulación
- algebraíca, se puede llegar a las siguientes expresiones para 
+ algebraica, se puede llegar a las siguientes expresiones para 
 \begin_inset Formula $k$
 \end_inset
 
@@ -4366,9 +4366,9 @@ k=\frac{\mu^{2}}{v}
 \end_layout
 
 \begin_layout Standard
-Esto resolvería nuestro problema, si quisieramos hacerlo exclusivamente
+Esto resolvería nuestro problema, si quisiéramos hacerlo exclusivamente
  para la función de densidad de probabilidades Gamma; sin embargo, si lo
- queremos desarrollar aqui es un procedimiento más general,tal que dados
+ queremos desarrollar aquí es un procedimiento más general,tal que dados
  los valores de 
 \begin_inset Formula $\mu$
 \end_inset
@@ -4407,6 +4407,14 @@ El método numérico de Newton-Raphson, se usa para encontrar las raíces de
 \begin_inset Formula $f(x)$
 \end_inset
 
+; esto es, encontrar el valor o valores de 
+\begin_inset Formula $x$
+\end_inset
+
+ cuando 
+\begin_inset Formula $f(x)=0$
+\end_inset
+
 .
  Su formulación en ese caso es como sigue:
 \end_layout
@@ -4430,7 +4438,7 @@ o bien:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-x_{n+1}=x_{n}-\frac{1}{f'(x_{n})}f(x_{n})
+x_{n+1}=x_{n}-\frac{1}{f'(x_{n})}f(x_{n})\label{eq:6}
 \end{equation}
 
 \end_inset
@@ -4528,7 +4536,7 @@ reference "eq:7"
 
 , el método implica la inversión de una matriz y varias operaciones más.
  Numéricamente, es más conveniente, por medio de algunas manipulaciones
- algebraícas, transformar dicha formulación a la siguiente:
+ algebraicas, transformar dicha formulación a la siguiente:
 \end_layout
 
 \begin_layout Standard
@@ -4569,8 +4577,27 @@ incrementos
 \end_layout
 
 \begin_layout Standard
-La matriz Jacobiana, como era de esperarse, está definida en términos de
- las distintas derivadas parciales de 
+Dado que la matriz Jacobiana 
+\emph on
+se usa
+\emph default
+ en vez la derivada en el caso del método para un sistema de ecuaciones
+ (compárese las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:6"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:7"
+
+\end_inset
+
+), como era de esperarse, ella está definida en términos de las distintas
+ derivadas parciales de 
 \begin_inset Formula $\mathbf{F}(\mathbf{x})$
 \end_inset
 
@@ -4594,9 +4621,320 @@ La matriz Jacobiana, como era de esperarse, está definida en términos de
 
 \begin_layout Standard
 Afortunadamente, ni el cálculo de la matriz Jacobiana, ni la solución del
- sistema de ecuaciones o la inversión de la matriz, tenemos que hacerlas
+ sistema de ecuaciones o la inversión de la matriz, se tienen que hacer
  partiendo de cero; existen en R, las funciones y las bibliotecas apropiadas
  para resolver cada uno de estos asuntos.
+\end_layout
+
+\begin_layout Subsection
+Implementación del método en R
+\end_layout
+
+\begin_layout Standard
+El lenguaje provee directamente la mayoría de la operaciones que se requieren
+ para implementar el método, excepto por el cálculo de la matriz jacobiana.
+ Ese cálculo se puede encontrar en el paquete 
+\begin_inset Quotes eld
+\end_inset
+
+numDeriv
+\begin_inset Quotes erd
+\end_inset
+
+, que está disponible en el sitio de CRAN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+CRAN es 
+\emph on
+The Comprehensive R Archive Network
+\emph default
+ y su sitio es http://cran.r-project.org/
+\end_layout
+
+\end_inset
+
+.
+ R, puede instalar paquetes de ese sitio, mediante el sencillo llamado a
+ la función 
+\family typewriter
+install.packages()
+\family default
+, como se muestra en seguida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<install, eval=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("numDeriv")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La instrucción anterior descarga, de algún repositorio remoto el paquete
+ y lo instala en el ambiente de R.
+ Para usarlo, sin embargo, es necesario incluirlo en la ejecución, por medio
+ del llamado a la función 
+\family typewriter
+library()
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<library1>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(numDeriv)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Notese que aqui el nombre de la libreria no
+\end_layout
+
+\begin_layout Plain Layout
+
+# va entrecomillado.
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función
+\family typewriter
+ jacobian()
+\family default
+, tiene dos argumentos principales, a saber, una función, 
+\family typewriter
+func
+\family default
+, con un resultado vectorial, y un vector, 
+\family typewriter
+x
+\family default
+, que sería el argumento de 
+\family typewriter
+func
+\family default
+, y que indica el punto en el que se quiere la evaluación de la matriz jacobiana.
+ 
+\end_layout
+
+\begin_layout Standard
+Para poner todo esto en contexto, se propone aquí un ejemplo, con las siguientes
+ dos ecuaciones no lineales:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+x^{2}+yx-10=0\\
+y+3xy^{2}-57=0
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos poner esto en términos de una función vectorial 
+\begin_inset Formula $\mathbf{F}(\mathbf{p})$
+\end_inset
+
+, tal que 
+\begin_inset Formula $x=p_{1},y=p_{2}$
+\end_inset
+
+, y entonces el sistema anterior se puede expresar como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{F}(\mathbf{p})=\begin{array}{c}
+p_{1}^{2}+p_{2}p_{1}-10\\
+p_{2}+3p_{1}p_{2}^{2}-57
+\end{array}=\mathbf{0}\label{eq:11}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La traducción de una función como ésta al código de R, es casi directa:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funvec, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+miFun <- function(p) c(p[1]^2 + p[1]*p[2] - 10,                        
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+                       p[2] + 3*p[1]*p[2]^2 - 57)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# y se puede evaluar en un punto cualquiera
+\end_layout
+
+\begin_layout Plain Layout
+
+# por ejemplo  
+\end_layout
+
+\begin_layout Plain Layout
+
+p_tst <- c(1.5, 3.5) # x=1.5, y=3.5
+\end_layout
+
+\begin_layout Plain Layout
+
+miFun(p_tst)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que el valor de la función es diferente del vector 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+, lo que indica que los valores dados, no son una solución del sistema de
+ ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:11"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora, la matriz jacobiana de la función anterior, evaluada en el mismo
+ punto del ejemplo, se calcula de manera muy simple así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<jacobian>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+jacobian(miFun, p_tst)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tanto la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:7"
+
+\end_inset
+
+ como la 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+, proporcionan la manera para calcular el siguiente valor del vector 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ a partir de un valor anterior.
+ Aquí se hará de la manera que lo indica la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+, que es numéricamente la más 
+\emph on
+económica
+\emph default
+.
 \end_layout
 
 \end_body
