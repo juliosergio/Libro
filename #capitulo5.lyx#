@@ -4751,8 +4751,12 @@ x
 func
 \family default
 , y que indica el punto en el que se quiere la evaluación de la matriz jacobiana.
- Para poner todo esto en contexto, se propone aquí un ejemplo, con las siguiente
-s dos ecuaciones no lineales:
+ 
+\end_layout
+
+\begin_layout Standard
+Para poner todo esto en contexto, se propone aquí un ejemplo, con las siguientes
+ dos ecuaciones no lineales:
 \end_layout
 
 \begin_layout Standard
@@ -4810,13 +4814,37 @@ status open
 
 \begin_layout Plain Layout
 
-miFun <- function(p) c(p[1]^2+p[1]*p[2]-10,                           
+miFun <- function(p) c(p[1]^2 + p[1]*p[2] - 10,                        
+   
 \end_layout
 
 \begin_layout Plain Layout
 
-                       p[2]+3*p[1]*p[2]^2-57)   # ponemos como primer aproximaci
-on lo siguiente:   p0 <- c(1.5, 3.5) 
+                       p[2] + 3*p[1]*p[2]^2 - 57)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# y se puede evaluar en un punto cualquiera
+\end_layout
+
+\begin_layout Plain Layout
+
+# por ejemplo  
+\end_layout
+
+\begin_layout Plain Layout
+
+p_tst <- c(1.5, 3.5) # x=1.5, y=3.5
+\end_layout
+
+\begin_layout Plain Layout
+
+miFun(p_tst)
 \end_layout
 
 \begin_layout Plain Layout
@@ -4830,7 +4858,54 @@ on lo siguiente:   p0 <- c(1.5, 3.5)
 \end_layout
 
 \begin_layout Standard
-Tanto la ecuación 
+Nótese que el valor de la función es diferente del vector 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+, lo que indica que los valores dados, no son una solución del sistema de
+ ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:11"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora, la matriz jacobiana de la función anterior, evaluada en el mismo
+ punto del ejemplo, se calcula de manera muy simple así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<jacobian>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+jacobian(miFun, p_tst)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para implementar el método, se tienen dos posibilidades.
+ Tanto la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:7"
@@ -4844,7 +4919,7 @@ reference "eq:8"
 
 \end_inset
 
-, proporcionan la manera para calcular el siguiente valor del vector 
+, proporcionan una forma para calcular el siguiente valor del vector 
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
@@ -4861,6 +4936,148 @@ reference "eq:8"
 económica
 \emph default
 .
+ De esta forma, el método establece que se debe resolver el sistema de ecuacione
+s descrito por la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+ para encontrar el incremento que se debe aplicar al vector 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ y obtener así un nuevo valor, lo que en R se hace con la función 
+\family typewriter
+solve()
+\family default
+.
+ Así, si el valor inicial del vector, fuera, para el ejemplo, 
+\family typewriter
+p_tst
+\family default
+, y el sistema de ecuaciones, fuera el descrito por la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:11"
+
+\end_inset
+
+ y, en el código, por 
+\family typewriter
+miFun
+\family default
+, el procedimiento para obtener el siguiente valor es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<sigval>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+incremento <- solve(jacobian(miFun, p_tst), -miFun(p_tst))
+\end_layout
+
+\begin_layout Plain Layout
+
+# El incremento es:
+\end_layout
+
+\begin_layout Plain Layout
+
+incremento
+\end_layout
+
+\begin_layout Plain Layout
+
+siguiente_p <- p_tst + incremento
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y el siguiente valor de p es:
+\end_layout
+
+\begin_layout Plain Layout
+
+siguiente_p
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para que el procedimiento sea general, la función podrá ser cualquiera que
+ represente un sistema de 
+\emph on
+m
+\emph default
+ ecuaciones no lineales, con 
+\emph on
+m
+\emph default
+ incóginitas.
+ Por consiguiente conviene escribir una función de la situiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funcsolve>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sigDx <- function(ff, x) {solve(jacobian(ff, x), -ff(x))}
+\end_layout
+
+\begin_layout Plain Layout
+
+# y podemos obtener los mismos resultados que antes con:
+\end_layout
+
+\begin_layout Plain Layout
+
+(siguiente_p <- p_tst + sigDx(miFun, p_tst))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para concluir el método, lo anterior se tiene aplicar iterativamente, y
+ para determinar la salida del mismo se deben aplicar criterios de aproximación
+ de los valores encontrados.
+ Estos criterios se aplicarán sobre el módulo del incremento, ya que si
+ este es cero entre dos iteraciones consecutivas, se habrán encontrado los
+ valores buscados.
+ Se podrá optar entre dos criterios: el simple valor absoluto del módulo
+ del incremento, o un valor relativo al módulo del vector encontrado.
+ De este modo, la función para el m
 \end_layout
 
 \end_body

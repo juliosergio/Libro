@@ -1,0 +1,1000 @@
+  627  vi x.txt 
+  628  vim x.txt
+  629  sudo apt-get install vim
+  630  which vim-gkt
+  631  which vim-gnome
+  632  vim.gtk
+  633  vim.gnome 
+  634  ls
+  635  vim x.txt
+  636  vim.gnome x.txt
+  637  cd Escritorio/PROY1/
+  638  ls
+  639  cat fifo2
+  640  ls
+  641  cat > fifo1
+  642  cd Escritorio/PROY1/
+  643  ps -A
+  644  kill -9 31990
+  645  cat > fifo1
+  646  wc < fifo1
+  647  ls
+  648  ls -l
+  649  wc < fifo1
+  650  ls -l
+  651  ls
+  652  ls -l
+  653  rm fifo1
+  654  ls -l
+  655  wc < fifo1
+  656  ls -l
+  657  rm fifo1
+  658  rm fifo2
+  659  mkfifo fifo1
+  660  mkfifo fifo2
+  661  ls -l
+  662  ./LanzaExperimento.R 
+  663  ls -l
+  664  rm fifo1
+  665  ./LanzaExperimento.R 
+  666  ls -l
+  667  ./LanzaExperimento.R 
+  668  rm fifo1
+  669  ./LanzaExperimento.R 
+  670  ls
+  671  ls -l
+  672  rm fifo1
+  673  mkfifo fifo1
+  674  ls -l
+  675  ./LanzaExperimento.R 
+  676  rm fifo1
+  677  mkfifo fifo1
+  678  ./LanzaExperimento.R 
+  679  cd Escritorio/PROY1/
+  680  ls
+  681  gedit ConsultaDesdeBash.sh&
+  682  more MiConsulta.sh 
+  683  more LecturaRows.sh
+  684  more SumaRegMesAnio.sh
+  685  more EstacionesInside.R 
+  686  ls
+  687  gedit SumaRegMesAnio.sh
+  688  ./SumaRegMesAnio.sh 09 1970 < GRO.txt 
+  689  more a.txt
+  690  ./SumaRegMesAnio.sh 09 1970 < GRO.txt > TablaVals.txt
+  691  more TablaVals.txt 
+  692  ls
+  693  chmod +x CompleteLocation.R 
+  694  ls
+  695  ./CompleteLocation.REstacionesGeo.txt < TablaVals.txt
+  696  ./CompleteLocation.R EstacionesGeo.txt < TablaVals.txt
+  697  ./CompleteLocation.R EstacionesGeo.txt < TablaVals.txt > a.txt
+  698  more a.txt
+  699  ./SumaRegMesAnio.sh 09 1970 < GRO.txt | sed '1d' > a.txt
+  700  # ----------------------------------------------------------
+  701  more a.txt
+  702  man cut
+  703  more UsoDeCut.sh
+  704  ./SumaRegMesAnio.sh 09 1970 < GRO.txt  > a.txt
+  705  more a.txt 
+  706  more a.txt
+  707  mv a.txt Scatered.txt
+  708  more Scatered.txt 
+  709  which mer.R
+  710  which mer
+  711  which mer.py
+  712  more ~/bin/mer.py
+  713  pydoc mer
+  714  pydoc mer.py
+  715  pushd ~/bin/
+  716  pydoc mer.py
+  717  pydoc mer
+  718  pushd
+  719  pydoc mer
+  720  pushd
+  721  pydoc mer
+  722  ls
+  723  cd 
+  724  cd Progs/
+  725  ls
+  726  cd R
+  727  ls
+  728  ls *R
+  729  man grep
+  730  grep mer *R
+  731  cd 
+  732  cd Escritorio/SMN/
+  733  ls *R
+  734  more Espulga.R 
+  735  pushd ../PROY1/
+  736  ls *R
+  737  cat > tst.R
+  738  chmod +x tst.R 
+  739  ./tst.R uno dos
+  740  ./tst.R uno,dos
+  741  ./tst.R uno,dos tres,cuatro
+  742  ls
+  743  chmod +x MeanScatered.R 
+  744  ./MeanScatered.R GRO.txt < Scatered.txt 
+  745  ./MeanScatered.R GRO.txt 2,40 1,43 < Scatered.txt 
+  746  ./MeanScatered.R GRO.txt 80 80 < Scatered.txt 
+  747  sudo shutdown -r now
+  748  ssh -X 172.16.19.80
+  749  ssh -X 172.16.19.80
+  750  more a.txt
+  751  ls
+  752  mv a.txt ResumenGro.txt
+  753  more TablaVals.txt 
+  754  ls
+  755  more ResumenGro.txt 
+  756  ./SumaRegMesAnio.sh 09 2011 < GRO.txt  2> /dev/null
+  757  ./SumaRegMesAnio.sh 10 2011 < GRO.txt  2> /dev/null
+  758  ./SumaRegMesAnio.sh 10 2011 < GRO.txt > a.txt 2> /dev/null
+  759  more a.txt
+  760  ./SumaRegMesAnio.sh 7 2012 < GRO.txt  2> /dev/null
+  761  more a.txt
+  762  cd Escritorio/PROY1/
+  763  gedit *sh
+  764  bg
+  765  for i in {1..5}; do    echo "Welcome $i times"; done
+  766  i=1
+  767  if $i; then echo "si"; fi
+  768  if ($i); then echo "si"; fi
+  769  îf [ $i ] then
+  770  îf [ $i ]; then
+  771  echo $i
+  772  anio=1950
+  773  outs="$anio "
+  774  echo $outs
+  775  echo "$outs<"
+  776  ad=15
+  777  echo { 3..5 }
+  778  man echo
+  779  for mes in {3..7} do echo -n "$mes "; done; echo ""
+  780  for mes in {3..7} do echo -n "$mes "; done
+  781  for mes in {3..7}; do echo -n "$mes "; done; echo ""
+  782  s="algo" . "otro"
+  783  s="algo"."otro"
+  784  echo $s
+  785  s+= " nada"
+  786  s+=" nada"
+  787  echo $s
+  788  mv ../SMN/MASTERcreaTabla.sh .
+  789  gedit MASTERcreaTabla.sh 
+  790  chmod MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  791  chmod +x  MASTERcreaTabla.sh
+  792  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  793  aa=3
+  794  bb=7
+  795  for m in {$aa..$bb};  do    echo $m; done
+  796  for m in {${aa}..${bb}};  do    echo $m; done
+  797  for m in {$(aa)..$(bb)};  do    echo $m; done
+  798  for m in {$((aa))..$((bb))};  do    echo $m; done
+  799  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  800  ls
+  801  moew TmpRgn.txt 
+  802  more TmpRgn.txt 
+  803  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  804  emacs MASTERcreaTabla.sh &
+  805  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  806  ind=0
+  807  if [ $ind==0 ]; then   echo "uno";   echo "dos"; else   echo "tres";   echo "cuatro"; fi
+  808  $ind=2
+  809  ind=2
+  810  if [ $ind==0 ]; then   echo "uno";   echo "dos"; else   echo "tres";   echo "cuatro"; fi
+  811  echo $ind
+  812  ind=0
+  813  echo $ind
+  814  [ $ind==0 ]; echo $?
+  815  ind=2
+  816  [ $ind==0 ]; echo $?
+  817  [[ $ind==0 ]]; echo $?
+  818  echo $ind
+  819  ind=0
+  820  [[ $ind==0 ]]; echo $?
+  821  [[ $ind=0 ]]; echo $?
+  822  ind=2
+  823  [[ $ind=0 ]]; echo $?
+  824  [[ $ind = 0 ]]; echo $?
+  825  [[ $ind == 0 ]]; echo $?
+  826  echo $ind
+  827  ind=0
+  828  [[ $ind == 0 ]]; echo $?
+  829  [[ $ind = 0 ]]; echo $?
+  830  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt
+  831  ./MASTERcreaTabla.sh 1970 1971 9 10 < GRO.txt > a.txt
+  832  more a.txt
+  833  ./MASTERcreaTabla.sh 1978 2012 7 10 < GRO.txt > a.txt
+  834  ./MASTERcreaTabla.sh 1978 2010 7 10 < GRO.txt > a.txt 2> /dev/null
+  835  dirs
+  836  more a.txt
+  837  ls *txt
+  838  mv a.txt ResumenGro2.txt 
+  839  ps -A
+  840  more a.txt
+  841  cd Escritorio/
+  842  cd PROY1/
+  843  more a.txt
+  844  ps -A
+  845  which deja-dup-monito
+  846  pushd ~/Progs/R
+  847  ls
+  848  ls *R
+  849  pushd
+  850  more a.txt 
+  851  ls *txt
+  852  more ResumenGro.txt 
+  853  mv a.txt ResumenGro.txt 
+  854  chmod +x ProducePlots.R 
+  855  ./ProducePlots.R < ResumenGro.txt 
+  856  ls
+  857  display HistGamma1.jpg 
+  858  bg
+  859  display HistGamma2.jpg &
+  860  display HistGamma3.jpg &
+  861  display HistGamma4.jpg &
+  862  ./ProducePlots.R < ResumenGro.txt 
+  863  display HistGamma4.jpg 
+  864  ./ProducePlots.R < ResumenGro.txt 
+  865  pushd
+  866  cd Postings
+  867  ls
+  868  more Plotting-several-functions-in-the-same-display.txt
+  869  ./ProducePlots.R < ResumenGro.txt 
+  870  pushd
+  871  ./ProducePlots.R < ResumenGro.txt 
+  872  display LasGammas.jpg 
+  873  ./ProducePlots.R < ResumenGro.txt 
+  874  display LasGammas.jpg &
+  875  ./ProducePlots.R < ResumenGro.txt 
+  876  display LasGammas.jpg &
+  877  pushd
+  878  ls
+  879  more Functions-as-objects.txt
+  880  ls
+  881  more Trying-to-build-up-functions-with-its-names-by-means-of-lapply
+  882  more Trying-to-build-up-functions-with-its-names-by-means-of-lapply.txt
+  883  pushd
+  884  ./ProducePlots.R < ResumenGro.txt 
+  885  ls
+  886  display RetT.jpg &
+  887  pushd
+  888  ls
+  889  more Trying-to-use-pipes-in--R.txt
+  890  cat > Curious_behaviour_of_lapply_and_lists_of_functions.txt
+  891  gedit Curious_behaviour_of_lapply_and_lists_of_functions.txt 
+  892  pushd
+  893  ls *R
+  894  ls *sh
+  895  more MASTERcreaTabla.sh
+  896  date
+  897  ./MASTERcreaTabla.sh 1978 2010 7 12 < GRO.txt > a.txt 2> /dev/null
+  898  date
+  899  whoami
+  900  history
+  901  history > a.txt
+  902  exit
+  903  ps -A
+  904  cd /opt/
+  905  ls
+  906  which aptana
+  907  which eclipse
+  908  eclipse
+  909  exit
+  910  rm netbeansOld 
+  911  ln -s /usr/local/netbeans-7.4beta/bin/netbeans netbeansOld
+  912  rm netbeans
+  913  ln -s /usr/local/netbeans-8.0beta/bin/netbeans netbeans
+  914  exit
+  915  ssh -X 172.16.19.80
+  916  R
+  917  cd R/Postings/
+  918  ls
+  919  more Using_assing_with_mapply_to_do_multiple_assignations.txt
+  920  R
+  921  sudo rstudio
+  922  cd tips/
+  923  ls
+  924  more Ubuntu 
+  925  ps -A
+  926  ssh -X 172.16.19.80
+  927  which targz
+  928  which untargz
+  929  cd bin/
+  930  more untargz
+  931  more packfiles 
+  932  ls pack*
+  933  more packfsinlinks 
+  934  sftp 172.16.19.80
+  935  cd /media/
+  936  ls -l
+  937  cd 1073-C1F9/
+  938  ls
+  939  sftp 172.16.19.80
+  940  cd ..
+  941  cd
+  942  netbeans&
+  943  ls
+  944  cd /opt/
+  945  ls
+  946  cd /usr
+  947  ls
+  948  cd bin
+  949  ls
+  950  which netbeans
+  951  ls -l netbeans
+  952  cd /usr/local/
+  953  ls
+  954  ls -l
+  955  pushd ~/Descargas/
+  956  ls
+  957  sudo ./netbeans-8.0beta-linux.sh 
+  958  which netbeans
+  959  dirs
+  960  pushd /usr/bin/
+  961  ls -l netb*
+  962  sudo -s
+  963  netbeans
+  964  dirs
+  965  pushd
+  966  R
+  967  cd ../Dropbox/Trabajando/Libro/
+  968  ls
+  969  ls *lyx
+  970  cp capitulo5.lyx capXXX.lyx
+  971  pushd /tmp/lyx_tmpdir.MT5178/
+  972  ls
+  973  cd lyx_tmpbuf9/
+  974  ls
+  975  pushd ../lyx_tmpbuf8
+  976  ls
+  977  pushd ../lyx_tmpbuf7
+  978  ls
+  979  pushd ../lyx_tmpbuf6
+  980  ls
+  981  pushd ../lyx_tmpbuf5
+  982  ls
+  983  popd
+  984  ls
+  985  cd ../lyx_tmpbuf7/
+  986  ls
+  987  rm *
+  988  popd
+  989  ls
+  990  rm *
+  991  cd ..
+  992  ls
+  993  dirs
+  994  popd
+  995  cp capitulo2.lyx capYYY.lyx
+  996  which nc-config
+  997  nc-config
+  998  nc-config --all
+  999  cd /usr/lib
+ 1000  ls
+ 1001  ls |grep netc
+ 1002  ls |grep netcdf
+ 1003  file netcdf.pc 
+ 1004  more netcdf.pc 
+ 1005  nc-config --all
+ 1006  ls -l |grep netcdf
+ 1007  which rstudio
+ 1008  pushd /var
+ 1009  ls
+ 1010  cd www
+ 1011  ls
+ 1012  popd
+ 1013  cd Escritorio/SMN-Nuevo/
+ 1014  mv Redirector2.sh Redirector2.sh-OLD
+ 1015  mv recibe.php recibe.php-OLD
+ 1016  mv ProduceVerif2.R ProduceVerif2.R-OLD
+ 1017  diff Redirector2.sh Redirector2.sh-OLD
+ 1018  diff recibe.php recibe.php-OLD
+ 1019  diff recibe.php recibe.php-OLD|less
+ 1020  diff ProduceVerif2.R ProduceVerif2.R-OLD
+ 1021  ssh -X 172.16.19.80
+ 1022  ssh -X 172.16.19.80
+ 1023  pd
+ 1024  exit
+ 1025  man chown
+ 1026  chown -R checo:checo rpmbuild/
+ 1027  rm -rf rpmbuild/
+ 1028  ls
+ 1029  cd Shared/
+ 1030  ls
+ 1031  cd ..
+ 1032  ls -a
+ 1033  cd BACKUPS
+ 1034  ls
+ 1035  cd Libro
+ 1036  ls
+ 1037  which chkdisk
+ 1038  which ch
+ 1039  ls
+ 1040  cd ..
+ 1041  ls
+ 1042  cd ..
+ 1043  ls -a
+ 1044  cd WRF
+ 1045  ls
+ 1046  ls -l
+ 1047  cd ..
+ 1048  cd /opt
+ 1049  ls
+ 1050  ls |more
+ 1051  cd
+ 1052  ls
+ 1053  exit
+ 1054  man dpkg
+ 1055  dpkg --get selections |less
+ 1056  dpkg --get-selections |less
+ 1057  man grep
+ 1058  dpkg --get-selections |grep -v deinstall |less
+ 1059  cd /etc/
+ 1060  ls
+ 1061  cd apt/
+ 1062  ls
+ 1063  more sources.list
+ 1064  which hardinfo
+ 1065  hardinfo
+ 1066  cd
+ 1067  cd bin
+ 1068  ls
+ 1069  more excludes 
+ 1070  cd 
+ 1071  ls
+ 1072  cd bin
+ 1073  more packfsinlinks 
+ 1074  cd /media/SERVEX/
+ 1075  ls
+ 1076  ls -l
+ 1077  ls -lh
+ 1078  which fsck
+ 1079  packfsinlinks mibackup.tar.gz
+ 1080  alias pd=pushd
+ 1081  pd /media/SERVEX/
+ 1082  df
+ 1083  df -h
+ 1084  cd ..
+ 1085  pwd
+ 1086  cd
+ 1087  ls *tar.gz
+ 1088  lstargz mibackup.tar.gz 
+ 1089  rm mibackup.tar.gz 
+ 1090  cd bin
+ 1091  ls
+ 1092  more packfiles 
+ 1093  man tar
+ 1094  cd
+ 1095  ls
+ 1096  cat > excludes
+ 1097  gedit excludes &
+ 1098  ls -a
+ 1099  more C:\nppdf32Log\debuglog.txt 
+ 1100  ls -a
+ 1101  rm -rf Descartes/
+ 1102  cd rpmbuild/
+ 1103  ls
+ 1104  cd ..
+ 1105  rm -rf rpmbuild
+ 1106  ls -l |grep rpmbuild
+ 1107  sudo chown -r checo:checo rpmbuild/
+ 1108  sudo -s
+ 1109  ls -a
+ 1110  cd Público/
+ 1111  ls
+ 1112  cd ..
+ 1113  rm Público/
+ 1114  rmdir Público/
+ 1115  cd OldJars/
+ 1116  ls
+ 1117  cd ..
+ 1118  packfsinlinks /media/SERVEX/mibackup.tar.gz excludes
+ 1119  ls -l mibackup.tar.gz 
+ 1120  ls -lh mibackup.tar.gz 
+ 1121  alias pd=pushd
+ 1122  pd /opt
+ 1123  ls
+ 1124  sudo -s
+ 1125  pd
+ 1126  ls -lh mibackup.tar.gz 
+ 1127  df
+ 1128  df -h
+ 1129  ls -lh mibackup.tar.gz 
+ 1130  ls
+ 1131  ls -lh mibackup.tar.gz 
+ 1132  fdisk -l
+ 1133  mount
+ 1134  df
+ 1135  mount
+ 1136  df
+ 1137  fsck -p -y -v /dev/sda
+ 1138  man fsck
+ 1139  fsck -p -v /dev/sda
+ 1140  df
+ 1141  sudo -s
+ 1142  top
+ 1143  cd bin
+ 1144  ls
+ 1145  cd 
+ 1146  cd /usr/local
+ 1147  cd bin
+ 1148  ls
+ 1149  sudo -s
+ 1150  which untargz
+ 1151  ls
+ 1152  cd
+ 1153  ls
+ 1154  untargz mibackup.tar.gz 
+ 1155  ls
+ 1156  cd COAWST/
+ 1157  ls
+ 1158  cd training_23jul2012/
+ 1159  ls
+ 1160  cd .svn/
+ 1161  ls
+ 1162  cd ..
+ 1163  ls
+ 1164  svn checkout https://coawstmodel.sourcerepo.com/coawstmodel/data/training_23jul2012
+ 1165  svn limpieza
+ 1166  svn help
+ 1167  svn help cleanup
+ 1168  svn cleanup
+ 1169  ls
+ 1170  cd training_23jul2012/
+ 1171  svn cleanup
+ 1172  cd ..
+ 1173  ls
+ 1174  svn checkout https://coawstmodel.sourcerepo.com/coawstmodel/data/training_23jul2012
+ 1175  ls
+ 1176  cd training_23jul2012/
+ 1177  ls
+ 1178  cd webex/
+ 1179  ls
+ 1180  cd COAWST/
+ 1181  ls
+ 1182  cd training_23jul2012/
+ 1183  ls
+ 1184  cd webex/
+ 1185  ls
+ 1186  cd ..
+ 1187  ls -l
+ 1188  cd webex/
+ 1189  pwd
+ 1190  ls
+ 1191  sftp checo@jaguar
+ 1192  mysql -u wendyuser -p'wendy1' WENDY < BDCLICOM.sql
+ 1193  exit
+ 1194  gedit hosts
+ 1195  more hosts
+ 1196  exit
+ 1197  ftp -i -n <<EOF
+ 1198  open 200.4.8.36
+ 1199  user "ftpsmn.conagua" "M3t30r0.L0g1c0"
+ 1200  ftp -i -n
+ 1201  alias pd=pushd
+ 1202  pd /etc
+ 1203  ls
+ 1204  ls |grep pro
+ 1205  more profile
+ 1206  cd profile.d/
+ 1207  ls
+ 1208  more vte.sh 
+ 1209  ln -s ~checo/Vars.sh .
+ 1210  ls
+ 1211  exit
+ 1212  ln -s ~checo/bin/lstargz .
+ 1213  ls
+ 1214  exit
+ 1215  sudo reboot
+ 1216  cd 
+ 1217  cd Escritorio/
+ 1218  cd PROY1/
+ 1219  ls
+ 1220  ls *txt
+ 1221  more ResumenGro
+ 1222  more ResumenGro.txt
+ 1223  ./ProducePlots.R < ResumenGro.txt 
+ 1224  ./ProducePlots.R < ResumenGro.txt > Salidas.txt
+ 1225  more Salidas.txt 
+ 1226  more miTable.txt 
+ 1227  ls *txt
+ 1228  more table2.txt 
+ 1229  ./ProducePlots.R < table2.txt 
+ 1230  ls -l Hist*
+ 1231  display HistGamma1.jpg &
+ 1232  display HistGamma2.jpg &
+ 1233  display HistGamma3.jpg &
+ 1234  display HistGamma4.jpg &
+ 1235  display HistGamma5.jpg &
+ 1236  more table2.txt 
+ 1237  ./ProducePlots.R < table2.txt 
+ 1238  ls reci*
+ 1239  ls -l reci*
+ 1240  diff recibe.php /var/www/RESUMEX/recibe.php
+ 1241  sudo cp recibe.php /var/www/RESUMEX/recibe.php
+ 1242  dirs
+ 1243  pd
+ 1244  pushd ~
+ 1245  ls -a
+ 1246  more .bashrc 
+ 1247  gedit .bashrc &
+ 1248  alias pd=pushd
+ 1249  pd
+ 1250  ls *jpg
+ 1251  display RetT.jpg 
+ 1252  ./ProducePlots.R < table2.txt 
+ 1253  display RetT.jpg
+ 1254  ls -l *jpg
+ 1255  ./MASTERcreaTabla.R 1970 1981 7 11 < GRO.txt | ./ProducePlots.R
+ 1256  echo "========================================================================="
+ 1257  ./MASTER_ 1970 1981 7 11 < GRO.txt
+ 1258  chx MASTER_ProducePlots.R 
+ 1259  ./MASTER_ProducePlots.R 1970 1981 7 11 < GRO.txt
+ 1260  R
+ 1261  ls
+ 1262  ls *R
+ 1263  pd
+ 1264  ls *tar
+ 1265  file tor-browser-linux64-3.5.3_en-US.tar.tar 
+ 1266  latargz tor-browser-linux64-3.5.3_en-US.tar.tar 
+ 1267  pd /usr/local/bin/
+ 1268  ls
+ 1269  sudo -s
+ 1270  popd
+ 1271  ls *tar
+ 1272  lstargz tor-browser-linux64-3.5.3_en-US.tar.tar
+ 1273  ps -A
+ 1274  sudo file-roller 
+ 1275  dirs
+ 1276  pd
+ 1277  ls *jpg
+ 1278  display HistGamma4.jpg &
+ 1279  display LasGammas.jpg 
+ 1280  display RetT.jpg 
+ 1281  display LasGammas.jpg &
+ 1282  display HistGamma1.jpg &
+ 1283  display HistGamma2.jpg &
+ 1284  display HistGamma3.jpg &
+ 1285  display HistGamma4.jpg &
+ 1286  display HistGamma5.jpg &
+ 1287  ssh -x linux
+ 1288  ssh -X linux
+ 1289  gedit procesos.ini&
+ 1290  diff procesos.ini procesosRESUMEX.ini
+ 1291  cp procesos.ini procesosRESUMEX.ini
+ 1292  more RESUMEX.sh
+ 1293  gedit RESUMEX.sh
+ 1294  ls *R
+ 1295  more MASTER_ProducePlots.R 
+ 1296  cd Source/
+ 1297  ls
+ 1298  gedit sendtxt.js
+ 1299  exit
+ 1300  cd Escritorio/PROY1/
+ 1301  ./MASTER_ProducePlots.R 1970 1981 7 11 < GRO.txt
+ 1302  ls -l *jpg
+ 1303  display LasGammas.jpg 
+ 1304  ./MASTER_ProducePlots.R 1970 1981 7 11 < GRO.txt
+ 1305  display LasGammas.jpg 
+ 1306  pd /var/www/RESUMEX/
+ 1307  ls
+ 1308  pd
+ 1309  ls *jpg
+ 1310  display LasGammas.jpg 
+ 1311  pd
+ 1312  cp ~/Escritorio/PROY1/*R .
+ 1313  sudo cp ~/Escritorio/PROY1/*R .
+ 1314  ls *R
+ 1315  ls *ini
+ 1316  sudo -s
+ 1317  pd
+ 1318  ls
+ 1319  sudo -s
+ 1320  cd /var/www/RESUMEX/
+ 1321  ls
+ 1322  gedit index2.php
+ 1323  cd /var/
+ 1324  ls
+ 1325  cd log/
+ 1326  ls
+ 1327  cd apache2/
+ 1328  ls
+ 1329  ls -l
+ 1330  more error.log
+ 1331  dirs
+ 1332  pd /var/www/RESUMEX/
+ 1333  diff index2.php ~checo/Escritorio/PROY1/index2.php 
+ 1334  cd /tmp
+ 1335  ls
+ 1336  cd orbit-checo/
+ 1337  ls
+ 1338  cd ..
+ 1339  php
+ 1340  ls
+ 1341  cd
+ 1342  pd
+ 1343  cd ..
+ 1344  cd www/RESUMEX/
+ 1345  diff index2.php ~checo/Escritorio/SMN-Nuevo/index2.php 
+ 1346  cd Source/
+ 1347  diff sendtxt.js ~checo/Escritorio/SMN-Nuevo/Source/sendtxt.js 
+ 1348  ls
+ 1349  cd ..
+ 1350  cp index2.php index2OLD.php
+ 1351  ls
+ 1352  cd CSS/
+ 1353  ls
+ 1354  which gedit
+ 1355  which emacs
+ 1356  where is firefox
+ 1357  whereis firefox
+ 1358  ls
+ 1359  gedit *css
+ 1360  cd ..
+ 1361  ls
+ 1362  firefox 
+ 1363  gedit index.php&
+ 1364  php
+ 1365  cd ..
+ 1366  ls
+ 1367  cat > MiSesion.php
+ 1368  jobs
+ 1369  gedit MiSesion.php 
+ 1370  date
+ 1371  php
+ 1372  ls
+ 1373  cd RESUMEX/
+ 1374  ls
+ 1375  ls -l inde*
+ 1376  who
+ 1377  ls -l
+ 1378  cd Source/
+ 1379  ls
+ 1380  ls -l
+ 1381  php
+ 1382  cd
+ 1383  cat > GoogleAPIKey.key
+ 1384  more GoogleAPIKey.key 
+ 1385  ls 
+ 1386  more ports.conf 
+ 1387  ifconfig
+ 1388  exit
+ 1389  cd Ubuntu\ One/Libro/
+ 1390  ls
+ 1391  cp capitulo5.lyx capitulo6.lyx
+ 1392  sudo -s
+ 1393  cd /opt/
+ 1394  mv ~checo/Descargas/copy_agent-1.43.0319.tgz .
+ 1395  ls
+ 1396  untargz copy_agent-1.43.0319.tgz 
+ 1397  cd copy/
+ 1398  ls
+ 1399  cd x86_64/
+ 1400  ls
+ 1401  ./CopyAgent 
+ 1402  ls -l Copy/
+ 1403  ls -l |grep Copy
+ 1404  chown checo:checo Copy
+ 1405  exit
+ 1406  cd /var/www/
+ 1407  ls
+ 1408  cd RESUMEX/
+ 1409  ls
+ 1410  packfsinlinks MiSitio.tar.gz
+ 1411  ls -l MiSitio.tar.gz 
+ 1412  mv MiSitio.tar.gz /media/checo/SERVEX/
+ 1413  CD
+ 1414  cd
+ 1415  ping jaguar
+ 1416  cd /etc/
+ 1417  more hosts
+ 1418  ls |grep hosts
+ 1419  cp hosts /media/checo/SERVEX/
+ 1420  cd /opt/
+ 1421  ls
+ 1422  cp copy_agent-1.43.0319.tgz /media/checo/SERVEX/
+ 1423  cp grads-2.0.2-src.tar.gz /media/checo/SERVEX/
+ 1424  cd ~checo/
+ 1425  ls
+ 1426  pd /opt/
+ 1427  ls
+ 1428  dirs
+ 1429  pd
+ 1430  ls
+ 1431  exit
+ 1432  dpkg --get-selections | grep -v deinstall > packages.txt
+ 1433  more packages.txt
+ 1434  cp packages.txt > /media/checo/SERVEX/
+ 1435  cp packages.txt > /media/checo/SERVEX/packages.txt
+ 1436  cp packages.txt  /media/checo/SERVEX/packages.txt
+ 1437  which aptitude
+ 1438  aptitude search '~i!~M'
+ 1439  aptitude search '~i!~M' > InstalledPackages.txt
+ 1440  more InstalledPackages.txt 
+ 1441  which krita
+ 1442  exit
+ 1443  sudo -s
+ 1444  cd /opt
+ 1445  ls
+ 1446  cd copy/
+ 1447  ls
+ 1448  cd x86_64/
+ 1449  ls
+ 1450  ./CopyAgent
+ 1451  cd 
+ 1452  sudo -s
+ 1453  ssh -X jaguar
+ 1454  reboot
+ 1455  sudo -s
+ 1456  which xkill
+ 1457  cd /etc
+ 1458  more hosts
+ 1459  cd
+ 1460  ls
+ 1461  lyx
+ 1462  sudo reboot
+ 1463  cd /opt
+ 1464  mv ~/Descargas/SoulseekQt-2013-11-6.tgz 
+ 1465  mv ~/Descargas/SoulseekQt-2013-11-6.tgz .
+ 1466  ls
+ 1467  untargz SoulseekQt-2013-11-6.tgz 
+ 1468  ls
+ 1469  cd /usr/local/bin/
+ 1470  ls
+ 1471  ln -s /opt/SoulseekQt-2013-11-6 soulseek
+ 1472  ls
+ 1473  exit
+ 1474  cd /opt/
+ 1475  ls
+ 1476  rm SoulseekQt-2013-11-6*
+ 1477  ls
+ 1478  mv ~/Descargas/SoulseekQt-2013-11-6-64bit.tgz .
+ 1479  untargz SoulseekQt-2013-11-6-64bit.tgz 
+ 1480  ls
+ 1481  cd /usr/local/
+ 1482  ls
+ 1483  cd bin/
+ 1484  ls
+ 1485  rm soulseek 
+ 1486  ln -s /opt/SoulseekQt-2013-11-6-64bit soulseek
+ 1487  ls
+ 1488  exit
+ 1489  cd /opt
+ 1490  ls
+ 1491  cp ~/Descargas/tor-browser-linux64-3.5.4_en-US.tar.tar .
+ 1492  ls
+ 1493  lstargz tor-browser-linux64-3.5.4_en-US.tar.tar 
+ 1494  exit
+ 1495  cd /etc
+ 1496  more hosts
+ 1497  127.0.0.1localhost
+ 1498  127.0.1.1checo-Vostro-230
+ 1499  172.16.19.101checo-Vostro-230
+ 1500  172.16.19.7ssantana2
+ 1501  172.16.19.126jaguar
+ 1502  cd
+ 1503  cd bin
+ 1504  cat > gitrepos.sh
+ 1505  chmod +x gitrepos.sh 
+ 1506  cd /usr/local/bin/
+ 1507  ls
+ 1508  sudo ln -s ~checo/bin/gitrepos.sh .
+ 1509  ls
+ 1510  ls
+ 1511  git help
+ 1512  git help show
+ 1513  git status
+ 1514  git help config
+ 1515  git config --list
+ 1516  git help config --list
+ 1517  find ~ -name .git -type d -exec dirname {} \;
+ 1518  gitrepos.sh 
+ 1519  mkdir datasciencecoursera
+ 1520  cd datasciencecoursera/
+ 1521  git init
+ 1522  ls -l
+ 1523  ls -a
+ 1524  cd ..
+ 1525  gitrepos.sh 
+ 1526  cd datasciencecoursera/
+ 1527  cat > HelloWorld1.md
+ 1528  ls
+ 1529  git help add
+ 1530  git add .
+ 1531  ls
+ 1532  git commit -m "First file in my repo"
+ 1533  git
+ 1534  git help push
+ 1535  git remote add origin https://github.com/juliosergio/datasciencecoursera
+ 1536  git push
+ 1537  git pull
+ 1538  ls
+ 1539  commit
+ 1540  git commit -m "Adding files from remote"
+ 1541  ls
+ 1542  git help pull
+ 1543  git fetch
+ 1544  ls
+ 1545  ls -a
+ 1546  cd .git/
+ 1547  ls
+ 1548  cd objects/
+ 1549  ls
+ 1550  cd ..
+ 1551  git checkout
+ 1552  ls
+ 1553  git rebase
+ 1554  ls
+ 1555  git branch --set-upstream master
+ 1556  git branch --set-upstream-to master
+ 1557  ls
+ 1558  git pull
+ 1559  ls
+ 1560  git diff
+ 1561  git checkout master
+ 1562  git help merge
+ 1563  git remote -v
+ 1564  git remote
+ 1565  git help branch
+ 1566  git branch -r
+ 1567  git merge
+ 1568  ls
+ 1569  git status
+ 1570  ls
+ 1571  ls -al
+ 1572  git config --list
+ 1573  git remote show origin
+ 1574  git pull origin master
+ 1575  ls
+ 1576  git push
+ 1577  git remote show origin
+ 1578  ls
+ 1579  cd
+ 1580  cat > GitSubmit.txt
+ 1581  gedit GitSubmit.txt 
+ 1582  cd Descargas/
+ 1583  ls
+ 1584  mkdir ../knitr-lyx-examples
+ 1585  mv Stat579-HW8-Xie.* ../knitr-lyx-examples/
+ 1586  cd
+ 1587  cd Mega/Libro/
+ 1588  ls
+ 1589  git init
+ 1590  git add .
+ 1591  git add -u
+ 1592  git help commit
+ 1593  git commit -m "estado inicial del Libro"
+ 1594  git remote add origin https://github.com/juliosergio/Libro
+ 1595  git push
+ 1596  git config --global push.default simple
+ 1597  git pull
+ 1598  git branch --set-upstream-to=origin master
+ 1599  git branch --set-upstream-to=master
+ 1600  git pull
+ 1601  git branch --set-upstream-to master
+ 1602  git pull origin master
+ 1603  git push
+ 1604  git push origin master
+ 1605  git remote show origin
+ 1606  ls
+ 1607  git remote show origin
+ 1608  cd Mega/Libro/
+ 1609  git pull origin master
+ 1610  git add -A
+ 1611  git commit
+ 1612  git push origin master
+ 1613  git remote show status
+ 1614  git remote show origin
+ 1615  git add -A
+ 1616  git commit
+ 1617  git push origin master
+ 1618  git remote show origin
+ 1619  cd Mega/Libro/
+ 1620  ls
+ 1621  git remote show origin
+ 1622  ps -A
+ 1623  xkill
+ 1624  ssh -X efrain@172.16.23.161
+ 1625  ssh -X emateos@172.16.23.161
+ 1626  history > history

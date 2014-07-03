@@ -4875,11 +4875,37 @@ reference "eq:11"
 \end_layout
 
 \begin_layout Standard
+Ahora, la matriz jacobiana de la función anterior, evaluada en el mismo
+ punto del ejemplo, se calcula de manera muy simple así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<jacobian>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+jacobian(miFun, p_tst)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-Tanto la ecuación 
+Para implementar el método, se tienen dos posibilidades.
+ Tanto la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:7"
@@ -4893,7 +4919,7 @@ reference "eq:8"
 
 \end_inset
 
-, proporcionan la manera para calcular el siguiente valor del vector 
+, proporcionan una forma para calcular el siguiente valor del vector 
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
@@ -4910,6 +4936,306 @@ reference "eq:8"
 económica
 \emph default
 .
+ De esta forma, el método establece que se debe resolver el sistema de ecuacione
+s descrito por la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+ para encontrar el incremento que se debe aplicar al vector 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ y obtener así un nuevo valor, lo que en R se hace con la función 
+\family typewriter
+solve()
+\family default
+.
+ Así, si el valor inicial del vector, fuera, para el ejemplo, 
+\family typewriter
+p_tst
+\family default
+, y el sistema de ecuaciones, fuera el descrito por la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:11"
+
+\end_inset
+
+ y, en el código, por 
+\family typewriter
+miFun
+\family default
+, el procedimiento para obtener el siguiente valor es:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<sigval>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+incremento <- solve(jacobian(miFun, p_tst), -miFun(p_tst))
+\end_layout
+
+\begin_layout Plain Layout
+
+# El incremento es:
+\end_layout
+
+\begin_layout Plain Layout
+
+incremento
+\end_layout
+
+\begin_layout Plain Layout
+
+siguiente_p <- p_tst + incremento
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y el siguiente valor de p es:
+\end_layout
+
+\begin_layout Plain Layout
+
+siguiente_p
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para que el procedimiento sea general, la función podrá ser cualquiera que
+ represente un sistema de 
+\emph on
+m
+\emph default
+ ecuaciones no lineales, con 
+\emph on
+m
+\emph default
+ incóginitas.
+ Por consiguiente conviene escribir una función de la situiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funcsolve>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+sigDx <- function(ff, x) {solve(jacobian(ff, x), -ff(x))}
+\end_layout
+
+\begin_layout Plain Layout
+
+# y podemos obtener los mismos resultados que antes con:
+\end_layout
+
+\begin_layout Plain Layout
+
+(siguiente_p <- p_tst + sigDx(miFun, p_tst))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para concluir el método, lo anterior se tiene aplicar iterativamente, y
+ para determinar la salida del mismo se deben aplicar criterios de aproximación
+ de los valores encontrados.
+ Estos criterios se aplicarán sobre el módulo del incremento, ya que si
+ este es cero entre dos iteraciones consecutivas, se habrán encontrado los
+ valores buscados.
+ Se podrá optar entre dos criterios: el simple valor absoluto del módulo
+ del incremento, o un valor relativo al módulo del vector encontrado.
+ De este modo, la función para el método de Newton-Raphson queda como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<NwtRph, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Funcion para calculo del modulo o magnitud de un vector
+\end_layout
+
+\begin_layout Plain Layout
+
+modulus <- function(x) sqrt(sum(x^2)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {   
+\end_layout
+
+\begin_layout Plain Layout
+
+  n <- 0 # numero de iteracion   
+\end_layout
+
+\begin_layout Plain Layout
+
+  repeat {     
+\end_layout
+
+\begin_layout Plain Layout
+
+    difx <- sigDx(x0) # diferencia de la sig.
+ aprox.
+\end_layout
+
+\begin_layout Plain Layout
+
+    x <- x0 + difx # la siguiente aproximacion    
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Hacemos el modulo de la diferencia para checar
+\end_layout
+
+\begin_layout Plain Layout
+
+    r <- modulus(difx) # distancia entre x y x0
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Comparacion absoluta o relativa
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (absComp) { # <-absoluta
+\end_layout
+
+\begin_layout Plain Layout
+
+      if (r <= eps) return(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    } else { # <-relativa
+\end_layout
+
+\begin_layout Plain Layout
+
+      if (r <= eps*modulus(x0)) return(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    # si llega al maximo de iteraciones
+\end_layout
+
+\begin_layout Plain Layout
+
+    # salimos con null
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n > lim) return (NULL)
+\end_layout
+
+\begin_layout Plain Layout
+
+    n <- n+1
+\end_layout
+
+\begin_layout Plain Layout
+
+    x0 <- x # para la siguiente iteracion
+\end_layout
+
+\begin_layout Plain Layout
+
+  } 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Apliquemos para nuestro ejemplo, tomando
+\end_layout
+
+\begin_layout Plain Layout
+
+# p_tst, como valor inicial:
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- NwtRph(miFun, p_tst)
+\end_layout
+
+\begin_layout Plain Layout
+
+print(p) # <- SOLUCION
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
