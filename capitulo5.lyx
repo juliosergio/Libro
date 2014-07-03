@@ -3061,6 +3061,12 @@ Para darle mayor atractivo a esta sección, se usarán, sin profundizar, algunos
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Histogramas-de-frecuencias"
+
+\end_inset
+
 Histogramas de frecuencias
 \end_layout
 
@@ -3841,6 +3847,12 @@ dnormX(valores)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "def-func-curve"
+
+\end_inset
+
 Graficar una función como ésta, en R es sencillo y se hace mediante la función
  
 \family typewriter
@@ -4261,7 +4273,15 @@ Independientemente de manera como se calcula esta función, lo importante
 \begin_inset Formula $\theta$
 \end_inset
 
- y no la media y la desviación estándar.
+, denominados parámetros de forma (
+\emph on
+shape
+\emph default
+) y de escala (
+\emph on
+scale
+\emph default
+), respectivamente, y no la media y la desviación estándar.
  Sin embargo, los datos se han caracterizado en términos de su media y su
  desviación estándar.
  
@@ -4346,7 +4366,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\theta=\frac{v}{\mu}
+\theta=\frac{v}{\mu}\label{eq:3}
 \end{equation}
 
 \end_inset
@@ -4357,7 +4377,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-k=\frac{\mu^{2}}{v}
+k=\frac{\mu^{2}}{v}\label{eq:4}
 \end{equation}
 
 \end_inset
@@ -4367,9 +4387,9 @@ k=\frac{\mu^{2}}{v}
 
 \begin_layout Standard
 Esto resolvería nuestro problema, si quisiéramos hacerlo exclusivamente
- para la función de densidad de probabilidades Gamma; sin embargo, si lo
- queremos desarrollar aquí es un procedimiento más general,tal que dados
- los valores de 
+ para la función de densidad de probabilidades Gamma.
+ Sin embargo, si lo queremos desarrollar aquí es un procedimiento más general,
+ tal que dados los valores de 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -4377,7 +4397,8 @@ Esto resolvería nuestro problema, si quisiéramos hacerlo exclusivamente
 \begin_inset Formula $v$
 \end_inset
 
-, tendríamos que resolver cualquier el sistema de ecuaciones no lineales,
+, pudiésemos encontrar los valores de los parámetros de la función de densidad,
+ tendríamos que resolver cualquier el sistema de ecuaciones no lineales,
  como el de la ecuaciones 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4392,8 +4413,8 @@ reference "eq:2"
 
 \end_inset
 
-, por medio de algún método numérico, que es lo que se desarrollará en las
- siguientes secciones.
+, por medio de algún método numérico.
+ Esto es lo que se desarrollará en las siguientes secciones.
 \end_layout
 
 \begin_layout Subsection
@@ -4765,7 +4786,7 @@ Para poner todo esto en contexto, se propone aquí un ejemplo, con las siguiente
 \begin{array}{c}
 x^{2}+yx-10=0\\
 y+3xy^{2}-57=0
-\end{array}
+\end{array}\label{eq:10}
 \end{equation}
 
 \end_inset
@@ -4778,7 +4799,21 @@ Podemos poner esto en términos de una función vectorial
 \begin_inset Formula $\mathbf{F}(\mathbf{p})$
 \end_inset
 
-, tal que 
+,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aquí, 
+\begin_inset Formula $\mathbf{p}=(p_{1},p_{2})$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ tal que 
 \begin_inset Formula $x=p_{1},y=p_{2}$
 \end_inset
 
@@ -5070,8 +5105,8 @@ sigDx <- function(ff, x) {solve(jacobian(ff, x), -ff(x))}
 
 \begin_layout Standard
 Para concluir el método, lo anterior se tiene aplicar iterativamente, y
- para determinar la salida del mismo se deben aplicar criterios de aproximación
- de los valores encontrados.
+ para determinar la salida del ciclo de iteraciones se deben aplicar criterios
+ de aproximación de los valores encontrados.
  Estos criterios se aplicarán sobre el módulo del incremento, ya que si
  este es cero entre dos iteraciones consecutivas, se habrán encontrado los
  valores buscados.
@@ -5105,17 +5140,17 @@ modulus <- function(x) sqrt(sum(x^2))
 
 \begin_layout Plain Layout
 
-NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {   
+NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 \end_layout
 
 \begin_layout Plain Layout
 
-  n <- 0 # numero de iteracion   
+  n <- 0 # numero de iteracion
 \end_layout
 
 \begin_layout Plain Layout
 
-  repeat {     
+  repeat { # repeticion infinita
 \end_layout
 
 \begin_layout Plain Layout
@@ -5126,7 +5161,7 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-    x <- x0 + difx # la siguiente aproximacion    
+    x <- x0 + difx # la siguiente aproximacion
 \end_layout
 
 \begin_layout Plain Layout
@@ -5235,6 +5270,487 @@ print(p) # <- SOLUCION
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
+Ajuste a la función de densidad de probabilidades
+\end_layout
+
+\begin_layout Standard
+Para concluir el ejemplo, se hará ahora el ajuste, con los parámetros estadístic
+os de los datos, a la función Gamma de densidad de probabilidades.
+ Así, lo primero que se necesitará serán los parámetros estadísticos, la
+ media y la varianza en este caso, de los datos que se han introducido,
+ como ejemplo, en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Histogramas-de-frecuencias"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paramest, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+( mu <- mean(pp$Precip) ) # media
+\end_layout
+
+\begin_layout Plain Layout
+
+( vz <- var(pp$Precip) ) # varianza
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sistema de ecuaciones que debemos resolver se deriva de las expresiones
+ dadas en la ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+, pero se tiene que expresar a la manera de los sistemas de ecuaciones mostrados
+ en las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:10"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:11"
+
+\end_inset
+
+, o sea, de 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2"
+
+\end_inset
+
+ se obtiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+k\theta-\mu=0\\
+k\theta^{2}-v=0
+\end{array}\label{eq:12}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+y si se hace 
+\begin_inset Formula $k=p_{1},\theta=p_{2}$
+\end_inset
+
+, se puede, igual que antes, tener una función vectorial 
+\begin_inset Formula $\mathbf{F}(\mathbf{p})$
+\end_inset
+
+, así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathbf{F}(\mathbf{p})=\begin{array}{c}
+p_{1}p_{2}-\mu\\
+p_{1}p_{2}^{2}-v
+\end{array}=\mathbf{0}\label{eq:13}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+que, de manera casi inmediata, se puede traducir al código de R así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<sistecs, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+miFun <- function(p) c(p[1]*p[2] - mu,
+\end_layout
+
+\begin_layout Plain Layout
+
+                       p[1]*p[2]^2 - vz)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora, se considera como primera aproximación 
+\begin_inset Formula $\mathbf{p}=(k,\theta)=(5,2)$
+\end_inset
+
+, simplemente se aplica, la función 
+\family typewriter
+NwtRph()
+\family default
+, desarrollada con anterioridad, así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<aplNwtRph>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+p0 <- c(5,2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- NwtRph(miFun, p0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+print(p) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, los parámetros de la función de denssidad de probabilidades Gamma son:
+ 
+\begin_inset Formula $k=$
+\end_inset
+
+
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+p[1]
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $\theta=$
+\end_inset
+
+
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+p[2]
+\end_layout
+
+\end_inset
+
+.
+ Como una curiosidad, nótese que estos valores son los mismos que se hubieran
+ obtenido de aplicar las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para terminar, combinaremos el histograma de nuestros datos, con la curva
+ de la función de densidad de probabilidades Gamma correspondiente a los
+ parámetros encontrados.
+ 
+\end_layout
+
+\begin_layout Standard
+La función 
+\family typewriter
+curve()
+\family default
+, descrita de manera breve en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "def-func-curve"
+
+\end_inset
+
+, permitirá graficar la curva de la función de densidad Gamma.
+ No obstante, para ello se necesita definir esa función de densidad, en
+ términos de un sólo argumento, esto es, la variable aleatoria, de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<dgammaX, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+dgammaX <- function(x) dgamma(x, shape=p[1], scale=p[2])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y, ahora sí, ya se puede proceder a hacer la gráfica combinada, de la manera
+ siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<combinadas, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# PRIMERO el histograma:
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(pp$Precip, breaks=15, freq=FALSE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Aqui, 'hist' no necesita el argumento 'xlim', ya
+\end_layout
+
+\begin_layout Plain Layout
+
+# que, como se vera en la grafica la f.
+ de densidad
+\end_layout
+
+\begin_layout Plain Layout
+
+# Gamma, se apega de mejor manera a los datos, o sea,
+\end_layout
+
+\begin_layout Plain Layout
+
+# al histograma.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# LUEGO, la funcion de densidad:
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaX, add=TRUE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado del código anterior, es parecido al que se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Ajuste-de-datos"
+
+\end_inset
+
+; sólo que en ésta, con un poco de azúcar visual, como los colores, sombreados
+ y títulos, que son materia de un próximo capítulo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Ajuste, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(pp$Precip, freq=F,
+\end_layout
+
+\begin_layout Plain Layout
+
+     col="blue", density=25, breaks=15, main="Histograma y densidad Gamma",
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlab="precipitacion (mm)", ylab="Densidad")
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaX, col="green", lwd=3, add=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ajuste-de-datos"
+
+\end_inset
+
+Ajuste de datos a una función de densidad de probabilidades Gamma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 

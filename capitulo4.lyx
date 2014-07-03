@@ -1473,17 +1473,22 @@ status open
 
 \begin_layout Plain Layout
 
-# Primeramente construyamos un vector con elementos numericos arbitrarios,
+# Primeramente construyamos un vector con elementos numericos 
 \end_layout
 
 \begin_layout Plain Layout
 
-# con un generador de numeros aleatorios (distribucion uniforme), entre
+# arbitrarios, con un generador de numeros aleatorios 
 \end_layout
 
 \begin_layout Plain Layout
 
-# 10.5 y 40.8, generamos 32 numeros, asi:
+# (distribucion uniforme), entre 10.5 y 40.8, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# generamos 32 numeros, asi:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1797,7 +1802,12 @@ miOp(vv)
 
 \begin_layout Plain Layout
 
-miOpV2 <- function(v) Reduce(function(a,b) a*b/(a+b), v, accumulate=TRUE)
+miOpV2 <- function(v) Reduce(function(a,b) a*b/(a+b), v, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                             accumulate=TRUE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1874,8 +1884,12 @@ status open
 
 \begin_layout Plain Layout
 
-(misDatos <- data.frame(uno=runif(5,10.5,40.3), dos=runif(5), tres=runif(5,155,890)
-))
+(misDatos <- data.frame(uno=runif(5,10.5,40.3), 
+\end_layout
+
+\begin_layout Plain Layout
+
+                        dos=runif(5), tres=runif(5,155,890)))
 \end_layout
 
 \begin_layout Plain Layout
@@ -1885,7 +1899,12 @@ sapply(misDatos, haz_promedio, simplify=TRUE)
 
 \begin_layout Plain Layout
 
-# aqui se podria haber usado la funcion 'mean' en vez de 'haz_promedio'
+# aqui se podria haber usado la funcion 'mean' en vez 
+\end_layout
+
+\begin_layout Plain Layout
+
+# de 'haz_promedio'
 \end_layout
 
 \begin_layout Plain Layout
@@ -1930,7 +1949,7 @@ lapply(misDatos, mean)
 
 \begin_layout Plain Layout
 
-# notese que aqui se uso la funcion 'mean' en vez de 'haz_promedio'
+# nota que aqui se uso la funcion 'mean' en vez de 'haz_promedio'
 \end_layout
 
 \begin_layout Plain Layout
