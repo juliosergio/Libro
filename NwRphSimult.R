@@ -1,4 +1,4 @@
-# ---- NwRph ----
+#=========
 # JSS
 # Metodo de Newton-Raphson para resolver ecuaciones no lineales
 # simultaneas
@@ -7,7 +7,7 @@ library(numDeriv) # Para calcular el jacobiano
 # El modulo o magnitud de un vector
 modulus <- function(x) sqrt(sum(x^2))
 
-NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
+NwtRph_1 <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
   # ff: La funcion --o conjunto de funciones-- ver ejemplo
   # adelante.
   # x0: vector inicial
@@ -36,7 +36,12 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
   }
 }
 
-NwtRph0 <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
+# -----
+# Funcion que calcula la siguiente iteracion a partir
+# de la solucion del sitema de ecuaciones
+sigDx <- function(ff, x) {solve(jacobian(ff, x), -ff(x))}
+
+NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
   # ff: La funcion --o conjunto de funciones-- ver ejemplo
   # adelante.
   # x0: vector inicial
@@ -47,13 +52,9 @@ NwtRph0 <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
   #   Aca no se invertira el Jacobiano, sino que se 
   #   resolvera el sistema de ecuaciones
   #-------------------
-  # funcioncita adicional para cada iteracion
-  #  -- a diferencia de la anterior, esta funcion entrega
-  #  -- el incremento que se tiene que aniadir a x
-  nxtD <- function(x) {solve(jacobian(ff, x), -ff(x))}
   n <- 0 # numero de iteracion
   repeat {
-    difx <- nxtD(x0) # diferencia de la sig. aprox
+    difx <- sigDx(ff, x0) # diferencia de la sig. aprox
     x <- x0 + difx # la siguiente aprox
     # Hacemos el modulo de la diferencia para checar
     r <- modulus(difx) # distancia entre x y x0
@@ -85,7 +86,7 @@ test <- function(i=1) {
   # ponemos como primer aproximacion lo siguiente:
   p0 <- c(1.5, 3.5)
   # La funcion que usaremos
-  NWR <- switch(i, NwtRph, NwtRph0)
+  NWR <- switch(i, NwtRph_1, NwtRph)
   p <- NWR(miFun, p0)
   print(p)
 }

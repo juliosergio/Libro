@@ -64,6 +64,12 @@ knitr
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Escritura-de-Funciones"
+
+\end_inset
+
 Escritura de Funciones
 \end_layout
 
@@ -73,7 +79,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<widthcap1, include=F>>=
+<<widthcap5, include=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -4366,7 +4372,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\theta=\frac{v}{\mu}
+\theta=\frac{v}{\mu}\label{eq:3}
 \end{equation}
 
 \end_inset
@@ -4377,7 +4383,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-k=\frac{\mu^{2}}{v}
+k=\frac{\mu^{2}}{v}\label{eq:4}
 \end{equation}
 
 \end_inset
@@ -5524,7 +5530,22 @@ p[2]
 \end_inset
 
 .
- 
+ Como una curiosidad, nótese que estos valores son los mismos que se hubieran
+ obtenido de aplicar las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5646,6 +5667,12 @@ curve(dgammaX, add=TRUE)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "El-resultado-del-código"
+
+\end_inset
+
 El resultado del código anterior, es parecido al que se muestra en la Fig.
  
 \begin_inset CommandInset ref

@@ -64,7 +64,7 @@ knitr
 \begin_body
 
 \begin_layout Chapter
-Escritura de funciones
+Graficación con R
 \end_layout
 
 \begin_layout Standard
@@ -73,7 +73,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<widthcap1, include=F>>=
+<<widthcap6, include=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -96,68 +96,171 @@ options('width')
 @
 \end_layout
 
+\begin_layout Plain Layout
+
+<<set-optionsCap6, echo=FALSE, cache=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+read_chunk('EjCap5.R')
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-En los capítulos anteriores se han revisado distintos tópicos de la programación
- con este lenguaje.
- En medio de las explicaciones provistas, se ha indicado implícitamente
- la forma de escribir funciones; en particular, en la sección 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sec:Funciones"
-
-\end_inset
-
-, se ha dado una breve introducción al tema de la escritura de funciones.
- En este capítulo se abordará ese mismo tema, pero de una manera un poco
- más formal.
+Una de las grandes virutdes del lenguaje R, es la facilidad que ofrece para
+ presentar la información correspondiente a los datos que maneja o a los
+ cálculos que desarrolla, de una manera gráfica.
+ El lenguaje cuenta, no con uno, sino con varios sistemas, en general separados,
+ para organizar o especificar visualizaciones gráficas.
+ En este capítulo se revisará uno de ellos, el sistema gráfico básico, que
+ es el que está inmediatamente disponible en la instalación inicial del
+ lenguaje.
 \end_layout
 
 \begin_layout Section
-Estructura formal de una función
+Motivación
 \end_layout
 
 \begin_layout Standard
-Como se ha visto con anterioridad, R trata las funciones prácticamente igual
- que cualquier otra variable.
- Así, ellas se pueden manipular de manera semejante a como se hace con otros
- objetos de R: se pueden pasar como argumentos de otras funciones, se pueden
- regresar como el valor final de una función, se pueden definir en el interior
- de otra función, etc.
- Para crear o definir una función, se emplea la directiva 
-\family typewriter
+Anteriormente, en el capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Escritura-de-Funciones"
 
-\begin_inset Quotes eld
 \end_inset
 
-function
-\begin_inset Quotes erd
-\end_inset
-
-
-\family default
-, en general, asociándola con un símbolo mediante una operación de asignación,
- como se muestra en la Fig.
+, se vio colateralmente la manera para producir histogramas sencillos, a
+ partir de un conjunto de datos.
+ Sin embargo, en ese capítulo, la producción de estos histogramas, se hizo
+ sin alterar o controlar la apariencia final del gráfico resultante; esto
+ es, se dispuso de las opciones que el sistema otorga por ausencia, o por
+ 
+\emph on
+default
+\emph default
+.
+ No obstante, la Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Definición-funcion"
+reference "fig:Ajuste-de-datos"
+
+\end_inset
+
+ de ese capítulo, exhibe una apariencia que no es producida por el código
+ de ejemplo que se muestra allí mismo, en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "El-resultado-del-código"
 
 \end_inset
 
 .
- Esta directiva, tiene dos partes, la definición de los 
-\emph on
-argumentos formales
-\emph default
- de la función, y el cuerpo de la función.
- El cuerpo de la función está constituído por una o más expresiones válidas
- del lenguaje; el valor de la última expresión en esa secuencia, es el valor
- que la función entrega como resultado.
+ La producción de la gráfica en cuestión requiere de la alteración de las
+ opciones que el sistema ofrece por ausencia.
+ 
+\end_layout
+
+\begin_layout Standard
+En el código que se muestra a continuación se puede observar cómo se modifican
+ algunas de las opciones de apariencia para producir el gráfico deseado,
+ que se muestra nuevamente en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-con-atributos"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjCap5, include=F, echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<Grafico0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(pp$Precip, freq=F, breaks=15,
+\end_layout
+
+\begin_layout Plain Layout
+
+     col="blue", # Color de las barras
+\end_layout
+
+\begin_layout Plain Layout
+
+     density=30, # Densidad de sombreado
+\end_layout
+
+\begin_layout Plain Layout
+
+     main="Histograma y densidad Gamma", # Titulo
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlab="precipitacion (mm)", # Etiqueta eje X
+\end_layout
+
+\begin_layout Plain Layout
+
+     ylab="Densidad") # Etiqueta eje Y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaX, add=T,
+\end_layout
+
+\begin_layout Plain Layout
+
+     col="green", # Color curva
+\end_layout
+
+\begin_layout Plain Layout
+
+     lwd=3) # Ancho de linea
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -168,10 +271,23 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename EstructuraFuncion.jpg
-	lyxscale 60
-	width 70text%
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Grafico1, ref.label='Grafico0', echo=FALSE, fig.width=4, fig.height=4, fig.show='h
+old', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
 
 \end_inset
 
@@ -184,11 +300,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Definición-funcion"
+name "fig:Gráfico-con-atributos"
 
 \end_inset
 
-Definición de una función
+Gráfico con atributos
 \end_layout
 
 \end_inset

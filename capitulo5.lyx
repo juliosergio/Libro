@@ -64,6 +64,12 @@ knitr
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Escritura-de-Funciones"
+
+\end_inset
+
 Escritura de Funciones
 \end_layout
 
@@ -73,7 +79,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<widthcap1, include=F>>=
+<<widthcap5, include=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -5661,6 +5667,12 @@ curve(dgammaX, add=TRUE)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "El-resultado-del-código"
+
+\end_inset
+
 El resultado del código anterior, es parecido al que se muestra en la Fig.
  
 \begin_inset CommandInset ref

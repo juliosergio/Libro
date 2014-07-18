@@ -64,6 +64,12 @@ knitr
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Escritura-de-Funciones"
+
+\end_inset
+
 Escritura de Funciones
 \end_layout
 
@@ -73,7 +79,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<widthcap1, include=F>>=
+<<widthcap5, include=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -4366,7 +4372,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\theta=\frac{v}{\mu}
+\theta=\frac{v}{\mu}\label{eq:3}
 \end{equation}
 
 \end_inset
@@ -4377,7 +4383,7 @@ De esta manera, se tienen dos ecuaciones, no lineales, que describen
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-k=\frac{\mu^{2}}{v}
+k=\frac{\mu^{2}}{v}\label{eq:4}
 \end{equation}
 
 \end_inset
@@ -5524,7 +5530,22 @@ p[2]
 \end_inset
 
 .
- 
+ Como una curiosidad, nótese que estos valores son los mismos que se hubieran
+ obtenido de aplicar las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:4"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5587,12 +5608,47 @@ status open
 
 \begin_layout Plain Layout
 
-<<combinadas, eval=F>>=
+<<combinadas, eval=F, tidy=F>>=
 \end_layout
 
 \begin_layout Plain Layout
 
-hist(pp$Precip, breaks=15, freq=FALSE, xlim=lims)
+# PRIMERO el histograma:
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(pp$Precip, breaks=15, freq=FALSE) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Aqui, 'hist' no necesita el argumento 'xlim', ya
+\end_layout
+
+\begin_layout Plain Layout
+
+# que, como se vera en la grafica la f.
+ de densidad
+\end_layout
+
+\begin_layout Plain Layout
+
+# Gamma, se apega de mejor manera a los datos, o sea,
+\end_layout
+
+\begin_layout Plain Layout
+
+# al histograma.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# LUEGO, la funcion de densidad:
 \end_layout
 
 \begin_layout Plain Layout
@@ -5611,6 +5667,12 @@ curve(dgammaX, add=TRUE)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "El-resultado-del-código"
+
+\end_inset
+
 El resultado del código anterior, es parecido al que se muestra en la Fig.
  
 \begin_inset CommandInset ref
@@ -5619,8 +5681,9 @@ reference "fig:Ajuste-de-datos"
 
 \end_inset
 
-; ésta, con un poco de azúcar visual, como los colores y sombreados, que
- son materia de un próximo capítulo.
+; sólo que en ésta, con un poco de azúcar visual, como los colores, sombreados
+ y títulos, que son materia de un próximo capítulo.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5645,13 +5708,22 @@ linewidth'>>=
 
 \begin_layout Plain Layout
 
-h <- hist(datos, freq=F, xlim=c(0,max(datos)),            col="blue", density=25
-, breaks=15)
+hist(pp$Precip, freq=F,
 \end_layout
 
 \begin_layout Plain Layout
 
-curve(g, col="green", lwd=3, add=T) 
+     col="blue", density=25, breaks=15, main="Histograma y densidad Gamma",
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlab="precipitacion (mm)", ylab="Densidad")
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaX, col="green", lwd=3, add=T)
 \end_layout
 
 \begin_layout Plain Layout
