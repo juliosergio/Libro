@@ -139,7 +139,7 @@ reference "chap:Escritura-de-Funciones"
 
 \end_inset
 
-, se vio colateralmente la manera para producir histogramas sencillos a
+, se vio colateralmente la manera para producir histogramas sencillos, a
  partir de un conjunto de datos.
  Sin embargo, en ese capítulo, la producción de estos histogramas, se hizo
  sin alterar o controlar la apariencia final del gráfico resultante; esto
@@ -157,7 +157,7 @@ reference "fig:Ajuste-de-datos"
 
 \end_inset
 
- de ese capítulo, exhibe una apariencia que no es producida por el código
+ de ese capítulo, exhibe una apariencia que no es generada por el código
  de ejemplo que se muestra allí mismo, en la sección 
 \begin_inset CommandInset ref
 LatexCommand vref
@@ -166,15 +166,15 @@ reference "El-resultado-del-código"
 \end_inset
 
 .
- La producción de la gráfica en cuestión requiere de la alteración de las
+ La producción de la gráfica en cuestión, requiere de la alteración de las
  opciones que el sistema ofrece por ausencia.
  
 \end_layout
 
 \begin_layout Standard
 En el código que se muestra a continuación se puede observar cómo se modifican
- algunas de las opciones de apariencia para producir el gráfico deseado,
- que se muestra nuevamente en la Fig.
+ algunas de las opciones de apariencia, para generar el gráfico deseado,
+ que se presenta nuevamente en la Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -211,12 +211,12 @@ hist(pp$Precip, freq=F, breaks=15,
 
 \begin_layout Plain Layout
 
-     col="blue", # Color de las barras
+     col="blueviolet", # Color de las barras
 \end_layout
 
 \begin_layout Plain Layout
 
-     density=30, # Densidad de sombreado
+     density=30, # Densidad de sombreado de las barras
 \end_layout
 
 \begin_layout Plain Layout
@@ -226,12 +226,12 @@ hist(pp$Precip, freq=F, breaks=15,
 
 \begin_layout Plain Layout
 
-     xlab="precipitacion (mm)", # Etiqueta eje X
+     xlab="precipitacion (mm)", # Etiqueta del eje X
 \end_layout
 
 \begin_layout Plain Layout
 
-     ylab="Densidad") # Etiqueta eje Y
+     ylab="Densidad") # Etiqueta del eje Y
 \end_layout
 
 \begin_layout Plain Layout
@@ -319,6 +319,13 @@ Gráfico con atributos
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Hasta aquí, se ha visto como producir histogramas y curvas; existen varios
+ otros tipos de gráficos, además de que hay muchas otras opciones para manipular
+ su apariencia, algunos de estos tipos, así como algunas de sus opciones,
+ se revisarán en las siguientes secciones del presente capítulo.
 \end_layout
 
 \end_body
