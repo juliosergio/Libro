@@ -245,12 +245,12 @@ curve(dgammaX, add=T,
 
 \begin_layout Plain Layout
 
-     col="green", # Color curva
+     col="green", # Color de la curva
 \end_layout
 
 \begin_layout Plain Layout
 
-     lwd=3) # Ancho de linea
+     lwd=3) # Ancho de linea de la curva
 \end_layout
 
 \begin_layout Plain Layout
@@ -324,9 +324,118 @@ Gráfico con atributos
 \begin_layout Standard
 Hasta aquí, se ha visto como producir histogramas y curvas.
  Existen varios otros tipos de gráficos, además de que hay muchas otras
- opciones para manipular su apariencia, algunos de estos tipos, así como
+ opciones para manipular su apariencia; algunos de estos tipos, así como
  algunas de sus opciones, se revisarán en las siguientes secciones del presente
  capítulo.
+\end_layout
+
+\begin_layout Section
+La función más básica de graficación: 
+\family typewriter
+plot()
+\end_layout
+
+\begin_layout Standard
+La función más simple para graficar es 
+\family typewriter
+plot()
+\family default
+.
+ Antes de explicar sus posibilidades, veremos qué es lo que hace en el caso
+ más sencillo.
+ Para ello se empleará el mismo conjunto de datos último ejemplo del capítulo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Escritura-de-Funciones"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Scatter0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(pp$Precip) # Produce un grafico de "dispersion"
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de la operación anterior se puede ver en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Un-sencillo-gráfico"
+
+\end_inset
+
+, con algunas anotaciones acerca de los valores que ha tomado el lenguaje
+ por omisión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Scatter1.jpg
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Un-sencillo-gráfico"
+
+\end_inset
+
+Un sencillo gráfico de 
+\emph on
+dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
