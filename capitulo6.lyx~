@@ -402,7 +402,7 @@ status open
 \begin_inset Graphics
 	filename Scatter1.jpg
 	lyxscale 60
-	width 83text%
+	width 90text%
 
 \end_inset
 
@@ -422,6 +422,244 @@ name "fig:Un-sencillo-gráfico"
 Un sencillo gráfico de 
 \emph on
 dispersión
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, la función 
+\family typewriter
+plot()
+\family default
+ toma como argumentos dos vectores de la misma dimensión, uno para los valores
+ de las abscisas, 
+\family typewriter
+x
+\family default
+, y otro para los valores de las ordenadas, 
+\family typewriter
+y
+\family default
+.
+ Sin embargo, cuando se omite uno de ellos, el lenguaje 
+\emph on
+entiende
+\emph default
+ que las abscisas serían simplemente los índices de los elementos en el
+ vector provisto, y que las ordenadas serán, por tanto, cada uno de los
+ elementos del vector.
+ De igual manera, el lenguaje 
+\emph on
+supone
+\emph default
+ que lo que se quiere graficar son los puntos como tal y con el color y
+ tipo de símbolo seleccionados por omisión.
+ La función 
+\family typewriter
+plot()
+\family default
+ tiene una gran variedad de argumentos que permiten cambiar ese comportamiento
+ por omisión y que pueden ser consultados en línea mediante la instrucción
+ 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+?plot
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+.
+ En seguida, se grafica la misma información que en el gráfico anterior,
+ pero ahora como líneas azules, y considerando como abscisas los años de
+ los datos, que en este caso son los nombres de los renglones del 
+\emph on
+data frame
+\emph default
+ que contiene los datos, 
+\family typewriter
+pp
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<BlueLines0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para el manejo de etiquetas especiales,
+\end_layout
+
+\begin_layout Plain Layout
+
+# con caracteres "raros para el Ingles", 
+\end_layout
+
+\begin_layout Plain Layout
+
+lab <- "Años" # Etiqueta para las abscisas
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(as.numeric(rownames(pp)), # las abscisas
+\end_layout
+
+\begin_layout Plain Layout
+
+     pp$Precip, # las ordenadas
+\end_layout
+
+\begin_layout Plain Layout
+
+     type="l",  # tipo de grafico: lineas
+\end_layout
+
+\begin_layout Plain Layout
+
+     col="blue",  # color: azul
+\end_layout
+
+\begin_layout Plain Layout
+
+     main="Precipitaciones, Octubre", # Titulo
+\end_layout
+
+\begin_layout Plain Layout
+
+     sub="Estado de Guerrero", # Subtitulo
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlab=lab, # etiqueta eje X
+\end_layout
+
+\begin_layout Plain Layout
+
+     ylab="Precipitacion") # etiqueta eje Y
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado correspondiente al código anterior se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-líneas"
+
+\end_inset
+
+.
+ Aquí, como ejemplo, se ha recurrido a proveer la etiqueta 
+\begin_inset Quotes eld
+\end_inset
+
+Años
+\begin_inset Quotes erd
+\end_inset
+
+, para el eje de las abscisas, por fuera del llamado a la función 
+\family typewriter
+plot()
+\family default
+, porque de otra manera el lenguaje no interpretaría correctamente que la
+ tabla de codificación de caracteres es 
+\begin_inset Quotes eld
+\end_inset
+
+UTF-8
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<BlueLines1, ref.label='BlueLines0', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfico-de-líneas"
+
+\end_inset
+
+Gráfico de líneas con la misma información que en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Un-sencillo-gráfico"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
