@@ -608,6 +608,12 @@ UTF-8
 \end_inset
 
 .
+ También, cabe notar que los nombres de los renglones se han convertido
+ a tipo numérico, ya que el vector 
+\family typewriter
+rownames(pp)
+\family default
+ es de cadenas de caracteres.
 \end_layout
 
 \begin_layout Standard
