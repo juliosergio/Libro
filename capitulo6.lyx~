@@ -108,6 +108,11 @@ read_chunk('EjCap5.R')
 
 \begin_layout Plain Layout
 
+read_chunk('produceSym.R')
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -1051,7 +1056,7 @@ o
 \begin_inset Text
 
 \begin_layout Plain Layout
-puntos y líneas, sobre graficados
+puntos y líneas, sobre-graficados
 \end_layout
 
 \end_inset
@@ -1226,47 +1231,17 @@ ppar <- par(mfrow=c(5,2),
 
 \begin_layout Plain Layout
 
-plot(radio,area, type="p", pch=20, main='type="p"') 
+for (ii in c("p","l","b","c","o","h","s","S","n")) {
 \end_layout
 
 \begin_layout Plain Layout
 
-plot(radio,area, type="l", pch=20, main='type="l"') 
+  plot(radio, area, type=ii, pch=20, main=paste0('type="',ii,'"'))
 \end_layout
 
 \begin_layout Plain Layout
 
-plot(radio,area, type="b", pch=20, main='type="b"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="c", pch=20, main='type="c"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="o", pch=20, main='type="o"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="h", pch=20, main='type="h"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="s", pch=20, main='type="s"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="S", pch=20, main='type="S"') 
-\end_layout
-
-\begin_layout Plain Layout
-
-plot(radio,area, type="n", pch=20, main='type="n"')
+}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1297,6 +1272,469 @@ name "fig:Graficos-que-se"
 Tipos de gráficos que se pueden producir con 
 \family typewriter
 plot()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aparte del tipo de gráfico, hay otros parámetros para cambiar la aparicencia
+ del gráfico resultante.
+ En la tabla siguiente se mencionan y describen algunos de los más importantes.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="14" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parámetro
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Uso/Descripción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+main
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Título 
+\emph on
+principal
+\emph default
+ del gráfico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+sub
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subtítulo del gráfico
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+xlab
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etiqueta del eje de las abscisas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+ylab
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etiqueta del eje de las ordenadas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+asp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Relación de aspecto del área gráfica (y/x)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+xlim, ylim
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vectores que indican el rango de valores en los ejes x,y
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+log
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Los ejes que serán logarítmicos, p.ej., 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+x
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+y
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+yx
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+col
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Color
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+bg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Color del fondo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+pch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Símbolos para puntos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+cex
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Para escalado de símbolos de puntos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+lty
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipos de línea
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+lwd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grosor de líneas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De particular interés aquí, son los símbolos empleados para los puntos y
+ los colores.
+ En la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Los-tipos-de"
+
+\end_inset
+
+ se muestran los tipos de símbolos para los puntos, esto es, los valores
+ que se pueden dar al parámetro 
+\family typewriter
+pch
+\family default
+, que pueden ser numéricos, del 0 al 25, o caracteres.
+ En particular, los símbolos del 21 al 25 son figuras bicolores, que toman
+ el valor del parámetro 
+\family typewriter
+col
+\family default
+ para su contorno y del parámetro 
+\family typewriter
+bg
+\family default
+, para el relleno.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<pchShow, include=F, echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<expchShow, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='0.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pchShow(cex=1.5,cextext=1,main="",coltext="navyblue")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Los-tipos-de"
+
+\end_inset
+
+Los tipos de símbolos utilizables para puntos
 \end_layout
 
 \end_inset
