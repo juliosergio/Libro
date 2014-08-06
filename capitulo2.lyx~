@@ -1172,7 +1172,15 @@ pi
 , y la secuencia de números reales que se produce es con incrementos de
  1 a ese valor hasta mientras que no se rebase el límite superior, 6, en
  este caso.
- Por otra parte, este operador es un caso particular de la función 
+ 
+\end_layout
+
+\begin_layout Standard
+Por otra parte, el operador 
+\family typewriter
+':'
+\family default
+ es un caso particular de la función 
 \family typewriter
 seq()
 \family default
