@@ -108,7 +108,7 @@ read_chunk('EjCap5.R')
 
 \begin_layout Plain Layout
 
-read_chunk('ProduceSym.R')
+read_chunk('produceSym.R')
 \end_layout
 
 \begin_layout Plain Layout
@@ -1549,7 +1549,9 @@ bg
 \begin_inset Text
 
 \begin_layout Plain Layout
-Color del fondo
+Color del 
+\emph on
+fondo
 \end_layout
 
 \end_inset
@@ -1653,6 +1655,30 @@ Grosor de líneas
 \begin_layout Standard
 De particular interés aquí, son los símbolos empleados para los puntos y
  los colores.
+ En la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Los-tipos-de"
+
+\end_inset
+
+ se muestran los tipos de símbolos para los puntos, esto es, los valores
+ que se pueden dar al parámetro 
+\family typewriter
+pch
+\family default
+, que pueden ser numéricos, del 0 al 25, o caracteres.
+ En particular, los símbolos del 21 al 25 son figuras bicolores, que toman
+ el valor del parámetro 
+\family typewriter
+col
+\family default
+ para su contorno y del parámetro 
+\family typewriter
+bg
+\family default
+, para el relleno.
  
 \end_layout
 
@@ -1679,7 +1705,21 @@ status open
 
 \begin_layout Plain Layout
 
-<<expchShow,
+<<expchShow, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='0.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pchShow(cex=1.5,cextext=1,main="",coltext="navyblue")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
 \end_layout
 
 \end_inset
@@ -1691,7 +1731,353 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Los tipos de símbolos utilizables para puntos
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Los-tipos-de"
+
+\end_inset
+
+Los tipos de símbolos utilizables para puntos (
+\family typewriter
+pch
+\family default
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para observar la utilidad del manejo de la apariencia, se presenta a continuació
+n un ejemplo en el que se hace una gráfica que contiene dos funciones: el
+ área y el perímetro de un círculo contra su radio.
+ Para poder 
+\emph on
+encimar
+\emph default
+ los dos gráficos se emplea la función 
+\family typewriter
+lines()
+\family default
+; ésta permite agregar al gráfico actual otro de líneas y sus argumentos
+ son semejantes a los de 
+\family typewriter
+plot()
+\family default
+.
+ Además, para distinguir una curva de la otra resulta muy conveniente añadir
+ una leyenda con la simbología y textos adecuados; ésto se hace por medio
+ de la función 
+\family typewriter
+legend()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AreasPerimetros0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+aa <- "área" # Texto para leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+pp <- "perímetro" # Texto para leyenca
+\end_layout
+
+\begin_layout Plain Layout
+
+xl <- "área, perímetro" # Etiqueta eje X
+\end_layout
+
+\begin_layout Plain Layout
+
+radio <- seq(0,5,by=0.5) # Vector de radios 
+\end_layout
+
+\begin_layout Plain Layout
+
+area <- pi*radio^2 # Vector de areas 
+\end_layout
+
+\begin_layout Plain Layout
+
+perimetro <- 2*pi*radio # Vector de perimetros 
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(area, radio, type="o", xlab=xl, pch=21, col="red3", 
+\end_layout
+
+\begin_layout Plain Layout
+
+     bg="gold") 
+\end_layout
+
+\begin_layout Plain Layout
+
+# En seguida "encimaremos" sobre el grafico anterior (areas),
+\end_layout
+
+\begin_layout Plain Layout
+
+# el de perimetros
+\end_layout
+
+\begin_layout Plain Layout
+
+lines(perimetro, radio, type="o", pch=23, col="navyblue", 
+\end_layout
+
+\begin_layout Plain Layout
+
+      bg="violetred") 
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("bottomright",                  # ubicacion leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+       legend = c(aa,     pp         ),  # textos de leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+       lty =    c(1,      1          ),  # tipo de linea
+\end_layout
+
+\begin_layout Plain Layout
+
+       pch =    c(21,     23         ),  # simbolos
+\end_layout
+
+\begin_layout Plain Layout
+
+       col =    c("red3", "navyblue" ),  # color lineas
+\end_layout
+
+\begin_layout Plain Layout
+
+       pt.bg =  c("gold", "violetred") ) # relleno de simbolo
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado del código previo se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Áreas-y-perímetros"
+
+\end_inset
+
+.
+ Como los elementos de la leyenda son dos, esto es, las curvas correspondientes
+ a las áreas y a los perímetros, todos los parámetros de la función, salvo
+ su ubicación, deberán ser dobles y por eso se proveen mediante vectores
+ con la función 
+\family typewriter
+c()
+\family default
+.
+ Nótese además que, en la leyenda, para indicar el color de relleno del
+ símbolo no se ha usado el parámetro 
+\family typewriter
+bg
+\family default
+, sino 
+\family typewriter
+pt.bg
+\family default
+, ya que, para el caso de leyendas el parámetro 
+\family typewriter
+bg
+\family default
+ está reservado para indicar el color de fondo del recuadro de leyendas.
+ Por otra parte, en la leyenda también, se ha tenido que indicar el tipo
+ de línea, que por omisión en la función 
+\family typewriter
+plot()
+\family default
+ es 1; esto es así, porque, de no hacerlo, la función 
+\family typewriter
+legend()
+\family default
+ solamente mostraría el símbolo sin la línea.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AreasPerimetros1, ref.label='AreasPerimetros0', echo=FALSE, fig.width=4,
+ fig.height=4, fig.show='hold', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Áreas-y-perímetros"
+
+\end_inset
+
+Áreas y perímetros de círculos contra su radio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Colores
+\end_layout
+
+\begin_layout Standard
+En todos los ejemplos anteriores, se han manejado los colores mediante nombres,
+ tales como: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+red
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+blue
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+navyblue
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+violetred
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, etc.
+ El lenguaje, sin embargo, provee de diversos mecanismos para especificar
+ los colores, el más simple de los cuales, es mediante un número entero.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Colores por número entero
 \end_layout
 
 \end_inset
