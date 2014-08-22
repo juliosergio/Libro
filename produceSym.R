@@ -31,19 +31,20 @@ pchShow <-
 colShow <-
     function(pch = 22, np=16,
              cex = 3, ## good for both .Device=="postscript" and "x11"
-             col = "black", bg = 0:(np-1), coltext = "navyblue", cextext = 1.2,
+             col = "black", bg = 1:np, coltext = "navyblue", cextext = 1.2,
              main = "Colores")
     {
         k <- floor(sqrt(np))
         dd <- c(-1,1)/2
-        rx <- dd + range(ix <- bg %/% k)
-        ry <- dd + range(iy <- 3 + (k-1)- bg %% k)
+        pos <- bg - 1
+        rx <- dd + range(ix <- pos %/% k)
+        ry <- dd + range(iy <- 3 + (k-1)- pos %% k)
         plot(rx, ry, type = "n", axes  =  FALSE, xlab = "", ylab = "", main = main)
         abline(v = ix, h = iy, col = "lightgray", lty = "dotted")
         for(i in 1:np) {
             ## 'col' symbols with a 'bg'-colored interior (where available) :
             points(ix[i], iy[i], pch = pch, col = col, bg = bg[i], cex = cex)
             if(cextext > 0)
-                text(ix[i] - 0.3, iy[i], bg[i], col = coltext, cex = cextext)
+                text(ix[i] - 0.4, iy[i], bg[i], col = coltext, cex = cextext)
         }
     }

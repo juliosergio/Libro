@@ -1998,6 +1998,12 @@ Colores
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:En-todos-los"
+
+\end_inset
+
 En todos los ejemplos anteriores, se han manejado los colores mediante nombres,
  tales como: 
 \begin_inset Quotes eld
@@ -2050,14 +2056,27 @@ violetred
 , etc.
  El lenguaje, sin embargo, provee de diversos mecanismos para especificar
  los colores, el más simple de los cuales, es mediante un número entero.
+ La Fig.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Colores-por-número"
+
+\end_inset
+
+, muestra los colores numerados del 1 al 16.
+ Puede notarse que esta forma sencilla de especificar los colores es bastante
+ limitada, ya que en realidad sólo se dispone de ocho colores diferentes;
+ esto es, del 1 al 8, en orden: negro, rojo, verde, azul, cian, magenta,
+ amarillo y gris.
+ A partir del color 9, la secuencia se repite.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2075,7 +2094,7 @@ linewidth'>>=
 
 \begin_layout Plain Layout
 
-colShow(cex=1.8,cextext=1,main="")
+colShow(cex=3.5,cextext=1,main="")
 \end_layout
 
 \begin_layout Plain Layout
@@ -2092,6 +2111,12 @@ colShow(cex=1.8,cextext=1,main="")
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Colores-por-número"
+
+\end_inset
+
 Colores por número entero
 \end_layout
 
@@ -2107,6 +2132,1133 @@ Colores por número entero
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+El esquema más general para la especificación de un color es por medio de
+ la especificación de sus 
+\emph on
+contenidos
+\emph default
+ de los colores primarios: rojo, verde y azul, RGB, por sus nombres en inglés.
+ En este caso, hay por lo menos dos maneras de especificar el color, a saber:
+ por medio de su código hexadecimal y por medio de la especificación de
+ sus contenidos 
+\emph on
+porcentuales
+\emph default
+ de color usando la función 
+\family typewriter
+rgb()
+\family default
+.
+ El código hexadecimal, asigna un byte para la especificación del contenido
+ de cada color y, por consiguiente, el contenido es expresado como un entero
+ entre 0 y 
+\begin_inset Formula $(2^{8}-1)$
+\end_inset
+
+, o sea, entre 0 y 255, expresado como hexadecimal; con 0 indicando la ausencia
+ completa del color y con 255 indicando la presencia completa o el 100%
+ del color en cuestión.
+ De este modo, supóngase que se quiere expresar un color con 176 de rojo,
+ 48 de verde y 96 de azul, los códigos hexadecimales correspondientes a
+ esos números son: B0, 30 y 60, respectivamente.
+ Así, el código hexadecimal del color que se quiere representar es 
+\begin_inset Quotes eld
+\end_inset
+
+B03060
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Ya que este código de color se le proporcionará al lenguaje como una cadena
+ de caracteres y para que no haya confusión con la especificación de colores
+ por nombre, se antepone el símbolo '#', a la cadena; esto es, para el caso
+ del ejemplo el código de color sería la cadena: 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+#B03060
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+.
+ La función rgb(), provee de una manera sencilla para obtener esa cadena
+ de caracteres representativa del color, dando, como números, los valores
+ individuales para cada color.
+ Por ejemplo, para obtener el código del ejemplo, se puede hacer así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<rgb1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rgb(176, 48, 96, maxColorValue=255)
+\end_layout
+
+\begin_layout Plain Layout
+
+# O como numeros entre 0 y 1 (porcentajes):
+\end_layout
+
+\begin_layout Plain Layout
+
+rgb(176/255, 48/255, 96/255)
+\end_layout
+
+\begin_layout Plain Layout
+
+# La funcion rgb() puede producir los codigos
+\end_layout
+
+\begin_layout Plain Layout
+
+# de color de varios colores simultaneamente:
+\end_layout
+
+\begin_layout Plain Layout
+
+colores <- rgb(red=  c(176,255,238,205), 
+\end_layout
+
+\begin_layout Plain Layout
+
+               green=c( 48, 52, 48, 41),
+\end_layout
+
+\begin_layout Plain Layout
+
+               blue= c( 96,179,167,144),
+\end_layout
+
+\begin_layout Plain Layout
+
+               max=255) # se puede abreviar "maxColorValue"
+\end_layout
+
+\begin_layout Plain Layout
+
+colores
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En seguida se utilizará ese arreglo de colores para la producción de una
+ gráfica muy sencilla en la que se pueda visualizar el efecto visual de
+ cada color.
+ El resultado del código se puede observar en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-colores"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<rgb2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(1:4, pch=22, cex=10, bg=colores, 
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlim=c(-0.5,4.5), ylim=c(-0.5,4.5))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<rgb3, ref.label='rgb2', echo=FALSE, fig.width=4, fig.height=4, fig.show='hold',
+ out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfico-de-colores"
+
+\end_inset
+
+Gráfico de colores especificados por código hexadecimal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los colores también se pueden especificar por sus nombres en inglés.
+ El lenguaje tiene registrados 657 nombres alfanuméricos de colores que
+ se pueden revisar mediante la función 
+\family typewriter
+colors()
+\family default
+ del lenguaje.
+ Como un ejemplo se muestran en seguida los primeros veinte nombres contenidos
+ en vector que regresa dicha función, y el segmento de colores entre los
+ índices 455 al 458.
+ Además el lenguaje cuenta con funciones que permiten obtener los contenidos
+ de color RGB de cada uno de los colores nombrados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<colores0, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los primeros veinte nombres de colores:
+\end_layout
+
+\begin_layout Plain Layout
+
+head(colors(),20)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los elementos 455 al 458
+\end_layout
+
+\begin_layout Plain Layout
+
+coloresPorNombre <- colors()[455:458]
+\end_layout
+
+\begin_layout Plain Layout
+
+coloresPorNombre
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para encontrar los contenidos de RGB:
+\end_layout
+
+\begin_layout Plain Layout
+
+(dd <- col2rgb(coloresPorNombre))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y para encontrar los hexadecimales correspondientes:
+\end_layout
+
+\begin_layout Plain Layout
+
+codigos <- rgb(red=  dd["red",], 
+\end_layout
+
+\begin_layout Plain Layout
+
+               green=dd["green",],
+\end_layout
+
+\begin_layout Plain Layout
+
+               blue= dd["blue",],
+\end_layout
+
+\begin_layout Plain Layout
+
+               max=255) # se puede abreviar "maxColorValue"
+\end_layout
+
+\begin_layout Plain Layout
+
+codigos
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pero, dado que 'dd' es una matriz, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# podemos obtener el mismo resultado con su
+\end_layout
+
+\begin_layout Plain Layout
+
+# traspuesta asi:
+\end_layout
+
+\begin_layout Plain Layout
+
+(codigos <- rgb(t(dd), max=255))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que, intencionalmente, los códigos de color obtenidos son exactamente
+ los mismos que en el ejemplo anterior.
+ Así, para obtener la misma gráfica que se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-colores"
+
+\end_inset
+
+, por medio de los nombres de colores bastará con ejecutar el siguiente
+ código:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<colores1, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se proporciona el vector de nombres de
+\end_layout
+
+\begin_layout Plain Layout
+
+# colores en vez del vector de codigos
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(1:4, pch=22, cex=10, bg=coloresPorNombre, 
+\end_layout
+
+\begin_layout Plain Layout
+
+     xlim=c(-0.5,4.5), ylim=c(-0.5,4.5))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como posiblemente los nombres de los colores no dan una idea exacta de la
+ apariencia del color, en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Apariencia-de-los"
+
+\end_inset
+
+, se muestra una tabla con los colores nombrados por la funcion 
+\family typewriter
+colors()
+\family default
+ y su respectivo índice
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Esta tabla ha sido tomada de http://research.stowers-institute.org/efg/R/Color/Cha
+rt/, que contiene además otras ayudas para la especificación de colores
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ColorsChart1.jpg
+	lyxscale 80
+	width 87text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Apariencia-de-los"
+
+\end_inset
+
+Apariencia de los colores regresados por la función 
+\family typewriter
+colors()
+\family default
+ y su índice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al principio de esta sección, 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sec:En-todos-los"
+
+\end_inset
+
+, se dijo que la especificación de colores por número era limitada.
+ Esto se debe a que, por omisión, el lenguaje cuenta con una paleta de sólo
+ ocho colores.
+ La función 
+\family typewriter
+palette()
+\family default
+, permite consultar la paleta actual o establecer una nueva.
+ La especificación de los colores en una paleta se hace por medio de los
+ códigos hexadecimales o de los nombre de los colores que se pretende usar.
+ En seguida se hace la consulta de la paleta actual y se cambia por una
+ diferente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paletas, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# la paleta actual
+\end_layout
+
+\begin_layout Plain Layout
+
+palette()
+\end_layout
+
+\begin_layout Plain Layout
+
+# para cambiarla, por ejemplo, con los primeros
+\end_layout
+
+\begin_layout Plain Layout
+
+# veinticinco colores de colors()
+\end_layout
+
+\begin_layout Plain Layout
+
+palette(colors()[1:25])
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nueva-paleta-para"
+
+\end_inset
+
+ se muestran los colores resultantes con la nueva paleta de colores.
+ A partir de aquí, los números del 1 al 25 se podrían utilizar para especificar
+ los colores que se muestran en la figura.
+ El tamaño máximo de una paleta definida con esta función es de 1024 colores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paletas1, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='0.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+colShow(np=25, cex=3.5,cextext=1,main="")
+\end_layout
+
+\begin_layout Plain Layout
+
+palette("default")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Nueva-paleta-para"
+
+\end_inset
+
+Nueva paleta para especificar colores por números enteros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además de lo antedicho, en el lenguaje se han desarrollado diversas paletas
+ de colores con fines específicos, y que son provistas o counstruídas por
+ funciones tales como: 
+\family typewriter
+heat.colors()
+\family default
+, 
+\family typewriter
+terrain.colors()
+\family default
+, 
+\family typewriter
+topo.colors()
+\family default
+, 
+\family typewriter
+
+\begin_inset Newline linebreak
+\end_inset
+
+cm.colors()
+\family default
+, 
+\family typewriter
+rainbow()
+\family default
+.
+ Salvo la función 
+\family typewriter
+rainbow()
+\family default
+, todas las otras funciones tienen sólo dos argumentos, 
+\family typewriter
+n
+\family default
+ y 
+\family typewriter
+alpha
+\family default
+, que son, respectivamente, el tamaño de la paleta y la fracción de transparenci
+a, que es un número entre 0 y 1, que indica el grado de opacidad de los
+ colores en cuestión.
+ El resultado de las funciones, que es un vector de caracteres con los códigos
+ hexadecimales de los colores.
+\end_layout
+
+\begin_layout Standard
+Para ilustrar lo anterior, se dibujará primeramente un conjunto de líneas
+ rectas con la función abline(), que permite, entre otras cosas dibujar
+ líneas a partir de su intercepto y pendiente, y posteriormente, sobre este
+ gráfico se dibujarán figuras de diversos colores tomados de alguna de las
+ paletas anteriores, mediante la función 
+\family typewriter
+points()
+\family default
+, que sirve para agregar puntos en la forma de símbolos a un gráfico previo
+ y cuyos argumentos son similares a los de 
+\family typewriter
+plot()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paletas2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se establece el espacio de dibujo:
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(0, type="n", xlim=c(0,10), ylim=c(0,10))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se dibujan las lineas rectas; para ello,
+\end_layout
+
+\begin_layout Plain Layout
+
+# se hace uso de mapply que aplica de manera
+\end_layout
+
+\begin_layout Plain Layout
+
+# multiple una funcion:
+\end_layout
+
+\begin_layout Plain Layout
+
+void <- mapply(abline, 
+\end_layout
+
+\begin_layout Plain Layout
+
+               c(2,1,0,-1,-2), # interceptos por linea
+\end_layout
+
+\begin_layout Plain Layout
+
+               rep(1,5))       # pendiente = 1
+\end_layout
+
+\begin_layout Plain Layout
+
+# dibujamos las figuras (transparentes)
+\end_layout
+
+\begin_layout Plain Layout
+
+points(1:9, pch=22, cex=10, bg=topo.colors(9,alpha=0.5))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paletas3, ref.label='paletas2', echo=FALSE, fig.width=4, fig.height=4, fig.show='h
+old', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Uso-de-las"
+
+\end_inset
+
+Uso de las paletas de colores y los colores 
+\emph on
+transparentes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los resultados del código anterior se muestran en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Uso-de-las"
+
+\end_inset
+
+.
+ Un resultado similar se hubiera obtenido sustituyendo el llamado a la función
+ 
+\family typewriter
+points()
+\family default
+, con el siguiente código que establece la paleta de colores antes del llamado
+ a 
+\family typewriter
+points()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<paletas4, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Establecemos la paleta de colores
+\end_layout
+
+\begin_layout Plain Layout
+
+palette(topo.colors(9,alpha=0.5))
+\end_layout
+
+\begin_layout Plain Layout
+
+points(1:9, pch=22, cex=10, col="black", bg=1:9)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Regresamos la paleta de colores a su
+\end_layout
+
+\begin_layout Plain Layout
+
+# estado inicial:
+\end_layout
+
+\begin_layout Plain Layout
+
+palette("default")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que aquí, en el llamado a 
+\family typewriter
+points()
+\family default
+, se ha tenido que dar el parámetro 
+\family typewriter
+col=
+\begin_inset Quotes erd
+\end_inset
+
+black
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+.
+ Esto es debido a que el valor por omisión para este parámetro es 1, y entonces
+ el color sería tomado de la paleta actual, que no es negro como se desea
+ para el contorno de los símbolos.
+\end_layout
+
+\begin_layout Section
+Gráficos para una variable
+\end_layout
+
+\begin_layout Standard
+Para introducir este tipo de gráficos se propone un ejemplo: la lista de
+ asistentes a un cierto congreso, con el tipo de transporte por el cuál
+ arribaron al mismo.
+ La información correspondiente se registrará en un 
+\emph on
+data frame
+\emph default
+, que por omisión convierte las cadenas de caracteres a factores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+participantes <-c(
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Fulano", "Sutano", "Mengano", "Perengano", "Metano",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Etano", "Propano", "Butano", "Pentano", "Hexano",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Heptano", "Octano", "Ciclopentano",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Enano", "Decano", "Hermano") 
+\end_layout
+
+\begin_layout Plain Layout
+
+transporte <- c(
+\end_layout
+
+\begin_layout Plain Layout
+
+    "aereo", "terrestre", "tren", "maritimo", "tren",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "tren", "terrestre", "terrestre", "aereo", "terrestre",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "maritimo", "terrestre", "aereo",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "terrestre", "terrestre", "aereo")
+\end_layout
+
+\begin_layout Plain Layout
+
+( info <- data.frame(participantes, transporte) )
+\end_layout
+
+\begin_layout Plain Layout
+
+# Veamos cual es la clase de info$transporte
+\end_layout
+
+\begin_layout Plain Layout
+
+class(info$transporte)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora, se quire ver el tipo de gráfico que produce por omisión la función
+ 
+\family typewriter
+plot()
+\family default
+, para este tipo de dato, se hace con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso1, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(info$transporte,
+\end_layout
+
+\begin_layout Plain Layout
+
+     las=2) # hace los textos perpendiculares al eje
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso2, ref.label='ciertocongreso1', echo=FALSE, fig.width=4, fig.height
+=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Un-diagrama-de"
+
+\end_inset
+
+Un diagrama de barras para los tipos de transporte
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de este código se puede ver en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Un-diagrama-de"
+
+\end_inset
+
+.
+ En el eje de las abscisas se han anotado las categorías, o 
+\emph on
+levels
+\emph default
+, del factor, y se ha dibujado una barra con una altura correspondiente
+ al número de elementos encontrados en el factor, para esa categoría.
 \end_layout
 
 \end_body
