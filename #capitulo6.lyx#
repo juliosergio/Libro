@@ -3149,7 +3149,11 @@ class(info$transporte)
 
 \begin_layout Standard
 Si ahora, se quire ver el tipo de gráfico que produce por omisión la función
- plot(), para este tipo de dato, se hace con:
+ 
+\family typewriter
+plot()
+\family default
+, para este tipo de dato, se hace con:
 \end_layout
 
 \begin_layout Standard
@@ -3163,7 +3167,12 @@ status open
 
 \begin_layout Plain Layout
 
-plot(info$transporte)
+plot(info$transporte,
+\end_layout
+
+\begin_layout Plain Layout
+
+     las=2) # hace los textos perpendiculares al eje
 \end_layout
 
 \begin_layout Plain Layout
@@ -3189,6 +3198,17 @@ status open
 
 \begin_layout Plain Layout
 
+<<ciertocongreso2, ref.label='ciertocongreso1', echo=FALSE, fig.width=4, fig.height
+=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
 \end_layout
 
 \end_inset
@@ -3239,6 +3259,241 @@ levels
 \emph default
 , del factor, y se ha dibujado una barra con una altura correspondiente
  al número de elementos encontrados en el factor, para esa categoría.
+ Este tipo de gráfico es lo que se conoce como un 
+\emph on
+gráfico de barras
+\emph default
+.
+ En el caso de los factores, al producir esta gráfica, el lenguaje nos ha
+ ahorrado una serie de pasos intermedios.
+ En la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "factores-table-ref"
+
+\end_inset
+
+, se usó la función 
+\family typewriter
+table()
+\family default
+ para calcular la frecuencia de aparición de los elementos de un factor.
+ Así, para el presente caso, con esa función se hubiera obtenido:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso3, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+tt <- table(info$transporte)
+\end_layout
+
+\begin_layout Plain Layout
+
+tt
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De este modo, para producir con esta información una gráfica semejante a
+ la de la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Un-diagrama-de"
+
+\end_inset
+
+, se podría haber ejecutado el siguiente código más expícito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso4, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(table(info$transporte), # Notese que se usa barplot en vez
+\end_layout
+
+\begin_layout Plain Layout
+
+                                # de plot
+\end_layout
+
+\begin_layout Plain Layout
+
+     las=2) # hace los textos perpendiculares al eje
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra forma de ver la misma información, es por medio de lo que se conoce
+ como 
+\emph on
+gráfico de pastel
+\emph default
+.
+ Para introducir este tipo de gráfico, se transformará la tabla 
+\family typewriter
+tt
+\family default
+ a otra tabla que muestre las frecuencias relativas de cada uno de los elementos
+ del factor, así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso5, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rr <- tt/sum(tt) # Frecuencias relativas
+\end_layout
+
+\begin_layout Plain Layout
+
+rr
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora, se producirá un gráfico de barras con las frecuencias relativas y
+ se producirá un gráfico de pastel, por medio de la función 
+\family typewriter
+pie()
+\family default
+.
+ Para darle una apariencia 
+\emph on
+más agradable
+\emph default
+, se emplean 4 colores de la paleta de colore
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso6, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(rr, col=rainbow(4), las=2) # Aqui se usa 'rr'
+\end_layout
+
+\begin_layout Plain Layout
+
+pie(tt, col=rainbow(4))            # Aqui se usa 'tt'
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ciertocongreso7, ref.label='ciertocongreso6', echo=FALSE, fig.width=4, fig.height
+=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Un gráfico de barras y uno de pastel con la misma información
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
