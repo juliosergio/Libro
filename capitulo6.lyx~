@@ -3449,7 +3449,7 @@ pie(tt, col=rainbow(4))            # Aqui se usa 'tt'
 \end_layout
 
 \begin_layout Standard
-Al ejecutarse el código anterior produce los gráficos que se muestran en
+Al ejecutarse el código anterior, produce los gráficos que se muestran en
  la Fig.
  
 \begin_inset CommandInset ref

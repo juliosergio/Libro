@@ -2809,10 +2809,14 @@ a, que es un número entre 0 y 1, que indica el grado de opacidad de los
 
 \begin_layout Standard
 Para ilustrar lo anterior, se dibujará primeramente un conjunto de líneas
- rectas con la función abline(), que permite, entre otras cosas dibujar
- líneas a partir de su intercepto y pendiente, y posteriormente, sobre este
- gráfico se dibujarán figuras de diversos colores tomados de alguna de las
- paletas anteriores, mediante la función 
+ rectas con la función 
+\family typewriter
+abline()
+\family default
+, que permite, entre otras cosas dibujar líneas a partir de su intercepto
+ y pendiente, y posteriormente, sobre este gráfico se dibujarán figuras
+ de diversos colores tomados de alguna de las paletas anteriores, mediante
+ la función 
 \family typewriter
 points()
 \family default
