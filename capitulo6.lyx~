@@ -2809,10 +2809,14 @@ a, que es un número entre 0 y 1, que indica el grado de opacidad de los
 
 \begin_layout Standard
 Para ilustrar lo anterior, se dibujará primeramente un conjunto de líneas
- rectas con la función abline(), que permite, entre otras cosas dibujar
- líneas a partir de su intercepto y pendiente, y posteriormente, sobre este
- gráfico se dibujarán figuras de diversos colores tomados de alguna de las
- paletas anteriores, mediante la función 
+ rectas con la función 
+\family typewriter
+abline()
+\family default
+, que permite, entre otras cosas dibujar líneas a partir de su intercepto
+ y pendiente, y posteriormente, sobre este gráfico se dibujarán figuras
+ de diversos colores tomados de alguna de las paletas anteriores, mediante
+ la función 
 \family typewriter
 points()
 \family default
@@ -3503,6 +3507,239 @@ name "fig:BarrasYpastel"
 \end_inset
 
 Un gráfico de barras y uno de pastel con la misma información
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una de las características interesantes de los gráficos de barras es que
+ cuando se tienen diversas series de datos sobre un mismo asunto, se pueden
+ utilizar para hacer comparaciones.
+ Supóngase, para el mismo ejemplo del congreso, que los datos anteriores
+ corresponden al evento para el año 2012, pero que para el año 2014, las
+ proporciones de tipo de transporte fueron las siguientes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<doscongresos0, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+congreso2014 <- c(aereo=0.12, maritimo=0.1875, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                  terrestre=0.4925, tren=0.2)
+\end_layout
+
+\begin_layout Plain Layout
+
+congreso2014
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con estos nuevos datos, se puede construir una matriz que contenga todos
+ los datos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<doscongresos1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+rr1 <- rbind(rr, congreso2014)
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(rr1) <- c("2012","2014") # se dan nombres a renglones
+\end_layout
+
+\begin_layout Plain Layout
+
+rr1
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de aquí, se pueden obtener gráficos de barras apareadas o agrupadas,
+ para dos casos: si se toma como categoría principal el tipo de transporte
+ que se usó, para lo cual se usará directamente la matriz que se ha obtenido
+ (
+\family typewriter
+rr1
+\family default
+), y, si se toman como categoría principal los años de congresos.
+ En este último caso, se usa traspuesta de la matriz 
+\family typewriter
+rr1
+\family default
+, pero como el agrupamiento es de cuatro barras, una para cada tipo de transport
+e, se usan cuatro colores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<doscongresos2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# El resultado mas adecuado se obtiene 
+\end_layout
+
+\begin_layout Plain Layout
+
+# con la matriz
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(rr1, beside=T, col=c(1,2), las=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topleft", legend=rownames(rr1), col=c(1,2), pch=15)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pero tambien se puede tener el caso de 
+\end_layout
+
+\begin_layout Plain Layout
+
+# la traspuesta de la matriz original
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(t(rr1), beside=T, col=1:4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+legend(x=4.1, y=0.48, legend=colnames(rr1), col=1:4, pch=15)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de los dos gráficos producidos con el código anterior se puede
+ apreciar en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-barras-apareadas"
+
+\end_inset
+
+.
+ Nótese que la leyenda se ha tenido que ubicar, en ambos casos, en el sitio
+ que el gráfico lo ha permitido, y su especificación se ha hecho de dos
+ maneras: por medio de un texto descriptivo y por medio de coordenadas dentro
+ del espacio de dibujo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<doscongresos3, ref.label='doscongresos2', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráficos-de-barras-apareadas"
+
+\end_inset
+
+Gráficos de barras apareadas o agrupadas
 \end_layout
 
 \end_inset
