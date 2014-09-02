@@ -3619,8 +3619,19 @@ rr1
 \family default
 , usando cuatro colores, dado que el agrupamiento es de cuatro barras, una
  para cada tipo de transporte.
- En ambos casos, en la función barplot(), se especifica el argumento beside=TRUE
-, para producir grupos de barras en vez de stacks de barras.
+ En ambos casos, en la función 
+\family typewriter
+barplot()
+\family default
+, se especifica el argumento 
+\family typewriter
+beside=TRUE
+\family default
+, para producir grupos de barras en vez de 
+\emph on
+stacks
+\emph default
+ de barras.
 \end_layout
 
 \begin_layout Standard
@@ -3754,6 +3765,14 @@ Gráficos de barras apareadas o agrupadas
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Section
+Ejemplo de gráficas escalonadas: distribución de Poisson
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 

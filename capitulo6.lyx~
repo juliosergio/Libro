@@ -3608,18 +3608,30 @@ rr1
 \begin_layout Standard
 A partir de aquí, se pueden obtener gráficos de barras apareadas o agrupadas,
  para dos casos: si se toma como categoría principal el tipo de transporte
- que se usó, para lo cual se usará directamente la matriz que se ha obtenido
- (
+ que se usó o, si se toma como categoría principal los años de los congresos.
+ En el primer caso, se usa directamente la matriz que se ha obtenido (
 \family typewriter
 rr1
 \family default
-), y, si se toman como categoría principal los años de congresos.
- En este último caso, se usa traspuesta de la matriz 
+), mientras que en el segundo caso, se usa traspuesta de la matriz 
 \family typewriter
 rr1
 \family default
-, pero como el agrupamiento es de cuatro barras, una para cada tipo de transport
-e, se usan cuatro colores.
+, usando cuatro colores, dado que el agrupamiento es de cuatro barras, una
+ para cada tipo de transporte.
+ En ambos casos, en la función 
+\family typewriter
+barplot()
+\family default
+, se especifica el argumento 
+\family typewriter
+beside=TRUE
+\family default
+, para producir grupos de barras en vez de 
+\emph on
+stacks
+\emph default
+ de barras.
 \end_layout
 
 \begin_layout Standard
@@ -3753,6 +3765,14 @@ Gráficos de barras apareadas o agrupadas
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Section
+Ejemplo de gráficas escalonadas: distribución de Poisson
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
