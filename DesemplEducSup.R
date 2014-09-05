@@ -36,3 +36,15 @@ barplot(desempl.educ.sup$prcnt, main="Desempleo- Educ. Media Sup o Superior",
         col=heat.colors(14)[14:1],
         horiz=T,
         las=1)
+
+tinf <- trunc(desempl.educ.sup$prcnt[1])
+desempl.educ.sup$d1 <- with(desempl.educ.sup, prcnt-tinf)
+barplot(desempl.educ.sup$d1, main="Incremento en \nDesempleo- Educ. Media Sup o Superior",
+        xlab="% del total de desempleados",
+        xaxt="n",
+        names.arg=rownames(desempl.educ.sup),
+        col=heat.colors(14)[14:1],
+        horiz=T,
+        las=1)
+axis(1, at=0:6, lab=tinf:(tinf+6))
+
