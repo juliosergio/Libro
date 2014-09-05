@@ -33,7 +33,7 @@ rownames(desempl.educ.sup) <- paste0(anio,".", trim)
 barplot(desempl.educ.sup$prcnt, main="Desempleo- Educ. Media Sup o Superior",
         xlab="% del total de desempleados",
         names.arg=rownames(desempl.educ.sup),
-        col=heat.colors(14)[14:1],
+        col=cm.colors(14),
         horiz=T,
         las=1)
 
