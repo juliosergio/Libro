@@ -30,15 +30,20 @@ trim <-
 
 desempl.educ.sup <- data.frame(anio,trim,prcnt)
 rownames(desempl.educ.sup) <- paste0(anio,".", trim)
-barplot(desempl.educ.sup$prcnt, main="Desempleo- Educ. Media Sup o Superior",
+
+tinf <- trunc(desempl.educ.sup$prcnt[1])
+desempl.educ.sup$d1 <- with(desempl.educ.sup, prcnt-tinf)
+desempl.educ.sup
+
+barplot(desempl.educ.sup$prcnt, 
+        main="Desempleo- Educ. Media Sup o Superior\n en Mexico",
         xlab="% del total de desempleados",
         names.arg=rownames(desempl.educ.sup),
         col=cm.colors(14),
         horiz=T,
         las=1)
 
-tinf <- trunc(desempl.educ.sup$prcnt[1])
-desempl.educ.sup$d1 <- with(desempl.educ.sup, prcnt-tinf)
+
 barplot(desempl.educ.sup$d1, main="Incremento en \nDesempleo- Educ. Media Sup o Superior",
         xlab="% del total de desempleados",
         xaxt="n",

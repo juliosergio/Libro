@@ -3768,12 +3768,321 @@ Gráficos de barras apareadas o agrupadas
 
 \end_layout
 
-\begin_layout Section
-Ejemplo de gráficas escalonadas: distribución de Poisson
+\begin_layout Standard
+La misma información de los gráficos anteriores se podría tener con otra
+ apariencia mediante baras apiladas o en 
+\emph on
+stack
+\emph default
+.
+ En este caso sólo se debe tener cuidado en el último gráfico de agregar
+ espacio para colocar la leyenda.
+ Por omisión, en estos casos, cada grupo de barras ocupa un espacio de 1.2
+ unidades, contando el espacio entre grupos, que es de 0.2, y tomando en
+ cuenta que el desplegado del primer grupo empieza justamente a partir de
+ ese espacio, es decir 0.2.
+ Así el código para producir los gráficos en cuestión es el que sigue, y
+ su resultado se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-barras-apiladas"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+<<doscongresos4, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Barras apiladas: matriz normal
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(rr1, beside=F, col=c(1,2), las=2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topleft", legend=rownames(rr1), col=c(1,2), pch=15)
+\end_layout
+
+\begin_layout Plain Layout
+
+# El caso de la traspuesta de la matriz 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Notese aqui el argumento xlim para dejar
+\end_layout
+
+\begin_layout Plain Layout
+
+# espacio para la leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(t(rr1), beside=F, col=1:4, xlim=c(0.2, 3*1.2+0.2))  
+\end_layout
+
+\begin_layout Plain Layout
+
+legend(x=2.5, y=0.6, legend=colnames(rr1), col=1:4, pch=15)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<doscongresos5, ref.label='doscongresos4', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráficos-de-barras-apiladas"
+
+\end_inset
+
+Gráficos de barras apliladas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que, a pesar de tratarse de la misma información, la comunicación
+ visual hace énfasis en distintos aspectos de ella.
+ Por ejemplo, en la primera gráfica de la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-barras-apiladas"
+
+\end_inset
+
+, el énfasis está en los tipos de transporte que se usaron en ambos eventos
+ de manera global, mientras que en la segunda, está en las proporciones
+ de transporte usado con referencia al total, en cada uno de los dos años
+ del evento.
+ Con la mira en este impacto visual de los tipos y el aspecto de los gráficos,
+ en seguida se presenta un ejemplo acerca del desempleo en México.
+ Los datos se refieren a la proporción que guardan los desempleados con
+ educación media superior y superior, con respecto al total de desempleados
+ en el país, y son como sigue para cada trimestre, a partir del año 2011
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Fuente: Sitio del INEGI en Internet: www.inegi.org.mx
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<desempleo, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Porcentajes consecutivos por trimestre
+\end_layout
+
+\begin_layout Plain Layout
+
+prcnt <-c(
+\end_layout
+
+\begin_layout Plain Layout
+
+  34.6594306764, 35.2754003647, 35.40613204, 35.1855137062,
+\end_layout
+
+\begin_layout Plain Layout
+
+  36.6282823891, 37.3816513577, 37.5314871844, 36.3784124999,
+\end_layout
+
+\begin_layout Plain Layout
+
+  37.8949982178, 37.9752539821, 37.5238097329, 38.8349502588,
+\end_layout
+
+\begin_layout Plain Layout
+
+  39.5894958061, 40.4058337918
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Años de los trimestres
+\end_layout
+
+\begin_layout Plain Layout
+
+anio <- c(rep(2011,4), rep(2012,4), rep(2013,4), rep(2014,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los trimestres
+\end_layout
+
+\begin_layout Plain Layout
+
+trim <- c(rep(c("I","II","III","IV"),3), c("I","II"))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se construye un data frame comprensivo con
+\end_layout
+
+\begin_layout Plain Layout
+
+# la informacion anterior:
+\end_layout
+
+\begin_layout Plain Layout
+
+desempl.educ.sup <- data.frame(anio,trim,prcnt)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se hacen los nombres de los renglones
+\end_layout
+
+\begin_layout Plain Layout
+
+rownames(desempl.educ.sup) <- paste0(anio,".", trim)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se restara una cota inferior para
+\end_layout
+
+\begin_layout Plain Layout
+
+# producir una vista con la infomacion de interes
+\end_layout
+
+\begin_layout Plain Layout
+
+tinf <- trunc(desempl.educ.sup$prcnt[1]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+desempl.educ.sup$d1 <- with(desempl.educ.sup, prcnt-tinf)
+\end_layout
+
+\begin_layout Plain Layout
+
+desempl.educ.sup
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esta información, en seguida se hacen dos gráficos de barras horizontales
+ y que se muestran en la Fig.
+ 
+\end_layout
+
+\begin_layout Section
+Gráficas de curvas continuas
+\end_layout
+
+\begin_layout Section
+Ejemplo de gráficas escalonadas: distribución de Poisson
 \end_layout
 
 \end_body
