@@ -4671,5 +4671,20 @@ ente a un tratamiento médico, etc.
  
 \end_layout
 
+\begin_layout Standard
+En la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Densidades-y-distribuciones"
+
+\end_inset
+
+, se planteó el tema de las funciones de densidad y distribución de probabilidad
+es continuas.
+ Aquí se abordará el tema de las funciones de densidad y distribucion de
+ probabilidades de variables aleatorias discretas.
+ 
+\end_layout
+
 \end_body
 \end_document

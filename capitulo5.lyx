@@ -3547,6 +3547,12 @@ Histograma de precipitaciones para el estado de Guerrero en octubre
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Densidades-y-distribuciones"
+
+\end_inset
+
 Densidades y distribuciones de probabilidades
 \end_layout
 
@@ -4224,10 +4230,6 @@ Funciones de densidad de probabilidades Gamma para distintos valores de
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -5072,7 +5074,7 @@ m
 m
 \emph default
  incóginitas.
- Por consiguiente conviene escribir una función de la situiente manera:
+ Por consiguiente conviene escribir una función de la siguiente manera:
 \end_layout
 
 \begin_layout Standard

@@ -3547,6 +3547,12 @@ Histograma de precipitaciones para el estado de Guerrero en octubre
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Densidades-y-distribuciones"
+
+\end_inset
+
 Densidades y distribuciones de probabilidades
 \end_layout
 
