@@ -3479,7 +3479,7 @@ status open
 \begin_layout Plain Layout
 
 <<ciertocongreso7, ref.label='ciertocongreso6', echo=FALSE, fig.width=4, fig.height
-=4, fig.show='hold', out.width='.6
+=4, fig.show='hold', out.width='.8
 \backslash
 
 \backslash
@@ -3511,10 +3511,6 @@ Un gráfico de barras y uno de pastel con la misma información
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3724,7 +3720,7 @@ status open
 \begin_layout Plain Layout
 
 <<doscongresos3, ref.label='doscongresos2', echo=FALSE, fig.width=4, fig.height=4,
- fig.show='hold', out.width='.6
+ fig.show='hold', out.width='.8
 \backslash
 
 \backslash
@@ -3756,10 +3752,6 @@ Gráficos de barras apareadas o agrupadas
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3866,7 +3858,7 @@ status open
 \begin_layout Plain Layout
 
 <<doscongresos5, ref.label='doscongresos4', echo=FALSE, fig.width=4, fig.height=4,
- fig.show='hold', out.width='.6
+ fig.show='hold', out.width='.8
 \backslash
 
 \backslash
@@ -3898,10 +3890,6 @@ Gráficos de barras apliladas
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -4043,17 +4031,22 @@ rownames(desempl.educ.sup) <- paste0(anio,".", trim)
 
 \begin_layout Plain Layout
 
-# producir una vista con la infomacion de interes
+# producir una vista con la infomación de interés
 \end_layout
 
 \begin_layout Plain Layout
 
-tinf <- trunc(desempl.educ.sup$prcnt[1]) 
+tinf <- trunc(desempl.educ.sup$prcnt[1]) # entero inferior
 \end_layout
 
 \begin_layout Plain Layout
 
-desempl.educ.sup$d1 <- with(desempl.educ.sup, prcnt-tinf)
+# la resta se agregará como una columna del data frame
+\end_layout
+
+\begin_layout Plain Layout
+
+desempl.educ.sup$d1 <- desempl.educ.sup$prcnt-tinf
 \end_layout
 
 \begin_layout Plain Layout
@@ -4075,6 +4068,13 @@ desempl.educ.sup
 Con esta información, en seguida se hacen dos gráficos de barras horizontales
  con el código que se presenta a continuación y que se muestran en la Fig.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Barras-Horizontales"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4093,22 +4093,82 @@ barplot(desempl.educ.sup$prcnt,
 
 \begin_layout Plain Layout
 
-      main="Desempleo- Educ.
- Media Sup o Superior
+        main="Desempleo- Educ.
+ Media Sup 
 \backslash
-n en Mexico",         xlab="% del total de desempleados",         names.arg=rowna
-mes(desempl.educ.sup),         col=cm.colors(14),         horiz=T,        
- las=1)
+no Superior en Mexico",
 \end_layout
 
 \begin_layout Plain Layout
 
-barplot(desempl.educ.sup$d1, main="Incremento en 
+        xlab="% del total de desempleados", 
+\end_layout
+
+\begin_layout Plain Layout
+
+        names.arg=rownames(desempl.educ.sup),
+\end_layout
+
+\begin_layout Plain Layout
+
+        col=cm.colors(14), horiz=T, las=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(desempl.educ.sup$d1, 
+\end_layout
+
+\begin_layout Plain Layout
+
+        main="Incremento en Desempleo
 \backslash
-nDesempleo- Educ.
- Media Sup o Superior",         xlab="% del total de desempleados",    
-     xaxt="n",         names.arg=rownames(desempl.educ.sup),         col=heat.colors
-(14)[14:1],         horiz=T,         las=1) axis(1, at=0:6, lab=tinf:(tinf+6))
+nEduc.Media Sup o Superior",
+\end_layout
+
+\begin_layout Plain Layout
+
+        xlab="% del total de desempleados",
+\end_layout
+
+\begin_layout Plain Layout
+
+        xaxt="n", # impedimos pintar eje X; se pintara despues
+\end_layout
+
+\begin_layout Plain Layout
+
+        names.arg=rownames(desempl.educ.sup), 
+\end_layout
+
+\begin_layout Plain Layout
+
+        col=heat.colors(14)[14:1], # Se invierte secuencia 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                   # de los colores
+\end_layout
+
+\begin_layout Plain Layout
+
+        horiz=T, las=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se cambia la escala del eje de las X
+\end_layout
+
+\begin_layout Plain Layout
+
+# para reflejar los valores reales
+\end_layout
+
+\begin_layout Plain Layout
+
+axis(1, at=0:6, lab=tinf:(tinf+6))
 \end_layout
 
 \begin_layout Plain Layout
@@ -4121,12 +4181,494 @@ nDesempleo- Educ.
 
 \end_layout
 
+\begin_layout Standard
+Los dos gráficos presentados en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Barras-Horizontales"
+
+\end_inset
+
+ presentan esencialmente la misma información.
+ El segundo gráfico, sin embargo, mediante el uso del color y la 
+\emph on
+ventana
+\emph default
+ de los datos que se presenta, que se calculó a partir de la diferencia
+ de los datos crudos con una cota inferior, la muestra de una manera más
+ dramática.
+ En este último caso, hubo necesidad de ajustar la escala del eje X, por
+ medio de la función 
+\family typewriter
+axis()
+\family default
+.
+ En ella se indica el eje sobre el que se escribe, esto es el eje 1, en
+ dónde se escribe, el parámetro 
+\family typewriter
+at
+\family default
+, y lo que se escribe, el parámetro 
+\family typewriter
+lab
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<desempleo1, ref.label='desempleo0', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.84
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Barras-Horizontales"
+
+\end_inset
+
+Ejemplos de gráficos de barras horizontales
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Gráficas de curvas continuas
 \end_layout
 
+\begin_layout Standard
+Al principio de este capítulo, en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-con-atributos"
+
+\end_inset
+
+, se presentó el ejemplo de un histograma sobre el que se dibujó además
+ una curva continua correspondiente a su ajuste a una función de densidad
+ de probabilidades Gamma.
+ En el caso presentado, el lenguaje 
+\emph on
+entiende
+\emph default
+ que el primero de los argumentos que se le ha pasado es una función y procede
+ a producir su gráfica dentro de los límites de los ejes que se han establecido,
+ que, en el caso de la figura, están dados por el anterior llamado a la
+ función 
+\family typewriter
+hist()
+\family default
+, ya que la curva se agrega al histograma.
+ De hecho, si el primer argumento, o argumento 
+\family typewriter
+x
+\family default
+, de la función 
+\family typewriter
+plot()
+\family default
+, es una función de esta naturaleza, su comportamiento será el mismo que
+ el de la función 
+\family typewriter
+curve()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Para ejemplificar la producción de este tipo de gráficas, se programará
+ una función productora de funciones de tipo senoidales, a partir de la
+ conocida función trigonométrica seno: la función 
+\family typewriter
+sin()
+\family default
+, en R.
+ Esta función producirá variaciones de la función seno, modificando sólamente
+ su amplitud y su fase inicial, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<senoides, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Funcion productora de funciones  
+\end_layout
+
+\begin_layout Plain Layout
+
+# senoidales 
+\end_layout
+
+\begin_layout Plain Layout
+
+fsin <- function(i,j) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    # i: afecta la fase inicial
+\end_layout
+
+\begin_layout Plain Layout
+
+    # j: afecta la amplitud
+\end_layout
+
+\begin_layout Plain Layout
+
+    function (x) 1/(1+j)*sin(x + i*pi/4)
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+# por ejemplo, 
+\end_layout
+
+\begin_layout Plain Layout
+
+ff1 <- fsin(0,0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# es lo mismo que la función sin()
+\end_layout
+
+\begin_layout Plain Layout
+
+# veamos:
+\end_layout
+
+\begin_layout Plain Layout
+
+sin(pi/6) # pi/6 = 30 grados
+\end_layout
+
+\begin_layout Plain Layout
+
+ff1(pi/6)
+\end_layout
+
+\begin_layout Plain Layout
+
+# El mismo resultado se pudo obtener directamente con
+\end_layout
+
+\begin_layout Plain Layout
+
+fsin(0,0)(pi/6)
+\end_layout
+
+\begin_layout Plain Layout
+
+# También,
+\end_layout
+
+\begin_layout Plain Layout
+
+ff2 <- fsin(2,0) # igual al coseno
+\end_layout
+
+\begin_layout Plain Layout
+
+cos(pi/6)
+\end_layout
+
+\begin_layout Plain Layout
+
+ff2(pi/6)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora se procederá a graficar cuatro de estas funciones mediante la función
+ 
+\family typewriter
+curve()
+\family default
+, con el código que se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<senoides0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 0:n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    curve(fsin(i,i)(x), xlim=c(0,2*pi), 
+\end_layout
+
+\begin_layout Plain Layout
+
+        col=rainbow(n+1)[i+1], add=(i!=0), # Note el valor de add
+\end_layout
+
+\begin_layout Plain Layout
+
+        lwd=2) # el grosor de las líneas
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado del código anterior se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-curvas"
+
+\end_inset
+
+.
+ Debe notarse que el valor del argumento 
+\family typewriter
+add=(i!=0)
+\family default
+, es una expresión lógica.
+ Esto es para indicarle al lenguaje que la primera vez que se ejecuta la
+ función, es para producir la gráfica y no para añadirla a una existente,
+ como ocurre en todos los otros casos.
+ Otra nota importante es la manera cómo se ha especificado la función en
+ el llamado a 
+\family typewriter
+curve()
+\family default
+; esto es, se ha llamado a 
+\family typewriter
+fsin(i,i)(x)
+\family default
+, y no simplemente a 
+\family typewriter
+fsin(i,i)
+\family default
+, como la intuición nos hubiera indicado.
+ Esto se debe a manejos internos del intérprete para facilitar la solución
+ semántica de la expresión.
+ Cabe decir, sin embargo, que el código que se muestra a continuación produce
+ exactamente el mismo resultado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<senoides1, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- 4
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 0:n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    # producimos la función antes de pasarla a curve
+\end_layout
+
+\begin_layout Plain Layout
+
+    ff <- fsin(i,i) 
+\end_layout
+
+\begin_layout Plain Layout
+
+    curve(ff, xlim=c(0,2*pi), col=rainbow(n+1)[i+1], 
+\end_layout
+
+\begin_layout Plain Layout
+
+          add=(i!=0), lwd=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<senoides2, ref.label='senoides1', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfico-de-curvas"
+
+\end_inset
+
+Gráfico de curvas continuas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Ejemplo de gráficas escalonadas: distribución de Poisson
+\end_layout
+
+\begin_layout Standard
+En contraste con las funciones continuas de la sección anterior, están las
+ funciones discontinuas.
+ Un ejemplo de estas funciones son las que se producen como resultado de
+ alguna variable aleatoria discreta; esto es, una variable aleatoria cuyos
+ valores los toma de un conjunto finito o de un conjunto enumerable.
+ Por ejemplo, el número que sale cada vez que se tira un dado de seis caras;
+ el número de automóviles que pasan por minuto en un determinado crucero;
+ el número de días seguidos que se presentó lluvia en una cierta estación
+ meteorológica; el número de pacientes en una muestra que respondieron positivam
+ente a un tratamiento médico, etc.
+ Para caracterizar este tipo de variables, se han desarrollado diversas
+ funciones de distribución y densidad de probablidades, dependiendo de cada
+ problema en particular, tales como la distribución binomial, la distribución
+ geométrica, la hipergeométrica, la multinomial, la distribución de Poisson,
+ etc.
+ 
 \end_layout
 
 \end_body
