@@ -4666,8 +4666,8 @@ ente a un tratamiento médico, etc.
  Para caracterizar este tipo de variables, se han desarrollado diversas
  funciones de distribución y densidad de probablidades, que se usan de acuerdo
  con las características de cada problema en particular, tales como, la
- distribución binomial, la distribución geométrica, la hipergeométrica,
- la multinomial, la distribución de Poisson, etc.
+ distribución uniforme, la distribución binomial, la distribución geométrica,
+ la hipergeométrica, la multinomial, la distribución de Poisson, etc.
  
 \end_layout
 
@@ -4683,7 +4683,365 @@ reference "sub:Densidades-y-distribuciones"
 es continuas.
  Aquí se abordará el tema de las funciones de densidad y distribucion de
  probabilidades de variables aleatorias discretas.
+ Un caso muy simple dentro de esta categoría, es el que surge de tirar un
+ dado de seis caras.
+ La probabilidad de que salga cualquiera de los seis números anotados en
+ sus caras, es igual para todos y es exactamente 1/6 para cada número; por
+ ejemplo, 
+\begin_inset Formula $f(3)=P(y=3)=\nicefrac{1}{6}$
+\end_inset
+
+, y así para todos los otros números
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En la fórmula del texto, la expresión 
+\begin_inset Formula $P(y=3)$
+\end_inset
+
+, se lee como: 
+\emph on
+la probabilidad de que la variable aleatoria, 
+\begin_inset Formula $y$
+\end_inset
+
+, adquiera un valor de 3
+\emph default
+.
+ Expresiones similares son: 
+\begin_inset Formula $P(y\leq3)$
+\end_inset
+
+ y 
+\begin_inset Formula $P(3\leq y\leq5)$
+\end_inset
+
+, que corresponden respectivamente a:
+\emph on
+ la probabilidad de que 
+\emph default
+
+\begin_inset Formula $y$
+\end_inset
+
+
+\emph on
+ sea menor que 3
+\emph default
+, y 
+\emph on
+la probabilidad de que 
+\emph default
+
+\begin_inset Formula $y$
+\end_inset
+
+
+\emph on
+ esté entre 3 y 5
+\emph default
+.
  
+\end_layout
+
+\end_inset
+
+.
+ Asimismo, la 
+\emph on
+probabilidad acumulada
+\emph default
+ está definida por la suma de probabilidades; así, por ejemplo, 
+\begin_inset Formula $F(3)=P(y\leq3)=f(1)+f(2)+f(3)=\nicefrac{3}{6}=\nicefrac{1}{2}$
+\end_inset
+
+.
+ De igual modo que para las variables aleatorias continuas, hay dos funciones
+ que las caracterizan, a saber, la función de 
+\emph on
+densidad
+\emph default
+ de probabilidades, 
+\begin_inset Formula $f(y)$
+\end_inset
+
+, y la función de distribución de probabilidades, 
+\begin_inset Formula $F(y)$
+\end_inset
+
+, que, como se puede apreciar del ejemplo, está definida por la fórmula
+ siguiente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\begin{equation}
+F(y_{n})=\sum_{i=1}^{n}f(y_{i})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En R, entonces, las dos funciones se pueden definir por medio del código
+ que se presenta a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funiformes, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Función de densidad de probabilidades
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- rep(1/6, 6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+ff 
+\end_layout
+
+\begin_layout Plain Layout
+
+# En particular,
+\end_layout
+
+\begin_layout Plain Layout
+
+ff[3]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Función de distribución de probabilidades
+\end_layout
+
+\begin_layout Plain Layout
+
+FF <- Reduce("+", ff, accumulate=T) 
+\end_layout
+
+\begin_layout Plain Layout
+
+FF
+\end_layout
+
+\begin_layout Plain Layout
+
+# En particular,
+\end_layout
+
+\begin_layout Plain Layout
+
+FF[3]
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nótese que, en este caso, en vez de utilizar la sintaxis para definición
+ y uso de funciones, se utiliza directamente la sintaxis de vectores, debido
+ a que se está tratando con variables discretas con valores de un conjunto
+ finito.
+ Además, para definir la distribución de probabilidades, se ha empleado
+ la función 
+\family typewriter
+Reduce()
+\family default
+, con primer argumento 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
++
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+, que toma el vector 
+\family typewriter
+ff
+\family default
+ y va aplicando consecutivamente la función dada como primer argumento,
+ la suma, en este caso, entre el resultado anterior de la aplicación y cada
+ elemento del vector.
+ Además, el argumento 
+\family typewriter
+accumulate=T
+\family default
+, obliga a entregar cada uno de los resultados intermedios en el resultado
+ final; de otro modo, el resultado sería sólo la suma final y el llamado
+ equivaldría al usar la función 
+\family typewriter
+sum(ff)
+\family default
+.
+ Los gráficos correspondientes a estas funciones se pueden hacer con el
+ código que se presenta a continuación.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funiformes0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para la función de densidad de probabilidades,
+\end_layout
+
+\begin_layout Plain Layout
+
+# se utiliza el tipo de de gráfico de agujas
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(ff, type="h", col="red", lwd=2, xlab="y", ylab="f(y)")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Por claridad se agregan puntos al gráfico:
+\end_layout
+
+\begin_layout Plain Layout
+
+points(ff)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para la función de distribución se utiliza el
+\end_layout
+
+\begin_layout Plain Layout
+
+# tipo de gráfico de escalera
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(FF, type="s", col="red", lwd=2, xlab="y", ylab="F(y)") 
+\end_layout
+
+\begin_layout Plain Layout
+
+points(FF, pch=16)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<funiformes1, ref.label='funiformes0', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:La-densidad-y"
+
+\end_inset
+
+La 
+\emph on
+densidad
+\emph default
+ y distribución de probabilidades para un dado de seis caras
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:La-densidad-y"
+
+\end_inset
+
+ se ha utilizado un tipo de gráfico de agujas para la densidad de probabilidades
+, ya que permite visualizar de una mejo
 \end_layout
 
 \end_body
