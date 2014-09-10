@@ -5041,7 +5041,44 @@ reference "fig:La-densidad-y"
 \end_inset
 
  se ha utilizado un tipo de gráfico de agujas para la densidad de probabilidades
-, ya que permite visualizar de una mejo
+, ya que permite visualizar de una mejor manera la naturaleza tipo 
+\emph on
+pulso
+\emph default
+ de la función.
+\end_layout
+
+\begin_layout Standard
+Desde luego que no todas las variables aleatorias discretas tienen funciones
+ de densidad y distribución de probabilidades tan sencillas.
+ Considérese por ejemplo el siguiente problema: en un centro comercial se
+ tienen tres líneas de cajas, a saber, las cájas rápidas, las cajas normales,
+ y las cajas para personas con algún tipo de discapacidad.
+ Se ha medido que, en promedio, a las horas pico, la afluencia de clientes
+ en las cajas rápidas es de 13 clientes por minuto; en las normales, de
+ 10; y en las destinadas a minusválidos, de 6.
+ ¿Cuál sería la probabilidad de que, a esa hora pico, para cualquiera de
+ estas líneas de cajas arribaran 14 clientes por minuto?
+\end_layout
+
+\begin_layout Standard
+La respuesta a este tipo de problemas se puede modelar mediante un tipo
+ de funciones de densidad y distribución de probabilidades conocida como
+ distribución de Poisson.
+ Aquí el parámetro importante es lo que se conoce como la 
+\emph on
+razón
+\emph default
+ media que está dada en términos de algún número de unidades enteras dividido
+ entre algún segmento de un espacio continuo, como podría ser el tiempo,
+ la longitud, el área, etc.
+ En el caso del ejemplo, son 13 clientes, 10, 6 o 14 clientes cada minuto.
+ Otros ejemplos son, el número de defectos o fallas por unidad de longitud
+ en alguna pieza, el número de llamadas telefónicas por hora, etc.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
