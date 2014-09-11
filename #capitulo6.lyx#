@@ -5069,16 +5069,13 @@ La respuesta a este tipo de problemas se puede modelar mediante un tipo
 \emph on
 razón
 \emph default
- media que está dada en términos de algún número de unidades enteras dividido
+ media, que está dada en términos de algún número de unidades enteras dividido
  entre algún segmento de un espacio continuo, como podría ser el tiempo,
  la longitud, el área, etc.
- En el caso del ejemplo, son 13 clientes, 10, 6 o 14 clientes cada minuto.
+ En el caso del ejemplo, son 13, 10, 6 o 14 clientes cada minuto.
  Otros ejemplos son, el número de defectos o fallas por unidad de longitud
- en alguna pieza, el número de llamadas telefónicas por hora, etc.
-\end_layout
-
-\begin_layout Standard
-
+ en algún riel metálico, el número de llamadas telefónicas por hora, el
+ número de automóviles que arriban a un semáforo cada minuto, etc.
 \end_layout
 
 \end_body
