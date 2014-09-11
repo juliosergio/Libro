@@ -4639,10 +4639,6 @@ Gráfico de curvas continuas
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4672,6 +4668,12 @@ ente a un tratamiento médico, etc.
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "pagina-uniformes"
+
+\end_inset
+
 En la sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4688,7 +4690,7 @@ es continuas.
  La probabilidad de que salga cualquiera de los seis números anotados en
  sus caras, es igual para todos y es exactamente 1/6 para cada número; por
  ejemplo, 
-\begin_inset Formula $f(3)=P(y=3)=\nicefrac{1}{6}$
+\begin_inset Formula $f(3)=Pr(y=3)=\nicefrac{1}{6}$
 \end_inset
 
 , y así para todos los otros números
@@ -4697,7 +4699,7 @@ status open
 
 \begin_layout Plain Layout
 En la fórmula del texto, la expresión 
-\begin_inset Formula $P(y=3)$
+\begin_inset Formula $Pr(y=3)$
 \end_inset
 
 , se lee como: 
@@ -4710,11 +4712,11 @@ la probabilidad de que la variable aleatoria,
 \emph default
 .
  Expresiones similares son: 
-\begin_inset Formula $P(y\leq3)$
+\begin_inset Formula $Pr(y\leq3)$
 \end_inset
 
  y 
-\begin_inset Formula $P(3\leq y\leq5)$
+\begin_inset Formula $Pr(3\leq y\leq5)$
 \end_inset
 
 , que corresponden respectivamente a:
@@ -4753,7 +4755,7 @@ la probabilidad de que
 probabilidad acumulada
 \emph default
  está definida por la suma de probabilidades; así, por ejemplo, 
-\begin_inset Formula $F(3)=P(y\leq3)=f(1)+f(2)+f(3)=\nicefrac{3}{6}=\nicefrac{1}{2}$
+\begin_inset Formula $F(3)=Pr(y\leq3)=f(1)+f(2)+f(3)=\nicefrac{3}{6}=\nicefrac{1}{2}$
 \end_inset
 
 .
@@ -4778,7 +4780,7 @@ densidad
 \align center
 \begin_inset Formula 
 \begin{equation}
-F(y_{n})=\sum_{i=1}^{n}f(y_{i})
+F(y_{n})=\sum_{i=1}^{n}f(y_{i})\label{eq:14}
 \end{equation}
 
 \end_inset
@@ -5022,10 +5024,6 @@ densidad
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5058,7 +5056,7 @@ Desde luego que no todas las variables aleatorias discretas tienen funciones
  en las cajas rápidas es de 13 clientes por minuto; en las normales, de
  10; y en las destinadas a minusválidos, de 6.
  ¿Cuál sería la probabilidad de que, a esa hora pico, para cualquiera de
- estas líneas de cajas arribaran 14 clientes por minuto?
+ estas líneas de cajas arriben 14 o más clientes por minuto?
 \end_layout
 
 \begin_layout Standard
@@ -5076,6 +5074,325 @@ razón
  Otros ejemplos son, el número de defectos o fallas por unidad de longitud
  en algún riel metálico, el número de llamadas telefónicas por hora, el
  número de automóviles que arriban a un semáforo cada minuto, etc.
+\end_layout
+
+\begin_layout Standard
+Si se regresa al problema mencionado del número de clientes que arriban
+ por minuto a una caja, se dice, por ejemplo, que en promedio arriban 10
+ clientes por minuto.
+ Cuando se habla de 
+\emph on
+promedio
+\emph default
+, en general se tiende a pensar que, como realmente ocurre en el mundo real,
+ en ocasiones arribarán menos y en ocasiones arribarán más clientes que
+ el señalado promedio.
+ Esta intuición es precisamente lo que modela la función de densidad de
+ probabilidades de Poisson, que se describe por la siguiente fórmula:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(k;\lambda)=Pr(X=k)=\frac{\lambda^{k}}{k!}e^{-\lambda}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, 
+\begin_inset Formula $e$
+\end_inset
+
+ es el número de Euler: la base de los logaritmos naturales, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ es la razón promedio.
+ De modo que, si lo que se quiere es la función correspondiente a una razón
+ promedio de 10 clientes por minuto, estaría dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(k;10)=\frac{10^{k}}{k!}e^{-10}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si en esa situación se quisiera averiguar la probabilidad de que acudieran
+ 12 clientes por minuto, simplemente se calcula con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(12;10)=\frac{10^{12}}{12!}e^{-10}=0.0948
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entonces, la probabilidad de que para esa caja particular acudan 12 clientes
+ por minuto es del 9.48%.
+ Afortunadamente, R cuenta con la función 
+\family typewriter
+dpois()
+\family default
+, que implementa la función de densidad de probabilidades de Poisson, y
+ entonces, en R el cálculo anterior se hace con el siguiente código.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+dpois(12,lambda=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Supóngase ahora que se quiere tener un registro de las probabilidades correspond
+ientes a las razones entre 0 y 20 clientes por minuto, con la misma razón
+ media de 10 clientes por minuto.
+ Esto es fácil de obtener con el siguiente código.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson0, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 0:20 
+\end_layout
+
+\begin_layout Plain Layout
+
+ds10 <- dpois(x, 10)
+\end_layout
+
+\begin_layout Plain Layout
+
+ds10
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al igual que al principio de esta sección, en 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "pagina-uniformes"
+
+\end_inset
+
+ y lo cual se ha mostrado también gráficamente en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:La-densidad-y"
+
+\end_inset
+
+, a la función de densidad de probabilidades de Poisson, le corresponde
+ también una función de distribución de probabilidades, que registra la
+ probabilidad acumulada de acuerdo con una fórmula semejante a dada en la
+ ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:14"
+
+\end_inset
+
+.
+ El lenguaje implementa dicha función mediante la función 
+\family typewriter
+ppois()
+\family default
+, aunque se pudiera hacer un cálculo semejante al que se hizo con 
+\family typewriter
+Reduce()
+\family default
+, anteriormente.
+ En seguida se presentan y comparan ambas versiones.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson1, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Con Reduce se usa resultado anterior 'ds10'
+\end_layout
+
+\begin_layout Plain Layout
+
+Ps10A <- Reduce('+', ds10, accumulate=T) 
+\end_layout
+
+\begin_layout Plain Layout
+
+Ps10A
+\end_layout
+
+\begin_layout Plain Layout
+
+# Con la función nativa del lenguaje, se usa 'x'
+\end_layout
+
+\begin_layout Plain Layout
+
+Ps10 <- ppois(x, lambda=10)
+\end_layout
+
+\begin_layout Plain Layout
+
+Ps10
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los resultados son "semejantes"
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al igual que para el caso de la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:La-densidad-y"
+
+\end_inset
+
+, se pueden producir los gráficos correspondientes a las dos funciones por
+ medio de los datos obtenidos, 
+\family typewriter
+ds10
+\family default
+ y 
+\family typewriter
+Ps10
+\family default
+, con el siguiente código.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# La función de densidad:
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x=x, y=ds10, type="h", lwd=2, xlab="y", ylab="ds10(y)") 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Por claridad se agregan puntos al gráfico: 
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x, ds10, pch=21, bg="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+# La función de distribución:
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x, Ps10, type="s", col="red", lwd=2, xlab="y", ylab="Ps10(y)")  
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x, Ps10, pch=16)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de este código se muestra en la Fig.
+ .
+ Nótese que en ambos llamados a la función plot(), se ha tenido que especificar
+ tanto las X como las Y.
 \end_layout
 
 \end_body

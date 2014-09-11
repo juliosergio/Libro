@@ -3,10 +3,12 @@
 x <- 0:20
 ds10 <- dpois(x, 10)
 plot(x=x, y=ds10, type="h", lwd=2, xlab="y", ylab="ds10(y)")
-# Por claridad se agregan puntos al gráfico:
+# Por claridad se agregan puntos al grafico:
 points(x, ds10, pch=21, bg="red")
 
-Ps10 <- Reduce('+', ds10, accumulate=T)
+Ps10A <- Reduce('+', ds10, accumulate=T)
+Ps10 <- ppois(x, 10)
+
 plot(x, Ps10, type="s", col="red", lwd=2, xlab="y", ylab="Ps10(y)") 
 points(x, Ps10, pch=16)
 
