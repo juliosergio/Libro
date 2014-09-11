@@ -38,3 +38,4 @@ legend("bottomright",
        legend=paste0("lambda=",lambdas),
        lty=1, pch=21, pt.bg=cc)
 
+lapply(lambdas, function(ll) 1-dpois(14, ll))

@@ -4667,6 +4667,10 @@ ente a un tratamiento médico, etc.
  
 \end_layout
 
+\begin_layout Subsection
+Distribuciones uniformes de variables discretas
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset label
 LatexCommand label
@@ -5046,6 +5050,16 @@ pulso
  de la función.
 \end_layout
 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Funciones-de-densidad"
+
+\end_inset
+
+Funciones de densidad y distribución de probabilidades de Poisson
+\end_layout
+
 \begin_layout Standard
 Desde luego que no todas las variables aleatorias discretas tienen funciones
  de densidad y distribución de probabilidades tan sencillas.
@@ -5129,7 +5143,7 @@ f(k;10)=\frac{10^{k}}{k!}e^{-10}
 
 \begin_layout Standard
 Si en esa situación se quisiera averiguar la probabilidad de que acudieran
- 12 clientes por minuto, simplemente se calcula con:
+ 12 clientes por minuto, simplemente se calcularía con:
 \end_layout
 
 \begin_layout Standard
@@ -5144,7 +5158,7 @@ f(12;10)=\frac{10^{12}}{12!}e^{-10}=0.0948
 \end_layout
 
 \begin_layout Standard
-Entonces, la probabilidad de que para esa caja particular acudan 12 clientes
+Entonces, la probabilidad de que, para esa caja particular, acudan 12 clientes
  por minuto es del 9.48%.
  Afortunadamente, R cuenta con la función 
 \family typewriter
@@ -5220,9 +5234,9 @@ ds10
 \end_layout
 
 \begin_layout Standard
-Al igual que al principio de esta sección, en 
+Al igual que, para el caso de la distribución uniforme, en la sección 
 \begin_inset CommandInset ref
-LatexCommand vpageref
+LatexCommand vref
 reference "pagina-uniformes"
 
 \end_inset
@@ -5236,9 +5250,8 @@ reference "fig:La-densidad-y"
 \end_inset
 
 , a la función de densidad de probabilidades de Poisson, le corresponde
- también una función de distribución de probabilidades, que registra la
- probabilidad acumulada de acuerdo con una fórmula semejante a dada en la
- ecuación 
+ una función de distribución de probabilidades, que registra la probabilidad
+ acumulada de acuerdo con una fórmula semejante a dada en la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:14"
@@ -5254,7 +5267,7 @@ ppois()
 \family typewriter
 Reduce()
 \family default
-, anteriormente.
+, anteriormente, en el caso de la distribución uniforme.
  En seguida se presentan y comparan ambas versiones.
  
 \end_layout
@@ -5403,10 +5416,17 @@ reference "fig:Las-funciones-de"
 \end_inset
 
 .
- Nótese que en ambos llamados a la función plot(), se ha tenido que especificar
- tanto las X como las Y.
- Esto se debe a que ahora nuestra serie de datos ha empezado con el número
- 0 y no con el 1, como anteriormente.
+ Nótese que en todos los llamados a la funciones 
+\family typewriter
+plot()
+\family default
+ y
+\family typewriter
+ points()
+\family default
+, se ha tenido que especificar tanto las X como las Y.
+ Esto se debe a que ahora el rango de las X comienza con 0 y no con 1, como
+ anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -5465,6 +5485,372 @@ Las funciones de densidad y distribución de probabilidades de Poisson
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+El problema original, enunciado al principio de esta sección, 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "sub:Funciones-de-densidad"
+
+\end_inset
+
+, se mencionan tres líneas de cajas, con razones promedio de 13, 10 y 6
+ clientes por minuto.
+ Si se quiere ver los tres gráficos correspondientes a las funciones de
+ densidad de probabilidades y los tres, correspondientes a las funciones
+ de distribución de probabilidades, se pueden generar con el código que
+ se presenta a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson4, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 0:20 # vector con los datos
+\end_layout
+
+\begin_layout Plain Layout
+
+# Colores para cada función:
+\end_layout
+
+\begin_layout Plain Layout
+
+cc <- c("yellow", "springgreen", "navyblue")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Las razones promedio para cada función
+\end_layout
+
+\begin_layout Plain Layout
+
+# están dadas por:
+\end_layout
+
+\begin_layout Plain Layout
+
+lambdas <- c(6, 10, 13)
+\end_layout
+
+\begin_layout Plain Layout
+
+# La función de densidad de probabilidades se guarda en un
+\end_layout
+
+\begin_layout Plain Layout
+
+# data frame; una columna por cada lambda
+\end_layout
+
+\begin_layout Plain Layout
+
+ds <- as.data.frame(lapply(lambdas, function(ll) dpois(x, ll))) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(ds) <- lambdas 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Igual, para la función de distribución de probabilidades,
+\end_layout
+
+\begin_layout Plain Layout
+
+Ps <- as.data.frame(lapply(lambdas, function(ll) ppois(x, ll))) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(Ps) <- lambdas 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# En la primer iteración se usará la función plot,
+\end_layout
+
+\begin_layout Plain Layout
+
+# y en todas las demás la funciójn lines:
+\end_layout
+
+\begin_layout Plain Layout
+
+funcs <- list(plot, lines)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:3) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    ff <- funcs[[1+(i!=1)]] # se elige la función
+\end_layout
+
+\begin_layout Plain Layout
+
+    ff(x,ds[[i]], type="o", pch=21,bg=cc[i]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright",
+\end_layout
+
+\begin_layout Plain Layout
+
+       legend=paste0("la=",lambdas),
+\end_layout
+
+\begin_layout Plain Layout
+
+       lty=1, pch=21, pt.bg=cc)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for (i in 1:3) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    ff <- funcs[[1+(i!=1)]] # se elige la función
+\end_layout
+
+\begin_layout Plain Layout
+
+    ff(x,Ps[[i]], type="s")
+\end_layout
+
+\begin_layout Plain Layout
+
+    points(x,Ps[[i]],pch=21,bg=cc[i]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("bottomright",
+\end_layout
+
+\begin_layout Plain Layout
+
+       legend=paste0("la=",lambdas),
+\end_layout
+
+\begin_layout Plain Layout
+
+       lty=1, pch=21, pt.bg=cc)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de este código se puede ver el la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Poisson-multiples"
+
+\end_inset
+
+.
+ Nótese que, para representar las funciones de densidad de probabilidades
+ no se ha hecho con un gráfico tipo agujas, ya que al sobreponer las tres
+ funciones, se hubiera prestado a confusión.
+ En vez de ello, los puntos contiguos se han unido con una línea, sólo como
+ una guía, ya que entre dos puntos consecutivos la función no tiene valor
+ alguno.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson5, ref.label='poisson4', echo=FALSE, fig.width=4, fig.height=4, fig.show='h
+old', out.width='.8
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Poisson-multiples"
+
+\end_inset
+
+Funciones de densidad y distribución de probabilidades de Poisson múltiples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, queda por responder la pregunta de cuál es la probablidad de
+ que en cada una de las líneas de cajas se presenten 14 o más clientes por
+ minuto.
+ Para responderla, basta con usar la función 
+\family typewriter
+ppois()
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson6, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# En orden son para lambda=6, 10, 13
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(lambdas, function(ll) 1-ppois(14, ll))
+\end_layout
+
+\begin_layout Plain Layout
+
+# En este caso se ha restado la probabilidad resultante
+\end_layout
+
+\begin_layout Plain Layout
+
+# de la unidad (1) porque el resultado directo es que el 
+\end_layout
+
+\begin_layout Plain Layout
+
+# valor sea menor o igual a 14.
+\end_layout
+
+\begin_layout Plain Layout
+
+# El mismo efecto se logra cambiando el argumento
+\end_layout
+
+\begin_layout Plain Layout
+
+# lower.tail, como sigue
+\end_layout
+
+\begin_layout Plain Layout
+
+lapply(lambdas, function(ll) ppois(14, ll, lower.tail=F))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, las probabilidades de que se presenten 14 o más clientes por minuto
+ son 0.14%, 8.35% y 32.49% para las lineas de cajas de minusválidos, normales
+ y rápidas, respectivamente.
+\end_layout
+
+\begin_layout Section
+Dispositivos gráficos
 \end_layout
 
 \end_body
