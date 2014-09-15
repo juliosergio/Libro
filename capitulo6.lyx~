@@ -2586,6 +2586,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
@@ -5234,7 +5239,8 @@ ds10
 \end_layout
 
 \begin_layout Standard
-Al igual que, para el caso de la distribución uniforme, en la sección 
+Al igual que, para el caso de la distribución uniforme, presentada en la
+ sección 
 \begin_inset CommandInset ref
 LatexCommand vref
 reference "pagina-uniformes"
@@ -5263,11 +5269,12 @@ reference "eq:14"
 \family typewriter
 ppois()
 \family default
-, aunque se pudiera hacer un cálculo semejante al que se hizo con 
+, aunque se pudiera hacer un cálculo semejante al que se hizo anteriormente
+ con 
 \family typewriter
 Reduce()
 \family default
-, anteriormente, en el caso de la distribución uniforme.
+ en el caso de la distribución uniforme.
  En seguida se presentan y comparan ambas versiones.
  
 \end_layout
@@ -5509,7 +5516,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<poisson4, eval=F, tidy=F>>=
+<<poisson4, tidy=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -5540,6 +5547,87 @@ cc <- c("yellow", "springgreen", "navyblue")
 \begin_layout Plain Layout
 
 lambdas <- c(6, 10, 13)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para pintar las leyendas de ambas gráficas de manera que incluya expresiones
+ simbólicas, con la letra griega lambda, semejantes a: 
+\begin_inset Formula $\lambda=6$
+\end_inset
+
+, es necesario hacer la siguiente manipulación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson4A, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qq <- as.expression(
+\end_layout
+
+\begin_layout Plain Layout
+
+         lapply(lambdas, 
+\end_layout
+
+\begin_layout Plain Layout
+
+                function(x) bquote(lambda==.(x))))
+\end_layout
+
+\begin_layout Plain Layout
+
+# De este modo se tiene 'qq' como una expresión de tres 
+\end_layout
+
+\begin_layout Plain Layout
+
+# componentes: 
+\end_layout
+
+\begin_layout Plain Layout
+
+qq
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y entonces, para producir los gráficos correspondientes se hace con:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<poisson4B, eval=F, tidy=F>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -5626,12 +5714,22 @@ for (i in 1:3) {
 
 \begin_layout Plain Layout
 
+# En la leyenda se incluye las expresión calculada antes
+\end_layout
+
+\begin_layout Plain Layout
+
+# y guardada en 'qq', para obtener los símbolos lambda
+\end_layout
+
+\begin_layout Plain Layout
+
 legend("topright",
 \end_layout
 
 \begin_layout Plain Layout
 
-       legend=paste0("la=",lambdas),
+       legend=qq,
 \end_layout
 
 \begin_layout Plain Layout
@@ -5670,6 +5768,7 @@ for (i in 1:3) {
 
 \begin_layout Plain Layout
 
+# Igual, aquí se incluye la expresión 'qq'
 \end_layout
 
 \begin_layout Plain Layout
@@ -5679,7 +5778,7 @@ legend("bottomright",
 
 \begin_layout Plain Layout
 
-       legend=paste0("la=",lambdas),
+       legend=qq,
 \end_layout
 
 \begin_layout Plain Layout
@@ -5728,8 +5827,8 @@ status open
 
 \begin_layout Plain Layout
 
-<<poisson5, ref.label='poisson4', echo=FALSE, fig.width=4, fig.height=4, fig.show='h
-old', out.width='.8
+<<poisson5, ref.label='poisson4B', echo=FALSE, fig.width=4, fig.height=4, fig.show='
+hold', out.width='.8
 \backslash
 
 \backslash
@@ -5847,6 +5946,39 @@ lapply(lambdas, function(ll) ppois(14, ll, lower.tail=F))
 Así, las probabilidades de que se presenten 14 o más clientes por minuto
  son 0.14%, 8.35% y 32.49% para las lineas de cajas de minusválidos, normales
  y rápidas, respectivamente.
+\end_layout
+
+\begin_layout Section
+Dispositivos gráficos
+\end_layout
+
+\begin_layout Standard
+Hasta aquí, no se ha dicho en dónde se despliegan o muestran todos los gráficos
+ que se han elaborado.
+ Esto es porque el lenguaje ha facilitado automáticamente un dispositivo
+ de salida, a saber: una ventana en la pantalla donde se muestran los resultados
+ gráficos.
+ No obstante, en general se cuenta con distintos medios de salida que pueden
+ ser, por ejemplo, otra ventana diferente o un archivo de algún tipo de
+ datos gráfico.
+\end_layout
+
+\begin_layout Standard
+Los distintos tipos de sistemas operativos donde funciona el intérprete
+ del lenguaje, proveen de dispositivos por omisión, por ejemplo, en un ambiente
+ de Unix o Linux, el dispositivo gráfico de pantalla se llama 
+\family typewriter
+x11
+\family default
+; en MS Windows, es 
+\family typewriter
+windows
+\family default
+, y en Mac OS X de Apple es 
+\family typewriter
+quartz
+\family default
+.
 \end_layout
 
 \end_body

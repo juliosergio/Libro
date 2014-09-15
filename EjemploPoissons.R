@@ -25,8 +25,14 @@ for (i in 1:3) {
     ff <- funcs[[1+(i!=1)]]
     ff(x,ds[[i]], type="o", pch=21,bg=cc[i])
 }
+
+# Construccion de una expresion para las pintar
+# los simbolos correspondientes a lambda
+
+qq <-as.expression(lapply(lambdas, function(x) bquote(lambda==.(x))))
+
 legend("topright", 
-       legend=paste0("lambda=",lambdas),
+       legend=qq,
        lty=1, pch=21, pt.bg=cc)
 
 for (i in 1:3) {
@@ -35,7 +41,11 @@ for (i in 1:3) {
     points(x,Ps[[i]],pch=21,bg=cc[i])
 }
 legend("bottomright", 
-       legend=paste0("lambda=",lambdas),
+       legend=qq,
        lty=1, pch=21, pt.bg=cc)
 
-lapply(lambdas, function(ll) 1-dpois(14, ll))
+lapply(lambdas, function(ll) 1-ppois(14, ll))
+
+lapply(lambdas, function(ll) ppois(14, ll, lower.tail=F))
+
+
