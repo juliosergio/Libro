@@ -5934,6 +5934,11 @@ lapply(lambdas, function(ll) ppois(14, ll, lower.tail=F))
 
 \begin_layout Plain Layout
 
+## [[uno]]
+\end_layout
+
+\begin_layout Plain Layout
+
 @
 \end_layout
 
@@ -5980,12 +5985,321 @@ quartz
 \family default
 .
  Aparte de estos dispositivos, el sistema puede brindar información acerca
- de los que hay disponibles por medio de la instrucción 
+ de los que hay disponibles, en alguna instalación particular, por medio
+ de la instrucción 
 \family typewriter
 ?Devices
 \family default
+ o, alternativamente, 
+\family typewriter
+help(
+\begin_inset Quotes eld
+\end_inset
+
+Devices
+\begin_inset Quotes erd
+\end_inset
+
+)
+\family default
 .
+ Aparte, hay un conjunto de funciones, casi todas con el prefijo 
+\family typewriter
+
+\begin_inset Quotes eld
+\end_inset
+
+dev.
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+, que permiten controlar y consultar los dispositivos gráficos; un resumen
+ de las cuales se muestra en la siguiente tabla:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Función
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Breve descripción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.cur()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Muestra el dispositivo en uso actualmente.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.list()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Muestra o lista los dispositivos abiertos.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.next()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrega el dispositivo siguiente del actual.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.prev()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrega el dispositivo anterior del actual.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.set(d)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Establece 
+\family typewriter
+'d'
+\family default
+ como el actual o, en su defecto, al siguiente.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.copy()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Copia el contenido del actual al siguiente (
+\emph on
+default
+\emph default
+).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dev.off()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cierra dispositivo actual.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+graphics.off()
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cierra todos los dispositivos, salvo el de 
+\emph on
+default
+\emph default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A excepción del dispositivo por omisión (dispositivo 1), el lenguaje los
+ administra mediante una lista 
+\emph on
+circular
+\emph default
+, numerados a partir del número 2.
+ Los componentes de dicha lista se pueden consultar con la función 
+\family typewriter
+dev.list()
+\family default
+.
+ Solamente en uno de esos dispositivos se publican las gráficas y es el
+ que se denomina dispositivo actual (
+\emph on
+current
+\emph default
+, en inglés) y su identificador numérico se puede averiguar con la función
  
+\family typewriter
+dev.cur()
+\family default
+.
+ Este dispositivo se cambia cada vez que se abre uno nuevo, ya que éste
+ último de convierte en el actual; pero también, se puede establecer, en
+ cualquier momento alguno de los dispositivos abiertos como el actual, mediante
+ la función 
+\family typewriter
+dev.set()
+\family default
+.
+ Las funciones 
+\family typewriter
+dev.next()
+\family default
+ y 
+\family typewriter
+dev.prev()
+\family default
+ permiten conocer, respectivamente, el siguiente y el anterior de algún
+ dispositivo dado como argumento o, en su ausencia, permiten conocer el
+ siguiente y el anterior del dispositivo actual.
+ La función 
+\family typewriter
+dev.off()
+\family default
+ cierra el dispositivo actual o alguno dado como argumento.
+ La función 
+\family typewriter
+graphics.off()
+\family default
+ cierra todos los dispositivos abiertos.
+ La función 
+\family typewriter
+dev.copy()
+\family default
+ copia el contenido del dispositivo actual al siguiente o a algún dispositivo
+ que se especifica como argumento y deja como dispositivo actual a aquel
+ en el que se realizó la copia.
 \end_layout
 
 \end_body
