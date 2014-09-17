@@ -6261,8 +6261,8 @@ dev.cur()
 .
  Este dispositivo se cambia cada vez que se abre uno nuevo, ya que éste
  último de convierte en el actual; pero también, se puede establecer, en
- cualquier momento alguno de los dispositivos abiertos como el actual, mediante
- la función 
+ cualquier momento, alguno de los dispositivos abiertos como el actual,
+ mediante la función 
 \family typewriter
 dev.set()
 \family default

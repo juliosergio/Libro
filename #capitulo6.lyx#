@@ -122,7 +122,7 @@ read_chunk('produceSym.R')
 \end_layout
 
 \begin_layout Standard
-Una de las grandes virutdes del lenguaje R, es la facilidad que ofrece para
+Una de las grandes virtudes del lenguaje R, es la facilidad que ofrece para
  presentar la información correspondiente a los datos que maneja o a los
  cálculos que desarrolla, de una manera gráfica.
  El lenguaje cuenta, no con uno, sino con varios sistemas, en general separados,
@@ -692,7 +692,7 @@ reference "fig:Un-sencillo-gráfico"
 \end_layout
 
 \begin_layout Standard
-En general, el gráfico más simple que se puediera ocurrir es probablemente
+En general, el gráfico más simple que se pudiera ocurrir es probablemente
  un gráfico 
 \emph on
 x-y
@@ -786,7 +786,7 @@ reference "fig:Gráfico-de-radios"
  expresión matemática.
  Mediante el uso de la función 
 \family typewriter
-expresion()
+expression()
 \family default
 , el lenguaje se encarga de traducir la expresión a su representación matemática
  simbólica.
@@ -1289,7 +1289,7 @@ plot()
 \end_layout
 
 \begin_layout Standard
-Aparte del tipo de gráfico, hay otros parámetros para cambiar la aparicencia
+Aparte del tipo de gráfico, hay otros parámetros para cambiar la apariencia
  del gráfico resultante.
  En la tabla siguiente se mencionan y describen algunos de los más importantes.
 \end_layout
@@ -1773,7 +1773,7 @@ plot()
 \family default
 .
  Además, para distinguir una curva de la otra resulta muy conveniente añadir
- una leyenda con la simbología y textos adecuados; ésto se hace por medio
+ una leyenda con la simbología y textos adecuados; esto se hace por medio
  de la función 
 \family typewriter
 legend()
@@ -2221,7 +2221,7 @@ rgb(176/255, 48/255, 96/255)
 
 \begin_layout Plain Layout
 
-# La funcion rgb() puede producir los codigos
+# La función rgb() puede producir los codigos
 \end_layout
 
 \begin_layout Plain Layout
@@ -2549,7 +2549,7 @@ reference "fig:Apariencia-de-los"
 
 \end_inset
 
-, se muestra una tabla con los colores nombrados por la funcion 
+, se muestra una tabla con los colores nombrados por la función 
 \family typewriter
 colors()
 \family default
@@ -2767,7 +2767,7 @@ Nueva paleta para especificar colores por números enteros
 
 \begin_layout Standard
 Además de lo antedicho, en el lenguaje se han desarrollado diversas paletas
- de colores con fines específicos, y que son provistas o counstruídas por
+ de colores con fines específicos, y que son provistas o construidas por
  funciones tales como: 
 \family typewriter
 heat.colors()
@@ -2864,7 +2864,7 @@ plot(0, type="n", xlim=c(0,10), ylim=c(0,10))
 
 \begin_layout Plain Layout
 
-# multiple una funcion:
+# multiple una función:
 \end_layout
 
 \begin_layout Plain Layout
@@ -3157,7 +3157,7 @@ class(info$transporte)
 \end_layout
 
 \begin_layout Standard
-Si ahora, se quire ver el tipo de gráfico que produce por omisión la función
+Si ahora, se quiere ver el tipo de gráfico que produce por omisión la función
  
 \family typewriter
 plot()
@@ -3329,7 +3329,7 @@ reference "fig:Un-diagrama-de"
 
 \end_inset
 
-, se podría haber ejecutado el siguiente código más expícito:
+, se podría haber ejecutado el siguiente código más explícito:
 \end_layout
 
 \begin_layout Standard
@@ -3767,7 +3767,7 @@ Gráficos de barras apareadas o agrupadas
 
 \begin_layout Standard
 La misma información de los gráficos anteriores se podría tener con otra
- apariencia mediante baras apiladas o en 
+ apariencia mediante barras apiladas o en 
 \emph on
 stack
 \emph default
@@ -3890,7 +3890,7 @@ name "fig:Gráficos-de-barras-apiladas"
 
 \end_inset
 
-Gráficos de barras apliladas
+Gráficos de barras apiladas
 \end_layout
 
 \end_inset
@@ -4321,13 +4321,13 @@ curve()
 
 \begin_layout Standard
 Para ejemplificar la producción de este tipo de gráficas, se programará
- una función productora de funciones de tipo senoidales, a partir de la
+ una función productora de funciones de tipo sinusoidales, a partir de la
  conocida función trigonométrica seno: la función 
 \family typewriter
 sin()
 \family default
 , en R.
- Esta función producirá variaciones de la función seno, modificando sólamente
+ Esta función producirá variaciones de la función seno, modificando solamente
  su amplitud y su fase inicial, como se muestra a continuación.
 \end_layout
 
@@ -4347,7 +4347,7 @@ status open
 
 \begin_layout Plain Layout
 
-# senoidales 
+# sinusoidales 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4658,16 +4658,16 @@ En contraste con las funciones continuas de la sección anterior, están las
  funciones discontinuas.
  Un ejemplo de estas funciones son las que se producen como resultado de
  alguna variable aleatoria discreta; esto es, una variable aleatoria cuyos
- valores los toma de un conjunto finito o de un conjunto enumerable.
+ valores los toma de un conjunto finito o de un conjunto numerable.
  Por ejemplo, el número que sale cada vez que se tira un dado de seis caras;
  el número de automóviles que pasan por minuto en un determinado crucero;
  el número de días seguidos que se presentó lluvia en una cierta estación
  meteorológica; el número de pacientes en una muestra que respondieron positivam
 ente a un tratamiento médico, etc.
  Para caracterizar este tipo de variables, se han desarrollado diversas
- funciones de distribución y densidad de probablidades, que se usan de acuerdo
- con las características de cada problema en particular, tales como, la
- distribución uniforme, la distribución binomial, la distribución geométrica,
+ funciones de distribución y densidad de probabilidades, que se usan de
+ acuerdo con las características de cada problema en particular, tales como,
+ la distribución uniforme, la distribución binomial, la distribución geométrica,
  la hipergeométrica, la multinomial, la distribución de Poisson, etc.
  
 \end_layout
@@ -4692,7 +4692,7 @@ reference "sub:Densidades-y-distribuciones"
 
 , se planteó el tema de las funciones de densidad y distribución de probabilidad
 es continuas.
- Aquí se abordará el tema de las funciones de densidad y distribucion de
+ Aquí se abordará el tema de las funciones de densidad y distribución de
  probabilidades de variables aleatorias discretas.
  Un caso muy simple dentro de esta categoría, es el que surge de tirar un
  dado de seis caras.
@@ -5069,7 +5069,7 @@ Funciones de densidad y distribución de probabilidades de Poisson
 Desde luego que no todas las variables aleatorias discretas tienen funciones
  de densidad y distribución de probabilidades tan sencillas.
  Considérese por ejemplo el siguiente problema: en un centro comercial se
- tienen tres líneas de cajas, a saber, las cájas rápidas, las cajas normales,
+ tienen tres líneas de cajas, a saber, las cajas rápidas, las cajas normales,
  y las cajas para personas con algún tipo de discapacidad.
  Se ha medido que, en promedio, a las horas pico, la afluencia de clientes
  en las cajas rápidas es de 13 clientes por minuto; en las normales, de
@@ -5873,7 +5873,7 @@ Funciones de densidad y distribución de probabilidades de Poisson múltiples
 \end_layout
 
 \begin_layout Standard
-Finalmente, queda por responder la pregunta de cuál es la probablidad de
+Finalmente, queda por responder la pregunta de cuál es la probabilidad de
  que en cada una de las líneas de cajas se presenten 14 o más clientes por
  minuto.
  Para responderla, basta con usar la función 
@@ -5930,11 +5930,6 @@ lapply(lambdas, function(ll) 1-ppois(14, ll))
 \begin_layout Plain Layout
 
 lapply(lambdas, function(ll) ppois(14, ll, lower.tail=F))
-\end_layout
-
-\begin_layout Plain Layout
-
-## [[uno]]
 \end_layout
 
 \begin_layout Plain Layout
@@ -6266,8 +6261,8 @@ dev.cur()
 .
  Este dispositivo se cambia cada vez que se abre uno nuevo, ya que éste
  último de convierte en el actual; pero también, se puede establecer, en
- cualquier momento alguno de los dispositivos abiertos como el actual, mediante
- la función 
+ cualquier momento, alguno de los dispositivos abiertos como el actual,
+ mediante la función 
 \family typewriter
 dev.set()
 \family default
