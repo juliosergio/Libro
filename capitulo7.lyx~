@@ -64,7 +64,7 @@ knitr
 \begin_body
 
 \begin_layout Chapter
-Graficación con R
+Gr
 \end_layout
 
 \begin_layout Standard
@@ -6951,7 +6951,7 @@ Tres dispositivos gráficos abiertos simultáneamente
 
 \begin_layout Standard
 Para terminar, supóngase que se desea enviar el último gráfico, contenido
- en el dispositivo 4, a un archivo gráfico de tipo pdf.
+ en el dispositivo 4, a un archivo gráfico de tipo PDF.
  Esta operación se puede hacer mediante una copia con la función 
 \family typewriter
 dev.copy()
@@ -7061,7 +7061,58 @@ Desde luego que las copias de material gráfico hechas con
 dev.copy()
 \family default
 , no son de la calidad óptima.
- Si 
+ Si el asunto fuera la producción de un gráfico PDF con calidad optima,
+ lo apropiado sería, repetir las funciones de producción de los gráficos
+ directamente en el dispositivo abierto, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus7, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pdf("miArch.pdf")  
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y, pch=15, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x,y1)
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x, y, x, y1, col=colors()[99])
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(sin, add=T, lwd=3, col="navyblue") 
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.off() # cierra el dispositivo
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
