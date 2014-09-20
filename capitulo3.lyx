@@ -2117,6 +2117,27 @@ df.mt$T
 \end_layout
 
 \begin_layout Standard
+Nótese que en el código anterior, el intérprete del lenguaje se ha 
+\emph on
+quejado
+\emph default
+ emitiendo un 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+Warning
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, que no representa ningún problema, ya que sólo informa que se ha hecho
+ una identificación con un nombre incompleto.
+\end_layout
+
+\begin_layout Standard
 El operador 
 \family typewriter
 [[]]
