@@ -311,7 +311,7 @@ Fue hasta febrero de 29 del 2000, que se considera al software completo
 \end_layout
 
 \begin_layout Section
-Formato del texto
+Formato del código en el texto
 \end_layout
 
 \begin_layout Standard
@@ -425,12 +425,17 @@ x
 
 \begin_layout Plain Layout
 
-# Notemos que los las impresiones o resultados de estas operaciones
+# Notemos que las impresiones o resultados de estas operaciones
 \end_layout
 
 \begin_layout Plain Layout
 
-#
+# aparecen como comentarios, pero iniciados con '##' y con 
+\end_layout
+
+\begin_layout Plain Layout
+
+# una tipografía diferente que los comentarios usuales.
 \end_layout
 
 \begin_layout Plain Layout

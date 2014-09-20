@@ -35,7 +35,7 @@ vz <- var(pp$Precip)
 miFun <- function(p) c(p[1]*p[2]-mu, 
                        p[1]*p[2]^2-vz)
 # ponemos como primer aproximacion lo siguiente:
-p0 <- c(5,2)
+p0 <- c(5,10)
 p <- NwtRph(miFun, p0)
 dgammaX <- function(x) dgamma(x, shape=p[1], scale=p[2])
 
@@ -47,4 +47,16 @@ test <- function(){
   invisible(h)
 }
 
+# Comparacion con el metodo de maxima similitud
+library(MASS)
+
+compare <- function() {
+    ff <- fitdistr(pp$Precip, dgamma, start=list(shape=p0[1], scale=p0[2]))
+    print(ff)
+    dgammaXX <- function(x) {
+        dgamma(x, shape=ff$estimate[[1]], scale=ff$estimate[[2]])
+    }
+    test()
+    curve(dgammaXX, col="red", lwd=3, add=T)
+}
 

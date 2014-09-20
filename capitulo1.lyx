@@ -311,6 +311,156 @@ Fue hasta febrero de 29 del 2000, que se considera al software completo
 \end_layout
 
 \begin_layout Section
+Formato del código en el texto
+\end_layout
+
+\begin_layout Standard
+Con el propósito de facilitar la lectura del presente texto, el código del
+ lenguaje se diferencía en párrafos especiales, que han sido construídos
+ con la ayuda del 
+\emph on
+software
+\emph default
+ knitr, gentilmente creado por Yihui Xie
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La fuente de su trabajo se puede encontrar en http://yihui.name/knitr/ y
+ en http://cran.r-project.org/web/packages/knitr/index.html.
+\end_layout
+
+\end_inset
+
+.
+ A continuación se muestra un fragmento de código con las explicaciones
+ correspondientes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<EjemploCodigo, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Este es un comentario; en R los comentarios empiezan
+\end_layout
+
+\begin_layout Plain Layout
+
+# a partir del caracter '#'.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+# -------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+# En seguida asignaremos mediante código de R el valor 2014 a una
+\end_layout
+
+\begin_layout Plain Layout
+
+# variable llamada 'x':
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- 2014
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora se imprimirá el valor de la variable dos veces, la primera
+\end_layout
+
+\begin_layout Plain Layout
+
+# vez se hará de manera explícita por medio de la función print(),
+\end_layout
+
+\begin_layout Plain Layout
+
+# como sigue:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+print(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+# ...
+ en seguida se imprimirá de manera implícita, simplemente
+\end_layout
+
+\begin_layout Plain Layout
+
+# 'tecleándola' en la consola:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+x
+\end_layout
+
+\begin_layout Plain Layout
+
+# Finalmente haremos una multiplicación de x por 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+2*x
+\end_layout
+
+\begin_layout Plain Layout
+
+# Notemos que las impresiones o resultados de estas operaciones
+\end_layout
+
+\begin_layout Plain Layout
+
+# aparecen como comentarios, pero iniciados con '##' y con 
+\end_layout
+
+\begin_layout Plain Layout
+
+# una tipografía diferente que los comentarios usuales.
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Algunas características importantes de R
 \end_layout
 
@@ -653,10 +803,6 @@ R-help
 
 .
  
-\end_layout
-
-\begin_layout Standard
-R en las ciencias 
 \end_layout
 
 \end_body

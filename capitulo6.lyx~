@@ -122,7 +122,7 @@ read_chunk('produceSym.R')
 \end_layout
 
 \begin_layout Standard
-Una de las grandes virutdes del lenguaje R, es la facilidad que ofrece para
+Una de las grandes virtudes del lenguaje R, es la facilidad que ofrece para
  presentar la información correspondiente a los datos que maneja o a los
  cálculos que desarrolla, de una manera gráfica.
  El lenguaje cuenta, no con uno, sino con varios sistemas, en general separados,
@@ -692,7 +692,7 @@ reference "fig:Un-sencillo-gráfico"
 \end_layout
 
 \begin_layout Standard
-En general, el gráfico más simple que se puediera ocurrir es probablemente
+En general, el gráfico más simple que se pudiera ocurrir es probablemente
  un gráfico 
 \emph on
 x-y
@@ -786,7 +786,7 @@ reference "fig:Gráfico-de-radios"
  expresión matemática.
  Mediante el uso de la función 
 \family typewriter
-expresion()
+expression()
 \family default
 , el lenguaje se encarga de traducir la expresión a su representación matemática
  simbólica.
@@ -1289,7 +1289,7 @@ plot()
 \end_layout
 
 \begin_layout Standard
-Aparte del tipo de gráfico, hay otros parámetros para cambiar la aparicencia
+Aparte del tipo de gráfico, hay otros parámetros para cambiar la apariencia
  del gráfico resultante.
  En la tabla siguiente se mencionan y describen algunos de los más importantes.
 \end_layout
@@ -1773,7 +1773,7 @@ plot()
 \family default
 .
  Además, para distinguir una curva de la otra resulta muy conveniente añadir
- una leyenda con la simbología y textos adecuados; ésto se hace por medio
+ una leyenda con la simbología y textos adecuados; esto se hace por medio
  de la función 
 \family typewriter
 legend()
@@ -2221,7 +2221,7 @@ rgb(176/255, 48/255, 96/255)
 
 \begin_layout Plain Layout
 
-# La funcion rgb() puede producir los codigos
+# La función rgb() puede producir los codigos
 \end_layout
 
 \begin_layout Plain Layout
@@ -2549,7 +2549,7 @@ reference "fig:Apariencia-de-los"
 
 \end_inset
 
-, se muestra una tabla con los colores nombrados por la funcion 
+, se muestra una tabla con los colores nombrados por la función 
 \family typewriter
 colors()
 \family default
@@ -2767,7 +2767,7 @@ Nueva paleta para especificar colores por números enteros
 
 \begin_layout Standard
 Además de lo antedicho, en el lenguaje se han desarrollado diversas paletas
- de colores con fines específicos, y que son provistas o counstruídas por
+ de colores con fines específicos, y que son provistas o construidas por
  funciones tales como: 
 \family typewriter
 heat.colors()
@@ -2864,7 +2864,7 @@ plot(0, type="n", xlim=c(0,10), ylim=c(0,10))
 
 \begin_layout Plain Layout
 
-# multiple una funcion:
+# multiple una función:
 \end_layout
 
 \begin_layout Plain Layout
@@ -3157,7 +3157,7 @@ class(info$transporte)
 \end_layout
 
 \begin_layout Standard
-Si ahora, se quire ver el tipo de gráfico que produce por omisión la función
+Si ahora, se quiere ver el tipo de gráfico que produce por omisión la función
  
 \family typewriter
 plot()
@@ -3329,7 +3329,7 @@ reference "fig:Un-diagrama-de"
 
 \end_inset
 
-, se podría haber ejecutado el siguiente código más expícito:
+, se podría haber ejecutado el siguiente código más explícito:
 \end_layout
 
 \begin_layout Standard
@@ -3767,7 +3767,7 @@ Gráficos de barras apareadas o agrupadas
 
 \begin_layout Standard
 La misma información de los gráficos anteriores se podría tener con otra
- apariencia mediante baras apiladas o en 
+ apariencia mediante barras apiladas o en 
 \emph on
 stack
 \emph default
@@ -3890,7 +3890,7 @@ name "fig:Gráficos-de-barras-apiladas"
 
 \end_inset
 
-Gráficos de barras apliladas
+Gráficos de barras apiladas
 \end_layout
 
 \end_inset
@@ -4321,13 +4321,13 @@ curve()
 
 \begin_layout Standard
 Para ejemplificar la producción de este tipo de gráficas, se programará
- una función productora de funciones de tipo senoidales, a partir de la
+ una función productora de funciones de tipo sinusoidales, a partir de la
  conocida función trigonométrica seno: la función 
 \family typewriter
 sin()
 \family default
 , en R.
- Esta función producirá variaciones de la función seno, modificando sólamente
+ Esta función producirá variaciones de la función seno, modificando solamente
  su amplitud y su fase inicial, como se muestra a continuación.
 \end_layout
 
@@ -4347,7 +4347,7 @@ status open
 
 \begin_layout Plain Layout
 
-# senoidales 
+# sinusoidales 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4658,16 +4658,16 @@ En contraste con las funciones continuas de la sección anterior, están las
  funciones discontinuas.
  Un ejemplo de estas funciones son las que se producen como resultado de
  alguna variable aleatoria discreta; esto es, una variable aleatoria cuyos
- valores los toma de un conjunto finito o de un conjunto enumerable.
+ valores los toma de un conjunto finito o de un conjunto numerable.
  Por ejemplo, el número que sale cada vez que se tira un dado de seis caras;
  el número de automóviles que pasan por minuto en un determinado crucero;
  el número de días seguidos que se presentó lluvia en una cierta estación
  meteorológica; el número de pacientes en una muestra que respondieron positivam
 ente a un tratamiento médico, etc.
  Para caracterizar este tipo de variables, se han desarrollado diversas
- funciones de distribución y densidad de probablidades, que se usan de acuerdo
- con las características de cada problema en particular, tales como, la
- distribución uniforme, la distribución binomial, la distribución geométrica,
+ funciones de distribución y densidad de probabilidades, que se usan de
+ acuerdo con las características de cada problema en particular, tales como,
+ la distribución uniforme, la distribución binomial, la distribución geométrica,
  la hipergeométrica, la multinomial, la distribución de Poisson, etc.
  
 \end_layout
@@ -4692,7 +4692,7 @@ reference "sub:Densidades-y-distribuciones"
 
 , se planteó el tema de las funciones de densidad y distribución de probabilidad
 es continuas.
- Aquí se abordará el tema de las funciones de densidad y distribucion de
+ Aquí se abordará el tema de las funciones de densidad y distribución de
  probabilidades de variables aleatorias discretas.
  Un caso muy simple dentro de esta categoría, es el que surge de tirar un
  dado de seis caras.
@@ -5069,7 +5069,7 @@ Funciones de densidad y distribución de probabilidades de Poisson
 Desde luego que no todas las variables aleatorias discretas tienen funciones
  de densidad y distribución de probabilidades tan sencillas.
  Considérese por ejemplo el siguiente problema: en un centro comercial se
- tienen tres líneas de cajas, a saber, las cájas rápidas, las cajas normales,
+ tienen tres líneas de cajas, a saber, las cajas rápidas, las cajas normales,
  y las cajas para personas con algún tipo de discapacidad.
  Se ha medido que, en promedio, a las horas pico, la afluencia de clientes
  en las cajas rápidas es de 13 clientes por minuto; en las normales, de
@@ -5873,7 +5873,7 @@ Funciones de densidad y distribución de probabilidades de Poisson múltiples
 \end_layout
 
 \begin_layout Standard
-Finalmente, queda por responder la pregunta de cuál es la probablidad de
+Finalmente, queda por responder la pregunta de cuál es la probabilidad de
  que en cada una de las líneas de cajas se presenten 14 o más clientes por
  minuto.
  Para responderla, basta con usar la función 
@@ -6242,7 +6242,7 @@ A excepción del dispositivo por omisión (dispositivo 1), el lenguaje los
 \emph on
 circular
 \emph default
-, numerados a partir del número 2.
+, enumerados a partir del número 2.
  Los componentes de dicha lista se pueden consultar con la función 
 \family typewriter
 dev.list()
@@ -6259,7 +6259,7 @@ current
 dev.cur()
 \family default
 .
- Este dispositivo se cambia cada vez que se abre uno nuevo, ya que éste
+ Este dispositivo se cambia cada vez que se abre uno nuevo, ya que este
  último de convierte en el actual; pero también, se puede establecer, en
  cualquier momento, alguno de los dispositivos abiertos como el actual,
  mediante la función 
@@ -6295,6 +6295,658 @@ dev.copy()
  copia el contenido del dispositivo actual al siguiente o a algún dispositivo
  que se especifica como argumento y deja como dispositivo actual a aquel
  en el que se realizó la copia.
+\end_layout
+
+\begin_layout Standard
+Además del tipo de dispositivo que el sistema provee por default, esto es,
+ una ventana que se abre en algúna porción de la pantalla y que, en general
+ es volátil, hay dispositivos que están dirigidos a conservar la información
+ gráfica en medios más permanentes, típicamente en archivos.
+ Entre ellos, están los que guardan la información en un formato conocido
+ como ráster, esto es, como una matiz de pixels: 
+\family typewriter
+png()
+\family default
+, 
+\family typewriter
+jpeg()
+\family default
+, 
+\family typewriter
+bmp()
+\family default
+, 
+\family typewriter
+tiff()
+\family default
+.
+ Por otra parte, están los dispositivos que almacenan la información en
+ un formato vectorial, esto es, conservando la información de los objetos
+ gráficos, como líneas, puntos, fonts, etc.: 
+\family typewriter
+pdf()
+\family default
+, 
+\family typewriter
+postscript()
+\family default
+, 
+\family typewriter
+xfig()
+\family default
+, 
+\family typewriter
+svg()
+\family default
+.
+ En general, al abrir cualquiera de estos dispositivos se debe proveer el
+ nombre del archivo donde se guardará el gráfico o gráficos que se produzcan,
+ o en caso de omitir tal nombre, el sistema asigna uno por 
+\emph on
+default
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+En general, el proceso de crear un gráfico en un dispositivo, es semejante
+ al de crear un archivo para escritura de renglones de texto.
+ Este proceso se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-para-crear"
+
+\end_inset
+
+.
+ De manera semejante que al archivo de texto se añaden líneas mientras está
+ abierto, a un dispositivo gráfico se pueden añadir 
+\emph on
+operaciones gráficas
+\emph default
+, mientras esté abierto.
+ De igual manera que se pueden tener abiertos simultáneamente varios archivos
+ de texto, se pueden tener abiertos varios dispositivos gráficos al mismo
+ tiempo.
+ Y, de modo semejante que la escritura de lineas de texto puede ser dirigida
+ cualquiera de los archivos abiertos, se pueden dirigir las operaciones
+ gráficas a cualquiera de los dispositivos abiertos; la diferencia en este
+ caso, es que, para los archivos de texto, el archivo al que se direcciona
+ la escritura se menciona en la misma operación de escritura, mientras que
+ en el caso de los dispositivos gráficos, el dispositivo actual se establece
+ con la función 
+\family typewriter
+dev.set()
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ProcesoGraficos.jpg
+	lyxscale 90
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Proceso-para-crear"
+
+\end_inset
+
+Proceso para crear un gráfico en un dispositivo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para ilustrar el proceso de creación de gráficos en dispositivos, se desarrollar
+á un ejemplo en el que se abren varios dispositivos de pantalla, con la
+ función 
+\family typewriter
+x11()
+\family default
+, para el caso de Linux, y en distintos momentos se mandan o añaden operaciones
+ gráficas a estos dispositivos.
+ Posteriormente, el contenido gráfico de uno de los dispositivos de pantalla
+ se copia a un dispositivo de archivo pdf(), para su posterior impresión
+ o publicación.
+\end_layout
+
+\begin_layout Standard
+El punto de partida del ejemplo, es lo que se quiere graficar: se trata
+ básicamente de dos funciones de tipo sinusoidal con ruido aleatorio añadido
+ en distintas proporciones, como se muestra a continuación.
+ El ruido se producirá con una función generadora de números aleatorios
+ con distribución uniforme: 
+\family typewriter
+rnorm()
+\family default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Una distrbución de probabilidades tiene cuatro funciones asociadas: la de
+ densidad, cuyo nombre inicia con la letra 'd', la de distribución, cuyo
+ nombre comienza con la letra 'p', la de generación de números aleatorios,
+ cuyo nombre comieza con la letra 'r', y, finalmente, la función de cuantiles,
+ inversa de la función de distribución, cuyo nombre comienza con la letra
+ 'q'.
+ Así, por ejemplo, para la distribución normal, dichas funciones son: 
+\family typewriter
+dnorm()
+\family default
+, 
+\family typewriter
+pnorm()
+\family default
+, 
+\family typewriter
+rnorm()
+\family default
+ y 
+\family typewriter
+qnorm()
+\family default
+; y para la distribución de Poisson, que se visitó previamente en este capítulo,
+ son: 
+\family typewriter
+dpois()
+\family default
+, 
+\family typewriter
+ppois()
+\family default
+, 
+\family typewriter
+rpois()
+\family default
+ y 
+\family typewriter
+qpois()
+\family default
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los 20 puntos de muestreo:
+\end_layout
+
+\begin_layout Plain Layout
+
+x <- seq(0,2*pi, length.out=20)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Como se usarán números aleatorios, es
+\end_layout
+
+\begin_layout Plain Layout
+
+# conveniente establecer una "semilla" de tal
+\end_layout
+
+\begin_layout Plain Layout
+
+# modo que el experimento se pueda repetir:
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# La primera función, afectada por un "ruido" de
+\end_layout
+
+\begin_layout Plain Layout
+
+# 0.30 por el número aleatorio
+\end_layout
+
+\begin_layout Plain Layout
+
+y <- sin(x) + 0.30*rnorm(20) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# La segunda función, afectada por un "ruido" de
+\end_layout
+
+\begin_layout Plain Layout
+
+# 0.15 por el número aleatorio
+\end_layout
+
+\begin_layout Plain Layout
+
+y1 <- sin(x) + 0.15*rnorm(20)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Solo para ver comparativamente los datos como
+\end_layout
+
+\begin_layout Plain Layout
+
+# un data.frame
+\end_layout
+
+\begin_layout Plain Layout
+
+data.frame(sin(x), y, y1)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora se procederá a graficar los datos correspondietes a una de las funciones
+ en un primer dispositivo que se abrirá mediante 
+\family typewriter
+x11()
+\family default
+.
+ A este primer dispositivo le corresponde el número de identificador 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus1, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x11() # <-DISPOSITIVO GRÁFICO NUM 2
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se grafica la función representada por 'y'
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y, type="o", pch=15, col=colors()[120]) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En seguida, se grafican los datos correspondientes a la segunda función,
+ pero esto se hará en un segundo dispositivo que también se abre mediante
+ la función 
+\family typewriter
+x11()
+\family default
+.
+ A este segundo dispositivo le corresponde el identificador 3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus2, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x11() # <-DISPOSITIVO GRÁFICO NUM 3
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se grafica la función representada por 'y1'
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y1, type="o")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora, con motivos de comparación, se añadirá una función seno 
+\emph on
+limpia
+\emph default
+ a cada uno de los dos gráficos anteriores; primeramente, se añadirá una
+ curva 'seno' azul al gráfico correspondiente al primer dispositivo, esto
+ es, al que tiene identificador 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus3, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se establece el dispositivo en el que se quiere 
+\end_layout
+
+\begin_layout Plain Layout
+
+# añadir la curva 'seno' azul.
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se podría usar dev.set(2), pero es más conveniente
+\end_layout
+
+\begin_layout Plain Layout
+
+# la manera que se muestra en seguida:
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.set(dev.prev()) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se añade la curva
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(sin, add=T, lwd=2, col="blue") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Después se procede a añadir una curva 'seno' color rojo al gráfico contenido
+ en el dispositivo cuyo identificador es 3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus4, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se establece el dispositivo en el que se quiere 
+\end_layout
+
+\begin_layout Plain Layout
+
+# añadir la curva 'seno' roja.
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.set(dev.next()) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se añade la curva
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(sin, add=T, lwd=2, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, se quiere tener en un mismo gráfico, en otro dispositivo por
+ separado, una imagen que permita comparar ambas funciones.
+ Con este propósito se abrirá un nuevo dispositivo, 
+\family typewriter
+x11()
+\family default
+, y en él se graficarán, con distintos símbolos, los puntos correspondientes
+ a cada una de las funciones, y éstos se unirán por medio de la función
+ 
+\family typewriter
+segments()
+\family default
+, que permite graficar segmentos de línea.
+ Para comparar, se agregará también una curva correspondiente a la función
+ seno sin ruido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus5, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+x11() # <-DISPOSITIVO GRÁFICO NUM 4
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los puntos de la primera función 'y'
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y, pch=15, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los puntos de la segunda función 'y1'
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x,y1)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Segmentos de línea entre los puntos 
+\end_layout
+
+\begin_layout Plain Layout
+
+# correspondientes a 'y' y los 
+\end_layout
+
+\begin_layout Plain Layout
+
+# correspondientes a 'y1'
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x, y, x, y1, col=colors()[99])
+\end_layout
+
+\begin_layout Plain Layout
+
+# La curva de referencia
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(sin, add=T, lwd=3, col="navyblue") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las tres ventanas resultantes de todo el código anterior se muestran en
+ la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tres-dispositivos-gráficos"
+
+\end_inset
+
+.
+ Nótense ahí los identificadores que aparecen en el título de cada ventana.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename NoisySinus.png
+	lyxscale 75
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tres-dispositivos-gráficos"
+
+\end_inset
+
+Tres dispositivos gráficos abiertos simultáneamente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
