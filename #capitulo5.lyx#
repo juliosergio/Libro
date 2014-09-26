@@ -5134,7 +5134,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Función para cálculo del módulo o magnitud de un vector
+# Funcion para calculo del modulo o magnitud de un vector
 \end_layout
 
 \begin_layout Plain Layout
@@ -5153,12 +5153,12 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-  n <- 0 # numero de iteración
+  n <- 0 # numero de iteracion
 \end_layout
 
 \begin_layout Plain Layout
 
-  repeat { # repetición infinita
+  repeat { # repeticion infinita
 \end_layout
 
 \begin_layout Plain Layout
@@ -5169,12 +5169,12 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-    x <- x0 + difx # la siguiente aproximación
+    x <- x0 + difx # la siguiente aproximacion
 \end_layout
 
 \begin_layout Plain Layout
 
-    # Hacemos el módulo de la diferencia para checar
+    # Hacemos el modulo de la diferencia para checar
 \end_layout
 
 \begin_layout Plain Layout
@@ -5184,7 +5184,7 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-    # Comparación absoluta o relativa
+    # Comparacion absoluta o relativa
 \end_layout
 
 \begin_layout Plain Layout
@@ -5214,7 +5214,7 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-    # si llega al máximo de iteraciones
+    # si llega al maximo de iteraciones
 \end_layout
 
 \begin_layout Plain Layout
@@ -5234,7 +5234,7 @@ NwtRph <- function(ff, x0, eps=0.0001, lim=500, absComp=F) {
 
 \begin_layout Plain Layout
 
-    x0 <- x # para la siguiente iteración
+    x0 <- x # para la siguiente iteracion
 \end_layout
 
 \begin_layout Plain Layout
@@ -5268,7 +5268,7 @@ p <- NwtRph(miFun, p_tst)
 
 \begin_layout Plain Layout
 
-print(p) # <- SOLUCIÓN
+print(p) # <- SOLUCION
 \end_layout
 
 \begin_layout Plain Layout
@@ -5630,7 +5630,7 @@ hist(pp$Precip, breaks=15, freq=FALSE)
 
 \begin_layout Plain Layout
 
-# que, como se verá en la gráfica la f.
+# que, como se vera en la grafica la f.
  de densidad
 \end_layout
 
@@ -5650,7 +5650,7 @@ hist(pp$Precip, breaks=15, freq=FALSE)
 
 \begin_layout Plain Layout
 
-# LUEGO, la función de densidad:
+# LUEGO, la funcion de densidad:
 \end_layout
 
 \begin_layout Plain Layout

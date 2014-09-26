@@ -175,7 +175,7 @@ if (aa > 14) print ("SI MAYOR")
 
 \begin_layout Plain Layout
 
-if (aa > 14) { # Instruccion compuesta
+if (aa > 14) { # Instrucción compuesta
 \end_layout
 
 \begin_layout Plain Layout
@@ -768,17 +768,17 @@ status open
 
 \begin_layout Plain Layout
 
-# se usara un generador de numeros aleatorios,
+# se usará un generador de números aleatorios,
 \end_layout
 
 \begin_layout Plain Layout
 
-# la siguiente funcion asegura su repetibilidad:
+# la siguiente función asegura su repetibilidad:
 \end_layout
 
 \begin_layout Plain Layout
 
-set.seed(140) # el argumento puede ser cualquier numero
+set.seed(140) # el argumento puede ser cualquier número
 \end_layout
 
 \begin_layout Plain Layout
@@ -797,7 +797,7 @@ Y_ini <- 2.7 # Supuesto valor inicial de Y
 
 \begin_layout Plain Layout
 
-for (iter in 1:1000) { # aseguro no mas de 1000 iteraciones
+for (iter in 1:1000) { # aseguro no más de 1000 iteraciones
 \end_layout
 
 \begin_layout Plain Layout
@@ -817,7 +817,7 @@ for (iter in 1:1000) { # aseguro no mas de 1000 iteraciones
 
 \begin_layout Plain Layout
 
-    # La condicion de salida:
+    # La condición de salida:
 \end_layout
 
 \begin_layout Plain Layout
@@ -832,7 +832,7 @@ for (iter in 1:1000) { # aseguro no mas de 1000 iteraciones
 
 \begin_layout Plain Layout
 
-    # Preparamos para la siguiente iteracion
+    # Preparamos para la siguiente iteración
 \end_layout
 
 \begin_layout Plain Layout
@@ -981,7 +981,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Primero se crea la funcion:
+# Primero se crea la función:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1025,7 +1025,7 @@ fibbonacci <- function(n) {
 
 \begin_layout Plain Layout
 
-            return (s) # Sale hasta afuera de la funcion
+            return (s) # Sale hasta afuera de la función
 \end_layout
 
 \begin_layout Plain Layout
@@ -1034,7 +1034,7 @@ fibbonacci <- function(n) {
 
 \begin_layout Plain Layout
 
-        # recorremos los ultimos dos proximos numeros
+        # recorremos los últimos dos próximos números
 \end_layout
 
 \begin_layout Plain Layout
@@ -1049,7 +1049,7 @@ fibbonacci <- function(n) {
 
 \begin_layout Plain Layout
 
-        i <- i+1 # incrementamos el indice
+        i <- i+1 # incrementamos el índice
 \end_layout
 
 \begin_layout Plain Layout
@@ -1068,12 +1068,12 @@ fibbonacci <- function(n) {
 
 \begin_layout Plain Layout
 
-# El octavo numero de fibbonacci se genera
+# El octavo número de fibbonacci se genera
 \end_layout
 
 \begin_layout Plain Layout
 
-# llamando a la funcion asi:
+# llamando a la función así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1293,7 +1293,7 @@ vv <- c(-2, 3, 4)
 
 \begin_layout Plain Layout
 
-# Se creara una funcion que haga el trabajo
+# Se creará una función que haga el trabajo
 \end_layout
 
 \begin_layout Plain Layout
@@ -1303,7 +1303,7 @@ modulo <- function(v) {
 
 \begin_layout Plain Layout
 
-    s <- 0 # Contendra la suma de cuadrados
+    s <- 0 # Contendrá la suma de cuadrados
 \end_layout
 
 \begin_layout Plain Layout
@@ -1323,7 +1323,7 @@ modulo <- function(v) {
 
 \begin_layout Plain Layout
 
-    # El resultado es la raiz de la suma:
+    # El resultado es la raíz de la suma:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1338,7 +1338,7 @@ modulo <- function(v) {
 
 \begin_layout Plain Layout
 
-# y el modulo que queremos es:
+# y el módulo que queremos es:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1406,7 +1406,7 @@ modulo0 <- function(v) {
 
 \begin_layout Plain Layout
 
-# Puede quedar en una linea, asi:
+# Puede quedar en una línea, así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1473,22 +1473,22 @@ status open
 
 \begin_layout Plain Layout
 
-# Primeramente construyamos un vector con elementos numericos 
+# Primeramente construyamos un vector con elementos numéricos 
 \end_layout
 
 \begin_layout Plain Layout
 
-# arbitrarios, con un generador de numeros aleatorios 
+# arbitrarios, con un generador de números aleatorios 
 \end_layout
 
 \begin_layout Plain Layout
 
-# (distribucion uniforme), entre 10.5 y 40.8, 
+# (distribución uniforme), entre 10.5 y 40.8, 
 \end_layout
 
 \begin_layout Plain Layout
 
-# generamos 32 numeros, asi:
+# generamos 32 números, así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1560,7 +1560,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Podemos convertir estas operaciones en una funcion, asi:
+# Podemos convertir estas operaciones en una funcion, así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1580,7 +1580,7 @@ haz_promedio <- function(v) {
 
 \begin_layout Plain Layout
 
-# o en una sola linea:
+# o en una sola línea:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1792,12 +1792,12 @@ miOp(vv)
 
 \begin_layout Plain Layout
 
-# Otra version, con resultados parciales y en la
+# Otra versión, con resultados parciales y en la
 \end_layout
 
 \begin_layout Plain Layout
 
-# que incluso la funcion se da "en linea":
+# que incluso la función se da "en linea":
 \end_layout
 
 \begin_layout Plain Layout
@@ -1899,7 +1899,7 @@ sapply(misDatos, haz_promedio, simplify=TRUE)
 
 \begin_layout Plain Layout
 
-# aqui se podria haber usado la funcion 'mean' en vez 
+# aquí se podría haber usado la función 'mean' en vez 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1949,7 +1949,7 @@ lapply(misDatos, mean)
 
 \begin_layout Plain Layout
 
-# nota que aqui se uso la funcion 'mean' en vez de 'haz_promedio'
+# nota que aquí se usó la función 'mean' en vez de 'haz_promedio'
 \end_layout
 
 \begin_layout Plain Layout
@@ -1989,7 +1989,7 @@ status open
 
 \begin_layout Plain Layout
 
-r <- numeric() # vector numerico vacio para resultados
+r <- numeric() # vector numerico vacío para resultados
 \end_layout
 
 \begin_layout Plain Layout
@@ -2009,7 +2009,7 @@ for (elt in misDatos) {
 
 \begin_layout Plain Layout
 
-names(r) <- names(misDatos) # Esto solo es "azucar" estetica
+names(r) <- names(misDatos) # Esto sólo es "azúcar" estética
 \end_layout
 
 \begin_layout Plain Layout
@@ -2202,7 +2202,7 @@ status open
 
 \begin_layout Plain Layout
 
-# cada elemento, por su posicion en el vector:
+# cada elemento, por su posición en el vector:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2212,7 +2212,7 @@ ff <- function(v) v*(1:length(v))
 
 \begin_layout Plain Layout
 
-# probemos la funcion:
+# probemos la función:
 \end_layout
 
 \begin_layout Plain Layout

@@ -1920,7 +1920,7 @@ package:base
 
 \family default
 , que, como se puede ver, es el último de la lista.
- De hecho, el primer ambiente siempre será el ambiente gobal 
+ De hecho, el primer ambiente siempre será el ambiente global 
 \family typewriter
 
 \begin_inset Quotes eld
@@ -5073,7 +5073,7 @@ m
 \emph on
 m
 \emph default
- incóginitas.
+ incógnitas.
  Por consiguiente conviene escribir una función de la siguiente manera:
 \end_layout
 
@@ -5500,7 +5500,7 @@ print(p)
 \end_layout
 
 \begin_layout Standard
-Así, los parámetros de la función de denssidad de probabilidades Gamma son:
+Así, los parámetros de la función de densidad de probabilidades Gamma son:
  
 \begin_inset Formula $k=$
 \end_inset

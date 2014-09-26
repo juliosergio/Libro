@@ -226,7 +226,7 @@ hist(pp$Precip, freq=F, breaks=15,
 
 \begin_layout Plain Layout
 
-     main="Histograma y densidad Gamma", # Titulo
+     main="Histograma y densidad Gamma", # Título
 \end_layout
 
 \begin_layout Plain Layout
@@ -255,7 +255,7 @@ curve(dgammaX, add=T,
 
 \begin_layout Plain Layout
 
-     lwd=3) # Ancho de linea de la curva
+     lwd=3) # Ancho de línea de la curva
 \end_layout
 
 \begin_layout Plain Layout
@@ -370,7 +370,7 @@ status open
 
 \begin_layout Plain Layout
 
-plot(pp$Precip) # Produce un grafico de "dispersion"
+plot(pp$Precip) # Produce un gráfico de "dispersión"
 \end_layout
 
 \begin_layout Plain Layout
@@ -523,7 +523,7 @@ status open
 
 \begin_layout Plain Layout
 
-# con caracteres "raros para el Ingles", 
+# con caracteres "raros para el Inglés", 
 \end_layout
 
 \begin_layout Plain Layout
@@ -547,7 +547,7 @@ plot(as.numeric(rownames(pp)), # las abscisas
 
 \begin_layout Plain Layout
 
-     type="l",  # tipo de grafico: lineas
+     type="l",  # tipo de grafico: líneas
 \end_layout
 
 \begin_layout Plain Layout
@@ -557,12 +557,12 @@ plot(as.numeric(rownames(pp)), # las abscisas
 
 \begin_layout Plain Layout
 
-     main="Precipitaciones, Octubre", # Titulo
+     main="Precipitaciones, Octubre", # Título
 \end_layout
 
 \begin_layout Plain Layout
 
-     sub="Estado de Guerrero", # Subtitulo
+     sub="Estado de Guerrero", # Subtítulo
 \end_layout
 
 \begin_layout Plain Layout
@@ -719,12 +719,12 @@ radio <- 0:10 # Vector de radios
 
 \begin_layout Plain Layout
 
-area <- pi*radio^2 # Vector de areas
+area <- pi*radio^2 # Vector de áreas
 \end_layout
 
 \begin_layout Plain Layout
 
-tit <- "Áreas de círculos" # Titulo del grafico
+tit <- "Áreas de círculos" # Título del gráfico
 \end_layout
 
 \begin_layout Plain Layout
@@ -734,7 +734,7 @@ plot(radio, area, # x=radio y=area
 
 \begin_layout Plain Layout
 
-     type="b", # "both", puntos y lineas
+     type="b", # "both", puntos y líneas
 \end_layout
 
 \begin_layout Plain Layout
@@ -749,7 +749,7 @@ plot(radio, area, # x=radio y=area
 
 \begin_layout Plain Layout
 
-     ylab=expression(Area == pi*r^2), # Una expresion
+     ylab=expression(Area == pi*r^2), # Una expresión
 \end_layout
 
 \begin_layout Plain Layout
@@ -759,7 +759,7 @@ plot(radio, area, # x=radio y=area
 
 \begin_layout Plain Layout
 
-     pch=20) # tipo de simbolo para punto
+     pch=20) # tipo de símbolo para punto
 \end_layout
 
 \begin_layout Plain Layout
@@ -1812,12 +1812,12 @@ radio <- seq(0,5,by=0.5) # Vector de radios
 
 \begin_layout Plain Layout
 
-area <- pi*radio^2 # Vector de areas 
+area <- pi*radio^2 # Vector de áreas 
 \end_layout
 
 \begin_layout Plain Layout
 
-perimetro <- 2*pi*radio # Vector de perimetros 
+perimetro <- 2*pi*radio # Vector de perímetros 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1832,12 +1832,12 @@ plot(area, radio, type="o", xlab=xl, pch=21, col="red3",
 
 \begin_layout Plain Layout
 
-# En seguida "encimaremos" sobre el grafico anterior (areas),
+# En seguida "encimaremos" sobre el gráfico anterior (áreas),
 \end_layout
 
 \begin_layout Plain Layout
 
-# el de perimetros
+# el de perímetros
 \end_layout
 
 \begin_layout Plain Layout
@@ -1852,7 +1852,7 @@ lines(perimetro, radio, type="o", pch=23, col="navyblue",
 
 \begin_layout Plain Layout
 
-legend("bottomright",                  # ubicacion leyenda
+legend("bottomright",                  # ubicación leyenda
 \end_layout
 
 \begin_layout Plain Layout
@@ -1862,22 +1862,22 @@ legend("bottomright",                  # ubicacion leyenda
 
 \begin_layout Plain Layout
 
-       lty =    c(1,      1          ),  # tipo de linea
+       lty =    c(1,      1          ),  # tipo de línea
 \end_layout
 
 \begin_layout Plain Layout
 
-       pch =    c(21,     23         ),  # simbolos
+       pch =    c(21,     23         ),  # símbolos
 \end_layout
 
 \begin_layout Plain Layout
 
-       col =    c("red3", "navyblue" ),  # color lineas
+       col =    c("red3", "navyblue" ),  # color líneas
 \end_layout
 
 \begin_layout Plain Layout
 
-       pt.bg =  c("gold", "violetred") ) # relleno de simbolo
+       pt.bg =  c("gold", "violetred") ) # relleno de símbolo
 \end_layout
 
 \begin_layout Plain Layout
@@ -2211,7 +2211,7 @@ rgb(176, 48, 96, maxColorValue=255)
 
 \begin_layout Plain Layout
 
-# O como numeros entre 0 y 1 (porcentajes):
+# O como números entre 0 y 1 (porcentajes):
 \end_layout
 
 \begin_layout Plain Layout
@@ -2221,12 +2221,12 @@ rgb(176/255, 48/255, 96/255)
 
 \begin_layout Plain Layout
 
-# La función rgb() puede producir los codigos
+# La función rgb() puede producir los códigos
 \end_layout
 
 \begin_layout Plain Layout
 
-# de color de varios colores simultaneamente:
+# de color de varios colores simultáneamente:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2467,7 +2467,7 @@ codigos
 
 \begin_layout Plain Layout
 
-# traspuesta asi:
+# traspuesta así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2516,7 +2516,7 @@ status open
 
 \begin_layout Plain Layout
 
-# colores en vez del vector de codigos
+# colores en vez del vector de códigos
 \end_layout
 
 \begin_layout Plain Layout
@@ -2854,7 +2854,7 @@ plot(0, type="n", xlim=c(0,10), ylim=c(0,10))
 
 \begin_layout Plain Layout
 
-# Se dibujan las lineas rectas; para ello,
+# Se dibujan las líneas rectas; para ello,
 \end_layout
 
 \begin_layout Plain Layout
@@ -2874,7 +2874,7 @@ void <- mapply(abline,
 
 \begin_layout Plain Layout
 
-               c(2,1,0,-1,-2), # interceptos por linea
+               c(2,1,0,-1,-2), # interceptos por línea
 \end_layout
 
 \begin_layout Plain Layout
@@ -3343,7 +3343,7 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(table(info$transporte), # Notese que se usa barplot en vez
+barplot(table(info$transporte), # Nótese que se usa barplot en vez
 \end_layout
 
 \begin_layout Plain Layout
@@ -3439,12 +3439,12 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(rr, col=rainbow(4), las=2) # Aqui se usa 'rr'
+barplot(rr, col=rainbow(4), las=2) # Aquí se usa 'rr'
 \end_layout
 
 \begin_layout Plain Layout
 
-pie(tt, col=rainbow(4))            # Aqui se usa 'tt'
+pie(tt, col=rainbow(4))            # Aquí se usa 'tt'
 \end_layout
 
 \begin_layout Plain Layout
@@ -3821,7 +3821,7 @@ legend("topleft", legend=rownames(rr1), col=c(1,2), pch=15)
 
 \begin_layout Plain Layout
 
-# Notese aqui el argumento xlim para dejar
+# Nótese aquí el argumento xlim para dejar
 \end_layout
 
 \begin_layout Plain Layout
@@ -4007,7 +4007,7 @@ trim <- c(rep(c("I","II","III","IV"),3), c("I","II"))
 
 \begin_layout Plain Layout
 
-# la informacion anterior:
+# la información anterior:
 \end_layout
 
 \begin_layout Plain Layout
@@ -4138,7 +4138,7 @@ nEduc.Media Sup o Superior",
 
 \begin_layout Plain Layout
 
-        xaxt="n", # impedimos pintar eje X; se pintara despues
+        xaxt="n", # impedimos pintar eje X; se pintara después
 \end_layout
 
 \begin_layout Plain Layout
@@ -4342,7 +4342,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Funcion productora de funciones  
+# Función productora de funciones  
 \end_layout
 
 \begin_layout Plain Layout
@@ -6942,6 +6942,172 @@ Tres dispositivos gráficos abiertos simultáneamente
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para terminar, supóngase que se desea enviar el último gráfico, contenido
+ en el dispositivo 4, a un archivo gráfico de tipo PDF.
+ Esta operación se puede hacer mediante una copia con la función 
+\family typewriter
+dev.copy()
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus6, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primeramente se abre el dispositivo, que, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ahora viene a ser el actual
+\end_layout
+
+\begin_layout Plain Layout
+
+pdf("miArch.pdf")  
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ entonces nos regresamos al anterior que es
+\end_layout
+
+\begin_layout Plain Layout
+
+# el que contiene el material gráfico que nos
+\end_layout
+
+\begin_layout Plain Layout
+
+# interesa copiar
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.set(dev.prev()) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se hace la copia.
+ Nótese que, en este caso, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# dev.copy() copia por default al dispositivo
+\end_layout
+
+\begin_layout Plain Layout
+
+# siguiente del actual.
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.copy() 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ahora el pdf es el actual; pero 
+\end_layout
+
+\begin_layout Plain Layout
+
+# se tiene que cerrar 
+\end_layout
+
+\begin_layout Plain Layout
+
+# para que la copia tenga efecto: 
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.off() # cierra el dispositivo
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desde luego que las copias de material gráfico hechas con 
+\family typewriter
+dev.copy()
+\family default
+, no son de la calidad óptima.
+ Si el asunto fuera la producción de un gráfico PDF con calidad optima,
+ lo apropiado sería, repetir las funciones de producción de los gráficos
+ directamente en el dispositivo abierto, como se muestra a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<noisySinus7, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pdf("miArch.pdf")  
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(x,y, pch=15, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+points(x,y1)
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(x, y, x, y1, col=colors()[99])
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(sin, add=T, lwd=3, col="navyblue") 
+\end_layout
+
+\begin_layout Plain Layout
+
+dev.off() # cierra el dispositivo
+\end_layout
+
+\begin_layout Plain Layout
+
+@
 \end_layout
 
 \end_inset

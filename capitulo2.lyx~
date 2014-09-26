@@ -4095,6 +4095,12 @@ Estructura interna de los factores
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "factores-table-ref"
+
+\end_inset
+
 Abordemos ahora el problema que motivó la presente discusión: la frecuencia
  de aparición de ciertos elementos en un vector.
  La función 

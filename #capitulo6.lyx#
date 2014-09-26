@@ -3343,7 +3343,7 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(table(info$transporte), # Nótese que se usa barplot en vez
+barplot(table(info$transporte), # Notese que se usa barplot en vez
 \end_layout
 
 \begin_layout Plain Layout
@@ -3439,12 +3439,12 @@ status open
 
 \begin_layout Plain Layout
 
-barplot(rr, col=rainbow(4), las=2) # Aquí se usa 'rr'
+barplot(rr, col=rainbow(4), las=2) # Aqui se usa 'rr'
 \end_layout
 
 \begin_layout Plain Layout
 
-pie(tt, col=rainbow(4))            # Aquí se usa 'tt'
+pie(tt, col=rainbow(4))            # Aqui se usa 'tt'
 \end_layout
 
 \begin_layout Plain Layout
@@ -3821,7 +3821,7 @@ legend("topleft", legend=rownames(rr1), col=c(1,2), pch=15)
 
 \begin_layout Plain Layout
 
-# Nótese aquí el argumento xlim para dejar
+# Notese aqui el argumento xlim para dejar
 \end_layout
 
 \begin_layout Plain Layout
@@ -4007,7 +4007,7 @@ trim <- c(rep(c("I","II","III","IV"),3), c("I","II"))
 
 \begin_layout Plain Layout
 
-# la información anterior:
+# la informacion anterior:
 \end_layout
 
 \begin_layout Plain Layout
@@ -4138,7 +4138,7 @@ nEduc.Media Sup o Superior",
 
 \begin_layout Plain Layout
 
-        xaxt="n", # impedimos pintar eje X; se pintara después
+        xaxt="n", # impedimos pintar eje X; se pintara despues
 \end_layout
 
 \begin_layout Plain Layout
@@ -4342,7 +4342,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Función productora de funciones  
+# Funcion productora de funciones  
 \end_layout
 
 \begin_layout Plain Layout
@@ -5676,7 +5676,7 @@ names(Ps) <- lambdas
 
 \begin_layout Plain Layout
 
-# y en todas las demás la función lines:
+# y en todas las demás la funciójn lines:
 \end_layout
 
 \begin_layout Plain Layout
