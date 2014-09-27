@@ -3610,6 +3610,31 @@ distribución
 \end_inset
 
  .
+ En R, las funciones 
+\family typewriter
+dnorm()
+\family default
+ y 
+\family typewriter
+pnorm()
+\family default
+, son las funciones de densidad y distribución 
+\emph on
+normales
+\emph default
+ y 
+\family typewriter
+dgamma()
+\family default
+ y 
+\family typewriter
+pgamma()
+\family default
+, son las funciones de densidad y distribución 
+\emph on
+gamma
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -5455,7 +5480,7 @@ miFun <- function(p) c(p[1]*p[2] - mu,
 
 \begin_layout Standard
 Si ahora, se considera como primera aproximación 
-\begin_inset Formula $\mathbf{p}=(k,\theta)=(5,2)$
+\begin_inset Formula $\mathbf{p}=(k,\theta)=(5,10)$
 \end_inset
 
 , simplemente se aplica, la función 
@@ -5476,7 +5501,7 @@ status open
 
 \begin_layout Plain Layout
 
-p0 <- c(5,2) 
+p0 <- c(5,10) 
 \end_layout
 
 \begin_layout Plain Layout
@@ -5765,6 +5790,387 @@ Ajuste de datos a una función de densidad de probabilidades Gamma
 \end_layout
 
 \begin_layout Standard
+El método que se ha mostrado aquí para ajustar un conjunto de datos a una
+ curva de densidad de probabilidades no es el único.
+ De hecho, hay disponible una biblioteca, denominada 
+\begin_inset Quotes eld
+\end_inset
+
+MASS
+\begin_inset Quotes erd
+\end_inset
+
+, que, entre otras operaciones, permite ajustar un conjunto de datos a una
+ función de distribución cualquiera usando el método de máxima similitud
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El método de máxima similitud es un método que usa técnicas de optimización
+ para aproximar una función dada, a un conjunto de datos.
+ Los detalles de dicho método escapan los alcances del presente texto.
+\end_layout
+
+\end_inset
+
+.
+ Con motivos de comparación se hará también aquí el ajuste usando dicho
+ paquete.
+ Si el paquete no se encuentra disponible ya en el intérprete, deberá instalarse
+ por medio del siguiente código:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<installMASS, eval=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+install.packages("MASS")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La función que hace el ajuste de la curva de acuerdo con los datos es 
+\family typewriter
+fitdistr()
+\family default
+, y básicamente los argumentos que requiere son, el conjunto de datos, la
+ función de densidad de probabilidades a la que se quiere ajustar, y una
+ lista con los valores iniciales de los parámetros de la función de densidad.
+ Al hacer el ajuste, la función 
+\family typewriter
+fitdistr()
+\family default
+ entrega como resultado un objeto que, entre otra información, contiene
+ los valores obtenidos para los parámetros de la función de densidad provista.
+ En seguida se muestra la manera de hacer la operación para el caso del
+ ejemplo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<fitdistr, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# En primer lugar se indica que se usará
+\end_layout
+
+\begin_layout Plain Layout
+
+# la biblioteca que contien la función fitdistr():
+\end_layout
+
+\begin_layout Plain Layout
+
+library(MASS)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se llama a la función con: (1) Los datos: pp$Precip,
+\end_layout
+
+\begin_layout Plain Layout
+
+# (2) La función de densidad: dgamma, y (3) una lista
+\end_layout
+
+\begin_layout Plain Layout
+
+# que provee los nombres de los parámetros y sus valores
+\end_layout
+
+\begin_layout Plain Layout
+
+# iniciales; se guarda el resultado en una variable 'ff'
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- fitdistr(pp$Precip, dgamma, start=list(shape=p0[1],
+\end_layout
+
+\begin_layout Plain Layout
+
+               scale=p0[2]))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Veamos el contenido de la variable:
+\end_layout
+
+\begin_layout Plain Layout
+
+ff
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede observar que, los parámetros resultantes no son iguales que los
+ obtenidos con el método anterior; si bien, sus valores son de alguna manera
+ semejantes.
+ Para comparar los resultados visualmente, es conveniente tener las curvas
+ correspondientes en un mismo gráfico.
+ Por esta razón se elaborará también una función particular, como se hizo
+ para el método anterior, que pueda ser graficada mediante la función 
+\family typewriter
+curve()
+\family default
+, de la siguiente manera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<FuncionParaGraficar, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los parámetros encontrados se encuentran en los componentes
+\end_layout
+
+\begin_layout Plain Layout
+
+# de la variable 'ff', como sigue:
+\end_layout
+
+\begin_layout Plain Layout
+
+#  (1) shape: ff$estimate[[1]]
+\end_layout
+
+\begin_layout Plain Layout
+
+#  (2) scale: ff$estimate[[2]]
+\end_layout
+
+\begin_layout Plain Layout
+
+# Entonces la función particular para estos parámetros es:
+\end_layout
+
+\begin_layout Plain Layout
+
+dgammaXX <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    dgamma(x, shape=ff$estimate[[1]], scale=ff$estimate[[2]])
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora se procede a hacer la gráfica comparativa con las dos curvas como
+ sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ParaComparar0, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# La primera curva; agregaremos límites al 
+\end_layout
+
+\begin_layout Plain Layout
+
+# eje X para su graficado
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaX, col="green", lwd=2,
+\end_layout
+
+\begin_layout Plain Layout
+
+      ylab="Densidad",
+\end_layout
+
+\begin_layout Plain Layout
+
+      ylim=c(0,0.012), # Límites de Y
+\end_layout
+
+\begin_layout Plain Layout
+
+      xlim=c(0,max(pp$Precip))) # Límites de X
+\end_layout
+
+\begin_layout Plain Layout
+
+# La otra curva se agrega a la anterior, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# por eso el argumento add=T
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dgammaXX, col="red", lwd=2, add=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se agregará un leyenda para hacer más
+\end_layout
+
+\begin_layout Plain Layout
+
+# comprensible el gráfico:
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright", 
+\end_layout
+
+\begin_layout Plain Layout
+
+       c("Metd parametros", "Metd max simil"),
+\end_layout
+
+\begin_layout Plain Layout
+
+       lwd=2, col=c("green", "red"))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los resultados del código anterior se pueden apreciar en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparación-de-dos"
+
+\end_inset
+
+.
+ Nótese que la diferencia entre ambas curvas es mínima.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ParaComparar1, ref.label='ParaComparar0', echo=FALSE, fig.width=4, fig.height=4,
+ fig.show='hold', out.width='.9
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparación-de-dos"
+
+\end_inset
+
+Comparación de dos métodos de ajuste de la curva de densidad de probabilidades
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

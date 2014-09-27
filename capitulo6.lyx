@@ -6299,11 +6299,11 @@ dev.copy()
 
 \begin_layout Standard
 Además del tipo de dispositivo que el sistema provee por default, esto es,
- una ventana que se abre en algúna porción de la pantalla y que, en general
+ una ventana que se abre en alguna porción de la pantalla y que, en general
  es volátil, hay dispositivos que están dirigidos a conservar la información
  gráfica en medios más permanentes, típicamente en archivos.
  Entre ellos, están los que guardan la información en un formato conocido
- como ráster, esto es, como una matiz de pixels: 
+ como raster, esto es, como una matiz de pixels: 
 \family typewriter
 png()
 \family default
@@ -6322,7 +6322,11 @@ tiff()
 .
  Por otra parte, están los dispositivos que almacenan la información en
  un formato vectorial, esto es, conservando la información de los objetos
- gráficos, como líneas, puntos, fonts, etc.: 
+ gráficos, como líneas, puntos, 
+\emph on
+fonts
+\emph default
+, etc.: 
 \family typewriter
 pdf()
 \family default
@@ -6455,8 +6459,8 @@ rnorm()
 status open
 
 \begin_layout Plain Layout
-Una distrbución de probabilidades tiene cuatro funciones asociadas: la de
- densidad, cuyo nombre inicia con la letra 'd', la de distribución, cuyo
+Una distribución de probabilidades tiene cuatro funciones asociadas: la
+ de densidad, cuyo nombre inicia con la letra 'd', la de distribución, cuyo
  nombre comienza con la letra 'p', la de generación de números aleatorios,
  cuyo nombre comieza con la letra 'r', y, finalmente, la función de cuantiles,
  inversa de la función de distribución, cuyo nombre comienza con la letra
@@ -6597,7 +6601,7 @@ data.frame(sin(x), y, y1)
 \end_layout
 
 \begin_layout Standard
-Ahora se procederá a graficar los datos correspondietes a una de las funciones
+Ahora se procederá a graficar los datos correspondientes a una de las funciones
  en un primer dispositivo que se abrirá mediante 
 \family typewriter
 x11()
@@ -7061,7 +7065,7 @@ Desde luego que las copias de material gráfico hechas con
 dev.copy()
 \family default
 , no son de la calidad óptima.
- Si el asunto fuera la producción de un gráfico PDF con calidad optima,
+ Si el asunto fuera la producción de un gráfico PDF con calidad óptima,
  lo apropiado sería, repetir las funciones de producción de los gráficos
  directamente en el dispositivo abierto, como se muestra a continuación:
 \end_layout

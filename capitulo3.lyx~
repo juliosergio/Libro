@@ -321,17 +321,17 @@ status open
 \begin_layout Plain Layout
 
 # P.ej.
- para un vector de 20 numeros aleatorios,  
+ para un vector de 20 números aleatorios,  
 \end_layout
 
 \begin_layout Plain Layout
 
-# generados con la funcion rnorm(), que genera numeros
+# generados con la función rnorm(), que genera números
 \end_layout
 
 \begin_layout Plain Layout
 
-# aleatorios con una distribucion normal:
+# aleatorios con una distribución normal:
 \end_layout
 
 \begin_layout Plain Layout
@@ -345,12 +345,12 @@ status open
 
 \begin_layout Plain Layout
 
-# Si queremos seleccionar de esos, solo los
+# Si queremos seleccionar de esos, sólo los
 \end_layout
 
 \begin_layout Plain Layout
 
-# numeros en las posiciones de la 5 a la 15:
+# números en las posiciones de la 5 a la 15:
 \end_layout
 
 \begin_layout Plain Layout
@@ -677,7 +677,7 @@ v[v < 0]
 
 \begin_layout Plain Layout
 
-# mediante la negacion logica, con el operador !
+# mediante la negacion lógica, con el operador !
 \end_layout
 
 \begin_layout Plain Layout
@@ -1049,7 +1049,7 @@ status open
 
 \begin_layout Plain Layout
 
-# La matriz con indice 5
+# La matriz con índice 5
 \end_layout
 
 \begin_layout Plain Layout
@@ -1059,7 +1059,7 @@ mt[5]
 
 \begin_layout Plain Layout
 
-# El data frame con indice 5
+# El data frame con índice 5
 \end_layout
 
 \begin_layout Plain Layout
@@ -1185,7 +1185,7 @@ class(mt[3,])
 
 \begin_layout Plain Layout
 
-class(df.mt[3,]) # solo en este caso se cumple
+class(df.mt[3,]) # sólo en este caso se cumple
 \end_layout
 
 \begin_layout Plain Layout
@@ -1561,12 +1561,12 @@ status open
 
 \begin_layout Plain Layout
 
-# Se usan parentesis, (), para enfatizar la 
+# Se usan paréntesis, (), para enfatizar la 
 \end_layout
 
 \begin_layout Plain Layout
 
-# condicion, aunque se podria prescindir
+# condición, aunque se podría prescindir
 \end_layout
 
 \begin_layout Plain Layout
@@ -1596,7 +1596,7 @@ df.mt[(df.mt[,2] == 16), ]
 
 \begin_layout Plain Layout
 
-# un solo renglon), se hace asi:
+# un solo renglón), se hace así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1709,7 +1709,7 @@ status open
 
 \begin_layout Plain Layout
 
-# La prueba logica hace uso del operador modulo o residuo: %%
+# La prueba lógica hace uso del operador módulo o residuo: %%
 \end_layout
 
 \begin_layout Plain Layout
@@ -1719,7 +1719,7 @@ mt[2,]%%8 != 0 # (Para el data frame es semejante)
 
 \begin_layout Plain Layout
 
-# Ahora usemos la expresion como indice:
+# Ahora usemos la expresión como índice:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1918,7 +1918,7 @@ df.mt["dos",]
 
 \begin_layout Plain Layout
 
-# Para comparacion con el operador [[]]
+# Para comparación con el operador [[]]
 \end_layout
 
 \begin_layout Plain Layout

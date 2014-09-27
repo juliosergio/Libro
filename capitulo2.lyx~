@@ -252,12 +252,12 @@ status open
 
 \begin_layout Plain Layout
 
-class(x)   # Muestra cual es la clase de x
+class(x)   # Muestra cuál es la clase de x
 \end_layout
 
 \begin_layout Plain Layout
 
-x <- 6/2   # Se asigna el valor de la operacion dividir 6/2 a x 
+x <- 6/2   # Se asigna el valor de la operación dividir 6/2 a x 
 \end_layout
 
 \begin_layout Plain Layout
@@ -451,7 +451,7 @@ z <- -1 + 0i # Corresponde a -1
 
 \begin_layout Plain Layout
 
-tt <- sqrt(z) # raiz cuadrada de -1
+tt <- sqrt(z) # raíz cuadrada de -1
 \end_layout
 
 \begin_layout Plain Layout
@@ -516,7 +516,7 @@ status open
 
 \begin_layout Plain Layout
 
-x <- 1/0 # Division por cero
+x <- 1/0 # División por cero
 \end_layout
 
 \begin_layout Plain Layout
@@ -685,7 +685,7 @@ status open
 
 \begin_layout Plain Layout
 
-c(4,2,-8)  # Creacion de un vector sin asignarlo a una variable
+c(4,2,-8)  # Creación de un vector sin asignarlo a una variable
 \end_layout
 
 \begin_layout Plain Layout
@@ -710,7 +710,7 @@ c(4, 2, -8) -> v # Usando el operador ->
 
 \begin_layout Plain Layout
 
-# Usando la funcion assign:
+# Usando la función assign:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1396,7 +1396,7 @@ w <- c(u, v)
 
 \begin_layout Plain Layout
 
-print(w) # La concatenacion de u y v
+print(w) # La concatenación de u y v
 \end_layout
 
 \begin_layout Plain Layout
@@ -1543,7 +1543,7 @@ v[1] <- v[2] - v[5]
 
 \begin_layout Plain Layout
 
-v # Note que el resultado de la operacion se ha guardado en v[1]
+v # Note que el resultado de la operación se ha guardado en v[1]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1782,7 +1782,7 @@ frutas
 
 \begin_layout Plain Layout
 
-# El acceso a traves de indices se sigue permitiendo:
+# El acceso a través de índices se sigue permitiendo:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2212,7 +2212,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Se desea la raiz cuadrada de los siguientes valores:
+# Se desea la raíz cuadrada de los siguientes valores:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2236,7 +2236,7 @@ sqrt(v)
 
 \begin_layout Plain Layout
 
-# Primero se hace la conversion a radianes:
+# Primero se hace la conversión a radianes:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2357,7 +2357,7 @@ status open
 
 \begin_layout Plain Layout
 
-g <- 9.81 # aceleracion gravedad 
+g <- 9.81 # aceleración gravedad 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2377,7 +2377,7 @@ vi <- 7  # velocidad inicial
 
 \begin_layout Plain Layout
 
-alphaD <- 50 # angulo-grados 
+alphaD <- 50 # ángulo-grados 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2793,7 +2793,7 @@ status open
 
 \begin_layout Plain Layout
 
-( m <- 11:30 ) # Un vector con 20 numeros
+( m <- 11:30 ) # Un vector con 20 números
 \end_layout
 
 \begin_layout Plain Layout
@@ -2867,7 +2867,7 @@ m[3,2]
 
 \begin_layout Plain Layout
 
-m[8] # acceso al mismo elemento, como vector, con un solo indice
+m[8] # acceso al mismo elemento, como vector, con un solo índice
 \end_layout
 
 \begin_layout Plain Layout
@@ -2911,7 +2911,7 @@ status open
 
 \begin_layout Plain Layout
 
-# El renglon 3 y la columna 2 de la matriz:
+# El renglón 3 y la columna 2 de la matriz:
 \end_layout
 
 \begin_layout Plain Layout
@@ -3081,7 +3081,7 @@ m1
 
 \begin_layout Plain Layout
 
-class(m1[1,]) # ahora compuesta de numeros reales
+class(m1[1,]) # ahora compuesta de números reales
 \end_layout
 
 \begin_layout Plain Layout
@@ -3605,7 +3605,7 @@ m <- cbind(c(1,0), c(2,1), c(1,1))
 
 \begin_layout Plain Layout
 
-# Se convierte el angulo a radianes
+# Se convierte el ángulo a radianes
 \end_layout
 
 \begin_layout Plain Layout
@@ -3615,7 +3615,7 @@ alpha <- 32*pi/180
 
 \begin_layout Plain Layout
 
-# La matriz para esa rotacion es:
+# La matriz para esa rotación es:
 \end_layout
 
 \begin_layout Plain Layout
@@ -3630,7 +3630,7 @@ tr <- rbind(c(cos(alpha), -sin(alpha)),
 
 \begin_layout Plain Layout
 
-# El triangulo transformado
+# El triángulo transformado
 \end_layout
 
 \begin_layout Plain Layout
@@ -3830,7 +3830,7 @@ print(persona[7]); print(mes.nacimiento[7])
 
 \begin_layout Plain Layout
 
-# De una manera mas "pulcra":
+# De una manera más "pulcra":
 \end_layout
 
 \begin_layout Plain Layout
@@ -3949,7 +3949,7 @@ Fmes.nacimiento
 
 \begin_layout Plain Layout
 
-# y generamos la impresion ahora con el factor:
+# y generamos la impresión ahora con el factor:
 \end_layout
 
 \begin_layout Plain Layout
@@ -4198,7 +4198,7 @@ meses <- c("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago",
 
 \begin_layout Plain Layout
 
-# Se incluyen meses que no estan el el vector original
+# Se incluyen meses que no están el el vector original
 \end_layout
 
 \begin_layout Plain Layout
@@ -5815,7 +5815,7 @@ hipotenusa <- function(x=3, y=4) { # valores por ausencia
 
 \begin_layout Plain Layout
 
-# Llamamos a la funcion con argumentos "ausentes"
+# Llamamos a la función con argumentos "ausentes"
 \end_layout
 
 \begin_layout Plain Layout
@@ -5988,7 +5988,7 @@ x
 
 \begin_layout Plain Layout
 
-y <- as.integer(x) # conversion a entero
+y <- as.integer(x) # conversión a entero
 \end_layout
 
 \begin_layout Plain Layout
@@ -5998,7 +5998,7 @@ y
 
 \begin_layout Plain Layout
 
-z <- as.complex(y) # conversion a complejo
+z <- as.complex(y) # conversión a complejo
 \end_layout
 
 \begin_layout Plain Layout
@@ -6018,7 +6018,7 @@ class(a)
 
 \begin_layout Plain Layout
 
-b <- as.numeric(a) # conversion de character a otro tipo
+b <- as.numeric(a) # conversión de character a otro tipo
 \end_layout
 
 \begin_layout Plain Layout
@@ -6033,7 +6033,7 @@ class(b)
 
 \begin_layout Plain Layout
 
-c <- as.logical(b) # conversion a logico
+c <- as.logical(b) # conversión a lógico
 \end_layout
 
 \begin_layout Plain Layout

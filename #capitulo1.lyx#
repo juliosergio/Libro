@@ -110,8 +110,8 @@ Un artista, típicamente un pintor, tiene en sus manos un conjunto de recursos
  artísticos: materiales y herramentales, que al combinarlos de acuerdo con
  su sensibilidad y habilidades, transforma en una obra de arte, estéticamente
  atractiva o repulsiva a sus destinatarios.
- Aunque escencialmente tecnológica, en el caso de la programación, el programado
-r o programadora juega ese mismo papel: los distintos ambientes de programación
+ Aunque esencialmente tecnológica, en el caso de la programación, el programador
+ o programadora juega ese mismo papel: los distintos ambientes de programación
  ponen delante de él/ella un conjunto de recursos que de acuerdo con sus
  conocimientos, habilidades y sensibilidades, combinará para producir obras:
  programas y sistemas, que, en la superficie, serán funcionales o no funcionales
@@ -150,7 +150,7 @@ software
 \begin_layout Standard
 Empezaremos diciendo que R es un lenguaje de programación interpretado,
  de distribución libre, bajo Licencia GNU, y se mantiene en un ambiente
- para el cómputo estadístico y grafico.
+ para el cómputo estadístico y gráfico.
  Este 
 \emph on
 software
@@ -183,7 +183,7 @@ Desde la codificación del lenguaje S, lenguaje progenitor de R, como se
 
 \emph on
 Buscamos que los usuarios puedan iniciar en un entorno interactivo, en el
- que no se vean, concientemente, a ellos mismos como programadores.
+ que no se vean, conscientemente, a ellos mismos como programadores.
  Conforme sus necesidades sean más claras y su complejidad se incremente,
  deberían gradualmente poder profundizar en la programación, es cuando los
  aspectos del lenguaje y el sistema se vuelven más importantes
@@ -210,9 +210,9 @@ R fue creado en 1992 en Nueva Zelanda por Ross Ihaka y Robert Gentleman.
  La intención inicial con R, era hacer un lenguaje didáctico, para ser utilizado
  en el curso de Introducción a la Estadística de la Universidad de Nueva
  Zelanda.
- Para ello decidieron adoptar la sintáxis del lenguaje S desarrollado por
+ Para ello decidieron adoptar la sintaxis del lenguaje S desarrollado por
  Bell Laboratories.
- Como consecuencia, la sintáxis es similar al lenguaje S, pero la semántica
+ Como consecuencia, la sintaxis es similar al lenguaje S, pero la semántica
  que aparentemente es parecida a la de S, en realidad es sensiblemente diferente
 , sobre todo en los detalles un poco más profundos de la programación.
  
@@ -311,7 +311,7 @@ Fue hasta febrero de 29 del 2000, que se considera al software completo
 \end_layout
 
 \begin_layout Section
-Formato del texto
+Formato del código en el texto
 \end_layout
 
 \begin_layout Standard
@@ -394,6 +394,10 @@ x <- 2014
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 print(x)
 \end_layout
 
@@ -410,6 +414,10 @@ print(x)
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 x
 \end_layout
 
@@ -420,17 +428,26 @@ x
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 2*x
 \end_layout
 
 \begin_layout Plain Layout
 
-# Notemos que los las impresiones o resultados de estas operaciones
+# Notemos que las impresiones o resultados de estas operaciones
 \end_layout
 
 \begin_layout Plain Layout
 
-#
+# aparecen como comentarios, pero iniciados con '##' y con 
+\end_layout
+
+\begin_layout Plain Layout
+
+# una tipografía diferente que los comentarios usuales.
 \end_layout
 
 \begin_layout Plain Layout

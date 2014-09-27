@@ -556,7 +556,7 @@ status open
 \begin_layout Standard
 Por otra parte, en esta mismo tema, los índices negativos, tienen el significado
  de excluir los elementos señalados por el índice.
- Así, el complemento de los subconjuntos antriores se puede obtener así:
+ Así, el complemento de los subconjuntos anteriores se puede obtener así:
 \end_layout
 
 \begin_layout Standard
@@ -711,7 +711,7 @@ v[v >= 0]
 \end_layout
 
 \begin_layout Standard
-Para factores solo la operaciones logicas para probar la igualdad o desigualdad
+Para factores solo la operaciones lógicas para probar la igualdad o desigualdad
  tienen significado:
 \end_layout
 
@@ -1026,7 +1026,7 @@ data frames
  con un solo índice, si bien el significado es diferente para cada uno de
  los casos.
  En el caso de las matrices el uso de un solo índice, provoca el tratamiento
- de la matriz como si fuera un vector constituído por la concatenación de
+ de la matriz como si fuera un vector constituido por la concatenación de
  sus columnas y el índice provisto se referirá entonces al elemento correspondie
 nte a esa posición en el vector, mientras que en el caso de los 
 \emph on
@@ -1228,7 +1228,7 @@ ortogonal
  se refiere a que a una misma estructura sintáctica le corresponde una misma
  estructura semántica o de significado.
  Esto quiere decir que el operador se comportaría uniformemente, entregando
- el mismo tipo de resultados, para una misma sintáxis.
+ el mismo tipo de resultados, para una misma sintaxis.
 \end_layout
 
 \end_inset
@@ -1449,7 +1449,7 @@ data frames
 \end_layout
 
 \begin_layout Standard
-En la matriz y el data frame del ejemplo anterior, el segundo rengón se
+En la matriz y el data frame del ejemplo anterior, el segundo renglón se
  puede obtener fácilmente de la siguiente manera:
 \end_layout
 
@@ -1800,7 +1800,7 @@ reference "Acceso-vt-nombres"
 profundo
 \emph default
 .
- Para comprender esto, piénsese en el siguiente simil: sea la estructura
+ Para comprender esto, piénsese en el siguiente símil: sea la estructura
  sobre la que actúan los operadores como una bodega que contiene cajas,
  que a su vez contienen distintos objetos.
  En general, el operador 
@@ -1981,7 +1981,7 @@ El operador
 \family default
 , permite el acceso a esos componentes, ya sea mediante índices numéricos
  o los nombres provistos a los elementos de las estructuras.
- Asi, para los dos últimos casos mostrados anteriormente:
+ Así, para los dos últimos casos mostrados anteriormente:
 \end_layout
 
 \begin_layout Standard
@@ -2176,7 +2176,7 @@ df.mt[["TR", exact=F]] # Recuerde F es FALSE
 
 \begin_layout Standard
 La riqueza en el uso de estos operadores se irá descubriendo a medida que
- se incorporen otras caracteristicas del lenguaje que se estudiarán en los
+ se incorporen otras características del lenguaje que se estudiarán en los
  capítulos siguientes.
 \end_layout
 

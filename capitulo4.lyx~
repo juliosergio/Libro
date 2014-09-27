@@ -175,7 +175,7 @@ if (aa > 14) print ("SI MAYOR")
 
 \begin_layout Plain Layout
 
-if (aa > 14) { # Instrucci+on compuesta
+if (aa > 14) { # Instrucción compuesta
 \end_layout
 
 \begin_layout Plain Layout

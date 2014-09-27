@@ -394,6 +394,10 @@ x <- 2014
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 print(x)
 \end_layout
 
@@ -410,12 +414,20 @@ print(x)
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 x
 \end_layout
 
 \begin_layout Plain Layout
 
 # Finalmente haremos una multiplicación de x por 2
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

@@ -58,5 +58,7 @@ compare <- function() {
     }
     test()
     curve(dgammaXX, col="red", lwd=3, add=T)
+    legend("topright", c("Metd parametros", "Metd max simil"),
+           lwd=3, col=c("green", "red"))
 }
 

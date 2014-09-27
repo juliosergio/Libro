@@ -175,7 +175,7 @@ if (aa > 14) print ("SI MAYOR")
 
 \begin_layout Plain Layout
 
-if (aa > 14) { # Instrucci+on compuesta
+if (aa > 14) { # Instrucción compuesta
 \end_layout
 
 \begin_layout Plain Layout
@@ -260,7 +260,7 @@ aa > 14
 \family typewriter
 aa
 \family default
- es mayour que 
+ es mayor que 
 \family typewriter
 14
 \family default
@@ -330,7 +330,7 @@ if (10 > aa) { # 1er.
 \begin_layout Standard
 Nótese que el segundo bloque de expresiones en el ejemplo, es una expresión
  compuesta de dos expresiones; pero como ellas se han dado en un solo renglón
- se han separado mediante el caracter 
+ se han separado mediante el carácter 
 \family typewriter
 ;
 \family default
@@ -401,7 +401,7 @@ for
 \family default
 .
  El número de veces que se repite la expresión o expresiones englobadas
- en la instrucción, puede estár explícita en ella misma, como se muestra
+ en la instrucción, puede estar explícita en ella misma, como se muestra
  a continuación:
 \end_layout
 
@@ -452,7 +452,7 @@ for
 \family default
 .
  Así, el mismo resultado que se obtuvo en el ejemplo anterior, se puede
- obtener con cualquiera de las siguientes dos contstrucciones:
+ obtener con cualquiera de las siguientes dos construcciones:
 \end_layout
 
 \begin_layout Standard
@@ -515,7 +515,7 @@ seq_along()
 \family default
 , que genera una secuencia de enteros de acuerdo con el número de elementos
  que tenga el objeto que se le de como argumento.
- El segundo caso, tipifica la escencia de la construcción 
+ El segundo caso, tipifica la esencia de la construcción 
 \family typewriter
 for
 \family default
@@ -622,7 +622,7 @@ repeat
  Aunque en realidad no se quiere significar que las repeticiones sean infinitas
  o interminables, como la instrucción no tiene condición de salida o interrupció
 n, el resultado que la instrucción produciría en sí misma sería una repetición
- interminable; pero, el lenguaje provee facilidades para que desede el interior
+ interminable; pero, el lenguaje provee facilidades para que desde el interior
  del bloque de expresiones que se repiten, se obligue la interrupción del
  ciclo, por ejemplo, mediante la instrucción 
 \family typewriter
@@ -905,7 +905,7 @@ Tal como se ha llamado en el ejemplo, la función rnorm(), entregará valores
 \begin_inset Quotes erd
 \end_inset
 
-, en la consoloa de su intérprete de R.
+, en la consola de su intérprete de R.
  En el caso del ejemplo, la convergencia está simulada por el hecho de que
  la media de los números aleatorios es precisamente 0; entonces el incremento
  entre un valor y el siguiente tenderá a ser 0.
@@ -1122,7 +1122,7 @@ return
 \family typewriter
 repeat
 \family default
- para determinar si ya se ha llegado al número fibbonacci correspondiete,
+ para determinar si ya se ha llegado al número fibbonacci correspondiente,
  en cuyo caso termina allí la función y entrega como resultado el número
  correspondiente.
 \end_layout
@@ -1560,7 +1560,7 @@ status open
 
 \begin_layout Plain Layout
 
-# Podemos convertir estas operaciones en una funcion, así:
+# Podemos convertir estas operaciones en una función, así:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1590,7 +1590,7 @@ haz_promedio <- function(v) sum(v)/length(v)
 
 \begin_layout Plain Layout
 
-# Y llamamos a la funcion:
+# Y llamamos a la función:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1949,7 +1949,7 @@ lapply(misDatos, mean)
 
 \begin_layout Plain Layout
 
-# nota que aqui se uso la funcion 'mean' en vez de 'haz_promedio'
+# nota que aquí se usó la función 'mean' en vez de 'haz_promedio'
 \end_layout
 
 \begin_layout Plain Layout
@@ -1989,7 +1989,7 @@ status open
 
 \begin_layout Plain Layout
 
-r <- numeric() # vector numerico vacio para resultados
+r <- numeric() # vector numerico vacío para resultados
 \end_layout
 
 \begin_layout Plain Layout
@@ -2009,7 +2009,7 @@ for (elt in misDatos) {
 
 \begin_layout Plain Layout
 
-names(r) <- names(misDatos) # Esto solo es "azucar" estetica
+names(r) <- names(misDatos) # Esto sólo es "azúcar" estética
 \end_layout
 
 \begin_layout Plain Layout
@@ -2197,12 +2197,12 @@ status open
 
 \begin_layout Plain Layout
 
-# una funcion que toma un vector arbitrario y multiplica
+# una función que toma un vector arbitrario y multiplica
 \end_layout
 
 \begin_layout Plain Layout
 
-# cada elemento, por su posicion en el vector:
+# cada elemento, por su posición en el vector:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2212,7 +2212,7 @@ ff <- function(v) v*(1:length(v))
 
 \begin_layout Plain Layout
 
-# probemos la funcion:
+# probemos la función:
 \end_layout
 
 \begin_layout Plain Layout
@@ -2242,7 +2242,7 @@ apply(mm, 2, ff)
 
 \begin_layout Standard
 El resultado ha sido una matriz, pero cada una de las columnas de esta nueva
- matriz es el resultado de aplicar la funcion 
+ matriz es el resultado de aplicar la función 
 \family typewriter
 ff()
 \family default
@@ -2269,7 +2269,7 @@ Generalmente, aunque los datos con los que se quiere trabajar están dados
 \family typewriter
 split()
 \family default
-, permite clasificar los datos, tipicamente dados como un vector, o como
+, permite clasificar los datos, típicamente dados como un vector, o como
  un 
 \emph on
 data frame
@@ -2535,7 +2535,7 @@ mls$'1980'
 \end_layout
 
 \begin_layout Standard
-Solo para mostrar la potencia del lenguaje con estas operaciones, suóngase
+Solo para mostrar la potencia del lenguaje con estas operaciones, supóngase
  que se quiere aplicar una operación a cada una de las tablas de la lista
  resultante, el promedio por columnas o la suma por renglones, por ejemplo.
  Dado que se tata de una lista, podemos utilizar cualquiera de las funciones
@@ -2674,7 +2674,7 @@ NaN
 \emph on
 not a number
 \emph default
-), aunque se ha instruído hacer caso omiso de los valores 
+), aunque se ha instruido hacer caso omiso de los valores 
 \family typewriter
 NA
 \family default
@@ -2720,7 +2720,7 @@ reference "sub:Clasificaciones-y-uso"
 split()
 \family default
 , para clasificar la información, y después, sobre el resultado de esta
- clasificación, se aplicó cualquiera de las funciónes 
+ clasificación, se aplicó cualquiera de las funciones 
 \family typewriter
 lapply()
 \family default
