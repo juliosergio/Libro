@@ -18,3 +18,5 @@ points(x0,y0,pch=19, col="red")
 las.x <- seq(from=0, to=11, by=0.5)
 las.t <- (las.x - x0)/vox
 las.y <- -(g/2)*las.t^2 + voy*las.t + y0
+
+
