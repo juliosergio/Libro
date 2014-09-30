@@ -102,15 +102,41 @@ options('width')
 \end_layout
 
 \begin_layout Standard
-Una pequeña introducción que va aquí.
+Los modelos estadísticos son formalizaciones mediante las cuáles se interrelacio
+nan varias variables aleatorias, cada una con su correspondiente distribución
+ de probabilidades.
+ Este tema es muy general, y aquí sólo se aboradrá el de los modelos que
+ se pueden formalizar como 
+\emph on
+una
+\emph default
+ variable, conocida como 
+\emph on
+respuesta 
+\emph default
+(
+\emph on
+response
+\emph default
+ en inglés), definida en términos de un conjunto de variables conocidas
+ como 
+\emph on
+predictoras
+\emph default
+.
+ Además, dado el alcance educacional del presente texto, estos modelos se
+ revisarán aquí solamente hasta el punto de su formulación, a partir de
+ un conjunto de datos conocidos como 
+\emph on
+observaciones
+\emph default
+, y de su explotación, o sea su uso, sin proceder más allá al asunto de
+ la calificación y análisis estadístico de los mismos, para lo cual hay
+ libros especializados.
 \end_layout
 
 \begin_layout Section
 Modelos lineales
-\end_layout
-
-\begin_layout Standard
-o x
 \end_layout
 
 \end_body
