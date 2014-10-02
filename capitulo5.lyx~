@@ -3073,7 +3073,7 @@ key "Hazewinkel2001"
 \begin{equation}
 n!=\begin{cases}
 1 & \mathrm{si},n=0\\
-(n-1)! & \mathrm{si},n>0
+n(n-1)! & \mathrm{si},n>0
 \end{cases}
 \end{equation}
 
@@ -3098,7 +3098,232 @@ key "Dijkstra60"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+<<Recursividad, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+MiFact <- function(n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n==0) return (1) # salida inmediata
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n > 0) return (n*MiFact(n-1))
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (NULL) # caso fallido
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora se usa la función con 5 y 8
+\end_layout
+
+\begin_layout Plain Layout
+
+MiFact(5)
+\end_layout
+
+\begin_layout Plain Layout
+
+MiFact(8)
+\end_layout
+
+\begin_layout Plain Layout
+
+MiFact(-20)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para poder utilizar adecuadamente esta técnica, necesariamente debe existir
+ en la función por lo menos una salida 
+\emph on
+no recursiva
+\emph default
+, que en el caso del ejemplo está dada por la condición 
+\family typewriter
+if (n==0) ...
+
+\family default
+ .
+ Por otra parte, se debe tener cuidado con casos que pudieran llevar a una
+ 
+\emph on
+recursión infinita
+\emph default
+, que en el ejemplo se ha resuelto para números negativos o cualquier otra
+ cosa regresando un resultado NULL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El lenguaje tiene su propia función para la generación de factoriales de
+ números, a saber: 
+\family typewriter
+factorial()
+\family default
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Otro ejemplo, que se abordó en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "Fibbonacci-1"
+
+\end_inset
+
+ con una técnica de programación diferente, es el de la generación de los
+ números de Fibbonacci.
+ La definición matemática es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}(n)=\begin{cases}
+1 & \mathrm{si},n=0\\
+1 & \mathrm{si},n=1\\
+\mathcal{F}(n-2)+\mathcal{F}(n-1) & \mathrm{si},n>1
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nuevamente, la 
+\emph on
+traducción
+\emph default
+ de esta definición al código recursivo de R es casi directa, como se muestra
+ a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Fibbonacci, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci <- function(n) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n %in% c(0,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+        return (1) # salida no recursiva
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (n > 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+        return (
+\end_layout
+
+\begin_layout Plain Layout
+
+            fibbonacci(n-2) +
+\end_layout
+
+\begin_layout Plain Layout
+
+            fibbonacci(n-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+        )
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (NULL) # caso fallido
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora usemos la función:
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci(8)
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci(10)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los ejemplos que se han mostrado aquí son sencillos.
+ Los problemas que se pueden resolver mediante esta técnica, sin embargo,
+ pueden ser bastante complejos.
+ Así, de momento, baste con saber que existe esta posibilidad, para emplearla
+ cuando se requiera de ella.
 \end_layout
 
 \begin_layout Section
@@ -3113,6 +3338,15 @@ En las secciones anteriores se ha visto a grandes rasgos los principales
  De este modo, en la presente sección se propone un ejemplo que tiene que
  ver con un interesante tema de la estadística: las funciones de densidad
  y distribución de probabilidades.
+ Este tema y los demás referentes a la estadística, que se presentan en
+ esta sección se pueden estudiar a mayor profundidad en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

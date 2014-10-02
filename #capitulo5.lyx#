@@ -3275,12 +3275,37 @@ fibbonacci <- function(n) {
 
 \begin_layout Plain Layout
 
-            fibb
+            fibbonacci(n-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+        )
+\end_layout
+
+\begin_layout Plain Layout
+
+    return (NULL) # caso fallido
 \end_layout
 
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora usemos la función:
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci(8)
+\end_layout
+
+\begin_layout Plain Layout
+
+fibbonacci(10)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3291,6 +3316,14 @@ fibbonacci <- function(n) {
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Los ejemplos que se han mostrado aquí son sencillos.
+ Los problemas que se pueden resolver mediante esta técnica, sin embargo,
+ pueden ser bastante complejos.
+ Así, de momento, baste con saber que existe esta posibilidad, para emplearla
+ cuando se requiera de ella
 \end_layout
 
 \begin_layout Section

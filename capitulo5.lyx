@@ -3205,7 +3205,7 @@ reference "Fibbonacci-1"
 
 \end_inset
 
- con una técnica de programación diferente, es el de la generación de los
+, con una técnica de programación diferente, es el de la generación de los
  números de Fibbonacci.
  La definición matemática es la siguiente:
 \end_layout
@@ -3318,6 +3318,14 @@ fibbonacci(10)
 
 \end_layout
 
+\begin_layout Standard
+Los ejemplos que se han mostrado aquí son sencillos.
+ Los problemas que se pueden resolver mediante esta técnica, sin embargo,
+ pueden ser bastante complejos.
+ Así, de momento, baste con saber que existe esta posibilidad, para emplearla
+ cuando se requiera de ella.
+\end_layout
+
 \begin_layout Section
 Ejemplo: ajuste de datos a una función de distribución
 \end_layout
@@ -3330,6 +3338,15 @@ En las secciones anteriores se ha visto a grandes rasgos los principales
  De este modo, en la presente sección se propone un ejemplo que tiene que
  ver con un interesante tema de la estadística: las funciones de densidad
  y distribución de probabilidades.
+ Este tema y los demás referentes a la estadística, que se presentan en
+ esta sección se pueden estudiar a mayor profundidad en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

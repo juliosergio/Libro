@@ -188,6 +188,15 @@
 	edition = {1st Modern Library}
 }
 
+@book{Artzy74,
+	author = {Rafael Artzy},
+	series = {Addison-Wesley series in mathematics},
+	publisher = {Addison-Wesley Pub. Co. },
+	year = {1974},
+	title = {Linear geometry},
+	note = {ISBN 0-201-00362-7}
+}
+
 @book{Austin62,
 	author = {J. L. Austin},
 	title = {How to do things with words},
@@ -825,10 +834,18 @@
 @book{Halliday2005,
 	year = {2005},
 	note = {ISBN 0-471-23231-9},
-	edition = {7th, extended ed.},
+	edition = {7th, extended},
 	title = {Fundamentals of physics },
 	author = {David Halliday and Robert Resnick and Jearl Walker},
 	publisher = {Wiley}
+}
+
+@book{Hazewinkel2001,
+	year = {2001},
+	note = {ISBN 978-1-55608-010-4},
+	author = {Michiel Hazewinkel},
+	title = {Encyclopaedia of Mathematics (Encyclopaedia of Mathematics) },
+	publisher = {Springer}
 }
 
 @techreport{Hilton90,
@@ -1034,6 +1051,17 @@
 	year =  1990,
 	title = {Semantics and graphical information},
 	author = {E. Klein and L. A. Pineda}
+}
+
+@book{Lang87,
+	address = {New Yoirk},
+	year = {1987},
+	note = {ISBN 0-387-96412-6},
+	publisher = {Springer-Verlag},
+	title = {Linear Algebra},
+	edition = {3rd},
+	author = {Serge Lang},
+	series = {Undergraduate texts in mathematics}
 }
 
 @book{Lassez87,

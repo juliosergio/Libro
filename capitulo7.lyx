@@ -103,8 +103,8 @@ options('width')
 
 \begin_layout Standard
 Los modelos estadísticos son formalizaciones mediante las cuáles se interrelacio
-nan varias variables aleatorias, cada una con su correspondiente distribución
- de probabilidades.
+nan entre sí varias variables aleatorias, cada una de las cuales tiene su
+ correspondiente distribución de probabilidades.
  Este tema es muy general, y aquí sólo se aboradrá el de los modelos que
  se pueden formalizar como 
 \emph on
