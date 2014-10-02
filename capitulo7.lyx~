@@ -125,17 +125,25 @@ predictoras
 \emph default
 .
  Además, dado el alcance educacional del presente texto, estos modelos se
- revisarán aquí solamente hasta el punto de su formulación y explotación,
- sin proceder más allá al asunto de la calificación y análisis estadístico
- de los mismos, para lo cual hay libros especializados.
+ revisarán aquí solamente hasta el punto de su formulación, a partir de
+ un conjunto de datos conocidos como 
+\emph on
+observaciones
+\emph default
+, y de su explotación, o sea su uso, sin proceder más allá al asunto de
+ la calificación y análisis estadístico de los mismos, para lo cual hay
+ libros especializados 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wood2006"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
 Modelos lineales
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body

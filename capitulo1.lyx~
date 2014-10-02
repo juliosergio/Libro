@@ -110,8 +110,8 @@ Un artista, típicamente un pintor, tiene en sus manos un conjunto de recursos
  artísticos: materiales y herramentales, que al combinarlos de acuerdo con
  su sensibilidad y habilidades, transforma en una obra de arte, estéticamente
  atractiva o repulsiva a sus destinatarios.
- Aunque escencialmente tecnológica, en el caso de la programación, el programado
-r o programadora juega ese mismo papel: los distintos ambientes de programación
+ Aunque esencialmente tecnológica, en el caso de la programación, el programador
+ o programadora juega ese mismo papel: los distintos ambientes de programación
  ponen delante de él/ella un conjunto de recursos que de acuerdo con sus
  conocimientos, habilidades y sensibilidades, combinará para producir obras:
  programas y sistemas, que, en la superficie, serán funcionales o no funcionales
@@ -150,7 +150,7 @@ software
 \begin_layout Standard
 Empezaremos diciendo que R es un lenguaje de programación interpretado,
  de distribución libre, bajo Licencia GNU, y se mantiene en un ambiente
- para el cómputo estadístico y grafico.
+ para el cómputo estadístico y gráfico.
  Este 
 \emph on
 software
@@ -183,7 +183,7 @@ Desde la codificación del lenguaje S, lenguaje progenitor de R, como se
 
 \emph on
 Buscamos que los usuarios puedan iniciar en un entorno interactivo, en el
- que no se vean, concientemente, a ellos mismos como programadores.
+ que no se vean, conscientemente, a ellos mismos como programadores.
  Conforme sus necesidades sean más claras y su complejidad se incremente,
  deberían gradualmente poder profundizar en la programación, es cuando los
  aspectos del lenguaje y el sistema se vuelven más importantes
@@ -210,9 +210,9 @@ R fue creado en 1992 en Nueva Zelanda por Ross Ihaka y Robert Gentleman.
  La intención inicial con R, era hacer un lenguaje didáctico, para ser utilizado
  en el curso de Introducción a la Estadística de la Universidad de Nueva
  Zelanda.
- Para ello decidieron adoptar la sintáxis del lenguaje S desarrollado por
+ Para ello decidieron adoptar la sintaxis del lenguaje S desarrollado por
  Bell Laboratories.
- Como consecuencia, la sintáxis es similar al lenguaje S, pero la semántica
+ Como consecuencia, la sintaxis es similar al lenguaje S, pero la semántica
  que aparentemente es parecida a la de S, en realidad es sensiblemente diferente
 , sobre todo en los detalles un poco más profundos de la programación.
  
@@ -239,7 +239,7 @@ R
 S es un lenguaje que fue desarrollado por John Chambers y colaboradores
  en Laboratorios Bell (AT&T), actualmente Lucent Tecnologies, en 1976.
  Este lenguaje, originalmente fue codificado e implementado como unas biblioteca
-s de fortran.
+s de FORTRAN.
  Por razones de eficiencia, en 1988 S fue reescrito en lenguaje C, dando
  origen al sistema estadístico S, Versión 3.
  Con la finalidad de impulsar comercialmente a S, Bell Laboratories dio
@@ -300,7 +300,7 @@ Regresando a R, luego de la creación de R (en 1992) dan un primer anuncio
 En 1996 se crea una lista pública de correos, sin embargo debido al gran
  éxito de R, los creadores fueron rebasados por la continua llegada de correos.
  Por lo que tuvieron que crear, en 1997, 2 listas de correos R-help y R-devel,
- que son las que actualmente fucionan.
+ que son las que actualmente funcionan.
  Además se consolida el grupo núcleo de R,donde se involucran personas asociadas
  con S-PLUS, con la finalidad de administrar el código fuente de R.
 \end_layout
@@ -316,7 +316,7 @@ Formato del código en el texto
 
 \begin_layout Standard
 Con el propósito de facilitar la lectura del presente texto, el código del
- lenguaje se diferencía en párrafos especiales, que han sido construídos
+ lenguaje se diferencía en párrafos especiales, que han sido construidos
  con la ayuda del 
 \emph on
 software
@@ -512,7 +512,7 @@ stats, datasets, graphics, grDevices, grid, tools, parallel, compiler, splines,
 \end_layout
 
 \begin_layout Standard
-La capacidad de graficos de R es muy sofisticada y mejor que la de la mayoria
+La capacidad de gráficos de R es muy sofisticada y mejor que la de la mayoría
  de los paquetes estadísticos.
  R cuenta con varios paquetes gráficos especializados, por ejemplo, hay
  paquetería para graficar, crear y manejar los 
@@ -576,8 +576,8 @@ Es importante mencionar que, debido a su estructura, R consume mucho recurso
  En la mayoría de los casos, sin embargo, los problemas que pudieran surgir
  con referencia a la lentitud en la ejecución del código, tienen solución,
  principalmente teniendo cuidado de vectorizar el código; ya que esto permitiría
- particionarlo y aprovechar en procesamiento paralelo en equipos con multi
- núcleos.
+ particionarlo y aprovechar en procesamiento paralelo en equipos con multi-núcle
+os.
  
 \end_layout
 

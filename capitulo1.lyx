@@ -310,6 +310,18 @@ Fue hasta febrero de 29 del 2000, que se considera al software completo
  y lo suficientemente estable, para liberar la versión 1.0.
 \end_layout
 
+\begin_layout Standard
+Más información acerca de la historia de este lenguaje se puede obtener
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ihaka98"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Formato del código en el texto
 \end_layout
@@ -321,7 +333,14 @@ Con el propósito de facilitar la lectura del presente texto, el código del
 \emph on
 software
 \emph default
- knitr, gentilmente creado por Yihui Xie
+ knitr, gentilmente creado por 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xie2013"
+
+\end_inset
+
+
 \begin_inset Foot
 status open
 

@@ -2684,7 +2684,25 @@ reference "fig:Trayectoria-proyectil"
 
 \end_inset
 
- se muestra un gráfico con la trayectoria del proyectil.
+ se muestra un gráfico con la trayectoria del proyectil
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Más detalles de estas y otras fórmulas de la física se pueden encontrar
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Halliday2005"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3492,8 +3510,15 @@ t(A)
 \end_layout
 
 \begin_layout Standard
-Hay otras operaciones matriciales, pero baste con éstas en el presente capítulo,
- que las otras se introducirán más adelante en el texto.
+Hay otras operaciones matriciales, cuyo detalle se puede ver en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lang87"
+
+\end_inset
+
+, pero baste con éstas en el presente capítulo, que las otras se introducirán
+ más adelante en el texto.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3544,7 +3569,25 @@ donde el punto
  Si la operación se quiere hacer a una secuencia de puntos que pudieran
  representar los vértices de alguna figura geométrica, bastará con armar
  la matriz de puntos correspondiente y aplicar a ella la transformación,
- de la siguiente manera:
+ de la siguiente manera
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+El detalle de estas operaciones de transformación y su significado geométrico
+ se pueden consultar en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lang87,Artzy74"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard

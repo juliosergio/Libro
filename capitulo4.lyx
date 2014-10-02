@@ -917,6 +917,12 @@ Tal como se ha llamado en el ejemplo, la función rnorm(), entregará valores
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Fibbonacci-1"
+
+\end_inset
+
 Un caso parecido de salida o interrupción de un ciclo es la instrucción
  
 \family typewriter

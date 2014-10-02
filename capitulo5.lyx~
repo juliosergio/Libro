@@ -3046,6 +3046,62 @@ reference "Lista-search"
 \end_layout
 
 \begin_layout Section
+Recursividad
+\end_layout
+
+\begin_layout Standard
+En matemáticas es común encontrar definiciones de algunos conceptos mediante
+ lo que se conoce como relaciones de recurrencia (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hazewinkel2001"
+
+\end_inset
+
+).
+ Por ejemplo, considérese el factorial de un número, por decir, el 5: 
+\begin_inset Formula $5!=5\times4\times3\times2\times1=120$
+\end_inset
+
+.
+ De manera general, el factorial se define mediante una relación de recurrencia
+ así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+n!=\begin{cases}
+1 & \mathrm{si},n=0\\
+(n-1)! & \mathrm{si},n>0
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En programación este concepto se implementa mediante una técnica conocida
+ como recursividad (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dijkstra60"
+
+\end_inset
+
+), la que, en términos sencillos, se puede ver como la posibilidad de una
+ función de llamarse o invocarse a sí misma.
+ Para el caso del factorial, en R, esta función se puede programar de la
+ siguiente manera:
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
 Ejemplo: ajuste de datos a una función de distribución
 \end_layout
 
@@ -6040,7 +6096,7 @@ curve(dgammaX, col="green", lwd=2,
 
 \begin_layout Plain Layout
 
-      ylab="Prob",
+      ylab="Densidad",
 \end_layout
 
 \begin_layout Plain Layout
