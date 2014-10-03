@@ -492,6 +492,16 @@
 	title = {Diagrammatic representations and how they fit into multimodal perceptual representations and reasoning}
 }
 
+@book{Chapra2010,
+	title = {Numerical methods for engineers},
+	address = {New York, NY},
+	year = {2010},
+	note = {ISBN 978-0-07-340106-5},
+	publisher = {McGraw-Hill},
+	author = {Steven C. Chapra and Raymond P. Canale},
+	edition = {6th}
+}
+
 @techreport{Codd78,
 	year =  1978,
 	institution = {IBM Research Laboratory},
@@ -743,6 +753,14 @@
 	publisher = {Basil Blackwell},
 	title = {Translations from the philosophical writings of {G}ottlob {F}rege},
 	address = {Oxford, U.K.}
+}
+
+@manual{Gilbert2012,
+	note = {R package version 2012.9-1},
+	title = {numDeriv: Accurate Numerical Derivatives},
+	author = {Paul Gilbert and Ravi Varadhan},
+	url = {http://CRAN.R-project.org/package=numDeriv},
+	year = {2012}
 }
 
 @article{Goel97,
@@ -1743,8 +1761,8 @@
 	year = {1995},
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	title = {{\noopsort{09}}{R}esearch proposal},
-	month =  Sep ,
-	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico}
+	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
+	month =  Sep 
 }
 
 @techreport{Santana-13,
@@ -2126,6 +2144,17 @@
 	series = {Studies in machine translation and natural language processing}
 }
 
+@book{Venables2012,
+	address = {New York, NY},
+	author = {W. N. Venables and B. D. Ripley},
+	publisher = {Springer},
+	year = {2002},
+	edition = {4th},
+	note = {ISBN 0-387-95457-0},
+	title = {Modern Applied Statistics with S},
+	url = {http://www.stats.ox.ac.uk/pub/MASS4}
+}
+
 @article{Wahlster86,
 	editor = {G. Ferrari},
 	author = {W. Wahlster and A. Kobsa},
@@ -2172,8 +2201,7 @@
 }
 
 @book{Walpole2012,
-	title = {Probability \& Statistics for Engineers \& Scientists
-Engineers & Scientists},
+	title = {Probability \& Statistics for Engineers \& Scientists },
 	author = {Ronald E. Walpole and Raymond H. Myers and Sharon L. Myers and Keying Ye},
 	edition = {9th},
 	publisher = {Prentice Hall / Pearson Education, Inc.},

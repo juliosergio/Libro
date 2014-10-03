@@ -917,6 +917,12 @@ Tal como se ha llamado en el ejemplo, la función rnorm(), entregará valores
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Fibbonacci-1"
+
+\end_inset
+
 Un caso parecido de salida o interrupción de un ciclo es la instrucción
  
 \family typewriter
@@ -1097,7 +1103,18 @@ Esta función utiliza el operador
 %in%
 \family default
 , que identifica si un cierto elemento está dentro de un conjunto representado
- por un vector.
+ por un vector
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En realidad este operador puede emplearse para probar si los elementos de
+ un vector est
+\end_layout
+
+\end_inset
+
+.
  La instrucción 
 \family typewriter
 return
@@ -3105,8 +3122,8 @@ Finalmente, en este tipo de funciones está la función
 \family typewriter
 tapply()
 \family default
-, que efectua el mismo tipo de operaciones de clasificación y operación,
- pero actua sobre un vector y no sobre un 
+, que efectúa el mismo tipo de operaciones de clasificación y operación,
+ pero actúa sobre un vector y no sobre un 
 \emph on
 data frame
 \emph default
@@ -3170,7 +3187,7 @@ tapply()
 \family default
  tiene que sacar provecho de que el segundo argumento, que sirve para clasificar
  los datos, puede ser una lista de uno o mas objetos, interpretables como
- factores, y que en el caso del ejemplo estará constituída por las columnas
+ factores, y que en el caso del ejemplo estará constituida por las columnas
  correspondiente a los años y a los meses.
  Así, el resultado deseado se obtiene como sigue:
 \end_layout

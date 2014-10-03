@@ -105,7 +105,7 @@ options('width')
 Los modelos estadísticos son formalizaciones mediante las cuáles se interrelacio
 nan entre sí varias variables aleatorias, cada una de las cuales tiene su
  correspondiente distribución de probabilidades.
- Este tema es muy general, y aquí sólo se aboradrá el de los modelos que
+ Este tema es muy general, y aquí sólo se abordará el de los modelos que
  se pueden formalizar como 
 \emph on
 una
@@ -146,6 +146,247 @@ key "Wood2006"
 
 \begin_layout Section
 Modelos lineales
+\end_layout
+
+\begin_layout Standard
+Para abordar este tema, se recurrirá a los datos sobre desempleo que se
+ introdujeron en la sección 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "Desempleados"
+
+\end_inset
+
+.
+ Ahí, la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Barras-Horizontales"
+
+\end_inset
+
+, en su segundo gráfico, sugiere que los porcentajes mostrados tienen una
+ cierta tendencia creciente con el tiempo.
+ Para abundar un poco más sobre este tema y trabajar con esos datos, se
+ insertan nuevamente aquí.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<c7Desempleo, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Porcentajes consecutivos por trimestre a partir del primer 
+\end_layout
+
+\begin_layout Plain Layout
+
+# trimestre del año 2011, de desempleados con educación media 
+\end_layout
+
+\begin_layout Plain Layout
+
+# superior o superior del total de desempleados en México:
+\end_layout
+
+\begin_layout Plain Layout
+
+prcnt <-c(
+\end_layout
+
+\begin_layout Plain Layout
+
+    34.6594306764, 35.2754003647, 35.40613204, 35.1855137062,
+\end_layout
+
+\begin_layout Plain Layout
+
+    36.6282823891, 37.3816513577, 37.5314871844, 36.3784124999,
+\end_layout
+
+\begin_layout Plain Layout
+
+    37.8949982178, 37.9752539821, 37.5238097329, 38.8349502588,
+\end_layout
+
+\begin_layout Plain Layout
+
+    39.5894958061, 40.4058337918
+\end_layout
+
+\begin_layout Plain Layout
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En vez de utilizar un gráfico de barras, como se hizo anteriormente, aquí
+ se hará un gráfico de puntos, en el rango de valores que nos interesa,
+ con el siguiente código:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<c7Desempleo1, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(prcnt,   
+\end_layout
+
+\begin_layout Plain Layout
+
+    ylim=c(34, max(prcnt)), # <- Rango de valores de interés
+\end_layout
+
+\begin_layout Plain Layout
+
+    # El título:
+\end_layout
+
+\begin_layout Plain Layout
+
+    main="Incremento en Desempleo
+\backslash
+nEduc.Media Sup o Superior",
+\end_layout
+
+\begin_layout Plain Layout
+
+    xlab="Trimestres a partir de 2011",
+\end_layout
+
+\begin_layout Plain Layout
+
+    ylab="% del total de desempleados"
+\end_layout
+
+\begin_layout Plain Layout
+
+) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La apariencia visual que arroja el código anterior se puede ver en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-desempleo"
+
+\end_inset
+
+(a).
+ De ahí se intuye que uno pudiera trazar algún tipo de curva, típicamente
+ una recta, que 
+\emph on
+siguiera más o menos el camino trazado por los puntos
+\emph default
+, como lo muestran los dos intentos de la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-desempleo"
+
+\end_inset
+
+(b).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Desempleados1.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+(a)
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Desempleados2.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+(b)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráficos-de-desempleo"
+
+\end_inset
+
+Gráficos de desempleo en educación media superior o superior en México
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

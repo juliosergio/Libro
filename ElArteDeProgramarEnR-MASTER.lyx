@@ -214,7 +214,7 @@ filename "capitulo7.lyx"
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "ss"
-options "plainnat"
+options "bibtotoc,plainnat"
 
 \end_inset
 

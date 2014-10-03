@@ -73,7 +73,7 @@
 	year =  1992,
 	booktitle = {3rd. Conference on Applied Natural Language Processing (ANLP-92)},
 	title = {3rd. Conference on Applied Natural Language Processing (ANLP-92)},
-	month =  Apr
+	month =  Apr 
 }
 
 @incollection{Allegranza95,
@@ -155,7 +155,7 @@
 	author = {E. Andr\'e and T. Rist},
 	pages = {530--534},
 	crossref = {COLING94},
-	year =  1994
+	year =  1994 
 }
 
 @article{Appelt85,
@@ -242,7 +242,7 @@
 	year =  1996,
 	title = {Multimodal intergration},
 	address = {U.S.A.},
-	volume =  3
+	volume =  3 
 }
 
 @mastersthesis{BolanMSC,
@@ -366,7 +366,7 @@
 	journal = {IEEE Expert},
 	pages = {14--16},
 	address = {U.S.A.},
-	year =  1997
+	year =  1997 
 }
 
 @incollection{Buchanan81,
@@ -453,7 +453,7 @@
 	pages = {23--30},
 	journal = {IEEE Expert},
 	year =  1986,
-	volume =  1
+	volume =  1 
 }
 
 @article{Chandra89,
@@ -464,7 +464,7 @@
 	pages = {9--24},
 	author = {B. Chandrasekaran and M. C. Tanner and J. R. Josephson},
 	number =  1,
-	year =  1989
+	year =  1989 
 }
 
 @article{Chandra91,
@@ -490,6 +490,16 @@
 	pages = {1--5},
 	author = {B. Chandrasekaran},
 	title = {Diagrammatic representations and how they fit into multimodal perceptual representations and reasoning}
+}
+
+@book{Chapra2010,
+	title = {Numerical methods for engineers},
+	address = {New York, NY},
+	year = {2010},
+	note = {ISBN 978-0-07-340106-5},
+	publisher = {McGraw-Hill},
+	author = {Steven C. Chapra and Raymond P. Canale},
+	edition = {6th}
 }
 
 @techreport{Codd78,
@@ -594,7 +604,7 @@
 	number =  1,
 	journal = {Artificial Intelligence},
 	address = {U.S.A},
-	volume =  8
+	volume =  8 
 }
 
 @incollection{DeHoop95,
@@ -670,7 +680,7 @@
 	address = {U.S.A},
 	title = {Automating the generation of coordinated multimedia explanations},
 	year =  1991,
-	month =  Oct
+	month =  Oct 
 }
 
 @book{Foley94,
@@ -690,7 +700,7 @@
 	number =  10,
 	year =  1991,
 	title = {Advances in interactive digital multimedia systems},
-	month =  Oct
+	month =  Oct 
 }
 
 @incollection{Frege892,
@@ -706,7 +716,7 @@
 	publisher = {John Wiley \& Sons, Inc.},
 	address = {New York, U.S.A.},
 	title = {Logic for computer science},
-	year =  1988
+	year =  1988 
 }
 
 @inproceedings{Garza95,
@@ -715,7 +725,7 @@
 	pages = {9--18},
 	year =  1995,
 	title = {A qualitative procedure for the production of solid models of polyhedra from their orthogonal views: a case of study in reasoning with graphical representations},
-	month =  Sep
+	month =  Sep 
 }
 
 @mastersthesis{GarzaMSC,
@@ -733,7 +743,7 @@
 	address = {U.S.A.},
 	author = {G. Gazdar and C. Mellish},
 	publisher = {Addison-Wesley},
-	year =  1989
+	year =  1989 
 }
 
 @book{Geach52,
@@ -895,7 +905,7 @@
 	volume =  63,
 	author = {E. H. Hovy},
 	pages = {341--385},
-	year =  1993
+	year =  1993 
 }
 
 @proceedings{IFIP91,
@@ -983,7 +993,7 @@
 	title = {Visualizing abstract objects and relations, a constraint based approach},
 	address = {Singapore},
 	author = {T. Kamada},
-	year =  1989
+	year =  1989 
 }
 
 @article{Kamada91,
@@ -995,7 +1005,7 @@
 	author = {T. Kamada and S. Kawai},
 	pages = {1--39},
 	number =  1,
-	journal =  tog
+	journal =  tog 
 }
 
 @incollection{Kamp81,
@@ -1013,7 +1023,7 @@
 	series = {Studies in linguistics and philosophy},
 	address = {P.O.Box 17,3300 AA Dordrecht, Holland},
 	title = {From discourse to logic. Introduction to modeltheoretic semantics of natural language, formal logic and discourse representation theory},
-	volume =  42
+	volume =  42 
 }
 
 @incollection{Kaplan73,
@@ -1021,7 +1031,7 @@
 	pages = {193--241},
 	crossref = {Rustin73},
 	title = {A general syntactic processor},
-	year =  1973
+	year =  1973 
 }
 
 @article{Kaplan78,
@@ -1096,7 +1106,7 @@
 	author = {W. Leler},
 	publisher = {Addison-Wesley, U.S.A.},
 	title = {Constraint programming languages: their specification and generation},
-	year =  1988
+	year =  1988 
 }
 
 @article{Lester97,
@@ -1106,7 +1116,7 @@
 	pages = {65--101},
 	author = {J. C. Lester and B. W. Porter},
 	number =  1,
-	year =  1997
+	year =  1997 
 }
 
 @inproceedings{MacGregor92,
@@ -1148,7 +1158,7 @@
 	number =  3,
 	journal = {Text},
 	pages = {243--281},
-	volume =  8
+	volume =  8 
 }
 
 @techreport{MasseBSC,
@@ -1170,7 +1180,7 @@
 	volume =  10,
 	author = {S. Matsuoka and S. Takahashi and T. Kamada and A. Yonezawa},
 	pages = {408--437},
-	number =  4
+	number =  4 
 }
 
 @book{Maybury,
@@ -1254,7 +1264,7 @@
 	crossref = {Mellish90},
 	title = {Natural language generation in {COMET}},
 	pages = {103--136},
-	year =  1990
+	year =  1990 
 }
 
 @phdthesis{McKeownPHD,
@@ -1341,7 +1351,7 @@
 	pages = {19--26},
 	author = {R. Morales L. A. Pineda},
 	title = {Pizarrones interactivos multimodales para la ense\~nanza de conceptos matem\'aticos},
-	month =  Sep
+	month =  Sep 
 }
 
 @mastersthesis{MoralesMSC,
@@ -1369,21 +1379,21 @@
 	address = {Anaheim, CA, U.S.A.},
 	title = {Proc. of the Ninth National Conference on Artificial Intelligence (NCAI91)},
 	booktitle = {Proc. of the Ninth National Conference on Artificial Intelligence (NCAI91)},
-	organization =  aaai
+	organization =  aaai 
 }
 
 @proceedings{NCAI92,
 	booktitle = {Proc. of the Tenth National Conference on Artificial Intelligence (NCAI92)},
 	title = {Proc. of the Tenth National Conference on Artificial Intelligence (NCAI92)},
 	organization =  aaai,
-	year =  1992
+	year =  1992 
 }
 
 @incollection{Neal91,
 	crossref = {Sullivan},
 	author = {J. G. Neal and S. C. Shapiro},
 	title = {Intelligent multimedia interface technology},
-	year =  1991
+	year =  1991 
 }
 
 @book{Newman79,
@@ -1436,7 +1446,7 @@
 	author = {C. L. Paris},
 	number =  3,
 	pages = {64--78},
-	year =  1988
+	year =  1988 
 }
 
 @book{Paris91,
@@ -1478,7 +1488,7 @@
 	title = {Logical representations in drafting and {CAD} systems},
 	author = {L. A. Pineda and J. R. Lee},
 	institution = {EdCADD and Centre for Cognitive Sciences, University of Edinburgh, U.K.},
-	year =  1992
+	year =  1992 
 }
 
 @article{Pineda93,
@@ -1497,7 +1507,7 @@
 	title = {Satisfacci\'on de restricciones geom\'etricas: ?`problema num\'erico o simb\'olico?},
 	author = {L. A. Pineda and J. S. Santana and A. Mass\'e},
 	pages = {105--123},
-	year =  1994
+	year =  1994 
 }
 
 @techreport{Pineda94a,
@@ -1529,14 +1539,14 @@
 	school = {University of Edinburgh, U.K.},
 	title = {GRAFLOG: a theory of semantics for graphics with applications to human-computer interaction and CAD systems},
 	author = {L. A. Pineda},
-	year =  1989
+	year =  1989 
 }
 
 @techreport{Pollard85,
 	author = {C. J. Pollard},
 	institution = {Stanford University, U.S.A.},
 	title = {Categorial grammar and phrase structure grammar: an excursion on the syntax-semantics frontier},
-	year =  1985
+	year =  1985 
 }
 
 @inproceedings{Puget94,
@@ -1564,7 +1574,7 @@
 	month =  Sep,
 	author = {N. Ramsey},
 	journal =  ieees,
-	number =  5
+	number =  5 
 }
 
 @phdthesis{ReichmanPHD,
@@ -1587,7 +1597,7 @@
 	institution = {Council for the Central Laboratory of Research Councils, Rutherford Appleton Laboratories},
 	title = {Intelligent multimedia presentation systems: a proposal of reference model},
 	author = {S. Ruggieri and M. Bordegoni and T. Rist and P. Trahanias and W. Wilson},
-	year =  1996
+	year =  1996 
 }
 
 @book{Rustin73,
@@ -1689,7 +1699,7 @@
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	number = {IIE/Salford-SS-07},
 	title = {{\noopsort{02}}{P}roducing coordinated natural language and graphical explanations in the context of a geometric problem-solving task},
-	month =  Feb
+	month =  Feb 
 }
 
 @techreport{Santana-08,
@@ -1700,7 +1710,7 @@
 	author = {J. S. Santana},
 	number = {IIE/Salford-SS-08},
 	title = {{\noopsort{03}}{S}alient perspectives about discourse structure},
-	month =  Mar
+	month =  Mar 
 }
 
 @techreport{Santana-09,
@@ -1711,7 +1721,7 @@
 	number = {IIE/Salford-SS-09},
 	institution = {Instituto de Investigaciones El\'ectricas},
 	title = {{\noopsort{04}}{T}extual and graphical explanations for geometric problem-solving systems},
-	month =  Apr
+	month =  Apr 
 }
 
 @techreport{Santana-10,
@@ -1722,7 +1732,7 @@
 	number = {IIE/Salford-SS-10},
 	institution = {Instituto de Investigaciones El\'ectricas},
 	title = {{\noopsort{05}}{C}oordinated linguistic and graphical rhetorical acts},
-	month =  May
+	month =  May 
 }
 
 @techreport{Santana-11,
@@ -1733,7 +1743,7 @@
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	institution = {Instituto de Investigaciones El\'ectricas},
 	title = {{\noopsort{08}}{S}tructures to relate pictures and language},
-	month =  Aug
+	month =  Aug 
 }
 
 @techreport{Santana-12,
@@ -1744,7 +1754,7 @@
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	title = {{\noopsort{09}}{R}esearch proposal},
 	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
-	month =  Sep
+	month =  Sep 
 }
 
 @techreport{Santana-13,
@@ -1755,7 +1765,7 @@
 	institution = {Instituto de Investigaciones El\'ectricas},
 	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
 	title = {{\noopsort{10}}{A} graphical language},
-	month =  Oct
+	month =  Oct 
 }
 
 @techreport{Santana-14,
@@ -1810,7 +1820,7 @@
 	number = {IIE/Salford-SS-18},
 	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
 	title = {{\noopsort{04}}{Generation} of natural language and graphical discourses for geometric problem-solving tasks},
-	month =  Apr
+	month =  Apr 
 }
 
 @techreport{Santana-19,
@@ -1821,7 +1831,7 @@
 	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
 	institution = {Instituto de Investigaciones El\'ectricas},
 	title = {{\noopsort{05}}{Coordinated} linguistic and graphical semantic units},
-	month =  May
+	month =  May 
 }
 
 @techreport{Santana-20,
@@ -1832,7 +1842,7 @@
 	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
 	institution = {Instituto de Investigaciones El\'ectricas},
 	title = {{\noopsort{06}}{An} architecture for a prototype geometric problem-solving system with coordinated linguistic and graphical explanations},
-	month =  Jun
+	month =  Jun 
 }
 
 @inproceedings{Santana95,
@@ -1840,7 +1850,7 @@
 	author = {S. Santana and L. A. Pineda},
 	year =  1995,
 	title = {{\noopsort{07}}{P}roducing coordinated natural language and graphical explanations in the context of a geometric problem-solving task},
-	month =  Jul
+	month =  Jul 
 }
 
 @inproceedings{Santana95etal,
@@ -1872,7 +1882,7 @@
 	address = {Cuernavaca, Mor., M\'exico},
 	school = {Instituto Tecnol\'ogico y de Estudios Superiores de Monterrey (ITESM), Campus Morelos},
 	author = {J. S. Santana},
-	year =  1987
+	year =  1987 
 }
 
 @book{Schank73,
@@ -1889,7 +1899,7 @@
 	pages = {338--362},
 	author = {A. C. Scott and W. J. Clancey and R. Davis and E. H. Shortliffe},
 	title = {Methods for generating explanations},
-	year =  1984
+	year =  1984 
 }
 
 @book{Searle69,
@@ -1975,7 +1985,7 @@
 	booktitle = {Intelligent user interfaces},
 	title = {Intelligent user interfaces},
 	publisher = {ACM Press/Addison-Wesley. New York, U.S.A.},
-	year =  1991
+	year =  1991 
 }
 
 @article{Sutherland63,
@@ -2026,7 +2036,7 @@
 	number = {3},
 	journal = {IEEE Expert},
 	title = {Design for explainable expert systems},
-	month =  Jun
+	month =  Jun 
 }
 
 @article{Tanner91,
@@ -2037,7 +2047,7 @@
 	title = {The roles of the task structure and domain functional models},
 	month =  Jun,
 	author = {M. C. Tanner and A. M. Keuneke},
-	number =  3
+	number =  3 
 }
 
 @techreport{Tarau97,
@@ -2046,7 +2056,7 @@
 	note = {This document can be obtained via ftp at clement.info.umoncton.ca /pub/BinProlog},
 	author = {P. Tarau},
 	title = {{BinProlog} 5.75 user guide},
-	month =  Apr
+	month =  Apr 
 }
 
 @article{Tarski,
@@ -2056,7 +2066,7 @@
 	journal = {Philosophy and Phenomenological Research},
 	title = {The semantic conception of truth},
 	volume =  4,
-	year =  1944
+	year =  1944 
 }
 
 @incollection{Tate90,
@@ -2160,7 +2170,7 @@
 	author = {W. Wahlster and E. Andr\'e and W. Finkler and H. J. Profitlich and T. Rist},
 	journal = {Artificial Intelligence},
 	pages = {387--427},
-	year =  1993
+	year =  1993 
 }
 
 @book{Waldron96,
@@ -2169,6 +2179,16 @@
 	booktitle = {Mechanical design: theory and methodology},
 	publisher = {Springer-Verlag},
 	year = {1996}
+}
+
+@book{Walpole2012,
+	title = {Probability \& Statistics for Engineers \& Scientists },
+	author = {Ronald E. Walpole and Raymond H. Myers and Sharon L. Myers and Keying Ye},
+	edition = {9th},
+	publisher = {Prentice Hall / Pearson Education, Inc.},
+	address = {Boston, MA},
+	year = {2012},
+	note = {ISBN 10: 0-321-62911-6}
 }
 
 @article{Waltz78,
@@ -2310,7 +2330,7 @@
 	number = {EUCCS/RP-26},
 	institution = {Centre for Cognitive Science, University of Edinburgh, U.K.},
 	title = {A specification of {InL}},
-	year =  1986
+	year =  1986 
 }
 
 @techreport{Zeevat86a,

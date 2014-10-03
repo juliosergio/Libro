@@ -2816,7 +2816,12 @@ status open
 
 \begin_layout Plain Layout
 
-# Para convertirla en matriz simplemente se especifica el atributo dim
+# Para convertirla en matriz simplemente se especifica 
+\end_layout
+
+\begin_layout Plain Layout
+
+# el atributo dim
 \end_layout
 
 \begin_layout Plain Layout

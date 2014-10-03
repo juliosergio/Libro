@@ -130,6 +130,15 @@ Una de las grandes virtudes del lenguaje R, es la facilidad que ofrece para
  En este capítulo se revisará uno de ellos, el sistema gráfico básico, que
  es el que está inmediatamente disponible en la instalación inicial del
  lenguaje.
+ Éste, y otros sistemas gráficos disponibles en el lenguaje, se pueden consultar
+ a más detalle en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Murrell2006,Chang2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -3924,7 +3933,7 @@ reference "fig:Gráficos-de-barras-apiladas"
  educación media superior y superior, con respecto al total de desempleados
  en el país, y son como sigue para cada trimestre, a partir del año 2011
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Fuente: Sitio del INEGI en Internet: www.inegi.org.mx
@@ -4662,14 +4671,32 @@ En contraste con las funciones continuas de la sección anterior, están las
  Por ejemplo, el número que sale cada vez que se tira un dado de seis caras;
  el número de automóviles que pasan por minuto en un determinado crucero;
  el número de días seguidos que se presentó lluvia en una cierta estación
- meteorológica; el número de pacientes en una muestra que respondieron positivam
-ente a un tratamiento médico, etc.
+ meteorológica; el número de pacientes en una muestra, que respondieron
+ positivamente a un tratamiento médico, etc.
  Para caracterizar este tipo de variables, se han desarrollado diversas
  funciones de distribución y densidad de probabilidades, que se usan de
  acuerdo con las características de cada problema en particular, tales como,
  la distribución uniforme, la distribución binomial, la distribución geométrica,
  la hipergeométrica, la multinomial, la distribución de Poisson, etc.
  
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Todas estas funciones de distribución y densidad de probablidades se pueden
+ consultar en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -4900,7 +4927,15 @@ ff
  y va aplicando consecutivamente la función dada como primer argumento,
  la suma, en este caso, entre el resultado anterior de la aplicación y cada
  elemento del vector.
- Además, el argumento 
+ Además, como se ha visto en la descripción de esta función en la sección
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "OP-Reduce"
+
+\end_inset
+
+, el argumento 
 \family typewriter
 accumulate=T
 \family default
@@ -6299,11 +6334,11 @@ dev.copy()
 
 \begin_layout Standard
 Además del tipo de dispositivo que el sistema provee por default, esto es,
- una ventana que se abre en algúna porción de la pantalla y que, en general
+ una ventana que se abre en alguna porción de la pantalla y que, en general
  es volátil, hay dispositivos que están dirigidos a conservar la información
  gráfica en medios más permanentes, típicamente en archivos.
  Entre ellos, están los que guardan la información en un formato conocido
- como ráster, esto es, como una matiz de pixels: 
+ como raster, esto es, como una matiz de pixels: 
 \family typewriter
 png()
 \family default
@@ -6322,7 +6357,11 @@ tiff()
 .
  Por otra parte, están los dispositivos que almacenan la información en
  un formato vectorial, esto es, conservando la información de los objetos
- gráficos, como líneas, puntos, fonts, etc.: 
+ gráficos, como líneas, puntos, 
+\emph on
+fonts
+\emph default
+, etc.: 
 \family typewriter
 pdf()
 \family default
@@ -6455,8 +6494,8 @@ rnorm()
 status open
 
 \begin_layout Plain Layout
-Una distrbución de probabilidades tiene cuatro funciones asociadas: la de
- densidad, cuyo nombre inicia con la letra 'd', la de distribución, cuyo
+Una distribución de probabilidades tiene cuatro funciones asociadas: la
+ de densidad, cuyo nombre inicia con la letra 'd', la de distribución, cuyo
  nombre comienza con la letra 'p', la de generación de números aleatorios,
  cuyo nombre comieza con la letra 'r', y, finalmente, la función de cuantiles,
  inversa de la función de distribución, cuyo nombre comienza con la letra
@@ -6597,7 +6636,7 @@ data.frame(sin(x), y, y1)
 \end_layout
 
 \begin_layout Standard
-Ahora se procederá a graficar los datos correspondietes a una de las funciones
+Ahora se procederá a graficar los datos correspondientes a una de las funciones
  en un primer dispositivo que se abrirá mediante 
 \family typewriter
 x11()
@@ -7061,7 +7100,7 @@ Desde luego que las copias de material gráfico hechas con
 dev.copy()
 \family default
 , no son de la calidad óptima.
- Si el asunto fuera la producción de un gráfico PDF con calidad optima,
+ Si el asunto fuera la producción de un gráfico PDF con calidad óptima,
  lo apropiado sería, repetir las funciones de producción de los gráficos
  directamente en el dispositivo abierto, como se muestra a continuación:
 \end_layout

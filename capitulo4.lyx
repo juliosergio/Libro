@@ -1103,7 +1103,27 @@ Esta función utiliza el operador
 %in%
 \family default
 , que identifica si un cierto elemento está dentro de un conjunto representado
- por un vector.
+ por un vector
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En realidad este operador puede emplearse para probar si cada uno de los
+ elementos de un vector, están contenidos en el conjunto representado por
+ otro vector; por ejemplo: 
+\family typewriter
+c(2,3,4) %in% c(2,4,6,8,10)
+\family default
+, entregaría, 
+\family typewriter
+TRUE FALSE TRUE
+\family default
+.
+\end_layout
+
+\end_inset
+
+.
  La instrucción 
 \family typewriter
 return
@@ -1653,6 +1673,12 @@ mean(nums)
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "OP-Reduce"
+
+\end_inset
+
 La función 
 \family typewriter
 sum()

@@ -130,6 +130,15 @@ Una de las grandes virtudes del lenguaje R, es la facilidad que ofrece para
  En este capítulo se revisará uno de ellos, el sistema gráfico básico, que
  es el que está inmediatamente disponible en la instalación inicial del
  lenguaje.
+ Éste, y otros sistemas gráficos disponibles en el lenguaje, se pueden consultar
+ a más detalle en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Murrell2006,Chang2012"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -3904,6 +3913,12 @@ Gráficos de barras apiladas
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "Desempleados"
+
+\end_inset
+
 Nótese que, a pesar de tratarse de la misma información, la comunicación
  visual hace énfasis en distintos aspectos de ella.
  Por ejemplo, en la primera gráfica de la Fig.
@@ -3924,7 +3939,7 @@ reference "fig:Gráficos-de-barras-apiladas"
  educación media superior y superior, con respecto al total de desempleados
  en el país, y son como sigue para cada trimestre, a partir del año 2011
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Fuente: Sitio del INEGI en Internet: www.inegi.org.mx
@@ -4662,14 +4677,32 @@ En contraste con las funciones continuas de la sección anterior, están las
  Por ejemplo, el número que sale cada vez que se tira un dado de seis caras;
  el número de automóviles que pasan por minuto en un determinado crucero;
  el número de días seguidos que se presentó lluvia en una cierta estación
- meteorológica; el número de pacientes en una muestra que respondieron positivam
-ente a un tratamiento médico, etc.
+ meteorológica; el número de pacientes en una muestra, que respondieron
+ positivamente a un tratamiento médico, etc.
  Para caracterizar este tipo de variables, se han desarrollado diversas
  funciones de distribución y densidad de probabilidades, que se usan de
  acuerdo con las características de cada problema en particular, tales como,
  la distribución uniforme, la distribución binomial, la distribución geométrica,
  la hipergeométrica, la multinomial, la distribución de Poisson, etc.
  
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Todas estas funciones de distribución y densidad de probablidades se pueden
+ consultar en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -4900,7 +4933,15 @@ ff
  y va aplicando consecutivamente la función dada como primer argumento,
  la suma, en este caso, entre el resultado anterior de la aplicación y cada
  elemento del vector.
- Además, el argumento 
+ Además, como se ha visto en la descripción de esta función en la sección
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "OP-Reduce"
+
+\end_inset
+
+, el argumento 
 \family typewriter
 accumulate=T
 \family default
