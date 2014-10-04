@@ -809,7 +809,17 @@ mi.y <- function(x) {
 
 \begin_layout Plain Layout
 
-} 
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+# Otra forma para extraer los coeficientes:
+\end_layout
+
+\begin_layout Plain Layout
+
+coef(mi.modelo)
 \end_layout
 
 \begin_layout Plain Layout
@@ -1038,6 +1048,20 @@ nEduc.Media Sup o Superior",
 @
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+PRIMER MÉTODO:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
 \begin_layout Plain Layout
 
 <<UsoCoefs, eval=F, tidy=F>>=
@@ -1073,6 +1097,20 @@ abline(mi.modelo$coefficients[1], # Intercepto
 
 @
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+SEGUNDO MÉTODO:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
@@ -1170,6 +1208,706 @@ name "fig:El-modelo-lineal"
 \end_inset
 
 El modelo lineal encontrado junto con los datos que lo originaron
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, se puede establecer que una variable de respuesta, dependa de
+ más de una variable predictora, lo cual podría dar lugar a una ecuación
+ como la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}\label{eq:lineal-mas-vars}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde 
+\begin_inset Formula $y$
+\end_inset
+
+ sería la variable de respuesta y, 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+ serían las variables predictoras.
+ En este caso, si se suponen, por ejemplo, cuatro variables, la fórmula
+ para establecer el modelo sería algo semejante a lo que se muestra a continuaci
+ón.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<MasDependencias, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+otra.formula <- y ~ x.1 + x.2 + x.3 + x.4
+\end_layout
+
+\begin_layout Plain Layout
+
+# las variables predictoras son:
+\end_layout
+
+\begin_layout Plain Layout
+
+# x.1, x.2, x.3, x.4
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lineal-mas-vars"
+
+\end_inset
+
+ no se establece exactamente la naturaleza de las variables 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+, de tal manera que ellas podrían ser las potencias de una misma variable
+ y de esta manera se podría construir una expresión polinomial como la siguiente
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+\ldots+\beta_{n}x^{n}\label{eq:polinomial}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+que puede seguirse manejando mediante un modelo lineal, y en este mismo
+ tenor es el ejemplo que se propone a continuación.
+\end_layout
+
+\begin_layout Standard
+Se ha lanzado un proyectil de un cierto edificio, y con algún instrumento
+ de medición se han tomado medidas que describen su trayectoria.
+ Esas medidas, tomadas de un archivo con su registro, son las que en seguida
+ se muestran.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Lanzamiento, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Los datos deberán estar en el archivo:
+\end_layout
+
+\begin_layout Plain Layout
+
+datos.tiro <- read.table("TiroLibre-medidas.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+# ...
+ esos datos son:
+\end_layout
+
+\begin_layout Plain Layout
+
+datos.tiro
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Con esta información, se quiere tener un modelo de la descripción de su
+ trayectoria, y de allí determinar, más o menos, a qué altura estaría el
+ proyectil a una distancia horizontal de 5.5 unidades.
+\end_layout
+
+\begin_layout Standard
+Para tener algún tipo de apreciación de los datos que se han provisto, conviene
+ hacer un gráfico, de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GrafDatosTiro, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Se pueden graficar especificando explícitamente
+\end_layout
+
+\begin_layout Plain Layout
+
+# las X y las Y, así:
+\end_layout
+
+\begin_layout Plain Layout
+
+#      plot(datos.tiro$x, datos.tiro$y, pch=16, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+# O de manera más compacta, simplemente dando el
+\end_layout
+
+\begin_layout Plain Layout
+
+# data frame, fuente de los datos:
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(datos.tiro, pch=16, col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado del código anterior se puede ver en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Medidas-del-lanzamiento"
+
+\end_inset
+
+.
+ Se observa ahí que la trayectoria no corresponde a una línea recta; de
+ hecho, se sabe de la física que se trata de una parábola, esto es, descrita
+ por un polinomio de segundo grado, con una ecuación semejante a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:polinomial"
+
+\end_inset
+
+, de modo que hacia allá se dirigirá la solución del problema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<MedidasLanzamto, ref.label='GrafDatosTiro', echo=FALSE, fig.width=4, fig.height=4
+, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Medidas-del-lanzamiento"
+
+\end_inset
+
+Medidas del lanzamiento de un proyectil
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los datos ya están en un 
+\emph on
+data frame
+\emph default
+ que la función 
+\family typewriter
+lm()
+\family default
+ puede entender, de modo que nos concentraremos en la definición de la fórmula
+ para especificar la dependencia entre la variable de respuesta y las predictora
+s.
+ Para establecer la fórmula, sin embargo, se debe saber que en la sintaxis
+ de fórmulas de R, los operadores, 
+\family typewriter
++, -, *, ^, :
+\family default
+, tienen un significado distinto que el usual.
+ Baste por el momento, saber que el operador '
+\family typewriter
++
+\family default
+' se maneja como un separador de términos, cada uno de los cuales se compone
+ expresiones formadas con las variables predictoras; y el operador '
+\family typewriter
+-
+\family default
+', se usa para eliminar téminos.
+ Si lo que se quiere es introducir expresiones en las que los operadores
+ aneriores tengan su significado usal, ellas deben estar encerradas en el
+ constructor sintáctico 
+\family typewriter
+I( )
+\family default
+.
+ Como ese es el caso de lo que se desea expresar, nuestra fórmula de dependencia
+ se construye de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<FormulaLanzamto, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+formula.tiro <- y ~ x + I(x^2)
+\end_layout
+
+\begin_layout Plain Layout
+
+# El significado de x^2 dentro de I( )
+\end_layout
+
+\begin_layout Plain Layout
+
+# se toma 'textualmente', esto es, su
+\end_layout
+
+\begin_layout Plain Layout
+
+# significado es "equis cuadrada".
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, el modelo 
+\emph on
+lineal
+\emph default
+, de acuerdo con esa fórmula, ajustado a los datos provistos se construye
+ como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<ModeloLanzamto, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+modelo.tiro <- lm(formula.tiro, data=datos.tiro)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Veamos la información básica del modelo:
+\end_layout
+
+\begin_layout Plain Layout
+
+modelo.tiro
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De esta manera, la ecuación de la trayectoria del proyectil ajustada a los
+ datos estaría dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=14.902+1.069x-0.224x^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tanto para el uso del modelo, como para graficar la curva junto con los
+ datos que lo originaron, es conveniente hacer una función basada en la
+ función 
+\family typewriter
+predict()
+\family default
+ del lenguaje, de la manera siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<FuncPredic, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+func.tiro <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    # El argumento x puede ser un solo número o un vector de 
+\end_layout
+
+\begin_layout Plain Layout
+
+    # números 
+\end_layout
+
+\begin_layout Plain Layout
+
+    predict(modelo.tiro, newdata=data.frame(x=x), type="response")
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y el problema de saber la altura del proyectil a 5.5 unidades, junto con
+ otros valores, se resuelve así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<SolProyectil, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Altura a 5.5 unidades horizontales:
+\end_layout
+
+\begin_layout Plain Layout
+
+func.tiro(5.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Si se quiere conocer las alturas predichas por el modelo
+\end_layout
+
+\begin_layout Plain Layout
+
+# para las distancias 3.5, 4.3 y 8.2:
+\end_layout
+
+\begin_layout Plain Layout
+
+func.tiro(c(3.5, 4.3, 8.2))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, si se quiere graficar la curva correspondiente al modelo, junto
+ con los datos, se hace agregando al gráfico de la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Medidas-del-lanzamiento"
+
+\end_inset
+
+, la salida del código que se presenta a continuación.
+ En este código se está añadiendo, además, sólo para comparar, lo que sería
+ el resultado si los datos se hubieran ajustado a una línea recta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<CurvasAniadidas, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# La curva ajustada:
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(func.tiro, lwd=2, col="blue", add=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Hagamos el modelo de una recta:
+\end_layout
+
+\begin_layout Plain Layout
+
+mod.recta <- lm( y ~ x, data=datos.tiro)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Dibujémosla en el gráfico también:
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(mod.recta) # va en negro, el default
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pondremos una leyenda apropiada para identificar
+\end_layout
+
+\begin_layout Plain Layout
+
+# los objetos en el gráfico:
+\end_layout
+
+\begin_layout Plain Layout
+
+legend(
+\end_layout
+
+\begin_layout Plain Layout
+
+   "bottomleft", # Donde va la leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+   legend=c("modelo parabola", "modelo recta"), # textos
+\end_layout
+
+\begin_layout Plain Layout
+
+   lwd=c(2,1), # anchos de línea
+\end_layout
+
+\begin_layout Plain Layout
+
+   col=c("blue", "black") # colores para cada modelo
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado de este código, añadido a la figura anterior, se puede apreciar
+ en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dos-modelos-estadísticos"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<DosModelosAjuste, ref.label=c('GrafDatosTiro', 'CurvasAniadidas'), echo=FALSE,
+ fig.width=4, fig.height=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dos-modelos-estadísticos"
+
+\end_inset
+
+Dos modelos estadísticos ajustados con un mismo conjunto de datos
 \end_layout
 
 \end_inset
