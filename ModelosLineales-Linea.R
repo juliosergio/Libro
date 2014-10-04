@@ -34,4 +34,23 @@ mm <- lm(prcnt ~ ind, data=desempl.educ.sup)
 print(mm)
 abline(mm, col="red")
 
+# =======
+plot(prcnt,   
+     ylim=c(34, max(prcnt)), # <- Rango de valores de interés
+     # El título:
+     main="Incremento en Desempleo\nEduc.Media Sup o Superior",
+     xlab="Trimestres a partir de 2011 (x)",
+     ylab="% del total de desempleados (y)"
+)
+
+
+datos.desempleo <- data.frame(x=1:length(prcnt), y=prcnt)
+mi.formula <- y ~ x
+mi.modelo <- lm(mi.formula, data=datos.desempleo)
+mi.y <- function(x) {
+    y <- mi.modelo$coefficients[1] + mi.modelo$coefficients[2]*x
+    attributes(y) <- NULL
+    return(y)
+}
+
 

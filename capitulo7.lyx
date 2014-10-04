@@ -126,7 +126,7 @@ predictoras
 .
  Además, dado el alcance educacional del presente texto, estos modelos se
  revisarán aquí solamente hasta el punto de su formulación, a partir de
- un conjunto de datos conocidos como 
+ un conjunto de datos, conocidos como 
 \emph on
 observaciones
 \emph default
@@ -138,6 +138,13 @@ observaciones
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wood2006"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chambers91"
 
 \end_inset
 
@@ -169,7 +176,17 @@ reference "fig:Barras-Horizontales"
 , en su segundo gráfico, sugiere que los porcentajes mostrados tienen una
  cierta tendencia creciente con el tiempo.
  Para abundar un poco más sobre este tema y trabajar con esos datos, se
- insertan nuevamente aquí.
+ insertan nuevamente aquí
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Fuente: Sitio del INEGI en Internet: www.inegi.org.mx
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -275,12 +292,12 @@ nEduc.Media Sup o Superior",
 
 \begin_layout Plain Layout
 
-    xlab="Trimestres a partir de 2011",
+    xlab="Trimestres a partir de 2011 (x)",
 \end_layout
 
 \begin_layout Plain Layout
 
-    ylab="% del total de desempleados"
+    ylab="% del total de desempleados (y)"
 \end_layout
 
 \begin_layout Plain Layout
@@ -311,7 +328,7 @@ reference "fig:Gráficos-de-desempleo"
  De ahí se intuye que uno pudiera trazar algún tipo de curva, típicamente
  una recta, que 
 \emph on
-siguiera más o menos el camino trazado por los puntos
+siguiera más o menos el camino trazado o sugerido por los puntos
 \emph default
 , como lo muestran los dos intentos de la Fig.
  
@@ -344,6 +361,13 @@ status open
 \begin_layout Plain Layout
 \align center
 (a)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -382,6 +406,845 @@ Gráficos de desempleo en educación media superior o superior en México
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hasta aquí, aunque nuestro procedimiento, 
+\emph on
+a ojo
+\emph default
+, para encontrar alguna línea que se 
+\emph on
+ajuste
+\emph default
+ a los datos, mismo que se ha mostrado en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-desempleo"
+
+\end_inset
+
+(b), nos da alguna idea 
+\emph on
+más o menos regular
+\emph default
+ de por dónde andaría la línea en cuestión, no es de ninguna manera preciso.
+ Supóngase, sin embargo, que la tal línea ideal existiera; entonces, para
+ cada punto de los datos, se podría calcular la diferencia (
+\emph on
+residuo
+\emph default
+), entre el valor obtenido, en las ordenadas, en dicha línea con la misma
+ abscisa y el del punto.
+ Este valor se ha etiquetado en la figura para uno de los puntos con el
+ símbolo 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ De hecho, el procedimiento para el cálculo de dichos residuos, se puede
+ hacer para cualquier línea que se ocurra contra el conjunto de datos que
+ se tiene.
+ Si se suman los valores cuadrados de dichos residuos, se obtiene un valor
+ asociado a cualquier línea 
+\emph on
+candidata
+\emph default
+ a ajustarse a los datos.
+ La técnica para encontrar de entre todas las líneas candidatas posibles,
+ la 
+\emph on
+mejor
+\emph default
+ u 
+\emph on
+óptima
+\emph default
+, consiste en encontrar aquella cuya suma de residuos cuadrados sea la menor.
+ Esta técnica se conoce con el nombre de regresión lineal por mínimos cuadrados
+ y se puede estudiar a detalle en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+ pp.
+ 394-397 y en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wood2006"
+
+\end_inset
+
+ pp.
+ 3-12.
+ Aquí sólo se utilizarán los resultados de la aplicación de dicho método,
+ que se encuentran ya consignados en el lenguaje.
+ 
+\end_layout
+
+\begin_layout Standard
+En general la ecuación de cualquier recta en el espacio del problema mostrado
+ en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráficos-de-desempleo"
+
+\end_inset
+
+(a), estaría dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=\beta_{0}+\beta_{1}x\label{eq:recta}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde, 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ es conocida como el 
+\emph on
+intersecto
+\emph default
+ o intersección con el eje Y, y 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ es la pendiente o inclinación de la recta.
+ Entonces, el asunto consiste en encontrar los valores de esos coeficientes,
+ 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+, para la línea recta 
+\emph on
+óptima
+\emph default
+, señalada en el párrafo anterior.
+ En R, esta operación se realiza por medio de la función 
+\family typewriter
+lm()
+\family default
+, cuyo uso se describe a continuación con el ejemplo que se ha propuesto
+ al principio de esta sección.
+\end_layout
+
+\begin_layout Standard
+El primer paso consiste en arreglar los datos de una manera adecuada para
+ que la función 
+\family typewriter
+lm()
+\family default
+ los pueda manejar; esto es, se creará un 
+\emph on
+data frame
+\emph default
+, con una columna correspondiente a las abscisas y otra, a las ordenadas,
+ y sólo para usar los nombres de variables que se han empleado en la ecuación
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:recta"
+
+\end_inset
+
+, se nombrarán de igual modo las columnas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<DatosDesempleo, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+datos.desempleo <- data.frame(x=1:length(prcnt), y=prcnt)
+\end_layout
+
+\begin_layout Plain Layout
+
+head(datos.desempleo) # los primeros 6
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo siguiente consiste en establecer la regla de dependencia entre los datos;
+ esto es, hay que definir cuál es la variable de 
+\emph on
+respuesta
+\emph default
+ y cuál o cuáles son las variables 
+\emph on
+predictoras
+\emph default
+.
+ De la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:recta"
+
+\end_inset
+
+, se puede ver que la variable de respuesta es 
+\begin_inset Formula $y$
+\end_inset
+
+, mientras que la única variable predictora es 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ R tiene una manera muy particular de establecer esta relación por medio
+ de la forma sintáctica conocida como una 
+\emph on
+fórmula
+\emph default
+, y que para este caso particular se puede establecer como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<DefFormula, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para decir que 'y' depende de 'x' se
+\end_layout
+
+\begin_layout Plain Layout
+
+# crea una formula:
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.formula <- y ~ x
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, para encontrar el ajuste lineal, se llama a la función lm(),
+ indicando la fórmula y la fuente de los datos que se utilizarán, del siguiente
+ modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<AjusteLineal, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.modelo <- lm(mi.formula, data=datos.desempleo)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora veamos el contenido del modelo:
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.modelo
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El modelo encontrado contiene mucha información interesante desde el punto
+ de vista estadístico y del proceso que se ha llevado a cabo para realizar
+ el ajuste; pero, de momento, nuestro interés está en los coeficientes encontrad
+os y que se han mostrado en la última parte del código anterior, y en la
+ manera que se puede emplear el modelo para predecir algunos valores de
+ la variable de respuesta 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Los coeficientes encontrados, en acuerdo con la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:recta"
+
+\end_inset
+
+, son 
+\begin_inset Formula $\beta_{0}=$
+\end_inset
+
+
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+mi.modelo$coefficients[1]
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{1}=$
+\end_inset
+
+
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+mi.modelo$coefficients[2]
+\end_layout
+
+\end_inset
+
+, y con éstos, la ecuación de la línea recta encontrada sería:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=34.2813+0.3879x
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En R, esta ecuación se puede implementar por medio de una función, extrayendo
+ directamente los valores de los coeficientes del modelo como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<LaEcY, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.y <- function(x) {
+\end_layout
+
+\begin_layout Plain Layout
+
+    y <- mi.modelo$coefficients[1] + mi.modelo$coefficients[2]*x
+\end_layout
+
+\begin_layout Plain Layout
+
+    attributes(y) <- NULL
+\end_layout
+
+\begin_layout Plain Layout
+
+    return(y)
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para saber el valor que "predice" esta ecuación para una
+\end_layout
+
+\begin_layout Plain Layout
+
+# x = 3, correspondiente al 3er trimestre de 2011, se puede
+\end_layout
+
+\begin_layout Plain Layout
+
+# hacer con:
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.y(3)
+\end_layout
+
+\begin_layout Plain Layout
+
+# También se le puede pasar un vector con valores de x, así:
+\end_layout
+
+\begin_layout Plain Layout
+
+mi.y(9:11)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo anterior, sin embargo, no es necesario, ya que el modelo se puede usar
+ directamente para producir las predicciones por medio de la función 
+\family typewriter
+predict()
+\family default
+, como se muestra a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<UsoPredict, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(mi.modelo, newdata=data.frame(x=3), type="response")
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(mi.modelo, newdata=data.frame(x=9:11), type="response")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Si se quisiera predecir cuál sería el porcentaje de desempleados
+\end_layout
+
+\begin_layout Plain Layout
+
+# con educación media-superior o superior para el 4o.
+ trimestre
+\end_layout
+
+\begin_layout Plain Layout
+
+# del año 2015, ello correspondería al trimestre 20 a partir del 
+\end_layout
+
+\begin_layout Plain Layout
+
+# primero de 2011, y se haría el cálculo con:
+\end_layout
+
+\begin_layout Plain Layout
+
+predict(mi.modelo, newdata=data.frame(x=20), type="response")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El modelo que se ha creado, como se ha dicho anteriormente, contiene además
+ información estadística que se puede emplear para evaluar su 
+\emph on
+bondad
+\emph default
+.
+ Aunque aquí, no se entrará a todo el detalle de ella, sí se señalará cómo
+ se puede obtener alguna de esa información, a saber, por medio de la función
+ 
+\family typewriter
+summary()
+\family default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<SummaryModelo, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(mi.modelo)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, para hacer al menos una 
+\emph on
+evalucación visual
+\emph default
+ del modelo, sería interesante producir un gráfico en el que se muestren
+ la línea que representa el modelo junto con los datos que lo originaron.
+ Hay varias formas en las que esto se puede hacer y en seguida se muestran
+ dos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<DatosOriginales, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primeramente se grafican los datos originales, pero, se
+\end_layout
+
+\begin_layout Plain Layout
+
+# extenderá el rango de las X hasta el trimestre 20, para
+\end_layout
+
+\begin_layout Plain Layout
+
+# observar la predicción del último trimestre del 2015:
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(prcnt,   
+\end_layout
+
+\begin_layout Plain Layout
+
+    ylim=c(34, 42.5), # <- Rango de valores de interés
+\end_layout
+
+\begin_layout Plain Layout
+
+    xlim=c(1, 20),          # <- Las x, ahora de 1 a 20
+\end_layout
+
+\begin_layout Plain Layout
+
+    # El título:
+\end_layout
+
+\begin_layout Plain Layout
+
+    main="Incremento en Desempleo
+\backslash
+nEduc.Media Sup o Superior",
+\end_layout
+
+\begin_layout Plain Layout
+
+    xlab="Trimestres a partir de 2011 (x)",
+\end_layout
+
+\begin_layout Plain Layout
+
+    ylab="% del total de desempleados (y)"
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<UsoCoefs, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# PRIMER MÉTODO: la función abline con los 
+\end_layout
+
+\begin_layout Plain Layout
+
+# coeficientes encontrados
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(mi.modelo$coefficients[1], # Intercepto
+\end_layout
+
+\begin_layout Plain Layout
+
+       mi.modelo$coefficients[2], # coef.
+ de x
+\end_layout
+
+\begin_layout Plain Layout
+
+       col="red")                 # color de línea
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<UsoModelo, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# SEGUNDO MÉTODO: Pasando directamente el
+\end_layout
+
+\begin_layout Plain Layout
+
+# modelo a la función abline:
+\end_layout
+
+\begin_layout Plain Layout
+
+abline(mi.modelo, # El modelo
+\end_layout
+
+\begin_layout Plain Layout
+
+       col="red") # color de línea
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cualquiera de estos dos métodos produce el gráfico que se muestra en la
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:El-modelo-lineal"
+
+\end_inset
+
+.
+ En ese gráfico se puede corroborar también el valor predicho para el 20-
+\emph on
+avo
+\emph default
+ trimestre a partir de 2011, es decir, el cuarto trimestre del año 2015,
+ esto es, el 42.04%, calculado con anterioridad.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Grafico00, ref.label=c('DatosOriginales','UsoCoefs'), echo=FALSE, fig.width=4,
+ fig.height=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:El-modelo-lineal"
+
+\end_inset
+
+El modelo lineal encontrado junto con los datos que lo originaron
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En general, una variable de respuesta, puede depender de más de una variable
+ predictora, lo cual podría dar lugar a una ecuación como la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde 
+\begin_inset Formula $y$
+\end_inset
+
+ sería la variable de respuesta y, 
+\begin_inset Formula $x_{1},\ldots,x_{n}$
+\end_inset
+
+ serían las variables predictoras.
+ En este caso, si se suponen, por ejemplo, cuatro variables, la fórmula
+ para establecer el modelo sería algo semejante a lo que se muestra a continuaci
+ón.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<MasDependencias, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+otra.formula <- y ~ x.1 + x.2 + x.3 + x.4
+\end_layout
+
+\begin_layout Plain Layout
+
+# las variables predictoras son:
+\end_layout
+
+\begin_layout Plain Layout
+
+# x.1, x.2, x.3, x.4
+\end_layout
+
+\begin_layout Plain Layout
+
+@
 \end_layout
 
 \end_inset

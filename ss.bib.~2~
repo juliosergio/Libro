@@ -2172,8 +2172,8 @@
 }
 
 @book{Walpole2012,
-	title = {{Probability & Statistics for Engineers & Scientists}
-Engineers & Scientists},
+	title = {Probability \& Statistics for Engineers \& Scientists
+},
 	author = {Ronald E. Walpole and Raymond H. Myers and Sharon L. Myers and Keying Ye},
 	edition = {9th},
 	publisher = {Prentice Hall / Pearson Education, Inc.},

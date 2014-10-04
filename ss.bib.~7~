@@ -492,6 +492,16 @@
 	title = {Diagrammatic representations and how they fit into multimodal perceptual representations and reasoning}
 }
 
+@book{Chang2012,
+	publisher = {O’Reilly Media},
+	author = {Winston Chang},
+	title = {R Graphics Cookbook},
+	edition = {1st},
+	year = {2012},
+	note = {ISBN 978-1-449-31695-2},
+	address = {Sebastopol, CA}
+}
+
 @book{Chapra2010,
 	title = {Numerical methods for engineers},
 	address = {New York, NY},
@@ -1380,6 +1390,16 @@
 	year =  1993,
 	note = {In Spanish},
 	type = {{BSc} Thesis}
+}
+
+@book{Murrell2006,
+	author = {Paul Murrell},
+	series = {Computer Science and Data Analysis Series},
+	publisher = {Chapman \& Hall/CRC},
+	title = {R graphics},
+	year = {2006},
+	address = {London, UK},
+	note = {ISBN 1-58488-486-X}
 }
 
 @proceedings{NCAI91,

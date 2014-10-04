@@ -492,6 +492,16 @@
 	title = {Diagrammatic representations and how they fit into multimodal perceptual representations and reasoning}
 }
 
+@book{Chapra2010,
+	title = {Numerical methods for engineers},
+	address = {New York, NY},
+	year = {2010},
+	note = {ISBN 978–0–07–340106–5},
+	publisher = {McGraw-Hill},
+	author = {Steven C. Chapra and Raymond P. Canale},
+	edition = {6th}
+}
+
 @techreport{Codd78,
 	year =  1978,
 	institution = {IBM Research Laboratory},
@@ -1743,8 +1753,8 @@
 	year = {1995},
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	title = {{\noopsort{09}}{R}esearch proposal},
-	month =  Sep ,
-	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico}
+	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
+	month =  Sep 
 }
 
 @techreport{Santana-13,
@@ -2172,8 +2182,7 @@
 }
 
 @book{Walpole2012,
-	title = {Probability \& Statistics for Engineers \& Scientists
-},
+	title = {Probability \& Statistics for Engineers \& Scientists },
 	author = {Ronald E. Walpole and Raymond H. Myers and Sharon L. Myers and Keying Ye},
 	edition = {9th},
 	publisher = {Prentice Hall / Pearson Education, Inc.},

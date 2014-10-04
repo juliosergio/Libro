@@ -2144,6 +2144,17 @@
 	series = {Studies in machine translation and natural language processing}
 }
 
+@book{Venables2012,
+	address = {New York, NY},
+	author = {W. N. Venables and B. D. Ripley},
+	publisher = {Springer},
+	year = {2002},
+	edition = {4th},
+	note = {ISBN 0-387-95457-0},
+	title = {Modern Applied Statistics with S},
+	url = {http://www.stats.ox.ac.uk/pub/MASS4}
+}
+
 @article{Wahlster86,
 	editor = {G. Ferrari},
 	author = {W. Wahlster and A. Kobsa},

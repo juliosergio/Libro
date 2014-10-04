@@ -493,7 +493,7 @@
 }
 
 @book{Chang2012,
-	publisher = {O\’Reilly Media},
+	publisher = {O'Reilly Media},
 	author = {Winston Chang},
 	title = {R Graphics Cookbook},
 	edition = {1st},

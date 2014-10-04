@@ -6152,7 +6152,15 @@ key "Venables2012"
 
 \end_inset
 
-.
+ y en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+ pp.
+ 307-312.
 \end_layout
 
 \end_inset

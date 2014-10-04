@@ -755,6 +755,14 @@
 	address = {Oxford, U.K.}
 }
 
+@manual{Gilbert2012,
+	note = {R package version 2012.9-1},
+	title = {numDeriv: Accurate Numerical Derivatives},
+	author = {Paul Gilbert and Ravi Varadhan},
+	url = {http://CRAN.R-project.org/package=numDeriv},
+	year = {2012}
+}
+
 @article{Goel97,
 	title = {Design, analogy, and creativity},
 	volume =  12,
