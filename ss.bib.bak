@@ -369,17 +369,6 @@
 	year =  1997 
 }
 
-@article{Broyden65,
-	title = {A Class of Methods for Solving Nonlinear Simultaneous Equations},
-	month = {October},
-	author = {C. G. Broyden},
-	number = {92},
-	year = {1965},
-	journal = {Mathematics of Computation},
-	pages = {577-593},
-	volume = {19}
-}
-
 @incollection{Buchanan81,
 	year =  1981,
 	title = {Dendral and {M}etadendral: their applications dimension},
@@ -1801,8 +1790,8 @@
 	year = {1995},
 	note = {A monthly progress report on the IIE/University of Salford in-house PhD Programme},
 	title = {{\noopsort{09}}{R}esearch proposal},
-	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico},
-	month =  Sep 
+	month =  Sep ,
+	address = {Apdo. 1-475, Cuernavaca, Mor., CP 62001, M\'exico}
 }
 
 @techreport{Santana-13,

@@ -3900,7 +3900,15 @@ distribución
 \end_inset
 
  (c.f.
- ).
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+ p.
+ 90).
  En R, las funciones 
 \family typewriter
 dnorm()
@@ -4775,7 +4783,7 @@ key "Chapra2010"
 \end_inset
 
  pp.
- 169-171.
+ 169-171, .
 \end_layout
 
 \end_inset
@@ -6136,7 +6144,23 @@ status open
 \begin_layout Plain Layout
 El método de máxima similitud es un método que usa técnicas de optimización
  para aproximar una función dada, a un conjunto de datos.
- Los detalles de dicho método escapan los alcances del presente texto.
+ Los detalles de dicho método escapan los alcances del presente texto, pero
+ pueden ser consultados en el libro de referencia 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Venables2012"
+
+\end_inset
+
+ y en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Walpole2012"
+
+\end_inset
+
+ pp.
+ 307-312.
 \end_layout
 
 \end_inset
@@ -6173,7 +6197,11 @@ install.packages("MASS")
 \end_layout
 
 \begin_layout Standard
-La función que hace el ajuste de la curva de acuerdo con los datos es 
+La función que hace el ajuste de la curva de acuerdo con los datos es
+\begin_inset Newline linebreak
+\end_inset
+
+ 
 \family typewriter
 fitdistr()
 \family default
@@ -6413,7 +6441,7 @@ legend("topright",
 
 \begin_layout Plain Layout
 
-       c("Metd parametros", "Metd max simil"),
+       c("Metodo parametros", "Metodo max simil"),
 \end_layout
 
 \begin_layout Plain Layout

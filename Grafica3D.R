@@ -23,3 +23,4 @@ repeat {
         xlab = "X", ylab = "Y", zlab = "z", main=titulo
     ) -> res # Se guarda la transformacion
 }
+dev.off()

@@ -4783,7 +4783,15 @@ key "Chapra2010"
 \end_inset
 
  pp.
- 169-171.
+ 169-171, y una buena explicación de este método también se puede encontrar
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Broyden65"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
