@@ -3379,6 +3379,16 @@ reference "fig:Precipitaciones-promedio-acumula"
 \end_inset
 
 .
+ En una escala de tiempo, estos valores de precipitación se pueden visualizar
+ como se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-las-precipitaciones"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3415,6 +3425,86 @@ Precipitaciones promedio acumuladas en el mes de octubre en el estado de
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GrafPrecip, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.5
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pp <- read.table("PrecipOctGro.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+xtxt = "Años"
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(as.integer(rownames(pp)), pp$Precip, type="h", xlab=xtxt, ylab="Precip")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfico-de-las-precipitaciones"
+
+\end_inset
+
+Gráfico de las precipitaciones mostradas en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Precipitaciones-promedio-acumula"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -3680,11 +3770,11 @@ rompen
 \emph default
  los intervalos de la variable aleatoria.
  En este caso, por ejemplo, los dos primeros intervalos, serían: 
-\begin_inset Formula $20\leq precip<40$
+\begin_inset Formula $20<precip\leq40$
 \end_inset
 
  y 
-\begin_inset Formula $40\leq precip<60$
+\begin_inset Formula $40<precip\leq60$
 \end_inset
 
 .
@@ -4103,8 +4193,8 @@ En R, la función de densidad normal de probabilidades es
 \family typewriter
 dnorm()
 \family default
-, y si se quiere saber su para varias precipitaciones, se puede hacer como
- sigue:
+, y si se quiere saber su valor para varias precipitaciones, se puede hacer
+ como sigue:
 \end_layout
 
 \begin_layout Standard
@@ -4196,8 +4286,8 @@ curve()
 \family default
 .
  Para obtener una buena gráfica de la función de densidad normal de probabilidad
-es, conviene saber que más o menos el rango de valores de las abscisas estará
- entre 
+es, conviene saber que, más o menos, el rango de valores de las abscisas
+ estará entre 
 \begin_inset Formula $\mu-3\sigma$
 \end_inset
 
@@ -4205,7 +4295,7 @@ es, conviene saber que más o menos el rango de valores de las abscisas estará
 \begin_inset Formula $\mu+3\sigma$
 \end_inset
 
- .
+.
  Esos límites se pueden fijar en la función 
 \family typewriter
 curve()
@@ -4783,7 +4873,15 @@ key "Chapra2010"
 \end_inset
 
  pp.
- 169-171.
+ 169-171, y una buena explicación de este método también se puede encontrar
+ en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Broyden65"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
