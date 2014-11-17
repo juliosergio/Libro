@@ -3465,7 +3465,8 @@ xtxt = "Años"
 
 \begin_layout Plain Layout
 
-plot(as.integer(rownames(pp)), pp$Precip, type="h", xlab=xtxt, ylab="Precip")
+plot(as.integer(rownames(pp)), pp$Precip, type="h", col="navyblue", lwd=2,
+ xlab=xtxt, ylab="Precip")
 \end_layout
 
 \begin_layout Plain Layout
@@ -3488,7 +3489,7 @@ name "fig:Gráfico-de-las-precipitaciones"
 
 \end_inset
 
-Gráfico de las precipitaciones mostradas en la Fig.
+Gráfico, serie de tiempo, de las precipitaciones mostradas en la Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref

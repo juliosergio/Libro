@@ -3446,7 +3446,7 @@ status open
 
 \begin_layout Plain Layout
 
-<<GrafPrecip, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.5
+<<GrafPrecip, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.6
 \backslash
 
 \backslash
@@ -3465,7 +3465,8 @@ xtxt = "Años"
 
 \begin_layout Plain Layout
 
-plot(as.integer(rownames(pp)), pp$Precip, type="h", xlab=xtxt, ylab="Precip")
+plot(as.integer(rownames(pp)), pp$Precip, type="h", col="navyblue", lwd=2,
+ xlab=xtxt, ylab="Precip")
 \end_layout
 
 \begin_layout Plain Layout

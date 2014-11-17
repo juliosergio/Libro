@@ -3381,7 +3381,14 @@ reference "fig:Precipitaciones-promedio-acumula"
 .
  En una escala de tiempo, estos valores de precipitación se pueden visualizar
  como se muestra en la Fig.
- .
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Gráfico-de-las-precipitaciones"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3433,6 +3440,42 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GrafPrecip, echo=FALSE, fig.width=4, fig.height=4, fig.show='hold', out.width='.6
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+pp <- read.table("PrecipOctGro.txt")
+\end_layout
+
+\begin_layout Plain Layout
+
+xtxt = "Años"
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(as.integer(rownames(pp)), pp$Precip, type="h", col="navybluexlab=xtxt,
+ ylab="Precip")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -3440,6 +3483,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Gráfico-de-las-precipitaciones"
+
+\end_inset
+
 Gráfico de las precipitaciones mostradas en la Fig.
  
 \begin_inset CommandInset ref
@@ -3467,6 +3516,9 @@ reference "fig:Precipitaciones-promedio-acumula"
 
 \begin_layout Standard
 Un histograma es una representación gráfica de la frecuencia con que ocurren
+\begin_inset Quotes erd
+\end_inset
+
  los valores, categorizados como intervalos, de alguna variable aleatoria.
  Por ejemplo, en la tabla de la Fig.
  
