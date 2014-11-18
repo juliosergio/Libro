@@ -102,35 +102,7 @@ options('width')
 \end_layout
 
 \begin_layout Section
-El arte de programar en R
-\end_layout
-
-\begin_layout Standard
-Un artista, típicamente un pintor, tiene en sus manos un conjunto de recursos
- artísticos: materiales y herramentales, que al combinarlos de acuerdo con
- su sensibilidad y habilidades, transforma en una obra de arte, estéticamente
- atractiva o repulsiva a sus destinatarios.
- Aunque esencialmente tecnológica, en el caso de la programación, el programador
- o programadora juega ese mismo papel: los distintos ambientes de programación
- ponen delante de él/ella un conjunto de recursos que de acuerdo con sus
- conocimientos, habilidades y sensibilidades, combinará para producir obras:
- programas y sistemas, que, en la superficie, serán funcionales o no funcionales
-; pero que, a un nivel más profundo, podrían también ser juzgadas como estéticam
-ente atractivas o repulsivas.
- Uno de los factores que más decisivamente influyen en el 
-\emph on
-cómo
-\emph default
- un creador combina los elementos a su mano, es el gusto y la pasión que
- imprime en su tarea.
- Por consiguiente, si de la lectura de este texto se logra encender en ti,
- querid@ lector@, una pasión que te lleve a producir verdaderas obras de
- arte, los autores estaremos más que satisfechos por haber cumplido el propósito
- de esta obra.
-\end_layout
-
-\begin_layout Section
-¿Que es R?
+¿Qué es R?
 \end_layout
 
 \begin_layout Standard
@@ -176,7 +148,17 @@ Desde la codificación del lenguaje S, lenguaje progenitor de R, como se
 
 \end_inset
 
-, como lo explica John Chambers, cito: 
+, como lo explica John Chambers (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chambers91"
+
+\end_inset
+
+), cito: 
+\end_layout
+
+\begin_layout Quotation
 \begin_inset Quotes eld
 \end_inset
 
@@ -188,12 +170,15 @@ Buscamos que los usuarios puedan iniciar en un entorno interactivo, en el
  deberían gradualmente poder profundizar en la programación, es cuando los
  aspectos del lenguaje y el sistema se vuelven más importantes
 \emph default
-
+.
 \begin_inset Quotes erd
 \end_inset
 
-.
- Por esta razón, en lugar de pensar de R como un sistema estadístico, es
+ 
+\end_layout
+
+\begin_layout Standard
+Por esta razón, en lugar de pensar de R como un sistema estadístico, es
  preferible verlo como un ambiente en el que se aplican técnicas estadísticas.
  Por ejemplo, en este libro nos inclinaremos hacia el lado de la programación
  (lenguaje) más que tocar los aspectos estadísticos.
@@ -206,13 +191,21 @@ Historia de R y S
 \end_layout
 
 \begin_layout Standard
-R fue creado en 1992 en Nueva Zelanda por Ross Ihaka y Robert Gentleman.
+R fue creado en 1992 en Nueva Zelanda por Ross Ihaka y Robert Gentleman
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ihaka98"
+
+\end_inset
+
+).
  La intención inicial con R, era hacer un lenguaje didáctico, para ser utilizado
  en el curso de Introducción a la Estadística de la Universidad de Nueva
  Zelanda.
  Para ello decidieron adoptar la sintaxis del lenguaje S desarrollado por
  Bell Laboratories.
- Como consecuencia, la sintaxis es similar al lenguaje S, pero la semántica
+ Como consecuencia, la sintaxis es similar al lenguaje S, pero la semántica,
  que aparentemente es parecida a la de S, en realidad es sensiblemente diferente
 , sobre todo en los detalles un poco más profundos de la programación.
  
@@ -288,19 +281,23 @@ Insightful
 \end_layout
 
 \begin_layout Standard
-Regresando a R, luego de la creación de R (en 1992) dan un primer anuncio
- al público del software R en 1993.
+Regresemos ahora al lenguaje que nos ocupa: R.
+ Luego de la creación de R (en 1992), se da un primer anuncio al público
+ del software R en 1993.
  En el año de 1995 Martin Mächler, de la Escuela Politécnica Federal de
- Zúrich, convence a Ross y Robert a usar la Licencia GNU para hacer a R
+ Zúrich, convence a Ross y Robert a usar la Licencia GNU para hacer de R
  un software libre.
- A partir de 1997, R forma parte del proyecto GNU.
+ Como consecuencia, a partir de 1997, R forma parte del proyecto GNU.
 \end_layout
 
 \begin_layout Standard
-En 1996 se crea una lista pública de correos, sin embargo debido al gran
- éxito de R, los creadores fueron rebasados por la continua llegada de correos.
- Por lo que tuvieron que crear, en 1997, 2 listas de correos R-help y R-devel,
- que son las que actualmente funcionan.
+Con el propósito de crear algún tipo de soporte para el lenguaje, en 1996
+ se crea una lista pública de correos; sin embargo debido al gran éxito
+ de R, los creadores fueron rebasados por la continua llegada de correos.
+ Por esta razón, se vieron en la necesidad de crear, en 1997, dos listas
+ de correos, a saber: R-help y R-devel, que son las que actualmente funcionan
+ para responder las diversas dudas que los usuarios proponen en muy diversos
+ asuntos relativos al lenguaje.
  Además se consolida el grupo núcleo de R,donde se involucran personas asociadas
  con S-PLUS, con la finalidad de administrar el código fuente de R.
 \end_layout
@@ -333,7 +330,14 @@ Con el propósito de facilitar la lectura del presente texto, el código del
 \emph on
 software
 \emph default
- knitr, gentilmente creado por Yihui Xie
+ knitr, gentilmente creado por 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xie2013"
+
+\end_inset
+
+
 \begin_inset Foot
 status open
 
@@ -541,7 +545,7 @@ Formato común de sistemas de información geográfica (GIS), introducido por
 \emph on
 software
 \emph default
- ArcGIS.
+ comercial ArcGIS.
 \end_layout
 
 \end_inset
@@ -670,12 +674,71 @@ help()
 \family default
 .
  En ambos casos el resultado es el mismo.
+ Un fragmento de la salida de ayuda que ofrece el sistema para ese tema
+ (
+\family typewriter
+lm
+\family default
+) se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:El-sistema-de-ayuda"
+
+\end_inset
+
+.
  Aparte de esto, el lenguaje omite interpretar, en un renglón, cualquier
  texto que siga al símbolo 
 \family typewriter
 '#'
 \family default
 ; esta es la provisión del lenguaje para incorporar comentarios en el código.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename UnHelp.png
+	lyxscale 60
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:El-sistema-de-ayuda"
+
+\end_inset
+
+El sistema de ayuda del lenguaje R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

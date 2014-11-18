@@ -143,6 +143,13 @@ LatexCommand tableofcontents
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "prologo.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
 filename "capitulo1.lyx"
 
 \end_inset

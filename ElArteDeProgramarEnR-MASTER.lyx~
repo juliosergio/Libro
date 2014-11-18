@@ -143,6 +143,13 @@ LatexCommand tableofcontents
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "prologo.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
 filename "capitulo1.lyx"
 
 \end_inset
@@ -214,7 +221,7 @@ filename "capitulo7.lyx"
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "ss"
-options "plainnat"
+options "bibtotoc,plainnat"
 
 \end_inset
 
