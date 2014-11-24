@@ -1805,12 +1805,42 @@ abline(mod.recta) # va en negro, el default
 
 \begin_layout Plain Layout
 
+# ---------------
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pondremos una leyenda apropiada para identificar
+\end_layout
+
+\begin_layout Plain Layout
+
+# los objetos en el gráfico:
+\end_layout
+
+\begin_layout Plain Layout
+
 legend(
 \end_layout
 
 \begin_layout Plain Layout
 
-   "
+   "bottomleft", # Donde va la leyenda
+\end_layout
+
+\begin_layout Plain Layout
+
+   legend=c("modelo parabola", "modelo recta"), # textos
+\end_layout
+
+\begin_layout Plain Layout
+
+   lwd=c(2,1), # anchos de línea
+\end_layout
+
+\begin_layout Plain Layout
+
+   col=c("blue", "black") # colores para cada modelo
 \end_layout
 
 \begin_layout Plain Layout
@@ -1897,6 +1927,57 @@ Dos modelos estadísticos ajustados con un mismo conjunto de datos
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Modelos lineales generalizados
+\end_layout
+
+\begin_layout Standard
+En los modelos que se han revisado en la sección anterior, se parte de la
+ suposición de que la distribución de los residuos tiene una distribución
+ normal, por lo menos de manera aproximada.
+ Los residuos son la diferencia entre el valor observado y el valor obtenido
+ por el modelo.
+ Por otra parte, la variable aleatoria que se ha observado es continua y
+ puede tomar cualesquiera valores.
+ En muchos problemas, sin embargo, la variable de respuesta que se desea
+ modelar no obedece a dichas características.
+ Pensemos, por ejemplo, en variables que pudieran tener una repuesta binaria:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+infectado
+\begin_inset Quotes erd
+\end_inset
+
+ o 
+\begin_inset Quotes eld
+\end_inset
+
+no infectado
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+aprobado
+\begin_inset Quotes erd
+\end_inset
+
+ o 
+\begin_inset Quotes eld
+\end_inset
+
+reprobado
+\begin_inset Quotes erd
+\end_inset
+
+, etc.
+ Por supuesto que est t
 \end_layout
 
 \end_body

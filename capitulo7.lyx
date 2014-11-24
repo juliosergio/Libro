@@ -1929,5 +1929,57 @@ Dos modelos estadísticos ajustados con un mismo conjunto de datos
 
 \end_layout
 
+\begin_layout Section
+Modelos lineales generalizados
+\end_layout
+
+\begin_layout Standard
+En los modelos que se han revisado en la sección anterior, se parte de la
+ suposición de que la distribución de los residuos tiene una distribución
+ normal, por lo menos de manera aproximada.
+ Los residuos son la diferencia entre el valor observado y el valor obtenido
+ por el modelo.
+ Por otra parte, la variable aleatoria que se ha observado es continua y
+ puede tomar cualesquiera valores.
+ En muchos problemas, sin embargo, la variable de respuesta que se desea
+ modelar no obedece a dichas características.
+ Pensemos, por ejemplo, en variables que pudieran tener una repuesta binaria:
+ 
+\begin_inset Quotes eld
+\end_inset
+
+infectado
+\begin_inset Quotes erd
+\end_inset
+
+ o 
+\begin_inset Quotes eld
+\end_inset
+
+no infectado
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+aprobado
+\begin_inset Quotes erd
+\end_inset
+
+ o 
+\begin_inset Quotes eld
+\end_inset
+
+reprobado
+\begin_inset Quotes erd
+\end_inset
+
+, etc.
+ Por supuesto que este tipo de variables no tienen una distribución normal.
+ 
+\end_layout
+
 \end_body
 \end_document

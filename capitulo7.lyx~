@@ -1805,6 +1805,11 @@ abline(mod.recta) # va en negro, el default
 
 \begin_layout Plain Layout
 
+# ---------------
+\end_layout
+
+\begin_layout Plain Layout
+
 # Pondremos una leyenda apropiada para identificar
 \end_layout
 
@@ -1922,6 +1927,14 @@ Dos modelos estadísticos ajustados con un mismo conjunto de datos
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Modelos lineales generalizados
+\end_layout
+
+\begin_layout Standard
+En los modelos que se han revisado en las secciones anteriores, 
 \end_layout
 
 \end_body
