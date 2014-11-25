@@ -612,6 +612,10 @@ respuesta
 \emph on
 predictoras
 \emph default
+ o 
+\emph on
+de estímulo
+\emph default
 .
  De la ecuación 
 \begin_inset CommandInset ref
@@ -969,7 +973,7 @@ summary(mi.modelo)
 \begin_layout Standard
 Finalmente, para hacer al menos una 
 \emph on
-evalucación visual
+evaluación visual
 \emph default
  del modelo, sería interesante producir un gráfico en el que se muestren
  la línea que representa el modelo junto con los datos que lo originaron.
@@ -1035,7 +1039,17 @@ nEduc.Media Sup o Superior",
 
 \begin_layout Plain Layout
 
-    ylab="% del total de desempleados (y)"
+    ylab="% del total de desempleados (y)",
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Características para el desplegado:
+\end_layout
+
+\begin_layout Plain Layout
+
+    pch=16, col="red"
 \end_layout
 
 \begin_layout Plain Layout
@@ -1090,7 +1104,7 @@ abline(mi.modelo$coefficients[1], # Intercepto
 
 \begin_layout Plain Layout
 
-       col="red")                 # color de línea
+       col="blue")                 # color de línea
 \end_layout
 
 \begin_layout Plain Layout
@@ -1134,7 +1148,7 @@ abline(mi.modelo, # El modelo
 
 \begin_layout Plain Layout
 
-       col="red") # color de línea
+       col="blue") # color de línea
 \end_layout
 
 \begin_layout Plain Layout
@@ -1536,10 +1550,10 @@ s.
 \family typewriter
 -
 \family default
-', se usa para eliminar téminos.
+', se usa para eliminar términos.
  Si lo que se quiere es introducir expresiones en las que los operadores
- aneriores tengan su significado usal, ellas deben estar encerradas en el
- constructor sintáctico 
+ anteriores tengan su significado usual, ellas deben estar encerradas en
+ el constructor sintáctico 
 \family typewriter
 I( )
 \family default
@@ -1977,7 +1991,744 @@ reprobado
 \end_inset
 
 , etc.
- Por supuesto que est t
+ Por supuesto que este tipo de variables no tienen una distribución normal.
+ 
+\end_layout
+
+\begin_layout Standard
+Antes de entrar en la materia de los modelos lineales generalizados, daremos
+ un poco de formalidad a los modelos lineales revisados en la sección anterior.
+ 
+\end_layout
+
+\begin_layout Standard
+En las figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:El-modelo-lineal"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dos-modelos-estadísticos"
+
+\end_inset
+
+ se muestran tanto los datos 
+\emph on
+experimentales
+\emph default
+, en 
+\color red
+rojo
+\color inherit
+, como las 
+\emph on
+curvas
+\emph default
+ resultantes del ajuste, en 
+\color blue
+azul
+\color inherit
+.
+ En ambos casos, la curva o línea 
+\color blue
+azul
+\color inherit
+ representa la media, 
+\begin_inset Formula $\mu$
+\end_inset
+
+, de la variable aleatoria, 
+\emph on
+Y
+\emph default
+, y, por consiguiente, cada uno de los valores de la variable se podría
+ expresar como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\mu+\varepsilon_{i}=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}+\varepsilon_{i}\label{eq:formal-lineal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde, en la terminología de los modelos estadísticos, los 
+\begin_inset Formula $\varepsilon_{i}$
+\end_inset
+
+ son conocidos como los 
+\emph on
+residuos
+\emph default
+ del modelo
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Son precisamente estos residuos los que se presupone, como se dijo anteriormente
+, obedecen a una distribución normal de probabilidades.
+\end_layout
+
+\end_inset
+
+.
+ Si se eliminan éstos de la ecuación anterior, se tiene que la media es
+ el objeto o variable que está definida por la expresión lineal, como se
+ muestra:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mu=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}\label{eq:media-lineal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los modelos lineales generalizados parten de una expresión semejante a la
+ anterior.
+ Pensemos por un momento que dicha expresión no es la media, sino una variable
+ cualquiera, 
+\begin_inset Formula $\eta$
+\end_inset
+
+, que depende linealmente de las variables predictoras, así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\eta=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}\label{eq:eta-lineal}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ahora se piensa que de alguna manera la variable aleatoria, 
+\emph on
+Y
+\emph default
+, y por consiguiente su media, 
+\begin_inset Formula $\mu$
+\end_inset
+
+, dependen de 
+\begin_inset Formula $\eta$
+\end_inset
+
+, que se conoce como el 
+\emph on
+predictor lineal
+\emph default
+, eso se puede expresar de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+\mu=m(\eta), & \eta=m^{-1}(\mu)=\ell(\mu)\end{array}\label{eq:link-f}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aquí, 
+\begin_inset Formula $\ell$
+\end_inset
+
+ se conoce como la función de liga, o 
+\emph on
+link
+\emph default
+, ya que es la que establece una liga entre el predictor lineal, 
+\begin_inset Formula $\eta$
+\end_inset
+
+, y la media real de la variable aleatoria, 
+\emph on
+Y
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Por su parte, la variable aleatoria, 
+\emph on
+Y
+\emph default
+, se supone con una distribución perteneciente a la familia de las distribucione
+s exponenciales, entre las que se encuentran: la Normal, la Gamma, la Binomial,
+ la Poisson, y algunas otras más.
+\end_layout
+
+\begin_layout Standard
+Para revisar este tipo de modelos estadísticos, se propone aquí un ejemplo
+ en el terreno de lo que se conoce como 
+\emph on
+regresión logística
+\emph default
+ (
+\emph on
+logit
+\emph default
+).
+\end_layout
+
+\begin_layout Subsection
+Ejemplo de regresión logística
+\end_layout
+
+\begin_layout Standard
+\noindent
+Considérese el siguiente caso: 
+\end_layout
+
+\begin_layout Standard
+En un sistema escolar se han diseñado cursos remediales de diversa extensión
+ en horas de curso.
+ Los cursos se aplicaron en un programa piloto a nueve grupos de estudiantes
+ previamente reprobados durante los cursos normales del sistema.
+ Los resultados del programa piloto se muestran en la tabla del cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horas-curso 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Grupo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aprobados
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Proporción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.8 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.286
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.5 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.474 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.857
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47.3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+53.6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.95
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Caso-de-los"
+
+\end_inset
+
+Caso de los estudiantes en programa piloto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este ejemplo, lo primero que resalta es que el resultado importante se
+ expresa en términos binarios, esto es, como 
+\emph on
+aprobado
+\emph default
+ o 
+\emph on
+no-aprobado
+\emph default
+, que, en la terminología de las distribuciones de probabilidades que manejan
+ este tipo de resultados, se traduce como 
+\emph on
+éxito
+\emph default
+ o 
+\emph on
+fracaso
+\emph default
+ de la prueba.
+ Aquí pues, lo interesante es modelar la 
+\emph on
+probabilidad
+\emph default
+ de éxito o fracaso en función de un conjunto de variables predictoras,
+ que para el ejemplo se podría reducir a la única variable 
+\emph on
+horas-invertidas-en-el-curso
+\emph default
+, representada por la columna 
+\emph on
+Horas-curso
+\emph default
+ en la tabla del cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+.
+ La probabilidad, sin embargo, tiene un valor que fluctúa entre 0 y 1, mientras
+ que los modelos estadísticos lineales, revisados en la primera sección
+ de este capítulo, están diseñados de tal manera que las variables de respuesta
+ pueden tomar valores en todo el rango de los números reales.
+ Es aquí, justamente donde la útilidad de la definición de una función de
+ liga, introducida en la fórmula de la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:link-f"
+
+\end_inset
+
+, se manifiesta, ya que ella establecerá una transformación entre un espacio
+ y el otro.
+ 
+\end_layout
+
+\begin_layout Standard
+Para abordar este tema, se recurre primeramente a la noción de la esperanza
+ matemática condicional.
+ En general, la esperanza matemática de una variable aleatoria se traduce
+ en la media de la variable; esto es, 
+\begin_inset Formula $E(Y)=\mu$
+\end_inset
+
+.
+ Por otra parte, la esperanza condicional, denotada como 
+\begin_inset Formula $E(Y|X)$
+\end_inset
+
+, es la esperanza de 
+\emph on
+Y
+\emph default
+ dado que ocurrió 
+\emph on
+X
+\emph default
+, donde, para el caso de los modelos lineales 
+\emph on
+X
+\emph default
+ podría representar 
 \end_layout
 
 \end_body
