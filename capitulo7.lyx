@@ -2724,16 +2724,425 @@ Y
 \emph on
 X
 \emph default
-, donde, para los modelos lineales, vistos anteriormente, 
+, donde, para los modelos lineales vistos anteriormente, 
 \emph on
 X
 \emph default
  podría representar el conjunto de las variables predictoras, en cuyo caso
- se tendría, 
+ se tendría que 
 \begin_inset Formula $E(Y|X)=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}$
 \end_inset
 
 .
+ Ahora bien, si 
+\emph on
+Y
+\emph default
+ es una variable aleatoria binaria que solamente toma los valores 1 o 0,
+ la expresión para la esperanza matemática condicional estaría dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E(Y|X)=Pr(Y=1|X)=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Así, la meta es modelar la probabilidad de éxito (
+\emph on
+Y
+\emph default
+=1), dado 
+\emph on
+X
+\emph default
+, el conjunto de variables predictoras.
+ En el caso particular del ejemplo propuesto, sólo hay una variable predictora,
+ a saber, las 
+\emph on
+Horas-curso
+\emph default
+; esto es, la variable 
+\emph on
+x
+\emph default
+, denotará el número de horas invertidas en el curso.
+ De la tabla provista en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+, se puede observar que la proporción de éxito (número de estudiantes aprobados)
+, en general, tiende a aumentar a medida que se incrementa el número de
+ horas en invertidas en el curso.
+\end_layout
+
+\begin_layout Standard
+Para analizar el problema, consideremos cualquier renglón de la tabla de
+ datos, digamos el tercero.
+ Aquí, al asistir a 28.1 horas de curso, de 21 estudiantes que conformaban
+ el grupo, 6 resultaron aprobados.
+ La modelación de este tipo de resultados, se hace mediante la distribución
+ de probabilidades 
+\emph on
+binomial
+\emph default
+.
+ En este tipo de distribución, un experimento consiste de 
+\emph on
+n
+\emph default
+ pruebas o ensayos independientes, cada uno de los cuales tiene dos resultados
+ posibles: 
+\emph on
+éxito
+\emph default
+ (1) o 
+\emph on
+fracaso
+\emph default
+ (0), y la probabilidad de éxito, 
+\emph on
+p
+\emph default
+, en cada prueba permanece constante.
+ Para el renglón que estamos considerando, 
+\begin_inset Formula $n=21$
+\end_inset
+
+, y la 
+\emph on
+frecuencia
+\emph default
+ de éxitos se puede tomar como la probabilidad, así, 
+\begin_inset Formula $p=6/21=0.286$
+\end_inset
+
+.
+ En estas condiciones la función de probabilidad binomial, en general y
+ en particular para este caso, está dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+Pr(y=k)=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}(1-p)^{n-k}\\
+\\
+Pr(y=k)=\left(\begin{array}{c}
+21\\
+k
+\end{array}\right)0.286^{k}(1-0.286)^{21-k}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde 
+\begin_inset Formula $\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)=\frac{n!}{k!(n-k)!}$
+\end_inset
+
+, se refiere a las combinaciones de 
+\emph on
+n
+\emph default
+ en 
+\emph on
+k
+\emph default
+; esto es, 
+\emph on
+n
+\emph default
+ elementos tomados de 
+\emph on
+k
+\emph default
+ en 
+\emph on
+k
+\emph default
+, y donde además 
+\begin_inset Formula $k=0,1,\ldots21$
+\end_inset
+
+.
+ En R, la función binomial de probabilidades se calcula con la función 
+\family typewriter
+dbinom()
+\family default
+.
+ Como un ejemplo ilustrativo, incluimos aquí el código que permite hacer
+ un gráfico de las probabilidades para los datos del tercer renglón de la
+ tabla mostrada en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+, y cuyo resultado se muestra en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Función-de-probabilidades"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<binomial0, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Creador de funciones de probabilidades binomiales 
+\end_layout
+
+\begin_layout Plain Layout
+
+creaFBinom <- function(n,p) function(k) dbinom(k, n, p) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para el caso del ejemplo:
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- 21
+\end_layout
+
+\begin_layout Plain Layout
+
+p <- 6/21 # frecuencia aprox= probabilidad
+\end_layout
+
+\begin_layout Plain Layout
+
+ffb <- creaFBinom(n, p)
+\end_layout
+
+\begin_layout Plain Layout
+
+# ffb(k) sería la función binomial para una k dada
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ para el caso de todas las k de nuestro interés:
+\end_layout
+
+\begin_layout Plain Layout
+
+k <- 0:n # Esto es: 0,1,..,21
+\end_layout
+
+\begin_layout Plain Layout
+
+# Para este caso las probablididades son:
+\end_layout
+
+\begin_layout Plain Layout
+
+ffb(k)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Y la media (esperanza matemática) está dada por 
+\end_layout
+
+\begin_layout Plain Layout
+
+# la suma de los productos de cada valor por su 
+\end_layout
+
+\begin_layout Plain Layout
+
+# respectiva probabilidad, esto es:
+\end_layout
+
+\begin_layout Plain Layout
+
+(media <- sum(k*ffb(k)))
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ y la probabilidad asociada a este valor es:
+\end_layout
+
+\begin_layout Plain Layout
+
+ffb(media)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<binomial, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora procedemos a graficar esto con:
+\end_layout
+
+\begin_layout Plain Layout
+
+barplot(ffb(k), names.arg=k, xlab="k", ylab="Pr(k)") 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<binomial1, ref.label='binomial', echo=FALSE, fig.width=4, fig.height=4, fig.show='
+hold', out.width='.72
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Función-de-probabilidades"
+
+\end_inset
+
+Función de probabilidades binomial: 
+\begin_inset Formula $n=21,p=6/21$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El significado tanto de la fórmula, como del gráfico presentado en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Función-de-probabilidades"
+
+\end_inset
+
+ es que la altura de cada barra representa la probabilidad de que 
+\emph on
+k
+\emph default
+ estudiantes (el valor de 
+\emph on
+k
+\emph default
+ correspondiente a la barra), de los 21 que conforman el grupo, salieran
+ aprobados en el programa piloto.
+ No es una sorpresa que justamente de acuerdo con la función, 
+\begin_inset Formula $k=6$
+\end_inset
+
+, representa la media de la variable, y tiene una probabilidad de 0.1898.
+\end_layout
+
+\begin_layout Standard
+Ahora bien, cada renglón de la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+, tiene su propia función de probabilidades binomial y su propia representación
+ gráfica como la mostrada en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Función-de-probabilidades"
+
+\end_inset
+
+.
+ Los valores de estas probabilidades, sin embargo, como se ha dicho antes,
+ fluctúan entre 0 y 1.
+ Se requiere por tanto de funciones que mapeen de dominio todos los números
+ reales a los valores comprendidos en el intervalo entre 0 y 1, y viceversa.
  
 \end_layout
 
