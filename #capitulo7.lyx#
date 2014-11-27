@@ -64,6 +64,12 @@ knitr
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Ajuste-con-modelos"
+
+\end_inset
+
 Ajuste con modelos estadísticos
 \end_layout
 
@@ -2229,8 +2235,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="4">
+<lyxtabular version="3" rows="10" columns="5">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -2240,7 +2247,16 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Horas-curso 
+ID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horas-curso
 \end_layout
 
 \end_inset
@@ -2274,6 +2290,15 @@ Proporción
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
@@ -2316,6 +2341,15 @@ Proporción
 \begin_inset Text
 
 \begin_layout Plain Layout
+B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 21.8 
 \end_layout
 
@@ -2350,6 +2384,15 @@ Proporción
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -2392,6 +2435,15 @@ Proporción
 \begin_inset Text
 
 \begin_layout Plain Layout
+D
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 34.5 
 \end_layout
 
@@ -2426,6 +2478,15 @@ Proporción
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -2468,6 +2529,15 @@ Proporción
 \begin_inset Text
 
 \begin_layout Plain Layout
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 40.9
 \end_layout
 
@@ -2502,6 +2572,15 @@ Proporción
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+G
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
@@ -2544,6 +2623,15 @@ Proporción
 \begin_inset Text
 
 \begin_layout Plain Layout
+H
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 53.6
 \end_layout
 
@@ -2578,6 +2666,15 @@ Proporción
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
@@ -2690,7 +2787,7 @@ reference "tab:Caso-de-los"
  que los modelos estadísticos lineales, revisados en la primera sección
  de este capítulo, están diseñados de tal manera que las variables de respuesta
  pueden tomar valores en todo el rango de los números reales.
- Es aquí, justamente donde la útilidad de la definición de una función de
+ Es aquí, justamente donde la utilidad de la definición de una función de
  liga, introducida en la fórmula de la ecuación 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2734,7 +2831,11 @@ X
 \end_inset
 
 .
- Ahora bien, si 
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora bien, si 
 \emph on
 Y
 \emph default
@@ -2745,7 +2846,7 @@ Y
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-E(Y|X)=Pr(Y=1|X)=\beta_{0}+\beta_{1}x_{1}+\ldots+\beta_{n}x_{n}
+E(Y|X)=Pr(Y=1|X)
 \end{equation}
 
 \end_inset
@@ -2844,7 +2945,7 @@ Pr(y=k)=\left(\begin{array}{c}
 21\\
 k
 \end{array}\right)0.286^{k}(1-0.286)^{21-k}
-\end{array}
+\end{array}\label{eq:binomiales}
 \end{equation}
 
 \end_inset
@@ -3139,16 +3240,922 @@ reference "fig:Función-de-probabilidades"
 \end_inset
 
 .
- Los valores de estas probabilidades, sin embargo, como se ha dicho antes,
- fluctúan entre 0 y 1.
- Se requiere por tanto una función que tenga como dominio todos los números
- reales, y como rango los valores comprendidos en el intervalo entre 0 y
- 1.
- Una de las funciones que sirven bien a este propósito es la función 
+ Esto es, básicamente, en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:binomiales"
+
+\end_inset
+
+, el parámetro 
 \emph on
-logit(x)
+p
 \emph default
-, definida de la siguiente manera:
+ (probabilidad de éxito) dependería del 
+\emph on
+renglón
+\emph default
+ de la tabla que se quisiera modelar, y éste, a su vez, identifica el caso
+ del número de horas invertidas en el curso, que es, para el ejemplo, la
+ única variable predictora, llamémosle 
+\emph on
+x
+\emph default
+, que se usará.
+ En otras palabras 
+\begin_inset Formula $p=p(x)$
+\end_inset
+
+, con lo que la expresión citada sería semejante a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Pr(y=k)=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p(x)^{k}(1-p(x))^{n-k}\label{eq:binomial-x}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por otra parte, todos los valores de estas probabilidades, como se ha dicho
+ antes, fluctúan entre 0 y 1.
+ Se requiere por tanto de funciones que mapeen del dominio de todos los
+ números reales, a los valores comprendidos en el intervalo entre 0 y 1,
+ y viceversa.
+ Unas funciones que sirven a este propósito y que son ampliamente usadas,
+ son la función 
+\emph on
+logistica
+\emph default
+ y su inversa, la función 
+\emph on
+logit
+\emph default
+, cuyas definiciones respectivas se muestran a continuación, y cuyos gráficos
+ se muestran en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Las-funciones-logistica"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+logistic(t)=\frac{e^{t}}{1+e^{t}}=\frac{1}{1+e^{-t}}\label{eq:logistic}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+logit(r)=log\left(\frac{r}{1-r}\right)=log(r)-log(1-r)=-log\left(\frac{1}{r}-1\right)\label{eq:logit}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<logits, echo=FALSE, fig.width=8, fig.height=4, fig.show='hold', out.width='.97
+\backslash
+
+\backslash
+linewidth'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ppar <- par(mfrow=c(1,2))
+\end_layout
+
+\begin_layout Plain Layout
+
+library(boot) 
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(inv.logit, col="blue", ylim=c(0,1), xlim=c(-6,6), ylab="logistic(x)")
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(logit, col="blue", xlim=c(0,1), ylim=c(-6,6))
+\end_layout
+
+\begin_layout Plain Layout
+
+par(ppar)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Las-funciones-logistica"
+
+\end_inset
+
+Las funciones 
+\emph on
+logistica
+\emph default
+ y su inversa 
+\emph on
+logit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+¿Cómo intervienen estas expresiones en el tema? Primeramente observemos
+ en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:binomial-x"
+
+\end_inset
+
+ que la probabilidad 
+\emph on
+p
+\emph default
+ depende de 
+\emph on
+x
+\emph default
+.
+ Pero, mientras que la variable 
+\emph on
+x
+\emph default
+ toma valores 
+\emph on
+arbitrarios
+\emph default
+ en el espacio de los números reales, por ejemplo 15.5, 21.8, 28.1, etc., 
+\emph on
+p(x)
+\emph default
+ toma valores entre 0 y 1, de modo que se necesita realizar un mapeo del
+ tipo establecido por la funcion 
+\emph on
+logística
+\emph default
+ de la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logistic"
+
+\end_inset
+
+.
+ En efecto, el mapeo en cuestión es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+p(x)=logistic(\beta_{0}+\beta_{1}x)=\frac{e^{\beta_{0}+\beta_{1}x}}{1+e^{\beta_{0}+\beta_{1}x}}\label{eq:logistic-px}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+y, manipulando algebráicamente la ecuación se puede llegar a:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+log\left(\frac{p(x)}{1-p(x)}\right)=\beta_{0}+\beta_{1}x\\
+\\
+logit\left(p(x)\right)=\beta_{0}+\beta_{1}x
+\end{array}\label{eq:logit-px}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En esta expresión, el cociente 
+\begin_inset Formula $\frac{p(x)}{1-p(x)}$
+\end_inset
+
+ se conoce como la 
+\emph on
+razón de oportunidades
+\emph default
+ o 
+\emph on
+momios
+\emph default
+ de 
+\emph on
+p
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En inglés 
+\emph on
+odds ratio
+\emph default
+.
+\end_layout
+
+\end_inset
+
+, y es la probabilidad de éxito dividido entre la probabilidad de fracaso
+ de una cierta prueba.
+ Nótese además que el lado derecho en las dos expresiones de la ecuación
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logit-px"
+
+\end_inset
+
+ corresponde al predictor lineal que se persigue, y así, 
+\begin_inset Formula $logit\left(p(x)\right)$
+\end_inset
+
+, se constituye en la función de liga para el caso.
+\end_layout
+
+\begin_layout Standard
+El problema ahora consiste en encontrar 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ a partir de expresiones como las mostradas en las ecuaciones 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:binomial-x"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logistic-px"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logit-px"
+
+\end_inset
+
+, y se resuelve por medio de técnicas tales como el método de la 
+\emph on
+estimación de la máxima verosimilitud
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+En inglés 
+\emph on
+likelihood
+\emph default
+.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Para introducir brevemente el método de estimación de la máxima verosimilitud,
+ abundaremos en algunos detalles del problema propuesto.
+ La tabla del cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Caso-de-los"
+
+\end_inset
+
+, caracteriza a varios grupos de estudiantes, que identificaremos con las
+ letras A, B, C, D, E, F, G, H, e I.
+ Supongamos que se sabe que un pequeño subgrupo de 15 estudiantes, entre
+ los que hay 11 que aprobaron el curso, harán una fiesta; sin embargo, no
+ se sabe de cuál de los grupos originales proviene el subgrupo.
+ El problema es entonces determinar de cuál de estos grupos hay más posibilidade
+s que provenga el subgrupo.
+ Para medir esto, se calculará un indicador, 
+\emph on
+L
+\emph default
+, al que denominaremos 
+\emph on
+verosimilitud
+\emph default
+, con los datos proporcionados de 
+\emph on
+n=
+\emph default
+15 y 
+\emph on
+k=
+\emph default
+11.
+ La fórmula, semejante a la de la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:binomiales"
+
+\end_inset
+
+, solamente que haciendo explícito que 
+\emph on
+L
+\emph default
+ está en función de
+\emph on
+ p
+\emph default
+, es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L(p)=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}(1-p)^{n-k}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En R, podemos resolver el asunto, para cada uno de los renglones de la tabla,
+ así:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<likelihood, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primeramente leemos la tabla:
+\end_layout
+
+\begin_layout Plain Layout
+
+curso <- read.csv("CursoPiloto.csv", header=T)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Veamos un fragmento de la tabla:
+\end_layout
+
+\begin_layout Plain Layout
+
+head(curso)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Creador de funciones de probabilidades binomiales, 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ sólo que ahora la función resultante tiene como 
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ argumento p
+\end_layout
+
+\begin_layout Plain Layout
+
+creaFBinom2 <- function(n,k) function(p) dbinom(k, n, p) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# En el caso que nos ocupa:
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- 15;  k <- 11
+\end_layout
+
+\begin_layout Plain Layout
+
+# ..
+ y la función de Verosimilitud L es:
+\end_layout
+
+\begin_layout Plain Layout
+
+L <- creaFBinom2(n, k)
+\end_layout
+
+\begin_layout Plain Layout
+
+# La columna tt$Proporcion puede ser tomada como la
+\end_layout
+
+\begin_layout Plain Layout
+
+# probabilidad
+\end_layout
+
+\begin_layout Plain Layout
+
+# Agreguemos a 'curso' una columna con L para cada caso:
+\end_layout
+
+\begin_layout Plain Layout
+
+curso$L <- L(curso$Proporcion)
+\end_layout
+
+\begin_layout Plain Layout
+
+curso
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Del resultado anterior, se puede ver que el grupo con el máximo valor de
+ 
+\emph on
+L
+\emph default
+ es el identificado con la letra E, para el que se encontró 
+\emph on
+L
+\emph default
+(0.6)=
+\begin_inset Flex S/R expression
+status collapsed
+
+\begin_layout Plain Layout
+
+L(0.6)
+\end_layout
+
+\end_inset
+
+, y es, por tanto, el que tiene más posibilidades de ser el origen del subgrupo
+ de la fiesta.
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora bien, consideremos el problema en el que las probabilidades, 
+\emph on
+p
+\emph default
+, no son fijas sino que dependen de 
+\emph on
+x
+\emph default
+, de acuerdo con una expresión como la mostrada en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:logistic-px"
+
+\end_inset
+
+, y considerando que los resultados de cada uno de los grupos son independientes
+ entre ellos, se puede aplicar la regla del producto de probabilidades y
+ así, el indicador de verisimilitud estaría dado por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L=\left(\!\!\begin{array}{c}
+n_{1}\\
+k_{1}
+\end{array}\!\!\right)p\left(x_{1}\right)^{k_{1}}(1-p\left(x_{1}\right))^{n_{1}-k_{1}}\times\ldots\times\left(\!\!\begin{array}{c}
+n_{m}\\
+k_{m}
+\end{array}\!\!\right)p\left(x_{m}\right)^{k_{m}}(1-p\left(x_{m}\right))^{n_{m}-k_{m}}\label{eq:verosimil-indic}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+donde,
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Formula 
+\[
+p(x_{i})=\frac{e^{\beta_{0}+\beta_{1}x_{i}}}{1+e^{\beta_{0}+\beta_{1}x_{i}}}
+\]
+
+\end_inset
+
+ para 
+\begin_inset Formula $i=1,2,\ldots,m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+No existe una forma directa de encontrar los valores de 
+\begin_inset Formula $\beta_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ que maximizan la expresión dada en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:verosimil-indic"
+
+\end_inset
+
+, de modo que se resuelve por métodos de aproximaciones sucesivas, como
+ el método de Newton-Raphson, o el método iterativo de mínimos cuadrados
+ re-ponderado.
+ Afortunadamente R, ya incorpora en la función 
+\family typewriter
+glm()
+\family default
+, un método de esos.
+ El tipo de especificación que se usa con esta función es bastante similar
+ al empleado con la función 
+\family typewriter
+lm()
+\family default
+, revisada al principio de este capítulo, con las siguientes distinciones
+ para el caso de distribución binomial, que es el que nos ocupa:
+\end_layout
+
+\begin_layout Itemize
+Se debe especificar distribución que se aplica mediante el argumento 
+\family typewriter
+family
+\family default
+ de la función: 
+\family typewriter
+family=binomial
+\family default
+.
+\end_layout
+
+\begin_layout Itemize
+En la fórmula y los datos, la variable de respuesta, para el caso de la
+ distribución binomial, se puede especificar de tres maneras:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Como un 
+\emph on
+vector
+\emph default
+.
+ En este caso, el sistema entendería que se trata de datos binarios y por
+ lo tanto el vector tendría sólo valores 0 y 1.
+\end_layout
+
+\begin_layout Enumerate
+Como una 
+\emph on
+matriz
+\emph default
+ de dos columnas.
+ En este caso, se entiende que la primera columna contiene el número de
+ éxitos para la prueba y la segunda columna, el número de fracasos.
+\end_layout
+
+\begin_layout Enumerate
+Como un 
+\emph on
+factor
+\emph default
+.
+ En este caso, el primer nivel (o categoría) del factor, se entiende como
+ fracaso (0), y todos los otros como éxito (1).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+La familia binomial, por omisión toma como función de liga la función 
+\emph on
+logit
+\emph default
+, si se quisiera especificar otra de las disponibles, por ejemplo la función
+ 
+\emph on
+probit
+\emph default
+, se haría así: 
+\family typewriter
+family=binomial(link=probit)
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Una vez establecido lo anterior, procedemos a resolver el problema en R,
+ de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<SolucionProblema, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+reprobados <- curso$Grupo-curso$Aprobados
+\end_layout
+
+\begin_layout Plain Layout
+
+aprobados <- curso$Aprobados
+\end_layout
+
+\begin_layout Plain Layout
+
+horasCurso <- curso$Horas
+\end_layout
+
+\begin_layout Plain Layout
+
+(exito <- aprobados/(aprobados+reprobados))
+\end_layout
+
+\begin_layout Plain Layout
+
+# Aquí optamos por especificar la variable de respuesta
+\end_layout
+
+\begin_layout Plain Layout
+
+# como una matriz de dos columnas:
+\end_layout
+
+\begin_layout Plain Layout
+
+formula <- cbind(aprobados,reprobados) ~ horasCurso
+\end_layout
+
+\begin_layout Plain Layout
+
+mm <- glm(formula, family=binomial)
+\end_layout
+
+\begin_layout Plain Layout
+
+summary(mm)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Hagamos una función para predecir con el modelo
+\end_layout
+
+\begin_layout Plain Layout
+
+ff <- function(x) predict(mm, newdata=data.frame(horasCurso=x), type="response")
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+# De acuerdo con el modelo, las probabilidades de éxito 
+\end_layout
+
+\begin_layout Plain Layout
+
+# para cursos de 30 y 50 horas serían:
+\end_layout
+
+\begin_layout Plain Layout
+
+ff(c(30,50))
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora procedemos a mostrar estos resultados gráficamente como sigue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GrafSolProb, eval=F, tidy=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Primeramente graficamos los datos observados
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(horasCurso, exito, pch=16, col="red") 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Ahora agreguemos la curva correspondiente al modelo:
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(ff, col="blue", add=T) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado visual del código anterior se puede ver en la Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resultados-del-problema"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resultados-del-problema"
+
+\end_inset
+
+Resultados del problema de regresión logística resuelto con la función 
+\family typewriter
+glm()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

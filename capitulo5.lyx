@@ -6236,15 +6236,23 @@ key "Venables2012"
 \end_inset
 
 ) , que, entre otras operaciones, permite ajustar un conjunto de datos a
- una función de distribución cualquiera usando el método de máxima similitud
+ una función de distribución cualquiera usando el método de máxima verosimilitud
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-El método de máxima similitud es un método que usa técnicas de optimización
+El método de máxima verosimilitud es un método que usa técnicas de optimización
  para aproximar una función dada, a un conjunto de datos.
- Los detalles de dicho método escapan los alcances del presente texto, pero
- pueden ser consultados en el libro de referencia 
+ El método se aborda brevemente, en otro contexto, en el capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ajuste-con-modelos"
+
+\end_inset
+
+ del presente libro, pero los detalles finos del mismo escapan los alcances
+ del presente texto, y pueden ser consultados en el libro de referencia
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Venables2012"
