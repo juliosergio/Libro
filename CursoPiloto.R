@@ -23,5 +23,9 @@ ffb <- creaFBinom(n, p)
 k <- 0:n # Esto es: 0,1,..,21
 barplot(ffb(k), names.arg=k, xlab="k", ylab="Pr(k)") 
 
+library(boot)
+curve(inv.logit, col="blue", ylim=c(0,1), xlim=c(-6,6), ylab="logistic(x)")
+curve(logit, col="blue", xlim=c(0,1), ylim=c(-6,6))
+
 
 
